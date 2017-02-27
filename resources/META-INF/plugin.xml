@@ -73,6 +73,9 @@
     <action id="MyPlugin.ClearAllAction" class="ClearAllAction" text="Stop visualization for all files" description="Clears out the visualization for all editors">
       <add-to-group group-id="ToolsMenu" anchor="last"/>
     </action>
+    <action id="MyPlugin.ErrorLinesShowAction" class="ErrorLinesShowAction" text="Show error lines..." description="Shows error lines for the line">
+      <add-to-group group-id="EditorPopupMenu" anchor="last"/>
+    </action>
 
 
   </actions>

@@ -87,8 +87,8 @@ public class MainHighlighter{
                      if (true) {
                      errorStripeMarkHighlighter.highlight(highlighter, attributes, color, testName);
                     }
-                    if (false){
-                        sideHighlighter.highlight(highlighter,attributes,color,2);
+                    if (true){
+                        sideHighlighter.highlight(highlighter,color);
                     }
 
                      highlights.add(highlighter);

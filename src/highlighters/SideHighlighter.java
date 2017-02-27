@@ -8,10 +8,10 @@ import com.intellij.openapi.editor.markup.TextAttributes;
 import java.awt.*;
 
 /**
- * @author Zsolt Takacs <zsolt@takacs.cc>
+ * @author Jan Cegin
  */
 public class SideHighlighter {
-    public void highlight(RangeHighlighter lineHighlighter, TextAttributes textAttributes, final Color color, int executed) {
+    public void highlight(RangeHighlighter lineHighlighter, final Color color) {
         lineHighlighter.setLineMarkerRenderer(new LineMarkerRenderer() {
             public void paint(Editor editor, Graphics graphics, Rectangle rectangle) {
                 Color origColor = graphics.getColor();

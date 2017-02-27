@@ -25,8 +25,10 @@
     ]]></description>
 
   <change-notes><![CDATA[
-      Add change notes here.<br>
-      <em>most HTML tags may be used</em>
+      V. 1.0:<br>
+      <ul>
+      <li></li>
+      </ul>
     ]]>
   </change-notes>
 
@@ -70,6 +72,9 @@
     </action>
     <action id="MyPlugin.ClearAllAction" class="ClearAllAction" text="Stop visualization for all files" description="Clears out the visualization for all editors">
       <add-to-group group-id="ToolsMenu" anchor="last"/>
+    </action>
+    <action id="MyPlugin.ErrorLinesShowAction" class="ErrorLinesShowAction" text="Show error lines..." description="Shows error lines for the line">
+      <add-to-group group-id="EditorPopupMenu" anchor="last"/>
     </action>
 
 
