@@ -2,6 +2,12 @@ import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.CommonDataKeys;
 import com.intellij.openapi.editor.Editor;
+import com.intellij.openapi.ui.MessageType;
+import com.intellij.openapi.ui.popup.Balloon;
+import com.intellij.openapi.ui.popup.JBPopupFactory;
+import com.intellij.openapi.wm.StatusBar;
+import com.intellij.openapi.wm.WindowManager;
+import com.intellij.ui.awt.RelativePoint;
 import errors.ErrorManageFileControler;
 import highlighters.HighlightingMainController;
 import pattern.PatternController;
@@ -12,6 +18,7 @@ import java.util.Hashtable;
 /**
  * Created by Cegin on 3.11.2016.
  */
+//TODO consider the refactoring of this, so the visualization is done only when wanted or triggered, not when files are loaded
 public class VisualizationAction extends AnAction {
     private ErrorManageFileControler errorManageFileControler;
     private HighlightingMainController highlightingMainController;
@@ -20,11 +27,17 @@ public class VisualizationAction extends AnAction {
     @Override
     public void actionPerformed(AnActionEvent e) {
 
-
+        Editor editor = null;
         Hashtable hashtable = null;
 
         PatternController patternController = new PatternController();
-        Editor editor = e.getRequiredData(CommonDataKeys.EDITOR);
+        try {
+             editor = e.getRequiredData(CommonDataKeys.EDITOR);
+        }
+        catch(AssertionError assertionError){
+            createWarningHover(e, "You need to have an editor open for this action to take place.");
+            return;
+        }
         try {
            hashtable = patternController.patternDecode(e);
         } catch (IOException e1) {
@@ -35,6 +48,20 @@ public class VisualizationAction extends AnAction {
 
     }
 
+    private void createWarningHover(AnActionEvent anActionEvent, String message){
+
+        StatusBar statusBar = WindowManager.getInstance()
+                .getStatusBar(CommonDataKeys.PROJECT.getData(anActionEvent.getDataContext()));
+
+        JBPopupFactory.getInstance()
+                .createHtmlTextBalloonBuilder(message, MessageType.WARNING, null)
+                .setFadeoutTime(30000)
+                .createBalloon()
+                .show(RelativePoint.getCenterOf(statusBar.getComponent()),
+                        Balloon.Position.atRight);
+
     }
+
+}
 
 

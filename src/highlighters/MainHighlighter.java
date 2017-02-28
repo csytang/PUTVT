@@ -18,16 +18,14 @@ import java.util.List;
  * Created by Cegin on 30.12.2016.
  */
 public class MainHighlighter{
-                private Editor editor;
                 private ArrayList<RangeHighlighter> highlights;
 
 
-                public MainHighlighter(Editor editor) {
-                    this.editor = editor;
+                public MainHighlighter() {
                     highlights = new ArrayList<RangeHighlighter>();
                 }
 
-                public void doHighlight(StringPytestUtil stringPytestUtil){
+                public void doHighlight(StringPytestUtil stringPytestUtil,Editor editor){
                     List<Integer> allLines = new ArrayList<>();
                     allLines = stringPytestUtil.getLineNumber();
                     Hashtable colors = new Hashtable();
@@ -65,12 +63,12 @@ public class MainHighlighter{
                     for (Integer line : allLines){
                         Color color = (Color) colors.get(line);
                         List<String> errorTypes = (List<String>) typesOferrors.get(line);
-                        highlightLines(color, line, line, listToString(errorTypes));
+                        highlightLines(color, line, line, listToString(errorTypes), editor);
                     }
                 }
 
-                public void highlightLines(final Color color, int fromLine, int toLine, String testName) {
-                    Document document = this.editor.getDocument();
+                public void highlightLines(final Color color, int fromLine, int toLine, String testName, Editor editor) {
+                    Document document = editor.getDocument();
                     SideHighlighter sideHighlighter = new SideHighlighter();
 
                     LineHighlighter lineHighlighter = new LineHighlighter();
@@ -78,36 +76,31 @@ public class MainHighlighter{
                     if (toLine <= document.getLineCount()) {
                         TextAttributes attributes = new TextAttributes();
 
-                    RangeHighlighter highlighter = createRangeHighlighter(fromLine, toLine, attributes);
+                    RangeHighlighter highlighter = createRangeHighlighter(fromLine, toLine, attributes, editor);
 
-                     if (true) {
-                         lineHighlighter.highlight(highlighter, attributes, color);
-                     }
+                        lineHighlighter.highlight(highlighter, attributes, color);
 
-                     if (true) {
-                     errorStripeMarkHighlighter.highlight(highlighter, attributes, color, testName);
-                    }
-                    if (true){
+                        errorStripeMarkHighlighter.highlight(highlighter, attributes, color, testName);
+
                         sideHighlighter.highlight(highlighter,color);
-                    }
 
                      highlights.add(highlighter);
                     }
     }
 
-    private RangeHighlighter createRangeHighlighter(int fromLine, int toLine, TextAttributes attributes) {
-        Document document = this.editor.getDocument();
+    private RangeHighlighter createRangeHighlighter(int fromLine, int toLine, TextAttributes attributes, Editor editor) {
+        Document document = editor.getDocument();
 
         int lineStartOffset = document.getLineStartOffset(Math.max(0, fromLine - 1));
         int lineEndOffset = document.getLineEndOffset(Math.max(0, toLine - 1));
 
-        return this.editor.getMarkupModel().addRangeHighlighter(
+        return editor.getMarkupModel().addRangeHighlighter(
                 lineStartOffset, lineEndOffset, 3333, attributes, HighlighterTargetArea.EXACT_RANGE
         );
     }
 
-    public void clear() {
-        MarkupModel model = this.editor.getMarkupModel();
+    public void clear(Editor editor) {
+        MarkupModel model = editor.getMarkupModel();
 
         /*for (RangeHighlighter rangeHighlighter : highlights) {
             model.removeHighlighter(rangeHighlighter);

@@ -35,7 +35,7 @@ public class ErrorManageFileControler {
 
     public void decodeDTO(Hashtable hashtable, Editor editor){
 
-        this.mainHighlighter = new MainHighlighter(editor);
+        this.mainHighlighter = new MainHighlighter();
 
        String editorFileName = getEditorOpenedFileName(editor);
 
@@ -49,7 +49,7 @@ public class ErrorManageFileControler {
        }
 
         StringPytestUtil str = (StringPytestUtil) errorManageFileTable.get(editorFileName);
-        mainHighlighter.doHighlight(str);
+        mainHighlighter.doHighlight(str,editor);
 
     }
 

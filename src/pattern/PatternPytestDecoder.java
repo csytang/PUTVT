@@ -17,6 +17,7 @@ import java.util.regex.Pattern;
  * Created by Cegin on 18.2.2017.
  */
 public class PatternPytestDecoder implements PatternDecoder{
+    private List<String> fileNames = new ArrayList<>();
     private Hashtable strings =  new Hashtable();
 
     public PatternPytestDecoder(){
@@ -46,10 +47,9 @@ public class PatternPytestDecoder implements PatternDecoder{
         return strings;
     }
 
-    //TODO FIND A USAGE OR REFACTOR
     @Override
     public List<String> getFileNames() {
-        return null;
+        return fileNames;
     }
 
     private Boolean doTheDecoding(String all){
@@ -114,6 +114,7 @@ public class PatternPytestDecoder implements PatternDecoder{
                 stringPytestUtil.setTypeOfError(typeOfErrors);
                 stringPytestUtil.setTestNames(nameOfTests);
                 strings.put(fileName, stringPytestUtil);
+                fileNames.add(fileName);
             }
         }
     }

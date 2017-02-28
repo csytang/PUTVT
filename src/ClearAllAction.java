@@ -20,11 +20,8 @@ public class ClearAllAction extends AnAction {
     @Override
     public void actionPerformed(AnActionEvent e) {
         Hashtable hashtable = new Hashtable();
-        hashtable.put(0,0);
+        hashtable.put(0, 0);
         ErrorManageFileControler.getInstance(hashtable);
-        final Editor editor = e.getRequiredData(CommonDataKeys.EDITOR);
-        MainHighlighter mainHighlighter = new MainHighlighter(editor);
-        mainHighlighter.clear();
     }
 
 }

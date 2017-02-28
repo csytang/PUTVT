@@ -86,6 +86,19 @@ public class PatternController {
 
     }
 
+    //Should be strictly used only with console logs
+    public List<String> getFileNamesForConsoleLog(){
+       return  combineLists(patternPytestDecoder.getFileNames(), patternPythonDecoder.getFileNames());
+    }
+
+    public List<String> combineLists(List<String> one, List<String> two){
+        for (String str : one){
+            if (!two.contains(str)){
+                two.add(str);
+            }
+        }
+        return two;
+    }
 
     private void createErrorHover(AnActionEvent anActionEvent, String message){
 
