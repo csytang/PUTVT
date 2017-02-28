@@ -45,14 +45,15 @@ public class HighlightingMainController {
     public void finishVisualization(Hashtable hashtable, Editor editor){
         PatternController patternController = new PatternController();
 
-        if (false) {
+        if (true) {
             Hashtable decodedLogs = null;
             if (consolesReadings.size() != 0 && consolesReadings.get(consolesReadings.size() - 1) != null) {
                 decodedLogs = patternController.patternDecode(consolesReadings.get(consolesReadings.size() - 1));
             }
-
-            HashtableCombineUtil hashtableCombineUtil = new HashtableCombineUtil();
-            hashtable = hashtableCombineUtil.combineHashTables(hashtable, decodedLogs, patternController.getFileNamesForConsoleLog());
+            if (decodedLogs != null) {
+                HashtableCombineUtil hashtableCombineUtil = new HashtableCombineUtil();
+                hashtable = hashtableCombineUtil.combineHashTables(hashtable, decodedLogs, patternController.getFileNamesForConsoleLog());
+            }
         }
 
 

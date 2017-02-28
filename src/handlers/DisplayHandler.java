@@ -5,14 +5,9 @@ import com.intellij.openapi.fileEditor.FileEditor;
 import com.intellij.openapi.fileEditor.FileEditorManager;
 import com.intellij.openapi.fileEditor.TextEditor;
 import com.intellij.openapi.project.Project;
-import com.intellij.openapi.ui.MessageType;
-import com.intellij.openapi.ui.popup.Balloon;
-import com.intellij.openapi.ui.popup.JBPopupFactory;
 import com.intellij.openapi.vfs.VirtualFile;
-import com.intellij.openapi.wm.StatusBar;
-import com.intellij.openapi.wm.WindowManager;
-import com.intellij.ui.awt.RelativePoint;
 import errors.ErrorManageFileControler;
+import highlighters.HighlightingMainController;
 
 /**
  * Created by Cegin on 20.2.2017.
@@ -53,25 +48,13 @@ public class DisplayHandler {
         CoverageDisplay display = new CoverageDisplay();
 
         editor.getDocument().addDocumentListener(display);
-        //createErrorHover(editor,"msg");
 
         //update the display each time a file is opened
+        HighlightingMainController highlightingMainController = HighlightingMainController.getInstance(null);
         ErrorManageFileControler errorManageFileControler = ErrorManageFileControler.getInstance(null);
-        errorManageFileControler.decodeDTO(errorManageFileControler.getErrorManageFileTable(),editor);
+
+        highlightingMainController.finishVisualization(errorManageFileControler.getErrorManageFileTable(),editor);
     }
 
-    /*private void createErrorHover(Editor e, String message){
-
-        StatusBar statusBar = WindowManager.getInstance()
-                .getIdeFrame(e.getProject()).getStatusBar();
-
-        JBPopupFactory.getInstance()
-                .createHtmlTextBalloonBuilder(message, MessageType.ERROR, null)
-                .setFadeoutTime(30000)
-                .createBalloon()
-                .show(RelativePoint.getCenterOf(statusBar.getComponent()),
-                        Balloon.Position.atRight);
-
-    }*/
 
 }

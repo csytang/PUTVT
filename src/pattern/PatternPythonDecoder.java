@@ -70,16 +70,29 @@ public class PatternPythonDecoder implements PatternDecoder{
 
         for (String traceback : pythonTraceBacks) {
             Pattern p = Pattern.compile("File ");
+            String reason="";
             lines = p.split(traceback);
 
-            String[] help = lines[2].split("\n");
-            String reason = help[help.length - 1];
-
+            if (!lines[lines.length-1].endsWith("\n")) {
+                String[] help = lines[lines.length-1].split("\n");
+                reason = help[help.length - 1];
+            }
+            else{
+                String[] help = lines[lines.length-1].split("\n");
+                reason = help[help.length - 2];
+            }
             for (int i = 1; i < lines.length; i++) {
                 String[] tmp = lines[i].split(",");
                 int lineNumber = Integer.parseInt(tmp[1].replace("line", "").replace(" ", ""));
 
                 String fileName = tmp[0].replace("\"", "");
+
+                p2 = Pattern.compile("/(.*).py");
+                m2 = p2.matcher(fileName);
+                if (m2.find()){
+                    String arr[] = fileName.split("/");
+                    fileName = arr[arr.length-1];
+                }
                 if (strings.get(fileName) != null) {
                     StringPytestUtil pytestUtil = (StringPytestUtil) strings.get(fileName);
 
