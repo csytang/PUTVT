@@ -15,4 +15,5 @@ public interface PatternDecoder {
     public Boolean patternDecode(VirtualFile virtualFile) throws FileNotFoundException;
     public Hashtable getFileKeyDTOObject();
     public List<String> getFileNames();
+    public Boolean patternDecode(String consoleLogs);
 }

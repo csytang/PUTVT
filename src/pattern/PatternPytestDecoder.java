@@ -19,13 +19,12 @@ import java.util.regex.Pattern;
 public class PatternPytestDecoder implements PatternDecoder{
     private Hashtable strings =  new Hashtable();
 
-    public PatternPytestDecoder(AnActionEvent anActionEvent){
+    public PatternPytestDecoder(){
 
     }
     
     @Override
     public Boolean patternDecode(VirtualFile virtualFile) throws FileNotFoundException {
-        List<String> testLines = new ArrayList<>();
         Scanner in = new Scanner(new FileReader(virtualFile.getPath()));
         String all = "", line;
         while (in.hasNextLine()) {
@@ -34,6 +33,27 @@ public class PatternPytestDecoder implements PatternDecoder{
             all += '\n';
         }
         in.close();
+       return doTheDecoding(all);
+    }
+
+    @Override
+    public Boolean patternDecode(String consoleLogs) {
+        return doTheDecoding(consoleLogs);
+    }
+
+    @Override
+    public Hashtable getFileKeyDTOObject(){
+        return strings;
+    }
+
+    //TODO FIND A USAGE OR REFACTOR
+    @Override
+    public List<String> getFileNames() {
+        return null;
+    }
+
+    private Boolean doTheDecoding(String all){
+        List<String> testLines = new ArrayList<>();
         all = all.trim();
         all = all.replaceAll("(?m)^[ \t]*\r?\n", "");
         System.out.print(all);
@@ -54,23 +74,8 @@ public class PatternPytestDecoder implements PatternDecoder{
         }
 
         createHashtable(testLines);
-
         return true;
-
     }
-
-
-    @Override
-    public Hashtable getFileKeyDTOObject(){
-        return strings;
-    }
-
-    //TODO FIND A USAGE OR REFACTOR
-    @Override
-    public List<String> getFileNames() {
-        return null;
-    }
-
 
     private void createHashtable(List<String> testLines) {
         int count = 0;

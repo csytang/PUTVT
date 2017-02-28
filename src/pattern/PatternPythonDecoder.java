@@ -22,7 +22,7 @@ public class PatternPythonDecoder implements PatternDecoder{
     Hashtable strings =  new Hashtable();
     private List<String> fileNames = new ArrayList<>();
 
-    public PatternPythonDecoder(AnActionEvent anActionEvent){
+    public PatternPythonDecoder(){
 
     }
 
@@ -39,6 +39,18 @@ public class PatternPythonDecoder implements PatternDecoder{
         }
         in.close();
 
+        return doTheDecoding(all);
+    }
+
+    @Override
+    public Boolean patternDecode(String consoleLogs) {
+        return doTheDecoding(consoleLogs);
+    }
+
+
+    //TODO REFACTOR
+    private Boolean doTheDecoding(String all){
+        List<String> pythonTraceBacks = new ArrayList<>();
         if (!all.contains("Traceback")) {
             return false;
         }
@@ -112,13 +124,13 @@ public class PatternPythonDecoder implements PatternDecoder{
         return true;
     }
 
-
-
     @Override
     public Hashtable getFileKeyDTOObject() {
         return strings;
     }
 
     public List<String> getFileNames(){return fileNames;}
+
+
 
 }

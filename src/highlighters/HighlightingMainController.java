@@ -2,6 +2,7 @@ package highlighters;
 
 import com.intellij.openapi.editor.Editor;
 import errors.ErrorManageFileControler;
+import pattern.PatternController;
 
 import java.util.ArrayList;
 import java.util.Hashtable;
@@ -41,8 +42,15 @@ public class HighlightingMainController {
     }
 
     public void finishVisualization(Hashtable hashtable, Editor editor){
+        PatternController patternController = new PatternController();
+
         errorManageFileControler = ErrorManageFileControler.getInstance(hashtable);
         errorManageFileControler.decodeDTO(hashtable,editor);
 
+        Hashtable decodedLogs = null;
+        decodedLogs = patternController.patternDecode(consolesReadings.get(0));
+
     }
+
+
 }

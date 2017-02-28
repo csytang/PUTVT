@@ -12,6 +12,7 @@ import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.openapi.wm.StatusBar;
 import com.intellij.openapi.wm.WindowManager;
 import com.intellij.ui.awt.RelativePoint;
+import util.HashtableCombineUtil;
 import util.StringPytestUtil;
 
 import java.io.FileNotFoundException;
@@ -32,8 +33,8 @@ public class PatternController {
     }
 
     public Hashtable patternDecode(AnActionEvent anActionEvent) throws IOException {
-        this.patternPythonDecoder = new PatternPythonDecoder(anActionEvent);
-        this.patternPytestDecoder = new PatternPytestDecoder(anActionEvent);
+        this.patternPythonDecoder = new PatternPythonDecoder();
+        this.patternPytestDecoder = new PatternPytestDecoder();
 
         FileChooserDescriptor fileChooserDescriptor = FileChooserDescriptorFactory.createSingleFileDescriptor();
         VirtualFile virtualFile = FileChooser.chooseFile(fileChooserDescriptor, anActionEvent.getProject(), anActionEvent.getProject().getBaseDir());
@@ -47,7 +48,8 @@ public class PatternController {
                     hashTable = patternPythonDecoder.getFileKeyDTOObject();
                 }
                 else{
-                    combineHashTables(hashTable, patternPythonDecoder.getFileKeyDTOObject(), patternPythonDecoder.getFileNames());
+                    HashtableCombineUtil hashtableCombineUtil = new HashtableCombineUtil();
+                    hashTable=hashtableCombineUtil.combineHashTables(hashTable, patternPythonDecoder.getFileKeyDTOObject(), patternPythonDecoder.getFileNames());
                 }
             }
             else{
@@ -60,39 +62,30 @@ public class PatternController {
             e.printStackTrace();
             createErrorHover(anActionEvent, e.getMessage());
         }
-
-       
         return hashTable;
     }
 
-    private Hashtable combineHashTables(Hashtable pytestTable,Hashtable pythonTable, List<String> fileNames) {
-        for (String fileName : fileNames){
-            if (pytestTable.get(fileName) != null) {
-                StringPytestUtil stringPytestUtil = (StringPytestUtil) pytestTable.get(fileName);
-                StringPytestUtil stringUtilpythonTable = (StringPytestUtil) pythonTable.get(fileName);
+    public Hashtable patternDecode(String consoleLogs){
+        this.patternPythonDecoder = new PatternPythonDecoder();
+        this.patternPytestDecoder = new PatternPytestDecoder();
+        Hashtable hashTable = null;
 
-                List<Integer>lineNumbers = stringPytestUtil.getLineNumber();
-                lineNumbers.addAll(stringUtilpythonTable.getLineNumber());
-                stringPytestUtil.setLineNumber(lineNumbers);
-
-                List<String[]> linesDuringRuntime = stringPytestUtil.getLinesDuringRuntime();
-                linesDuringRuntime.addAll(stringUtilpythonTable.getLinesDuringRuntime());
-                stringPytestUtil.setLinesDuringRuntime(linesDuringRuntime);
-
-                List<String> typeOfErrors =  stringPytestUtil.getTypeOfError();
-                typeOfErrors.addAll(stringUtilpythonTable.getTypeOfError());
-                stringPytestUtil.setTypeOfError(typeOfErrors);
-
-                pytestTable.remove(fileName);
-                pytestTable.put(fileName,stringPytestUtil);
+            if (patternPytestDecoder.patternDecode(consoleLogs)){
+                hashTable = patternPytestDecoder.getFileKeyDTOObject();
             }
-            else{
-                StringPytestUtil stringUtilpythonTable = (StringPytestUtil) pythonTable.get(fileName);
-                pytestTable.put(stringUtilpythonTable.getFileName(), stringUtilpythonTable);
+            if (patternPythonDecoder.patternDecode(consoleLogs)){
+                if (hashTable==null){
+                    hashTable = patternPythonDecoder.getFileKeyDTOObject();
+                }
+                else{
+                    HashtableCombineUtil hashtableCombineUtil = new HashtableCombineUtil();
+                    hashTable=hashtableCombineUtil.combineHashTables(hashTable, patternPythonDecoder.getFileKeyDTOObject(), patternPythonDecoder.getFileNames());
+                }
             }
-        }
-        return pytestTable;
+        return hashTable;
+
     }
+
 
     private void createErrorHover(AnActionEvent anActionEvent, String message){
 
