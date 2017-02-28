@@ -17,7 +17,7 @@ import java.util.regex.Pattern;
  * Created by Cegin on 18.2.2017.
  */
 public class PatternPytestDecoder implements PatternDecoder{
-    Hashtable strings =  new Hashtable();
+    private Hashtable strings =  new Hashtable();
 
     public PatternPytestDecoder(AnActionEvent anActionEvent){
 
@@ -38,7 +38,7 @@ public class PatternPytestDecoder implements PatternDecoder{
         all = all.replaceAll("(?m)^[ \t]*\r?\n", "");
         System.out.print(all);
 
-        Pattern p1 = Pattern.compile("_______.*_______");
+        Pattern p1 = Pattern.compile("_______(.*)_______");
         Matcher m1 = p1.matcher(all);
         int count = 0;
 

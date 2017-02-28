@@ -1,6 +1,7 @@
-package handlers;
+package listeners;
 
 import com.intellij.openapi.vfs.*;
+import handlers.DisplayHandler;
 
 import java.io.File;
 

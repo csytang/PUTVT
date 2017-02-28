@@ -1,8 +1,9 @@
-package handlers;
+package listeners;
 
 import com.intellij.openapi.editor.Editor;
 import com.intellij.openapi.fileEditor.*;
 import com.intellij.openapi.vfs.VirtualFile;
+import handlers.DisplayHandler;
 
 /**
  * Created by Cegin on 20.2.2017.

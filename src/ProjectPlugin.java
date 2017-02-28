@@ -1,9 +1,11 @@
+import com.intellij.execution.ExecutionManager;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.vfs.VirtualFileManager;
 import com.intellij.util.messages.MessageBusConnection;
 import handlers.DisplayHandler;
-import handlers.EditorManagerListener;
-import handlers.FileOperationListener;
+import listeners.ConsoleRunListener;
+import listeners.EditorManagerListener;
+import listeners.FileOperationListener;
 
 /**
  * Created by Cegin on 20.2.2017.
@@ -23,8 +25,10 @@ public class ProjectPlugin {
     private void registerListeners(DisplayHandler displayHandler) {
         final MessageBusConnection connect = this.project.getMessageBus().connect(this.project);
 
+        connect.subscribe(ExecutionManager.EXECUTION_TOPIC, new ConsoleRunListener(project));
         connect.subscribe(EditorManagerListener.FILE_EDITOR_MANAGER, new EditorManagerListener(displayHandler));
         VirtualFileManager.getInstance().addVirtualFileListener(new FileOperationListener(displayHandler));
+
     }
 
 }

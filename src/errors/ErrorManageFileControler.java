@@ -1,22 +1,11 @@
 package errors;
 
 
-import com.intellij.codeInspection.InspectionManager;
-import com.intellij.codeInspection.ProblemHighlightType;
-import com.intellij.openapi.actionSystem.AnActionEvent;
-import com.intellij.openapi.actionSystem.CommonDataKeys;
 import com.intellij.openapi.editor.Editor;
-import com.intellij.openapi.project.Project;
-import com.intellij.openapi.util.TextRange;
-import com.intellij.psi.PsiDocumentManager;
-import com.intellij.psi.PsiElement;
-import com.intellij.psi.PsiFile;
 import highlighters.MainHighlighter;
 import util.StringPytestUtil;
 
-import java.util.ArrayList;
 import java.util.Hashtable;
-import java.util.List;
 
 /**
  * Created by Cegin on 18.2.2017.
