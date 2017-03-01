@@ -19,6 +19,8 @@ public class HighlightingMainController {
 
     private static List<String> consolesReadings;
 
+    private Boolean useConsoleLogs = false;
+
 
     protected HighlightingMainController(String consolesReading) {
         this.consolesReadings = new ArrayList<>();
@@ -45,7 +47,7 @@ public class HighlightingMainController {
     public void finishVisualization(Hashtable hashtable, Editor editor){
         PatternController patternController = new PatternController();
 
-        if (true) {
+        if (useConsoleLogs) {
             Hashtable decodedLogs = null;
             if (consolesReadings.size() != 0 && consolesReadings.get(consolesReadings.size() - 1) != null) {
                 decodedLogs = patternController.patternDecode(consolesReadings.get(consolesReadings.size() - 1));
@@ -62,4 +64,11 @@ public class HighlightingMainController {
         errorManageFileControler.decodeDTO(hashtable,editor);
     }
 
+    public Boolean getUseConsoleLogs() {
+        return useConsoleLogs;
+    }
+
+    public void setUseConsoleLogs(Boolean useConsoleLogs) {
+        this.useConsoleLogs = useConsoleLogs;
+    }
 }

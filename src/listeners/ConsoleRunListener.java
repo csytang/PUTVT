@@ -99,7 +99,10 @@ public class ConsoleRunListener implements ExecutionListener{
     @Override
     public void processTerminated(@NotNull RunProfile runProfile, @NotNull ProcessHandler processHandler) {
 
-        HighlightingMainController highlightingMainController = HighlightingMainController.getInstance(executedLines);
+        HighlightingMainController highlightingMainController = HighlightingMainController.getInstance(null);
+        if (highlightingMainController.getUseConsoleLogs()){
+                HighlightingMainController.getInstance(executedLines);
+        }
         executedLines="";
     }
 }

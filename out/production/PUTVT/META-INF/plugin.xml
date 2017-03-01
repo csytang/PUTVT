@@ -64,16 +64,21 @@
 
   <actions>
     <!-- Add your actions here -->
-    <action id="MyPlugin.VisualizationAction" class="VisualizationAction" text="Load and Visualize log .txt..." description="Loads a .txt file and visualizes lines of code">
-      <add-to-group group-id="ToolsMenu" anchor="last"/>
+    <group id="PUTVT" text="Python Visualization Tool..." popup="true">
+    <add-to-group group-id="ToolsMenu" anchor="first"/>
+    <action id="PUTVT.VisualizationAction" class="VisualizationAction" text="Load and Visualize log .txt..." description="Loads a .txt file and visualizes lines of code">
     </action>
-    <action id="MyPlugin.ClearVisualAction" class="ClearVisualAction" text="Clear current View visualization" description="Clears out the visualization for the current editor">
-      <add-to-group group-id="ToolsMenu" anchor="last"/>
+    <action id="PUTVT.ClearVisualAction" class="ClearVisualAction" text="Clear current View visualization" description="Clears out the visualization for the current editor">
     </action>
-    <action id="MyPlugin.ClearAllAction" class="ClearAllAction" text="Stop visualization for all files" description="Clears out the visualization for all editors">
-      <add-to-group group-id="ToolsMenu" anchor="last"/>
+    <action id="PUTVT.ClearAllAction" class="ClearAllAction" text="Stop visualization for loaded files" description="Clears out the visualization for all editors">
     </action>
-    <action id="MyPlugin.ErrorLinesShowAction" class="ErrorLinesShowAction" text="Show error lines..." description="Shows error lines for the line">
+      <action id="PUTVT.ConsoleNotUsed" class="ConsoleUnSetVisualizationAction" text="Stop visualizing console logs" description="Stops visualizing console logs">
+      </action>
+      <action id="PUTVT.ConsoleUsed" class="ConsoleSetVisualizationAction" text="Visualize console logs" description="Visualizes console logs">
+      </action>
+    </group>
+
+    <action id="PUTVT.ErrorLinesShowAction" class="ErrorLinesShowAction" text="Show error lines..." description="Shows error lines for the line">
       <add-to-group group-id="EditorPopupMenu" anchor="last"/>
     </action>
 
