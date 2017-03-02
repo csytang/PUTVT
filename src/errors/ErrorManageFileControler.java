@@ -14,7 +14,7 @@ public class ErrorManageFileControler {
     //SINGLETON
     private static ErrorManageFileControler instance = null;
 
-    private Hashtable errorManageFileTable;
+    private Hashtable errorManageFileTable = new Hashtable();
     private MainHighlighter mainHighlighter;
 
 
@@ -43,10 +43,10 @@ public class ErrorManageFileControler {
             return;
         }
 
-       if (errorManageFileTable.get(editorFileName) == null){
+      /* if (errorManageFileTable.get(editorFileName) == null){
            StringPytestUtil str = (StringPytestUtil) hashtable.get(editorFileName);
            errorManageFileTable.put(str.getFileName(), str);
-       }
+       }*/
 
         StringPytestUtil str = (StringPytestUtil) hashtable.get(editorFileName);
         mainHighlighter.doHighlight(str,editor);
@@ -57,8 +57,15 @@ public class ErrorManageFileControler {
         return errorManageFileTable;
     }
 
+    public void setErrorManageFileTable(Hashtable errorManageFileTable){
+        this.errorManageFileTable=errorManageFileTable;
+    }
+
     public StringPytestUtil getStringPytestUtilForFileName(Editor editor){
         String editorFileName = getEditorOpenedFileName(editor);
+        if (errorManageFileTable == null){
+            return null;
+        }
         return (StringPytestUtil) errorManageFileTable.get(editorFileName);
     }
 
@@ -68,5 +75,7 @@ public class ErrorManageFileControler {
         String arr[] = tmp.split(" ");
         return arr[arr.length - 1];
     }
+
+
 
 }

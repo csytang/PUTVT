@@ -44,6 +44,7 @@ public class VisualizationAction extends AnAction {
         } catch (IOException e1) {
             e1.printStackTrace();
         }
+        ErrorManageFileControler.getInstance(hashtable);
         highlightingMainController = HighlightingMainController.getInstance(null);
         highlightingMainController.finishVisualization(hashtable,editor);
 

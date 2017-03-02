@@ -4,6 +4,7 @@ import com.intellij.openapi.editor.Editor;
 import errors.ErrorManageFileControler;
 import pattern.PatternController;
 import util.HashtableCombineUtil;
+import util.StringPytestUtil;
 
 import java.util.ArrayList;
 import java.util.Hashtable;
@@ -20,6 +21,8 @@ public class HighlightingMainController {
     private static List<String> consolesReadings;
 
     private Boolean useConsoleLogs = false;
+
+    private Hashtable decodedLogs = new Hashtable();
 
 
     protected HighlightingMainController(String consolesReading) {
@@ -54,14 +57,25 @@ public class HighlightingMainController {
                 decodedLogs = patternController.patternDecode(consolesReadings.get(consolesReadings.size() - 1));
             }
             if (decodedLogs != null) {
+                this.decodedLogs=decodedLogs;
                 HashtableCombineUtil hashtableCombineUtil = new HashtableCombineUtil();
-                newHashtable = hashtableCombineUtil.combineHashTablesForConsoleAndFile(hashtable, decodedLogs, getEditorOpenedFileName(editor));
+                if (hashtable != null) {
+                    newHashtable = hashtableCombineUtil.combineHashTablesForConsoleAndFile(hashtable, decodedLogs, getEditorOpenedFileName(editor));
+                }
+                else{
+                    newHashtable=decodedLogs;
+                }
             }
+            else{
+                newHashtable=hashtable;
+            }
+        }
+        else{
+            newHashtable=hashtable;
         }
 
 
         //TODO Check for file load
-
         errorManageFileControler.decodeDTO(newHashtable,editor);
     }
 
@@ -73,10 +87,19 @@ public class HighlightingMainController {
         this.useConsoleLogs = useConsoleLogs;
     }
 
+    public StringPytestUtil getStringPytestUtilForFileName(Editor editor){
+        String editorFileName = getEditorOpenedFileName(editor);
+        return (StringPytestUtil) decodedLogs.get(editorFileName);
+    }
+
     private String getEditorOpenedFileName(Editor editor){
         String tmp = editor.getDocument().toString();
         tmp = tmp.replace("]", "").replace('/', ' ');
         String arr[] = tmp.split(" ");
         return arr[arr.length - 1];
+    }
+
+    private Hashtable getDecodedLogs(){
+        return this.decodedLogs;
     }
 }
