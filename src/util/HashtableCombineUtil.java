@@ -1,6 +1,9 @@
 package util;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Enumeration;
+import java.util.Hashtable;
+import java.util.List;
 
 /**
  * Created by Cegin on 28.2.2017.
@@ -44,7 +47,6 @@ public class HashtableCombineUtil {
     public Hashtable combineHashTablesForConsoleAndFile(Hashtable file, Hashtable console, String fileName){
         Hashtable newHashtable = new Hashtable();
         Enumeration e = file.keys();
-        //TODO keep file entries for other files
             if (file.get(fileName) != null) {
                 StringPytestUtil newStringPytestUtil = new StringPytestUtil();
                 StringPytestUtil stringPytestUtil = (StringPytestUtil) file.get(fileName);
@@ -81,7 +83,6 @@ public class HashtableCombineUtil {
                 newHashtable.remove(fileName);
                 newHashtable.put(fileName, newStringPytestUtil);
             } else {
-                //TODO FIX? DELETE? WILL BE USED WHEN CONSOLE ONLY
                 StringPytestUtil stringUtilpythonTable = (StringPytestUtil) console.get(fileName);
                 newHashtable.put(stringUtilpythonTable.getFileName(), stringUtilpythonTable);
             }

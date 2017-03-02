@@ -8,7 +8,6 @@ import com.intellij.execution.process.ProcessHandler;
 import com.intellij.execution.runners.ExecutionEnvironment;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.util.Key;
-import errors.ErrorManageFileControler;
 import highlighters.HighlightingMainController;
 import org.jetbrains.annotations.NotNull;
 
@@ -26,30 +25,35 @@ public class ConsoleRunListener implements ExecutionListener{
 
     private Project project;
 
+    private ExecutionEnvironment executionEnvironment;
     public ConsoleRunListener(Project project) {
         this.project = project;
     }
 
     @Override
     public void processStartScheduled(String s, ExecutionEnvironment executionEnvironment) {
-
+        System.out.println(s);
     }
 
     @Override
     public void processStarting(String s, @NotNull ExecutionEnvironment executionEnvironment) {
-
     }
 
     @Override
     public void processNotStarted(String s, @NotNull ExecutionEnvironment executionEnvironment) {
-
     }
 
     @Override
     public void processStarted(String s, @NotNull ExecutionEnvironment executionEnvironment, @NotNull ProcessHandler processHandler) {
+        /*if (!processHandler.isStartNotified())
+            processHandler.startNotify();*/
+       // processHandler.notifyTextAvailable("hey", new Key("Jude"))
         processHandler.addProcessListener(new ProcessAdapter() {
                 @Override
                 public void onTextAvailable(ProcessEvent event, Key outputType) {
+                    if (outputType.toString().equals("Test"))
+                        return;
+                 //   processHandler.notifyTextAvailable("Execute", new Key("Test"
                     String line = event.getText();
 
                     Pattern p = Pattern.compile("___________ (.*) ___________");
@@ -87,18 +91,28 @@ public class ConsoleRunListener implements ExecutionListener{
 
                 }
             });
-
+        this.executionEnvironment=executionEnvironment;
     }
 
     @Override
     public void processTerminating(@NotNull RunProfile runProfile, @NotNull ProcessHandler processHandler) {
-
+       /* PythonProcessHandler processHandler1 = (PythonProcessHandler) processHandler;
+        try {
+            runProfile.getState(executionEnvironment.getExecutor(),executionEnvironment);
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }*/
 
     }
 
     @Override
     public void processTerminated(@NotNull RunProfile runProfile, @NotNull ProcessHandler processHandler) {
-
+        /*PythonProcessHandler processHandler1 = (PythonProcessHandler) processHandler;
+        try {
+            runProfile.getState(executionEnvironment.getExecutor(),executionEnvironment);
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }*/
         HighlightingMainController highlightingMainController = HighlightingMainController.getInstance(null);
         if (highlightingMainController.getUseConsoleLogs()){
                 HighlightingMainController.getInstance(executedLines);

@@ -3,7 +3,6 @@ package pattern;
 import com.intellij.openapi.vfs.VirtualFile;
 
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.Hashtable;
 import java.util.List;
 

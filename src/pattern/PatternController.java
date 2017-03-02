@@ -13,7 +13,6 @@ import com.intellij.openapi.wm.StatusBar;
 import com.intellij.openapi.wm.WindowManager;
 import com.intellij.ui.awt.RelativePoint;
 import util.HashtableCombineUtil;
-import util.StringPytestUtil;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;

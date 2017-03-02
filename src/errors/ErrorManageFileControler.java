@@ -43,11 +43,6 @@ public class ErrorManageFileControler {
             return;
         }
 
-      /* if (errorManageFileTable.get(editorFileName) == null){
-           StringPytestUtil str = (StringPytestUtil) hashtable.get(editorFileName);
-           errorManageFileTable.put(str.getFileName(), str);
-       }*/
-
         StringPytestUtil str = (StringPytestUtil) hashtable.get(editorFileName);
         mainHighlighter.doHighlight(str,editor);
 

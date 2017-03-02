@@ -1,18 +1,16 @@
 package pattern;
 
-import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.vfs.VirtualFile;
-import org.apache.batik.dom.util.HashTable;
 import util.StringPytestUtil;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Hashtable;
+import java.util.List;
+import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import static com.intellij.dvcs.push.VcsPushReferenceStrategy.all;
 
 /**
  * Created by Cegin on 30.1.2017.

@@ -3,7 +3,6 @@ package highlighters;
 import com.intellij.openapi.editor.Editor;
 import com.intellij.openapi.editor.markup.LineMarkerRenderer;
 import com.intellij.openapi.editor.markup.RangeHighlighter;
-import com.intellij.openapi.editor.markup.TextAttributes;
 
 import java.awt.*;
 

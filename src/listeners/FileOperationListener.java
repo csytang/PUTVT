@@ -3,8 +3,6 @@ package listeners;
 import com.intellij.openapi.vfs.*;
 import handlers.DisplayHandler;
 
-import java.io.File;
-
 /**
  * Created by Cegin on 20.2.2017.
  */

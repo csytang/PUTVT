@@ -8,9 +8,8 @@ import com.intellij.openapi.editor.markup.RangeHighlighter;
 import com.intellij.openapi.editor.markup.TextAttributes;
 import util.StringPytestUtil;
 
-
-import java.util.ArrayList;
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 

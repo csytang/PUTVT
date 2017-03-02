@@ -1,6 +1,5 @@
 package actions;
 
-import com.intellij.a.f.Message;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.CommonDataKeys;
@@ -15,9 +14,6 @@ import util.StringPytestUtil;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static com.sun.tools.doclint.Entity.ne;
-import static com.sun.tools.doclint.Entity.nu;
 
 /**
  * Created by Cegin on 27.2.2017.

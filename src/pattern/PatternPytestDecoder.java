@@ -1,6 +1,5 @@
 package pattern;
 
-import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.vfs.VirtualFile;
 import util.StringPytestUtil;
 

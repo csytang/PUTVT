@@ -2,6 +2,7 @@ package highlighters;
 
 import com.intellij.openapi.editor.markup.RangeHighlighter;
 import com.intellij.openapi.editor.markup.TextAttributes;
+
 import java.awt.*;
 /**
  * Created by Cegin on 30.1.2017.

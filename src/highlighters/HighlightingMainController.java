@@ -74,8 +74,6 @@ public class HighlightingMainController {
             newHashtable=hashtable;
         }
 
-
-        //TODO Check for file load
         errorManageFileControler.decodeDTO(newHashtable,editor);
     }
 
