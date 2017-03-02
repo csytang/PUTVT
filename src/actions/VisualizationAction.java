@@ -1,3 +1,5 @@
+package actions;
+
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.CommonDataKeys;
@@ -20,7 +22,6 @@ import java.util.Hashtable;
  */
 //TODO consider the refactoring of this, so the visualization is done only when wanted or triggered, not when files are loaded
 public class VisualizationAction extends AnAction {
-    private ErrorManageFileControler errorManageFileControler;
     private HighlightingMainController highlightingMainController;
 
 

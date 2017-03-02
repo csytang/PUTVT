@@ -1,3 +1,5 @@
+package actions.console;
+
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import highlighters.HighlightingMainController;

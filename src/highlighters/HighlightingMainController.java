@@ -46,7 +46,8 @@ public class HighlightingMainController {
 
     public void finishVisualization(Hashtable hashtable, Editor editor){
         PatternController patternController = new PatternController();
-
+        Hashtable newHashtable = new Hashtable();
+        errorManageFileControler = ErrorManageFileControler.getInstance(hashtable);
         if (useConsoleLogs) {
             Hashtable decodedLogs = null;
             if (consolesReadings.size() != 0 && consolesReadings.get(consolesReadings.size() - 1) != null) {
@@ -54,14 +55,14 @@ public class HighlightingMainController {
             }
             if (decodedLogs != null) {
                 HashtableCombineUtil hashtableCombineUtil = new HashtableCombineUtil();
-                hashtable = hashtableCombineUtil.combineHashTables(hashtable, decodedLogs, patternController.getFileNamesForConsoleLog());
+                newHashtable = hashtableCombineUtil.combineHashTablesForConsoleAndFile(hashtable, decodedLogs, getEditorOpenedFileName(editor));
             }
         }
 
 
         //TODO Check for file load
-        errorManageFileControler = ErrorManageFileControler.getInstance(hashtable);
-        errorManageFileControler.decodeDTO(hashtable,editor);
+
+        errorManageFileControler.decodeDTO(newHashtable,editor);
     }
 
     public Boolean getUseConsoleLogs() {
@@ -70,5 +71,12 @@ public class HighlightingMainController {
 
     public void setUseConsoleLogs(Boolean useConsoleLogs) {
         this.useConsoleLogs = useConsoleLogs;
+    }
+
+    private String getEditorOpenedFileName(Editor editor){
+        String tmp = editor.getDocument().toString();
+        tmp = tmp.replace("]", "").replace('/', ' ');
+        String arr[] = tmp.split(" ");
+        return arr[arr.length - 1];
     }
 }

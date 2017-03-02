@@ -48,7 +48,7 @@ public class ErrorManageFileControler {
            errorManageFileTable.put(str.getFileName(), str);
        }
 
-        StringPytestUtil str = (StringPytestUtil) errorManageFileTable.get(editorFileName);
+        StringPytestUtil str = (StringPytestUtil) hashtable.get(editorFileName);
         mainHighlighter.doHighlight(str,editor);
 
     }
