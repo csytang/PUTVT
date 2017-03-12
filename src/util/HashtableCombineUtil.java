@@ -84,7 +84,9 @@ public class HashtableCombineUtil {
                 newHashtable.put(fileName, newStringPytestUtil);
             } else {
                 StringPytestUtil stringUtilpythonTable = (StringPytestUtil) console.get(fileName);
-                newHashtable.put(stringUtilpythonTable.getFileName(), stringUtilpythonTable);
+                if (stringUtilpythonTable != null) {
+                    newHashtable.put(stringUtilpythonTable.getFileName(), stringUtilpythonTable);
+                }
             }
         while (e.hasMoreElements()) {
             String key = (String) e.nextElement();

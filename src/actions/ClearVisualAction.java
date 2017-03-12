@@ -20,7 +20,7 @@ public class ClearVisualAction extends AnAction {
 
     @Override
     public void actionPerformed(AnActionEvent e) {
-
+        //TODO SOLVE THE CLEAR
         Editor editor;
         try {
              editor = e.getRequiredData(CommonDataKeys.EDITOR);
@@ -29,7 +29,7 @@ public class ClearVisualAction extends AnAction {
             createWarningHover(e, "You need to have an editor open for this action to take place.");
             return;
         }
-        MainHighlighter mainHighlighter = new MainHighlighter();
+        MainHighlighter mainHighlighter = MainHighlighter.getInstance();
         mainHighlighter.clear(editor);
     }
 

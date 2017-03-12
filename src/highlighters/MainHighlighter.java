@@ -6,6 +6,7 @@ import com.intellij.openapi.editor.markup.HighlighterTargetArea;
 import com.intellij.openapi.editor.markup.MarkupModel;
 import com.intellij.openapi.editor.markup.RangeHighlighter;
 import com.intellij.openapi.editor.markup.TextAttributes;
+import com.intellij.vcs.log.Hash;
 import util.StringPytestUtil;
 
 import java.awt.*;
@@ -17,14 +18,23 @@ import java.util.List;
  * Created by Cegin on 30.12.2016.
  */
 public class MainHighlighter{
-                private ArrayList<RangeHighlighter> highlights;
+                private Hashtable highlights;
+                private static MainHighlighter instance = null;
+
+                public static MainHighlighter getInstance() {
+                        if (instance == null) {
+                            instance = new MainHighlighter();
+                        }
+                    return instance;
+                }
 
 
-                public MainHighlighter() {
-                    highlights = new ArrayList<RangeHighlighter>();
+                protected MainHighlighter() {
+                    highlights = new Hashtable();
                 }
 
                 public void doHighlight(StringPytestUtil stringPytestUtil,Editor editor){
+                    clear(editor);
                     List<Integer> allLines = new ArrayList<>();
                     allLines = stringPytestUtil.getLineNumber();
                     Hashtable colors = new Hashtable();
@@ -75,17 +85,24 @@ public class MainHighlighter{
                     if (toLine <= document.getLineCount()) {
                         TextAttributes attributes = new TextAttributes();
 
-                    RangeHighlighter highlighter = createRangeHighlighter(fromLine, toLine, attributes, editor);
+                        RangeHighlighter highlighter = createRangeHighlighter(fromLine, toLine, attributes, editor);
 
                         lineHighlighter.highlight(highlighter, attributes, color);
 
                         errorStripeMarkHighlighter.highlight(highlighter, attributes, color, testName);
 
-                        sideHighlighter.highlight(highlighter,color);
-
-                     highlights.add(highlighter);
+                        sideHighlighter.highlight(highlighter, color);
+                        if (!highlights.contains(editor.getMarkupModel())){
+                            List<RangeHighlighter> rangeHighlighterList = new ArrayList<>();
+                            rangeHighlighterList.add(highlighter);
+                            highlights.put(editor.getMarkupModel(), rangeHighlighterList);
+                        }
+                        else{
+                            List<RangeHighlighter> rangeHighlighterList = (List<RangeHighlighter>) highlights.get(editor.getMarkupModel());
+                            rangeHighlighterList.add(highlighter);
+                        }
                     }
-    }
+                }
 
     private RangeHighlighter createRangeHighlighter(int fromLine, int toLine, TextAttributes attributes, Editor editor) {
         Document document = editor.getDocument();
@@ -101,10 +118,12 @@ public class MainHighlighter{
     public void clear(Editor editor) {
         MarkupModel model = editor.getMarkupModel();
 
-        /*for (RangeHighlighter rangeHighlighter : highlights) {
-            model.removeHighlighter(rangeHighlighter);
-        }*/
-        model.removeAllHighlighters();
+        List<RangeHighlighter> rangeHighlighterList = (List<RangeHighlighter>) highlights.get(model);
+        if (rangeHighlighterList != null && rangeHighlighterList.size() != 0) {
+            for (RangeHighlighter rangeHighlighter : rangeHighlighterList) {
+                model.removeHighlighter(rangeHighlighter);
+            }
+        }
         highlights.clear();
     }
 

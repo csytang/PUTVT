@@ -79,7 +79,7 @@ public class ErrorLinesShowAction extends AnAction {
             message+='\n';
         }
 
-        Messages.showWarningDialog(message, "Error Logs for line no." + lineN + "");
+        Messages.showErrorDialog(message, "Error Logs for line no." + lineN + "");
     }
 
     private StringPytestUtil combineStringUtils(StringPytestUtil fileUtil, StringPytestUtil consoleUtil){

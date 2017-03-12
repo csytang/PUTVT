@@ -25,14 +25,12 @@ public class ConsoleRunListener implements ExecutionListener{
 
     private Project project;
 
-    private ExecutionEnvironment executionEnvironment;
     public ConsoleRunListener(Project project) {
         this.project = project;
     }
 
     @Override
     public void processStartScheduled(String s, ExecutionEnvironment executionEnvironment) {
-        System.out.println(s);
     }
 
     @Override
@@ -51,8 +49,8 @@ public class ConsoleRunListener implements ExecutionListener{
         processHandler.addProcessListener(new ProcessAdapter() {
                 @Override
                 public void onTextAvailable(ProcessEvent event, Key outputType) {
-                    if (outputType.toString().equals("Test"))
-                        return;
+                   /* if (outputType.toString().equals("Test"))
+                        return;*/
                  //   processHandler.notifyTextAvailable("Execute", new Key("Test"
                     String line = event.getText();
 
@@ -91,7 +89,6 @@ public class ConsoleRunListener implements ExecutionListener{
 
                 }
             });
-        this.executionEnvironment=executionEnvironment;
     }
 
     @Override
@@ -102,7 +99,6 @@ public class ConsoleRunListener implements ExecutionListener{
         } catch (ExecutionException e) {
             e.printStackTrace();
         }*/
-
     }
 
     @Override

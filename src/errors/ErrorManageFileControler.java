@@ -1,6 +1,7 @@
 package errors;
 
 
+import com.intellij.idea.Main;
 import com.intellij.openapi.editor.Editor;
 import highlighters.MainHighlighter;
 import util.StringPytestUtil;
@@ -35,7 +36,7 @@ public class ErrorManageFileControler {
 
     public void decodeDTO(Hashtable hashtable, Editor editor){
 
-        this.mainHighlighter = new MainHighlighter();
+        this.mainHighlighter = MainHighlighter.getInstance();
 
        String editorFileName = getEditorOpenedFileName(editor);
 

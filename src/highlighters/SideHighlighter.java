@@ -17,8 +17,8 @@ public class SideHighlighter {
                 try {
                     graphics.setColor(color);
                     int lineHeight = editor.getLineHeight();
-                    graphics.drawRect(rectangle.x, rectangle.y, rectangle.width, rectangle.height + lineHeight);
-                    graphics.fillRect(rectangle.x, rectangle.y, rectangle.width, rectangle.height + lineHeight);
+                    graphics.drawRect(rectangle.x, rectangle.y, rectangle.width, rectangle.height);
+                    graphics.fillRect(rectangle.x, rectangle.y, rectangle.width, rectangle.height);
                 } finally {
                     graphics.setColor(origColor);
                 }

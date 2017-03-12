@@ -49,7 +49,7 @@ public class HighlightingMainController {
 
     public void finishVisualization(Hashtable hashtable, Editor editor){
         PatternController patternController = new PatternController();
-        Hashtable newHashtable = new Hashtable();
+        Hashtable newHashtable;
         errorManageFileControler = ErrorManageFileControler.getInstance(hashtable);
         if (useConsoleLogs) {
             Hashtable decodedLogs = null;

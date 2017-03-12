@@ -12,7 +12,7 @@ public class ErrorStripeMarkHighlighter {
         if (testName != null) {
             lineHighlighter.setErrorStripeMarkColor(color);
             String tooltip = testName;
-            lineHighlighter.setErrorStripeTooltip("The errors on this line are: " + tooltip);
+            lineHighlighter.setErrorStripeTooltip("The errors on this line are:\n" + tooltip);
         }
     }
 

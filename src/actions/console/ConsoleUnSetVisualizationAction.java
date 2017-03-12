@@ -12,7 +12,7 @@ public class ConsoleUnSetVisualizationAction extends AnAction {
     @Override
     public void actionPerformed(AnActionEvent anActionEvent) {
         HighlightingMainController.getInstance(null).setUseConsoleLogs(false);
-        highlightingMainController.getInstance("");
+        HighlightingMainController.getInstance("");
     }
 
     @Override
