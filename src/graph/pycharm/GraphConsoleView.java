@@ -1,6 +1,7 @@
 package graph.pycharm;
 
 import com.intellij.ide.IdeEventQueue;
+import com.intellij.ide.actions.ToggleToolbarAction;
 import com.intellij.openapi.Disposable;
 import com.intellij.openapi.actionSystem.*;
 import com.intellij.openapi.components.ServiceManager;

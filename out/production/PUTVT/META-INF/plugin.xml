@@ -60,6 +60,15 @@
 
 
   <extensions defaultExtensionNs="com.intellij">
+    <toolWindow id="Graph Database Console"
+                anchor="bottom"
+                secondary="false"
+                factoryClass="graph.pycharm.ConsoleToolWindow"/>
+           <!-- icon="/graphdb/icons/window/graph_13x13.png"/> -->
+    <applicationService serviceInterface="graph.pycharm.services.LookAndFeelService"
+                        serviceImplementation="graph.pycharm.services.IdeaLookAndFeelService"/>
+    <projectService serviceInterface="graph.pycharm.GraphConsoleView"
+                    serviceImplementation="graph.pycharm.GraphConsoleView"/>
   </extensions>
 
   <actions>
@@ -87,6 +96,15 @@
             description="Shows error lines for the line">
       <add-to-group group-id="EditorPopupMenu" anchor="last"/>
     </action>
+
+    <group id="GraphDependencyConsoleViewActions"
+           text="Graph Dependency Console Tool Window Actions">
+      <action id="GraphDependencyConsoleViewActions.CleanCanvas"
+              class="graph.actions.CleanCanvasAction"
+              text="Clean canvas"
+              description="Clean canvas">
+      </action>
+    </group>
 
 
   </actions>
