@@ -42,19 +42,19 @@
 
   <application-components>
     <component>
-      <implementation-class>ApplicationPlugin</implementation-class>
-      <interface-class>ApplicationPlugin</interface-class>
+      <implementation-class>highlighter.ApplicationPlugin</implementation-class>
+      <interface-class>highlighter.ApplicationPlugin</interface-class>
     </component>
   </application-components>
 
   <project-components>
     <component>
-      <implementation-class>ProjectPlugin</implementation-class>
-      <interface-class>ProjectPlugin</interface-class>
+      <implementation-class>highlighter.ProjectPlugin</implementation-class>
+      <interface-class>highlighter.ProjectPlugin</interface-class>
     </component>
     <component>
-      <implementation-class>handlers.DisplayHandler</implementation-class>
-      <interface-class>handlers.DisplayHandler</interface-class>
+      <implementation-class>highlighter.handlers.DisplayHandler</implementation-class>
+      <interface-class>highlighter.handlers.DisplayHandler</interface-class>
     </component>
   </project-components>
 
@@ -66,24 +66,24 @@
     <!-- Add your actions here -->
     <group id="PUTVT" text="Python Visualization Tool..." popup="true">
     <add-to-group group-id="ToolsMenu" anchor="first"/>
-    <action id="PUTVT.actions.VisualizationAction" class="actions.VisualizationAction" text="Load and Visualize log .txt..."
+    <action id="PUTVT.highlighter.actions.VisualizationAction" class="highlighter.actions.VisualizationAction" text="Load and Visualize log .txt..."
             description="Loads a .txt file and visualizes lines of code">
     </action>
-    <action id="PUTVT.actions.ClearVisualAction" class="actions.ClearVisualAction" text="Clear current View visualization"
+    <action id="PUTVT.highlighter.actions.ClearVisualAction" class="highlighter.actions.ClearVisualAction" text="Clear current View visualization"
             description="Clears out the visualization for the current editor">
     </action>
-    <action id="PUTVT.actions.ClearAllAction" class="actions.ClearAllAction" text="Stop visualization for current loaded file"
+    <action id="PUTVT.highlighter.actions.ClearAllAction" class="highlighter.actions.ClearAllAction" text="Stop visualization for current loaded file"
             description="Clears out the visualization for current file">
     </action>
-      <action id="PUTVT.ConsoleNotUsed" class="actions.console.ConsoleUnSetVisualizationAction" text="Stop visualizing console logs"
+      <action id="PUTVT.ConsoleNotUsed" class="highlighter.actions.console.ConsoleUnSetVisualizationAction" text="Stop visualizing console logs"
               description="Stops visualizing console logs">
       </action>
-      <action id="PUTVT.ConsoleUsed" class="actions.console.ConsoleSetVisualizationAction" text="Visualize console logs"
+      <action id="PUTVT.ConsoleUsed" class="highlighter.actions.console.ConsoleSetVisualizationAction" text="Visualize console logs"
               description="Visualizes console logs">
       </action>
     </group>
 
-    <action id="PUTVT.actions.ErrorLinesShowAction" class="actions.ErrorLinesShowAction" text="Show error lines..."
+    <action id="PUTVT.highlighter.actions.ErrorLinesShowAction" class="highlighter.actions.ErrorLinesShowAction" text="Show error lines..."
             description="Shows error lines for the line">
       <add-to-group group-id="EditorPopupMenu" anchor="last"/>
     </action>
