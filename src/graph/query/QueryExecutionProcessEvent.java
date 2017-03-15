@@ -1,6 +1,7 @@
 package graph.query;
 
 import com.intellij.util.messages.Topic;
+import graph.query.graph.GraphQueryResult;
 
 public interface QueryExecutionProcessEvent {
 

@@ -2,7 +2,7 @@ package graph.pycharm.console;
 
 
 
-import graph.EventType;
+import graph.enums.EventType;
 import graph.pycharm.api.NodeCallback;
 import graph.pycharm.api.RelationshipCallback;
 import graph.pycharm.api.VisualizationApi;

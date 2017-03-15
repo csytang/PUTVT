@@ -12,6 +12,7 @@ public class ConsoleToolWindow implements ToolWindowFactory {
 
     public static void ensureOpen(Project project) {
         ToolWindowManager toolWindowManager = ToolWindowManager.getInstance(project);
+        String[] id = toolWindowManager.getToolWindowIds();
         ToolWindow toolWindow = toolWindowManager.getToolWindow(GraphConstants.ToolWindow.CONSOLE_TOOL_WINDOW);
 
         if (!toolWindow.isActive()) {

@@ -16,7 +16,7 @@ import graph.helper.UiHelper;
 import graph.pycharm.GraphConsoleView;
 import graph.pycharm.services.LookAndFeelService;
 import graph.query.ExecuteQueryPayload;
-import graph.query.GraphQueryResult;
+import graph.query.graph.GraphQueryResult;
 import graph.query.QueryExecutionProcessEvent;
 import graph.visualization.api.GraphEntity;
 import graph.visualization.api.GraphNode;

@@ -26,11 +26,15 @@ import com.intellij.util.ui.UIUtil;
 import graph.constants.GraphConstants;
 import graph.pycharm.console.GraphPanel;
 import graph.pycharm.services.LookAndFeelService;
+import graph.query.QueryPlanEvent;
+import graph.query.graph.GraphQueryResult;
+import graph.visualization.layouts.QueryPlanPanel;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeFormatterBuilder;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -115,8 +119,8 @@ public class GraphConsoleView implements Disposable {
             });
 
             AtomicInteger tabId = new AtomicInteger(0);
-          /*  project.getMessageBus().connect().subscribe(QueryPlanEvent.QUERY_PLAN_EVENT,
-                    (query, result) -> createNewQueryPlanTab(query, result, tabId.incrementAndGet()));*/
+            project.getMessageBus().connect().subscribe(QueryPlanEvent.QUERY_PLAN_EVENT,
+                    (query, result) -> createNewQueryPlanTab(query, result, tabId.incrementAndGet()));
 
             // Actions
             final ActionGroup consoleActionGroup = (ActionGroup)
@@ -151,6 +155,29 @@ public class GraphConsoleView implements Disposable {
                 }
             }
         });
+    }
+
+    private void createNewQueryPlanTab(String originalQuery,
+                                       GraphQueryResult result, int tabId) {
+        JPanel panel = new JPanel();
+        panel.setLayout(new BorderLayout(0, 3));
+
+        QueryPlanPanel qpPanel = new QueryPlanPanel(originalQuery, result);
+        qpPanel.initialize(panel);
+
+        TabInfo tabInfo = new TabInfo(panel);
+        DefaultActionGroup tabActions = new DefaultActionGroup(new QueryPlanPanel.CloseTab() {
+            @Override
+            public void actionPerformed(AnActionEvent e) {
+                super.actionPerformed(e);
+                consoleTabs.removeTab(tabInfo);
+            }
+        });
+        tabInfo.setTabLabelActions(tabActions, ActionPlaces.EDITOR_TAB);
+
+        String planType = result.isProfilePlan() ? PROFILE_PLAN_TITLE : EXPLAIN_PLAN_TITLE;
+        consoleTabs.addTab(tabInfo.setText(String.format("%1s %2d - %3s", planType, tabId,
+                LocalDateTime.now().format(QUERY_PLAN_TIME_FORMAT))));
     }
 
     private void updateLookAndFeel() {

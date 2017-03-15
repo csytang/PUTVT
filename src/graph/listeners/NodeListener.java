@@ -1,7 +1,7 @@
 package graph.listeners;
 
 
-import graph.EventType;
+import graph.enums.EventType;
 import graph.pycharm.api.NodeCallback;
 import graph.visualization.api.GraphNode;
 import prefuse.controls.ControlAdapter;

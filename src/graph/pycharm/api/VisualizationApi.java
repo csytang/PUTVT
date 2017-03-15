@@ -1,7 +1,7 @@
 package graph.pycharm.api;
 
 
-import graph.EventType;
+import graph.enums.EventType;
 import graph.pycharm.console.GraphRelationship;
 import graph.visualization.api.GraphNode;
 

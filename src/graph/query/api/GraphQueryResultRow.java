@@ -1,4 +1,4 @@
-package graph.query;
+package graph.query.api;
 
 
 
@@ -7,23 +7,11 @@ import graph.visualization.api.GraphNode;
 
 import java.util.List;
 
-public interface GraphQueryResult {
+public interface GraphQueryResultRow {
 
-    long getExecutionTimeMs();
-
-    String getResultSummary();
-
-
+    Object getValue(GraphQueryResultColumn column);
 
     List<GraphNode> getNodes();
 
     List<GraphRelationship> getRelationships();
-
-
-
-    boolean hasPlan();
-
-    boolean isProfilePlan();
-
-
 }

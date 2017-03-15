@@ -2,12 +2,14 @@ package graph.pycharm.console;
 
 import com.intellij.codeInsight.hint.HintManager;
 import com.intellij.util.messages.MessageBus;
-import graph.EventType;
+import graph.enums.EventType;
 import graph.events.CleanCanvasEvent;
+import graph.events.ExecuteQueryEvent;
 import graph.pycharm.GraphConsoleView;
 import graph.pycharm.api.VisualizationApi;
+import graph.pycharm.services.QueryExecutionService;
 import graph.query.ExecuteQueryPayload;
-import graph.query.GraphQueryResult;
+import graph.query.graph.GraphQueryResult;
 import graph.query.QueryExecutionProcessEvent;
 
 
@@ -15,7 +17,7 @@ public class GraphPanelInteractions {
 
     private final GraphConsoleView graphConsoleView;
     private final MessageBus messageBus;
-
+    private final QueryExecutionService queryExecutionService;
     private final VisualizationApi visualization;
 
     public GraphPanelInteractions(GraphConsoleView graphConsoleView,
@@ -23,14 +25,15 @@ public class GraphPanelInteractions {
         this.graphConsoleView = graphConsoleView;
         this.messageBus = messageBus;
         this.visualization = visualization;
-
+        this.queryExecutionService = new QueryExecutionService(messageBus);
 
         registerMessageBusSubscribers();
         registerVisualisationEvents();
     }
 
     private void registerMessageBusSubscribers() {
-
+        messageBus.connect()
+                .subscribe(ExecuteQueryEvent.EXECUTE_QUERY_TOPIC, queryExecutionService::executeQuery);
         messageBus.connect()
                 .subscribe(CleanCanvasEvent.CLEAN_CANVAS_TOPIC, () -> {
                     visualization.stop();

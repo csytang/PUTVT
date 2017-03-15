@@ -2,7 +2,7 @@ package graph.visualization;
 
 import com.intellij.util.ui.UIUtil;
 
-import graph.EventType;
+import graph.enums.EventType;
 import graph.helper.PrefuseUtil;
 import graph.listeners.NodeListener;
 import graph.listeners.RelationshipListener;
