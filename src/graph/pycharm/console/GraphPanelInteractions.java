@@ -1,6 +1,7 @@
 package graph.pycharm.console;
 
 import com.intellij.codeInsight.hint.HintManager;
+import com.intellij.openapi.project.Project;
 import com.intellij.util.messages.MessageBus;
 import graph.enums.EventType;
 import graph.events.CleanCanvasEvent;
@@ -9,8 +10,8 @@ import graph.pycharm.GraphConsoleView;
 import graph.pycharm.api.VisualizationApi;
 import graph.pycharm.services.QueryExecutionService;
 import graph.query.ExecuteQueryPayload;
-import graph.query.graph.GraphQueryResult;
 import graph.query.QueryExecutionProcessEvent;
+import graph.query.graph.GraphCoverageResult;
 
 
 public class GraphPanelInteractions {
@@ -21,11 +22,11 @@ public class GraphPanelInteractions {
     private final VisualizationApi visualization;
 
     public GraphPanelInteractions(GraphConsoleView graphConsoleView,
-                                  MessageBus messageBus, VisualizationApi visualization) {
+                                  MessageBus messageBus, VisualizationApi visualization, Project project) {
         this.graphConsoleView = graphConsoleView;
         this.messageBus = messageBus;
         this.visualization = visualization;
-        this.queryExecutionService = new QueryExecutionService(messageBus);
+        this.queryExecutionService = new QueryExecutionService(messageBus, project);
 
         registerMessageBusSubscribers();
         registerVisualisationEvents();
@@ -49,7 +50,7 @@ public class GraphPanelInteractions {
                     }
 
                     @Override
-                    public void resultReceived(ExecuteQueryPayload payload, GraphQueryResult result) {
+                    public void resultReceived(ExecuteQueryPayload payload, GraphCoverageResult result) {
                         result.getNodes().forEach(visualization::addNode);
                         result.getRelationships().forEach(visualization::addRelation);
                     }

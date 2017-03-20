@@ -1,9 +1,8 @@
 package graph.enums;
 
 import com.intellij.icons.AllIcons;
-import com.sun.xml.internal.bind.v2.TODO;
 
-import javax.swing.Icon;
+import javax.swing.*;
 
 import static com.intellij.openapi.util.IconLoader.getIcon;
 

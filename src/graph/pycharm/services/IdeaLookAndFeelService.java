@@ -2,8 +2,6 @@ package graph.pycharm.services;
 
 import com.intellij.ui.JBColor;
 import com.intellij.util.ui.UIUtil;
-import graph.pycharm.services.LookAndFeelService;
-
 
 import javax.swing.*;
 import java.awt.*;

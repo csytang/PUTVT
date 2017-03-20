@@ -1,26 +1,33 @@
 package graph.query;
 
 
-
-import com.google.common.collect.Iterables;
 import graph.visualization.api.GraphNode;
 import graph.visualization.api.GraphPropertyContainer;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import java.util.Random;
 
-public class Neo4jBoltNode implements GraphNode {
+public class CoverageNode implements GraphNode {
 
     private final String id;
     private final Neo4jBoltPropertyContainer propertyContainer;
     private final List<String> types;
+    private Integer coverage;
+    private int color = 0;
 
-    public Neo4jBoltNode(String id) {
+    public CoverageNode(String id) {
         this.id = id;
         this.types = new ArrayList<>();
         this.propertyContainer = new Neo4jBoltPropertyContainer();
+    }
+
+    public Integer getCoverage() {
+        return coverage;
+    }
+
+    public void setCoverage(Integer coverage) {
+        this.coverage = coverage;
     }
 
     @Override
@@ -56,12 +63,20 @@ public class Neo4jBoltNode implements GraphNode {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Neo4jBoltNode that = (Neo4jBoltNode) o;
+        CoverageNode that = (CoverageNode) o;
         return Objects.equals(id, that.id);
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(id);
+    }
+
+    public int getColor() {
+        return color;
+    }
+
+    public void setColor(int color) {
+        this.color = color;
     }
 }

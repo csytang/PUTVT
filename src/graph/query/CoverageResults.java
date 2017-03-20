@@ -1,43 +1,36 @@
 package graph.query;
 
-
-
-
+import com.intellij.coverage.CoverageDataManager;
+import com.intellij.coverage.CoverageSuitesBundle;
+import com.intellij.openapi.project.Project;
+import com.intellij.psi.PsiFile;
+import com.intellij.psi.search.FilenameIndex;
+import com.intellij.psi.search.GlobalSearchScope;
+import graph.helper.ProjectFileNamesUtil;
+import graph.pycharm.console.GraphRelationship;
+import graph.query.api.GraphQueryNotification;
+import graph.query.api.GraphQueryPlan;
+import graph.query.api.GraphQueryResultColumn;
+import graph.query.api.GraphQueryResultRow;
+import graph.query.graph.GraphCoverageResult;
+import graph.visualization.api.GraphNode;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 import static java.lang.String.format;
-import graph.pycharm.console.GraphRelationship;
-import graph.query.api.GraphQueryNotification;
-import graph.query.api.GraphQueryPlan;
-import graph.query.api.GraphQueryResultColumn;
-import graph.query.api.GraphQueryResultRow;
-import graph.query.graph.GraphQueryResult;
-import graph.visualization.api.GraphNode;
 
 /**
  * Created by Cegin on 14.3.2017.
  */
-public class Neo4jBoltQueryResult implements GraphQueryResult {
+public class CoverageResults implements GraphCoverageResult {
 
-    private final long executionTimeMs;
-    private List<GraphNode> nodes = new ArrayList<>();
 
-    public Neo4jBoltQueryResult(long executionTimeMs) {
-        this.executionTimeMs=executionTimeMs;
-      /*  buffer.getRelationships().forEach((rel) -> {
-            Neo4jBoltRelationship boltRel = (Neo4jBoltRelationship) rel;
+    private Project project;
 
-            boltRel.setStartNode(findNodeById(nodes, boltRel.getStartNodeId()).orElse(null));
-            boltRel.setEndNode(findNodeById(nodes, boltRel.getEndNodeId()).orElse(null));
-        });*/
-    }
-
-    @Override
-    public long getExecutionTimeMs() {
-        return executionTimeMs;
+    public CoverageResults(Project project) {
+        this.project=project;
     }
 
     @Override
@@ -88,26 +81,7 @@ public class Neo4jBoltQueryResult implements GraphQueryResult {
         return sb.toString();
     }
 
-   /* private void planToString(StringBuilder sb, Plan plan, int depth) {
-        for (Plan childPlan : plan.children()) {
-            planToString(sb, childPlan, depth + 1);
-        }
 
-        String line = repeat("-", depth);
-        sb.append(line)
-                .append(format("> %s {identifiers: %s; arguments: %s}\n", plan.operatorType(), plan.identifiers(), plan.arguments()));
-    }
-
-    /*private void profileToString(StringBuilder sb, ProfiledPlan profile, int depth) {
-        for (ProfiledPlan childProfile : profile.children()) {
-            profileToString(sb, childProfile, depth + 1);
-        }
-
-        String line = repeat("-", depth);
-        sb.append(line)
-                .append(format("> %s[records: %s; dbHits: %s] {identifiers: %s; arguments: %s}\n",
-                        profile.operatorType(), profile.records(), profile.dbHits(), profile.identifiers(), profile.arguments()));
-    }*/
 
     @Override
     public List<GraphQueryResultColumn> getColumns() {
@@ -121,24 +95,29 @@ public class Neo4jBoltQueryResult implements GraphQueryResult {
 
     @Override
     public List<GraphNode> getNodes() {
-        Neo4jBoltNode node1 = new Neo4jBoltNode("1");
-        Neo4jBoltNode node2 = new Neo4jBoltNode("2");
+        List<String> namesOfFiles = ProjectFileNamesUtil.getFileNamesFromProject(project.getBaseDir());
 
         List<GraphNode> nodes = new ArrayList<>();
-        nodes.add(node1);
-        nodes.add(node2);
-        this.nodes=nodes;
+        int i = 0;
+        for (String nameOfFile : namesOfFiles){
+            String[] str = nameOfFile.split("/");
+            String file = str[str.length-1];
+            CoverageNode node = new CoverageNode(file);
+            node.setCoverage(getCovForFile(file));
+            node.setColor(node.getCoverage()/10);
+            nodes.add(node);
+        }
         return nodes;
     }
 
     @Override
     public List<GraphRelationship> getRelationships() {
-        Neo4jBoltRelationship relationship = new Neo4jBoltRelationship("rel");
+      /*  Neo4jBoltRelationship relationship = new Neo4jBoltRelationship("rel");
         relationship.setStartNode(nodes.get(0));
-        relationship.setEndNode(nodes.get(1));
+        relationship.setEndNode(nodes.get(1));*/
 
         List<GraphRelationship> relatonships = new ArrayList<>();
-        relatonships.add(relationship);
+       // relatonships.add(relationship);
         return relatonships;
     }
 
@@ -162,15 +141,16 @@ public class Neo4jBoltQueryResult implements GraphQueryResult {
         return Optional.of(null);
     }
 
-    private Optional<GraphNode> findNodeById(List<GraphNode> nodes, String id) {
-        return nodes.stream().filter((node) -> node.getId().equals(id)).findFirst();
-    }
-
-    private String repeat(String part, int count) {
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < count; i++) {
-            sb.append(part);
+    private Integer getCovForFile(String fileName){
+        PsiFile[] file = FilenameIndex.getFilesByName(project, fileName, GlobalSearchScope.allScope(project));
+        CoverageDataManager coverageDataManager = CoverageDataManager.getInstance(project);
+        CoverageSuitesBundle coverageSuitesBundle = coverageDataManager.getCurrentSuitesBundle();
+        String info = CoverageDataManager.getInstance(project).getCurrentSuitesBundle().getAnnotator(project).getFileCoverageInformationString(file[0],coverageSuitesBundle, coverageDataManager);
+        if (info.contains("%")){
+            String[] str = info.split("%");
+            return Integer.parseInt(str[0]);
         }
-        return sb.toString();
+        return 0;
+
     }
 }

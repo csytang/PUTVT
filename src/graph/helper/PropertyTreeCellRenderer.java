@@ -2,10 +2,9 @@ package graph.helper;
 
 import com.intellij.ui.ColoredTreeCellRenderer;
 import com.intellij.ui.SimpleTextAttributes;
-import graph.helper.KeyValuePair;
 import org.jetbrains.annotations.NotNull;
 
-import javax.swing.JTree;
+import javax.swing.*;
 import javax.swing.tree.DefaultMutableTreeNode;
 
 public class PropertyTreeCellRenderer extends ColoredTreeCellRenderer {

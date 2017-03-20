@@ -4,7 +4,7 @@ package graph.pycharm.api;
 import graph.enums.DataSourceType;
 import graph.enums.GraphIcons;
 
-import javax.swing.Icon;
+import javax.swing.*;
 
 public interface DataSourceDescription {
 

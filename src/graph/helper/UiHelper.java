@@ -6,7 +6,6 @@ import graph.visualization.api.GraphEntity;
 import graph.visualization.api.GraphNode;
 import graph.visualization.api.GraphPath;
 
-
 import java.util.List;
 import java.util.Map;
 

@@ -18,24 +18,10 @@ public class ExecuteQueryPayload {
 
     private final String fileName;
 
-    public ExecuteQueryPayload(String content) {
-        this.queries = Collections.singletonList(content);
+    public ExecuteQueryPayload() {
+        this.queries = Collections.singletonList("");
         this.editor = null;
         this.parameters = Collections.emptyMap();
-        this.fileName = null;
-    }
-
-    public ExecuteQueryPayload(List<String> queries, Map<String, Object> parameters, String fileName) {
-        this.queries = queries;
-        this.parameters = parameters;
-        this.editor = null;
-        this.fileName = fileName;
-    }
-
-    public ExecuteQueryPayload(String content, Map<String, Object> parameters, Editor editor) {
-        this.queries = Collections.singletonList(content);
-        this.parameters = parameters;
-        this.editor = editor;
         this.fileName = null;
     }
 

@@ -1,6 +1,5 @@
 package graph.visualization.layouts;
 
-import com.intellij.history.integration.revertion.UndoChangeRevertingVisitor.RuntimeIOException;
 import com.intellij.icons.AllIcons;
 import com.intellij.ide.DefaultTreeExpander;
 import com.intellij.openapi.Disposable;
@@ -14,9 +13,8 @@ import com.intellij.ui.dualView.TreeTableView;
 import com.intellij.ui.treeStructure.treetable.ListTreeTableModelOnColumns;
 import com.intellij.ui.treeStructure.treetable.TreeTableCellRenderer;
 import com.intellij.ui.treeStructure.treetable.TreeTableModel;
-
 import graph.query.api.GraphQueryPlan;
-import graph.query.graph.GraphQueryResult;
+import graph.query.graph.GraphCoverageResult;
 import graph.visualization.controls.ColumnResizer;
 import org.jetbrains.annotations.NotNull;
 
@@ -39,9 +37,9 @@ public class QueryPlanPanel implements Disposable {
     private TreeTableView treeTable;
 
     private String originalQuery;
-    private GraphQueryResult result;
+    private GraphCoverageResult result;
 
-    public QueryPlanPanel(String originalQuery, GraphQueryResult result) {
+    public QueryPlanPanel(String originalQuery, GraphCoverageResult result) {
         this.originalQuery = originalQuery;
         this.result = result;
     }
@@ -129,18 +127,9 @@ public class QueryPlanPanel implements Disposable {
     public void dispose() {
     }
 
-    private static long calculateTotalDbHits(GraphQueryPlan plan) {
-        long result = (long) plan.getArguments().getOrDefault(DB_HITS.getKey(), 0L);
-
-        return result + Stream.of(plan)
-                .map(GraphQueryPlan::children)
-                .flatMap(Collection::stream)
-                .map(QueryPlanPanel::calculateTotalDbHits)
-                .reduce(0L, (a, b) -> a + b);
-    }
 
     @NotNull
-    private static String getStatusText(GraphQueryResult result) {
+    private static String getStatusText(GraphCoverageResult result) {
         StringBuilder sb = new StringBuilder();
 
         Optional<GraphQueryPlan> plan = result.getPlan();
@@ -151,10 +140,7 @@ public class QueryPlanPanel implements Disposable {
                     .append("(").append(args.getOrDefault(PLANNER_IMPL.getKey(), '-')).append("), ")
                     .append("runtime: ").append(args.getOrDefault(RUNTIME.getKey(), '-'));
 
-            if (result.isProfilePlan()) {
-                sb.append(", ").append(calculateTotalDbHits(plan.get())).append(" total db hits in ")
-                        .append(result.getExecutionTimeMs()).append("ms.");
-            }
+
         }
 
         return sb.toString();

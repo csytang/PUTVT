@@ -11,10 +11,7 @@ import prefuse.action.ActionList;
 import prefuse.action.RepaintAction;
 import prefuse.activity.Activity;
 
-
-import static graph.constants.GraphGroups.EDGE_LABEL;
-import static graph.constants.GraphGroups.GRAPH;
-import static graph.constants.GraphGroups.NODE_LABEL;
+import static graph.constants.GraphGroups.*;
 
 public class LayoutProvider {
 

@@ -1,12 +1,9 @@
 package graph.pycharm.api;
 
 
-
 import graph.enums.DataSourceType;
 
 import java.util.Map;
-
-import static graph.enums.DataSourceType.NEO4J_BOLT;
 
 public interface DataSourceApi {
 

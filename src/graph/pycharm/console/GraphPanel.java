@@ -10,14 +10,13 @@ import com.intellij.ui.popup.BalloonPopupBuilderImpl;
 import com.intellij.ui.treeStructure.PatchedDefaultMutableTreeNode;
 import com.intellij.ui.treeStructure.Tree;
 import com.intellij.util.messages.MessageBus;
-
 import graph.helper.PropertyTreeCellRenderer;
 import graph.helper.UiHelper;
 import graph.pycharm.GraphConsoleView;
 import graph.pycharm.services.LookAndFeelService;
 import graph.query.ExecuteQueryPayload;
-import graph.query.graph.GraphQueryResult;
 import graph.query.QueryExecutionProcessEvent;
+import graph.query.graph.GraphCoverageResult;
 import graph.visualization.api.GraphEntity;
 import graph.visualization.api.GraphNode;
 import prefuse.visual.VisualItem;
@@ -65,7 +64,7 @@ public class GraphPanel {
             }
 
             @Override
-            public void resultReceived(ExecuteQueryPayload payload, GraphQueryResult result) {
+            public void resultReceived(ExecuteQueryPayload payload, GraphCoverageResult result) {
                 if (result.getNodes().isEmpty()) {
                     entityDetailsTreeModel.setRoot(null);
                 } else {
@@ -93,7 +92,8 @@ public class GraphPanel {
         this.interactions = new GraphPanelInteractions(
                 graphConsoleView,
                 messageBus,
-                visualization);
+                visualization,
+                project);
     }
 
     public void showNodeData(GraphNode node, VisualItem item, MouseEvent e) {

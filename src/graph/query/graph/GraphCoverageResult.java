@@ -10,9 +10,7 @@ import graph.visualization.api.GraphNode;
 import java.util.List;
 import java.util.Optional;
 
-public interface GraphQueryResult {
-
-    long getExecutionTimeMs();
+public interface GraphCoverageResult {
 
     String getResultSummary();
 

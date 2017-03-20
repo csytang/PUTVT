@@ -1,7 +1,6 @@
 package graph.pycharm;
 
 import com.intellij.ide.IdeEventQueue;
-import com.intellij.ide.actions.ToggleToolbarAction;
 import com.intellij.openapi.Disposable;
 import com.intellij.openapi.actionSystem.*;
 import com.intellij.openapi.components.ServiceManager;
@@ -27,7 +26,7 @@ import graph.constants.GraphConstants;
 import graph.pycharm.console.GraphPanel;
 import graph.pycharm.services.LookAndFeelService;
 import graph.query.QueryPlanEvent;
-import graph.query.graph.GraphQueryResult;
+import graph.query.graph.GraphCoverageResult;
 import graph.visualization.layouts.QueryPlanPanel;
 
 import javax.swing.*;
@@ -158,7 +157,7 @@ public class GraphConsoleView implements Disposable {
     }
 
     private void createNewQueryPlanTab(String originalQuery,
-                                       GraphQueryResult result, int tabId) {
+                                       GraphCoverageResult result, int tabId) {
         JPanel panel = new JPanel();
         panel.setLayout(new BorderLayout(0, 3));
 

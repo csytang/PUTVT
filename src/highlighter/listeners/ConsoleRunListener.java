@@ -1,5 +1,7 @@
 package highlighter.listeners;
 
+import com.intellij.coverage.CoverageDataManager;
+import com.intellij.coverage.CoverageSuitesBundle;
 import com.intellij.execution.ExecutionListener;
 import com.intellij.execution.configurations.RunProfile;
 import com.intellij.execution.process.ProcessAdapter;
@@ -8,6 +10,7 @@ import com.intellij.execution.process.ProcessHandler;
 import com.intellij.execution.runners.ExecutionEnvironment;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.util.Key;
+import graph.pycharm.implementations.CoveragePile;
 import highlighter.highlighters.HighlightingMainController;
 import org.jetbrains.annotations.NotNull;
 
@@ -43,15 +46,9 @@ public class ConsoleRunListener implements ExecutionListener{
 
     @Override
     public void processStarted(String s, @NotNull ExecutionEnvironment executionEnvironment, @NotNull ProcessHandler processHandler) {
-        /*if (!processHandler.isStartNotified())
-            processHandler.startNotify();*/
-       // processHandler.notifyTextAvailable("hey", new Key("Jude"))
         processHandler.addProcessListener(new ProcessAdapter() {
                 @Override
                 public void onTextAvailable(ProcessEvent event, Key outputType) {
-                   /* if (outputType.toString().equals("Test"))
-                        return;*/
-                 //   processHandler.notifyTextAvailable("Execute", new Key("Test"
                     String line = event.getText();
 
                     Pattern p = Pattern.compile("___________ (.*) ___________");
@@ -93,26 +90,24 @@ public class ConsoleRunListener implements ExecutionListener{
 
     @Override
     public void processTerminating(@NotNull RunProfile runProfile, @NotNull ProcessHandler processHandler) {
-       /* PythonProcessHandler processHandler1 = (PythonProcessHandler) processHandler;
-        try {
-            runProfile.getState(executionEnvironment.getExecutor(),executionEnvironment);
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        }*/
+
     }
 
     @Override
     public void processTerminated(@NotNull RunProfile runProfile, @NotNull ProcessHandler processHandler) {
-        /*PythonProcessHandler processHandler1 = (PythonProcessHandler) processHandler;
-        try {
-            runProfile.getState(executionEnvironment.getExecutor(),executionEnvironment);
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        }*/
         HighlightingMainController highlightingMainController = HighlightingMainController.getInstance(null);
         if (highlightingMainController.getUseConsoleLogs()){
                 HighlightingMainController.getInstance(executedLines);
         }
         executedLines="";
+        CoverageSuitesBundle coverageSuite = CoverageDataManager.getInstance(project).getCurrentSuitesBundle();
+        if (coverageSuite.isValid()) {
+            CoveragePile coveragePile = CoveragePile.getInstance();
+            if (coverageSuite.getAnnotator(project).equals(coveragePile.getCoverageAnnotator()))
+            {
+                return;
+            }
+            coveragePile.setCoverageAnnotator(coverageSuite.getAnnotator(project));
+        }
     }
 }

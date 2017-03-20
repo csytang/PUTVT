@@ -1,6 +1,6 @@
 package highlighter.actions.console;
 
-import com.intellij.openapi.actionSystem.*;
+import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.project.DumbAwareAction;
 import com.intellij.openapi.project.Project;
 import highlighter.highlighters.HighlightingMainController;

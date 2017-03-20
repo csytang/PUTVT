@@ -1,8 +1,8 @@
 package graph.visualization;
 
 import com.intellij.util.ui.UIUtil;
-
 import graph.enums.EventType;
+import graph.helper.DisplayUtil;
 import graph.helper.PrefuseUtil;
 import graph.listeners.NodeListener;
 import graph.listeners.RelationshipListener;
@@ -10,7 +10,6 @@ import graph.pycharm.api.NodeCallback;
 import graph.pycharm.api.RelationshipCallback;
 import graph.pycharm.console.GraphRelationship;
 import graph.pycharm.services.LookAndFeelService;
-import graph.helper.DisplayUtil;
 import graph.visualization.api.GraphNode;
 import graph.visualization.controls.CustomNeighborHighlightControl;
 import graph.visualization.settings.CustomItemSorter;
@@ -33,11 +32,10 @@ import prefuse.visual.expression.InGroupPredicate;
 import java.util.HashMap;
 import java.util.Map;
 
-
 import static graph.constants.GraphColumns.*;
 import static graph.constants.GraphGroups.*;
 import static graph.visualization.settings.RendererProvider.*;
-import static prefuse.Constants.*;
+import static prefuse.Constants.SHAPE_ELLIPSE;
 
 public class GraphDisplay extends Display {
 
@@ -66,6 +64,7 @@ public class GraphDisplay extends Display {
         graph.addColumn(ID, String.class);
         graph.addColumn(TYPE, String.class);
         graph.addColumn(TITLE, String.class);
+        graph.addColumn(COLOR_NUMBER, int.class);
 
         m_vis.addGraph(GRAPH, graph, null, SchemaProvider.provideNodeSchema(), SchemaProvider.provideEdgeSchema());
         m_vis.setInteractive(EDGES, null, false);
@@ -107,8 +106,9 @@ public class GraphDisplay extends Display {
     public void addNode(GraphNode graphNode) {
         Node node = graph.addNode();
         node.set(ID, graphNode.getId());
-        node.set(TYPE, DisplayUtil.getType(graphNode));
+        node.set(TYPE, graphNode.getCoverage().toString());
         node.set(TITLE, DisplayUtil.getProperty(graphNode));
+        node.set(COLOR_NUMBER, graphNode.getColor());
 
         nodeMap.put(graphNode.getId(), node);
         graphNodeMap.put(graphNode.getId(), graphNode);

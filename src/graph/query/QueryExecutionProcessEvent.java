@@ -1,7 +1,7 @@
 package graph.query;
 
 import com.intellij.util.messages.Topic;
-import graph.query.graph.GraphQueryResult;
+import graph.query.graph.GraphCoverageResult;
 
 public interface QueryExecutionProcessEvent {
 
@@ -10,7 +10,7 @@ public interface QueryExecutionProcessEvent {
 
     void executionStarted(ExecuteQueryPayload payload);
 
-    void resultReceived(ExecuteQueryPayload payload, GraphQueryResult result);
+    void resultReceived(ExecuteQueryPayload payload, GraphCoverageResult result);
 
     void postResultReceived(ExecuteQueryPayload payload);
 

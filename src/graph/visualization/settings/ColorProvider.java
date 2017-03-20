@@ -1,21 +1,24 @@
 package graph.visualization.settings;
 
 import graph.pycharm.services.LookAndFeelService;
+import javafx.scene.paint.*;
+import javafx.scene.paint.Color;
 import org.jetbrains.annotations.NotNull;
+import prefuse.Constants;
 import prefuse.action.ActionList;
 import prefuse.action.assignment.ColorAction;
 import prefuse.action.assignment.DataColorAction;
 import prefuse.action.assignment.StrokeAction;
 import prefuse.util.ColorLib;
+import prefuse.visual.VisualItem;
 
 import java.awt.*;
 
-
+import static graph.constants.GraphColumns.COLOR_NUMBER;
 import static graph.constants.GraphColumns.TYPE;
 import static graph.constants.GraphGroups.EDGES;
 import static graph.constants.GraphGroups.NODES;
 import static graph.constants.VisualizationParameters.EDGE_THICKNESS;
-import static prefuse.Constants.NOMINAL;
 import static prefuse.visual.VisualItem.*;
 
 public class ColorProvider {
@@ -32,9 +35,6 @@ public class ColorProvider {
     private static final int ROT_7 = ColorLib.rgb(219, 94, 86);
     private static final int ROT_8 = ColorLib.rgb(219, 194, 86);
 
-    private static final int ORANGE = ColorLib.rgb(229, 60, 20);
-    private static final int ORANGE_DARK = ColorLib.rgb(180, 40, 8);
-    private static final int GREEN = ColorLib.rgb(132, 173, 74);
     private static final int GRAY = ColorLib.rgb(178, 178, 178);
     private static final int GRAY_DARK = ColorLib.rgb(90, 90, 90);
 
@@ -78,9 +78,10 @@ public class ColorProvider {
     }
 
     @NotNull
-    private static DataColorAction getNodeFill(LookAndFeelService lookAndFeelService) {
-        DataColorAction fill = new DataColorAction(NODES, TYPE, NOMINAL, FILLCOLOR, PALETTE);
-
+    private static ColorAction getNodeFill(LookAndFeelService lookAndFeelService) {
+        DataColorAction fill = new DataColorAction(NODES, COLOR_NUMBER,
+                Constants.NUMERICAL, VisualItem.FILLCOLOR, PALETTE);
+      //  ColorAction fill = new ColorAction(NODES, FILLCOLOR, EDGE);
         return fill;
     }
 

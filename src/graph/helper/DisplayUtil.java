@@ -55,9 +55,6 @@ public class DisplayUtil {
         return fuzzyMatch.orElse(backup.orElse(node.getId()));
     }
 
-    public static String getType(GraphNode node) {
-        return node.getTypes().size() > 0 ? node.getTypes().get(0) : "";
-    }
 
     private static boolean filterLength(String title) {
         return title.length() < MAX_TITLE_LENGTH;

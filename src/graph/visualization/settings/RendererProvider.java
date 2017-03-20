@@ -7,7 +7,6 @@ import prefuse.render.EdgeRenderer;
 import prefuse.render.LabelRenderer;
 import prefuse.render.ShapeRenderer;
 
-
 import static graph.constants.GraphColumns.TITLE;
 import static graph.constants.VisualizationParameters.NODE_DIAMETER;
 import static prefuse.Constants.EDGE_TYPE_LINE;

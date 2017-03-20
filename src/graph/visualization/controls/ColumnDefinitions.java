@@ -14,9 +14,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.stream.Stream;
 
-import static graph.enums.QueryPlanArgumentKeys.DB_HITS;
-import static graph.enums.QueryPlanArgumentKeys.ESTIMATED_ROWS;
-import static graph.enums.QueryPlanArgumentKeys.ROWS;
+import static graph.enums.QueryPlanArgumentKeys.*;
 import static java.util.stream.Collectors.joining;
 import static java.util.stream.Collectors.toSet;
 

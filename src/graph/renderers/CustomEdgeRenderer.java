@@ -12,7 +12,6 @@ import java.awt.geom.AffineTransform;
 import java.awt.geom.Point2D;
 import java.util.List;
 
-
 import static graph.constants.VisualizationParameters.EDGE_THICKNESS;
 import static graph.constants.VisualizationParameters.NODE_DIAMETER;
 
@@ -49,7 +48,7 @@ public class CustomEdgeRenderer extends EdgeRenderer {
 
             if (intersections.size() == 0) {
                 try {
-                    throw new Exception("Andrew Naydyonock",null);
+                    throw new Exception("What have I become my sweetest friend, everyone I know goes away in the end.",null);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

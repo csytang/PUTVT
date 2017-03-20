@@ -2,12 +2,10 @@ package graph.query;
 
 
 import graph.pycharm.console.GraphRelationship;
-import graph.query.Neo4jBoltPropertyContainer;
 import graph.visualization.api.GraphNode;
 import graph.visualization.api.GraphPropertyContainer;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
