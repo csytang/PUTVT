@@ -26,14 +26,17 @@ public class ColorProvider {
     /*
      * Pastel color PALETTE for node coloring
      */
-    private static final int ROT_1 = ColorLib.rgb(86, 219, 127);
-    private static final int ROT_2 = ColorLib.rgb(86, 211, 219);
-    private static final int ROT_3 = ColorLib.rgb(86, 111, 219);
-    private static final int ROT_4 = ColorLib.rgb(145, 219, 86);
-    private static final int ROT_5 = ColorLib.rgb(160, 86, 219);
-    private static final int ROT_6 = ColorLib.rgb(219, 86, 178);
-    private static final int ROT_7 = ColorLib.rgb(219, 94, 86);
-    private static final int ROT_8 = ColorLib.rgb(219, 194, 86);
+    private static final int ROT_1 = ColorLib.rgb(0, 255, 0); //100
+    private static final int ROT_2 = ColorLib.rgb(43, 255, 0); //90
+    private static final int ROT_3 = ColorLib.rgb(86, 255, 0); //80
+    private static final int ROT_4 = ColorLib.rgb(129, 255, 0); //70
+    private static final int ROT_5 = ColorLib.rgb(172, 255, 0);  //60
+    private static final int ROT_6 = ColorLib.rgb(255, 255, 0);  //50
+    private static final int ROT_7 = ColorLib.rgb(255, 172, 0); //40
+    private static final int ROT_8 = ColorLib.rgb(255, 129, 0); //30
+    private static final int ROT_9 = ColorLib.rgb(255, 86, 0);  //20
+    private static final int ROT_10 = ColorLib.rgb(255, 43, 0); //10
+    private static final int ROT_11 = ColorLib.rgb(255, 0, 0); //0
 
     private static final int GRAY = ColorLib.rgb(178, 178, 178);
     private static final int GRAY_DARK = ColorLib.rgb(90, 90, 90);
@@ -46,7 +49,7 @@ public class ColorProvider {
     private static final int NODE_STROKE_HOVER = GRAY_DARK;
     private static final int NODE_STROKE_HIGHLIGHT = GRAY_DARK;
 
-    private static final int[] PALETTE = {ROT_1, ROT_2, ROT_3, ROT_4, ROT_5, ROT_6, ROT_7, ROT_8};
+    private static final int[] PALETTE = {ROT_11, ROT_10, ROT_9, ROT_8, ROT_7, ROT_6, ROT_5, ROT_4, ROT_4, ROT_3, ROT_2, ROT_1};
 
     public static ActionList colors(LookAndFeelService lookAndFeelService) {
         ActionList colors = new ActionList();
