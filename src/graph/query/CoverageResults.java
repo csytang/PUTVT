@@ -8,10 +8,7 @@ import com.intellij.psi.search.FilenameIndex;
 import com.intellij.psi.search.GlobalSearchScope;
 import graph.helper.ProjectFileNamesUtil;
 import graph.pycharm.console.GraphRelationship;
-import graph.query.api.GraphQueryNotification;
-import graph.query.api.GraphQueryPlan;
-import graph.query.api.GraphQueryResultColumn;
-import graph.query.api.GraphQueryResultRow;
+import graph.query.api.ResultsPlan;
 import graph.query.graph.GraphCoverageResult;
 import graph.visualization.api.GraphNode;
 
@@ -84,16 +81,6 @@ public class CoverageResults implements GraphCoverageResult {
 
 
     @Override
-    public List<GraphQueryResultColumn> getColumns() {
-        return new ArrayList<>();
-    }
-
-    @Override
-    public List<GraphQueryResultRow> getRows() {
-        return new ArrayList<>();
-    }
-
-    @Override
     public List<GraphNode> getNodes() {
         List<String> namesOfFiles = ProjectFileNamesUtil.getFileNamesFromProject(project.getBaseDir());
 
@@ -112,18 +99,13 @@ public class CoverageResults implements GraphCoverageResult {
 
     @Override
     public List<GraphRelationship> getRelationships() {
-      /*  Neo4jBoltRelationship relationship = new Neo4jBoltRelationship("rel");
+      /*  NodeRelationship relationship = new NodeRelationship("rel");
         relationship.setStartNode(nodes.get(0));
         relationship.setEndNode(nodes.get(1));*/
 
         List<GraphRelationship> relatonships = new ArrayList<>();
        // relatonships.add(relationship);
         return relatonships;
-    }
-
-    @Override
-    public List<GraphQueryNotification> getNotifications() {
-        return new ArrayList<>();
     }
 
     @Override
@@ -137,12 +119,14 @@ public class CoverageResults implements GraphCoverageResult {
     }
 
     @Override
-    public Optional<GraphQueryPlan> getPlan() {
+    public Optional<ResultsPlan> getPlan() {
         return Optional.of(null);
     }
 
     private Integer getCovForFile(String fileName){
         PsiFile[] file = FilenameIndex.getFilesByName(project, fileName, GlobalSearchScope.allScope(project));
+        CharSequence contents = file[0].getViewProvider().getContents();
+
         CoverageDataManager coverageDataManager = CoverageDataManager.getInstance(project);
         CoverageSuitesBundle coverageSuitesBundle = coverageDataManager.getCurrentSuitesBundle();
         String info = CoverageDataManager.getInstance(project).getCurrentSuitesBundle().getAnnotator(project).getFileCoverageInformationString(file[0],coverageSuitesBundle, coverageDataManager);

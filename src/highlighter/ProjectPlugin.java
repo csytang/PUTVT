@@ -1,9 +1,12 @@
 package highlighter;
 
 import com.intellij.execution.ExecutionManager;
+import com.intellij.execution.testframework.TestStatusListener;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.vfs.VirtualFileManager;
 import com.intellij.util.messages.MessageBusConnection;
+import com.jetbrains.python.testing.PyTestFrameworkService;
+import com.jetbrains.python.testing.VFSTestFrameworkListener;
 import highlighter.handlers.DisplayHandler;
 import highlighter.listeners.ConsoleRunListener;
 import highlighter.listeners.EditorManagerListener;

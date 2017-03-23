@@ -4,9 +4,9 @@ import com.intellij.util.messages.Topic;
 import graph.query.graph.GraphCoverageResult;
 
 
-public interface QueryPlanEvent {
+public interface ResultsPlanEvent {
 
-    Topic<QueryPlanEvent> QUERY_PLAN_EVENT = Topic.create("GraphDatabaseConsole.QueryPlanEvent", QueryPlanEvent.class);
+    Topic<ResultsPlanEvent> QUERY_PLAN_EVENT = Topic.create("GraphDatabaseConsole.ResultsPlanEvent", ResultsPlanEvent.class);
 
     void queryPlanReceived(String query, GraphCoverageResult result);
 }

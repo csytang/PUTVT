@@ -1,7 +1,5 @@
 package highlighter.listeners;
 
-import com.intellij.coverage.CoverageDataManager;
-import com.intellij.coverage.CoverageSuitesBundle;
 import com.intellij.execution.ExecutionListener;
 import com.intellij.execution.configurations.RunProfile;
 import com.intellij.execution.process.ProcessAdapter;
@@ -10,7 +8,6 @@ import com.intellij.execution.process.ProcessHandler;
 import com.intellij.execution.runners.ExecutionEnvironment;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.util.Key;
-import graph.pycharm.implementations.CoveragePile;
 import highlighter.highlighters.HighlightingMainController;
 import org.jetbrains.annotations.NotNull;
 
@@ -90,7 +87,6 @@ public class ConsoleRunListener implements ExecutionListener{
 
     @Override
     public void processTerminating(@NotNull RunProfile runProfile, @NotNull ProcessHandler processHandler) {
-
     }
 
     @Override
@@ -100,14 +96,5 @@ public class ConsoleRunListener implements ExecutionListener{
                 HighlightingMainController.getInstance(executedLines);
         }
         executedLines="";
-        CoverageSuitesBundle coverageSuite = CoverageDataManager.getInstance(project).getCurrentSuitesBundle();
-        if (coverageSuite.isValid()) {
-            CoveragePile coveragePile = CoveragePile.getInstance();
-            if (coverageSuite.getAnnotator(project).equals(coveragePile.getCoverageAnnotator()))
-            {
-                return;
-            }
-            coveragePile.setCoverageAnnotator(coverageSuite.getAnnotator(project));
-        }
     }
 }

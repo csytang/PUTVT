@@ -11,7 +11,7 @@ import java.util.Objects;
 public class CoverageNode implements GraphNode {
 
     private final String id;
-    private final Neo4jBoltPropertyContainer propertyContainer;
+    private final ResultsPropertyContainer propertyContainer;
     private final List<String> types;
     private Integer coverage;
     private int color = 0;
@@ -19,7 +19,7 @@ public class CoverageNode implements GraphNode {
     public CoverageNode(String id) {
         this.id = id;
         this.types = new ArrayList<>();
-        this.propertyContainer = new Neo4jBoltPropertyContainer();
+        this.propertyContainer = new ResultsPropertyContainer();
     }
 
     public Integer getCoverage() {

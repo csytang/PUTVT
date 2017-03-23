@@ -25,7 +25,7 @@ import com.intellij.util.ui.UIUtil;
 import graph.constants.GraphConstants;
 import graph.pycharm.console.GraphPanel;
 import graph.pycharm.services.LookAndFeelService;
-import graph.query.QueryPlanEvent;
+import graph.query.ResultsPlanEvent;
 import graph.query.graph.GraphCoverageResult;
 import graph.visualization.layouts.QueryPlanPanel;
 
@@ -118,7 +118,7 @@ public class GraphConsoleView implements Disposable {
             });
 
             AtomicInteger tabId = new AtomicInteger(0);
-            project.getMessageBus().connect().subscribe(QueryPlanEvent.QUERY_PLAN_EVENT,
+            project.getMessageBus().connect().subscribe(ResultsPlanEvent.QUERY_PLAN_EVENT,
                     (query, result) -> createNewQueryPlanTab(query, result, tabId.incrementAndGet()));
 
             // Actions

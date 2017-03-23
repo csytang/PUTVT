@@ -20,12 +20,6 @@ public class ColumnResizer implements TableModelListener {
         minMargin = strWidth("ww");
     }
 
-    public ColumnResizer(JTable table, Integer maxWidth) {
-        this.table = table;
-        this.maxWidth = maxWidth;
-        minMargin = strWidth("ww");
-    }
-
     public void resize() {
 
         int cols = table.getColumnCount();

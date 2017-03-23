@@ -14,8 +14,7 @@ import graph.helper.PropertyTreeCellRenderer;
 import graph.helper.UiHelper;
 import graph.pycharm.GraphConsoleView;
 import graph.pycharm.services.LookAndFeelService;
-import graph.query.ExecuteQueryPayload;
-import graph.query.QueryExecutionProcessEvent;
+import graph.query.ResultsProcessEvent;
 import graph.query.graph.GraphCoverageResult;
 import graph.visualization.api.GraphEntity;
 import graph.visualization.api.GraphNode;
@@ -57,14 +56,14 @@ public class GraphPanel {
         // Entity data table
         entityDetailsTree.setCellRenderer(new PropertyTreeCellRenderer());
         entityDetailsTree.setModel(entityDetailsTreeModel);
-        messageBus.connect().subscribe(QueryExecutionProcessEvent.QUERY_EXECUTION_PROCESS_TOPIC, new QueryExecutionProcessEvent() {
+        messageBus.connect().subscribe(ResultsProcessEvent.QUERY_EXECUTION_PROCESS_TOPIC, new ResultsProcessEvent() {
             @Override
-            public void executionStarted(ExecuteQueryPayload payload) {
+            public void executionStarted() {
                 entityDetailsTreeModel.setRoot(null);
             }
 
             @Override
-            public void resultReceived(ExecuteQueryPayload payload, GraphCoverageResult result) {
+            public void resultReceived( GraphCoverageResult result) {
                 if (result.getNodes().isEmpty()) {
                     entityDetailsTreeModel.setRoot(null);
                 } else {
@@ -73,15 +72,15 @@ public class GraphPanel {
             }
 
             @Override
-            public void postResultReceived(ExecuteQueryPayload payload) {
+            public void postResultReceived() {
             }
 
             @Override
-            public void handleError(ExecuteQueryPayload payload, Exception exception) {
+            public void handleError( Exception exception) {
             }
 
             @Override
-            public void executionCompleted(ExecuteQueryPayload payload) {
+            public void executionCompleted() {
             }
         });
 

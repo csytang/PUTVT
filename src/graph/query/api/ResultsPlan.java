@@ -3,7 +3,7 @@ package graph.query.api;
 import java.util.List;
 import java.util.Map;
 
-public interface GraphQueryPlan {
+public interface ResultsPlan {
 
     String getOperatorType();
 
@@ -11,6 +11,6 @@ public interface GraphQueryPlan {
 
     List<String> getIdentifiers();
 
-    List<? extends GraphQueryPlan> children();
+    List<? extends ResultsPlan> children();
 
 }

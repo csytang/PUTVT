@@ -1,16 +1,12 @@
 package graph.pycharm.console;
 
-import com.intellij.codeInsight.hint.HintManager;
 import com.intellij.openapi.project.Project;
 import com.intellij.util.messages.MessageBus;
 import graph.enums.EventType;
 import graph.events.CleanCanvasEvent;
-import graph.events.ExecuteQueryEvent;
 import graph.pycharm.GraphConsoleView;
 import graph.pycharm.api.VisualizationApi;
-import graph.pycharm.services.QueryExecutionService;
-import graph.query.ExecuteQueryPayload;
-import graph.query.QueryExecutionProcessEvent;
+import graph.query.ResultsProcessEvent;
 import graph.query.graph.GraphCoverageResult;
 
 
@@ -18,7 +14,6 @@ public class GraphPanelInteractions {
 
     private final GraphConsoleView graphConsoleView;
     private final MessageBus messageBus;
-    private final QueryExecutionService queryExecutionService;
     private final VisualizationApi visualization;
 
     public GraphPanelInteractions(GraphConsoleView graphConsoleView,
@@ -26,7 +21,6 @@ public class GraphPanelInteractions {
         this.graphConsoleView = graphConsoleView;
         this.messageBus = messageBus;
         this.visualization = visualization;
-        this.queryExecutionService = new QueryExecutionService(messageBus, project);
 
         registerMessageBusSubscribers();
         registerVisualisationEvents();
@@ -34,43 +28,40 @@ public class GraphPanelInteractions {
 
     private void registerMessageBusSubscribers() {
         messageBus.connect()
-                .subscribe(ExecuteQueryEvent.EXECUTE_QUERY_TOPIC, queryExecutionService::executeQuery);
-        messageBus.connect()
                 .subscribe(CleanCanvasEvent.CLEAN_CANVAS_TOPIC, () -> {
                     visualization.stop();
                     visualization.clear();
                     visualization.paint();
                 });
         messageBus.connect()
-                .subscribe(QueryExecutionProcessEvent.QUERY_EXECUTION_PROCESS_TOPIC, new QueryExecutionProcessEvent() {
+                .subscribe(ResultsProcessEvent.QUERY_EXECUTION_PROCESS_TOPIC, new ResultsProcessEvent() {
                     @Override
-                    public void executionStarted(ExecuteQueryPayload payload) {
+                    public void executionStarted() {
                         visualization.stop();
                         visualization.clear();
                     }
 
                     @Override
-                    public void resultReceived(ExecuteQueryPayload payload, GraphCoverageResult result) {
+                    public void resultReceived(GraphCoverageResult result) {
                         result.getNodes().forEach(visualization::addNode);
                         result.getRelationships().forEach(visualization::addRelation);
                     }
 
                     @Override
-                    public void postResultReceived(ExecuteQueryPayload payload) {
+                    public void postResultReceived() {
                         visualization.paint();
                     }
 
                     @Override
-                    public void handleError(ExecuteQueryPayload payload, Exception exception) {
+                    public void handleError( Exception exception) {
                         String errorMessage = exception.getMessage() == null ? "Error occurred" : "Error occurred: " + exception.getMessage();
-                        payload.getEditor().ifPresent(editor -> HintManager.getInstance().showErrorHint(editor, errorMessage));
 
                         visualization.stop();
                         visualization.clear();
                     }
 
                     @Override
-                    public void executionCompleted(ExecuteQueryPayload payload) {
+                    public void executionCompleted() {
                     }
                 });
     }

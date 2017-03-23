@@ -1,8 +1,7 @@
 package graph.enums;
 
-public enum QueryPlanArgumentKeys {
+public enum ResultPlanArgumentKeys {
     ESTIMATED_ROWS("EstimatedRows"),
-    DB_HITS("DbHits"),
     ROWS("Rows"),
 
     PLANNER_IMPL("planner-impl"),
@@ -14,7 +13,7 @@ public enum QueryPlanArgumentKeys {
 
     private String key;
 
-    QueryPlanArgumentKeys(String key) {
+    ResultPlanArgumentKeys(String key) {
         this.key = key;
     }
 

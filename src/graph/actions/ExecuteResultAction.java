@@ -1,19 +1,15 @@
 package graph.actions;
 
-import com.intellij.coverage.CoverageDataManager;
-import com.intellij.coverage.CoverageSuitesBundle;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.CommonDataKeys;
 import com.intellij.openapi.editor.Editor;
 import com.intellij.openapi.project.Project;
 import com.intellij.util.messages.MessageBus;
-import graph.events.ExecuteQueryEvent;
 import graph.pycharm.ConsoleToolWindow;
-import graph.pycharm.implementations.DataSource;
-import graph.query.ExecuteQueryPayload;
+import graph.pycharm.services.ResultExecutionService;
 
-public class ExecuteQueryAction extends AnAction {
+public class ExecuteResultAction extends AnAction {
 
     @Override
     public void update(AnActionEvent e) {
@@ -36,18 +32,14 @@ public class ExecuteQueryAction extends AnAction {
             return;
         }
 
-
         MessageBus messageBus = project.getMessageBus();
 
-        ExecuteQueryPayload executeQueryPayload = new ExecuteQueryPayload();
+        ResultExecutionService resultExecutionService = new ResultExecutionService(messageBus,project);
         ConsoleToolWindow.ensureOpen(project);
 
-        DataSource boundDataSource = new DataSource();
+        resultExecutionService.executeResults();
 
-        CoverageSuitesBundle coverageSuitesBundle = CoverageDataManager.getInstance(project).getCurrentSuitesBundle();
-
-        ExecuteQueryEvent executeQueryEvent = messageBus.syncPublisher(ExecuteQueryEvent.EXECUTE_QUERY_TOPIC);
-        executeQueryEvent.executeQuery(boundDataSource, executeQueryPayload);
+       // messageBus.syncPublisher(ResultsProcessEvent.QUERY_EXECUTION_PROCESS_TOPIC);
     }
 
 

@@ -7,11 +7,11 @@ import graph.visualization.api.GraphPropertyContainer;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Neo4jBoltPropertyContainer implements GraphPropertyContainer {
+public class ResultsPropertyContainer implements GraphPropertyContainer {
 
     private final HashMap<String, Object> properties;
 
-    public Neo4jBoltPropertyContainer() {
+    public ResultsPropertyContainer() {
         this.properties =  new HashMap<>();
     }
 

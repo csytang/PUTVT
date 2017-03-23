@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class Neo4jBoltRelationship implements GraphRelationship {
+public class NodeRelationship implements GraphRelationship {
 
     private final String id;
     private final List<String> types;
@@ -19,10 +19,10 @@ public class Neo4jBoltRelationship implements GraphRelationship {
     private GraphNode startNode;
     private GraphNode endNode;
 
-    public Neo4jBoltRelationship(String id) {
+    public NodeRelationship(String id) {
         this.id = String.valueOf(id);
         this.types = new ArrayList<>();
-        this.propertyContainer = new Neo4jBoltPropertyContainer();
+        this.propertyContainer = new ResultsPropertyContainer();
 
         this.startNodeId = "STARTNODE";
         this.endNodeId = "ENDNODE";
@@ -94,7 +94,7 @@ public class Neo4jBoltRelationship implements GraphRelationship {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Neo4jBoltRelationship that = (Neo4jBoltRelationship) o;
+        NodeRelationship that = (NodeRelationship) o;
         return Objects.equals(id, that.id);
     }
 

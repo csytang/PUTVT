@@ -2,8 +2,8 @@ package graph.visualization.controls;
 
 import com.intellij.ui.treeStructure.treetable.TreeTableModel;
 import com.intellij.util.ui.ColumnInfo;
-import graph.enums.QueryPlanArgumentKeys;
-import graph.query.api.GraphQueryPlan;
+import graph.enums.ResultPlanArgumentKeys;
+import graph.query.api.ResultsPlan;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -14,7 +14,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.stream.Stream;
 
-import static graph.enums.QueryPlanArgumentKeys.*;
+import static graph.enums.ResultPlanArgumentKeys.*;
 import static java.util.stream.Collectors.joining;
 import static java.util.stream.Collectors.toSet;
 
@@ -33,7 +33,6 @@ public class ColumnDefinitions {
                 OPERATOR_COL,
                 ARGUMENTS_COL,
                 ROWS_COL,
-                DB_HITS_COL,
                 ESTIMATED_ROWS_COL,
                 IDENTIFIERS_COL
         };
@@ -41,8 +40,8 @@ public class ColumnDefinitions {
 
     private static final NumberFormat FORMATTER = new DecimalFormat("#0.00");
 
-    private static final Set<String> RESERVED_KEYS = Stream.of(QueryPlanArgumentKeys.values())
-            .map(QueryPlanArgumentKeys::getKey)
+    private static final Set<String> RESERVED_KEYS = Stream.of(ResultPlanArgumentKeys.values())
+            .map(ResultPlanArgumentKeys::getKey)
             .collect(toSet());
 
     private static final ColumnInfo<DefaultMutableTreeNode, String> OPERATOR_COL =
@@ -55,15 +54,12 @@ public class ColumnDefinitions {
                 @Nullable
                 @Override
                 public String valueOf(DefaultMutableTreeNode o) {
-                    return ((GraphQueryPlan) o.getUserObject()).getOperatorType();
+                    return ((ResultsPlan) o.getUserObject()).getOperatorType();
                 }
             };
 
     private static final ColumnInfo<DefaultMutableTreeNode, String> ESTIMATED_ROWS_COL =
             getArgumentColumn("Estimated rows", ESTIMATED_ROWS.getKey());
-
-    private static final ColumnInfo<DefaultMutableTreeNode, String> DB_HITS_COL =
-            getArgumentColumn("DB Hits", DB_HITS.getKey());
 
     private static final ColumnInfo<DefaultMutableTreeNode, String> ROWS_COL =
             getArgumentColumn("Rows", ROWS.getKey());
@@ -73,7 +69,7 @@ public class ColumnDefinitions {
                 @Nullable
                 @Override
                 public String valueOf(DefaultMutableTreeNode o) {
-                    return ((GraphQueryPlan) o.getUserObject()).getArguments().entrySet().stream()
+                    return ((ResultsPlan) o.getUserObject()).getArguments().entrySet().stream()
                             .filter(e -> !RESERVED_KEYS.contains(e.getKey()))
                             .map(Map.Entry::getValue)
                             .map(Object::toString)
@@ -86,7 +82,7 @@ public class ColumnDefinitions {
                 @Nullable
                 @Override
                 public String valueOf(DefaultMutableTreeNode o) {
-                    return ((GraphQueryPlan) o.getUserObject()).getIdentifiers().stream()
+                    return ((ResultsPlan) o.getUserObject()).getIdentifiers().stream()
                             .collect(joining(", "));
                 }
             };
@@ -97,7 +93,7 @@ public class ColumnDefinitions {
             @Nullable
             @Override
             public String valueOf(DefaultMutableTreeNode o) {
-                return ((GraphQueryPlan) o.getUserObject()).getArguments().entrySet().stream()
+                return ((ResultsPlan) o.getUserObject()).getArguments().entrySet().stream()
                         .filter(e -> e.getKey().equalsIgnoreCase(argumentKey))
                         .map(Map.Entry::getValue)
                         .findFirst()

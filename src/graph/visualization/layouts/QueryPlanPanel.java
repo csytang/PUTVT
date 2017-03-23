@@ -13,7 +13,7 @@ import com.intellij.ui.dualView.TreeTableView;
 import com.intellij.ui.treeStructure.treetable.ListTreeTableModelOnColumns;
 import com.intellij.ui.treeStructure.treetable.TreeTableCellRenderer;
 import com.intellij.ui.treeStructure.treetable.TreeTableModel;
-import graph.query.api.GraphQueryPlan;
+import graph.query.api.ResultsPlan;
 import graph.query.graph.GraphCoverageResult;
 import graph.visualization.controls.ColumnResizer;
 import org.jetbrains.annotations.NotNull;
@@ -23,12 +23,11 @@ import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.MutableTreeNode;
 import javax.swing.tree.TreeCellRenderer;
 import java.awt.*;
-import java.util.Collection;
 import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Stream;
 
-import static graph.enums.QueryPlanArgumentKeys.*;
+import static graph.enums.ResultPlanArgumentKeys.*;
 import static graph.visualization.controls.ColumnDefinitions.getProfileQueryPlanColumns;
 import static graph.visualization.controls.ColumnDefinitions.getQueryPlanColumns;
 
@@ -49,11 +48,11 @@ public class QueryPlanPanel implements Disposable {
         queryLabel.setRows(3);
         queryLabel.setEditable(false);
 
-        GraphQueryPlan graphQueryPlan = result.getPlan()
+        ResultsPlan resultsPlan = result.getPlan()
                 .orElseThrow(() ->
                         new RuntimeException());
 
-        ListTreeTableModelOnColumns model = createModel(graphQueryPlan, result.isProfilePlan());
+        ListTreeTableModelOnColumns model = createModel(resultsPlan, result.isProfilePlan());
 
         treeTable = new TreeTableView(model);
         treeTable.setAutoCreateColumnsFromModel(true);
@@ -105,7 +104,7 @@ public class QueryPlanPanel implements Disposable {
                 });
     }
 
-    private ListTreeTableModelOnColumns createModel(GraphQueryPlan plan, boolean isProfilePlan) {
+    private ListTreeTableModelOnColumns createModel(ResultsPlan plan, boolean isProfilePlan) {
         MutableTreeNode rootNode = new DefaultMutableTreeNode(plan);
         addChildrenPlansToModel(plan, rootNode);
 
@@ -113,7 +112,7 @@ public class QueryPlanPanel implements Disposable {
                 isProfilePlan ? getProfileQueryPlanColumns() : getQueryPlanColumns());
     }
 
-    private void addChildrenPlansToModel(GraphQueryPlan plan, MutableTreeNode node) {
+    private void addChildrenPlansToModel(ResultsPlan plan, MutableTreeNode node) {
         plan.children()
                 .forEach(p -> {
                     MutableTreeNode childNode = new DefaultMutableTreeNode(p);
@@ -132,7 +131,7 @@ public class QueryPlanPanel implements Disposable {
     private static String getStatusText(GraphCoverageResult result) {
         StringBuilder sb = new StringBuilder();
 
-        Optional<GraphQueryPlan> plan = result.getPlan();
+        Optional<ResultsPlan> plan = result.getPlan();
         if (plan.isPresent()) {
             Map<String, Object> args = plan.get().getArguments();
             sb.append("Cypher version: ").append(args.getOrDefault(VERSION.getKey(), '-')).append(", ")

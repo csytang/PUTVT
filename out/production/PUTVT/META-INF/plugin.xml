@@ -101,7 +101,7 @@
            text="Graph Dependency Console Tool Window Actions">
 
       <action id="GraphDatabaseConsoleToolWindowActions.ExecuteQuery"
-              class="graph.actions.ExecuteQueryAction"
+              class="graph.actions.ExecuteResultAction"
               text="Execute query"
               description="Execute query">
       </action>
