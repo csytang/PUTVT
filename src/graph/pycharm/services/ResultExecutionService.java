@@ -22,10 +22,9 @@ public class ResultExecutionService {
         try {
             executeInBackground();
         } catch (Exception e) {
-
+            System.out.println(e.getMessage());
         }
     }
-
     private void executeInBackground() {
         ResultsProcessEvent event = messageBus.syncPublisher(ResultsProcessEvent.QUERY_EXECUTION_PROCESS_TOPIC);
         event.executionStarted();

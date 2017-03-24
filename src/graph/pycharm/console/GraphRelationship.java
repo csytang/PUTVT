@@ -7,6 +7,10 @@ public interface GraphRelationship extends GraphEntity {
 
     boolean hasStartAndEndNode();
 
+    Integer relationWeight();
+
+    void setWeight(Integer weight);
+
     String getStartNodeId();
 
     String getEndNodeId();

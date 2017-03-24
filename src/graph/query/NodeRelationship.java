@@ -12,6 +12,7 @@ import java.util.Objects;
 public class NodeRelationship implements GraphRelationship {
 
     private final String id;
+    private Integer weight;
     private final List<String> types;
     private final GraphPropertyContainer propertyContainer;
     private final String startNodeId;
@@ -74,6 +75,16 @@ public class NodeRelationship implements GraphRelationship {
     @Override
     public boolean hasStartAndEndNode() {
         return startNode != null && endNode != null;
+    }
+
+    @Override
+    public Integer relationWeight() {
+        return this.weight;
+    }
+
+    @Override
+    public void setWeight(Integer weight){
+        this.weight = weight;
     }
 
     @Override

@@ -2,12 +2,15 @@ package graph.pycharm.console;
 
 import com.intellij.openapi.project.Project;
 import com.intellij.util.messages.MessageBus;
+import com.intellij.vcs.log.Hash;
 import graph.enums.EventType;
 import graph.events.CleanCanvasEvent;
 import graph.pycharm.GraphConsoleView;
 import graph.pycharm.api.VisualizationApi;
 import graph.query.ResultsProcessEvent;
 import graph.query.graph.GraphCoverageResult;
+
+import java.util.Hashtable;
 
 
 public class GraphPanelInteractions {

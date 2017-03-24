@@ -6,16 +6,19 @@ import com.intellij.openapi.project.Project;
 import com.intellij.psi.PsiFile;
 import com.intellij.psi.search.FilenameIndex;
 import com.intellij.psi.search.GlobalSearchScope;
-import graph.helper.ProjectFileNamesUtil;
+import graph.helper.*;
 import graph.pycharm.console.GraphRelationship;
+import graph.pycharm.services.RelationsService;
 import graph.query.api.ResultsPlan;
 import graph.query.graph.GraphCoverageResult;
 import graph.visualization.api.GraphNode;
 
 import java.util.ArrayList;
+import java.util.Hashtable;
 import java.util.List;
 import java.util.Optional;
 
+import static graph.helper.ProjectFileNamesUtil.getFileNamesFromProject;
 import static java.lang.String.format;
 
 /**
@@ -25,6 +28,8 @@ public class CoverageResults implements GraphCoverageResult {
 
 
     private Project project;
+
+    private Hashtable nodeHashTable = new Hashtable();
 
     public CoverageResults(Project project) {
         this.project=project;
@@ -82,7 +87,7 @@ public class CoverageResults implements GraphCoverageResult {
 
     @Override
     public List<GraphNode> getNodes() {
-        List<String> namesOfFiles = ProjectFileNamesUtil.getFileNamesFromProject(project.getBaseDir());
+        List<String> namesOfFiles = getFileNamesFromProject(project.getBaseDir());
 
         List<GraphNode> nodes = new ArrayList<>();
         int i = 0;
@@ -90,8 +95,9 @@ public class CoverageResults implements GraphCoverageResult {
             String[] str = nameOfFile.split("/");
             String file = str[str.length-1];
             CoverageNode node = new CoverageNode(file);
-            node.setCoverage(getCovForFile(file));
+            node.setCoverage(GetOnlyCoveragedFileNames.getCovForFile(file,project));
             node.setColor(node.getCoverage()/10);
+            nodeHashTable.put(file, node);
             nodes.add(node);
         }
         return nodes;
@@ -99,12 +105,26 @@ public class CoverageResults implements GraphCoverageResult {
 
     @Override
     public List<GraphRelationship> getRelationships() {
-      /*  NodeRelationship relationship = new NodeRelationship("rel");
-        relationship.setStartNode(nodes.get(0));
-        relationship.setEndNode(nodes.get(1));*/
-
+        Hashtable relations = RelationsService.getRelations(project);
         List<GraphRelationship> relatonships = new ArrayList<>();
-       // relatonships.add(relationship);
+        List<String> filePaths = ProjectFileNamesUtil.getFileNamesFromProject(project.getBaseDir());
+        for (String filePath : filePaths){
+            String str[] = filePath.split("/");
+            String name = str[str.length-1];
+            CoverageNode startNode = (CoverageNode) nodeHashTable.get(name);
+            ImportFileUtil importFileUtil = (ImportFileUtil) relations.get(name);
+            if (importFileUtil != null){
+                for (ImportFrom importFrom : importFileUtil.getImportFromList())
+                {
+                    NodeRelationship relation = new NodeRelationship(importFrom.getName() + "_" + name);
+                    relation.setWeight(getRelationWeight(importFrom));
+                    relation.setStartNode(startNode);
+                    CoverageNode endNode = (CoverageNode) nodeHashTable.get(importFrom.getName());
+                    relation.setEndNode(endNode);
+                    relatonships.add(relation);
+                }
+            }
+        }
         return relatonships;
     }
 
@@ -123,18 +143,12 @@ public class CoverageResults implements GraphCoverageResult {
         return Optional.of(null);
     }
 
-    private Integer getCovForFile(String fileName){
-        PsiFile[] file = FilenameIndex.getFilesByName(project, fileName, GlobalSearchScope.allScope(project));
-        CharSequence contents = file[0].getViewProvider().getContents();
-
-        CoverageDataManager coverageDataManager = CoverageDataManager.getInstance(project);
-        CoverageSuitesBundle coverageSuitesBundle = coverageDataManager.getCurrentSuitesBundle();
-        String info = CoverageDataManager.getInstance(project).getCurrentSuitesBundle().getAnnotator(project).getFileCoverageInformationString(file[0],coverageSuitesBundle, coverageDataManager);
-        if (info.contains("%")){
-            String[] str = info.split("%");
-            return Integer.parseInt(str[0]);
+    private Integer getRelationWeight(ImportFrom importFrom){
+        int weight = 0;
+        for (IntegerKeyValuePair keyValuePair : importFrom.getKeyValuePairList()){
+            weight += keyValuePair.getValue();
         }
-        return 0;
-
+        return weight;
     }
+
 }
