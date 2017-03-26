@@ -6,6 +6,7 @@ import prefuse.Constants;
 import prefuse.action.ActionList;
 import prefuse.action.assignment.ColorAction;
 import prefuse.action.assignment.DataColorAction;
+import prefuse.action.assignment.DataSizeAction;
 import prefuse.action.assignment.StrokeAction;
 import prefuse.util.ColorLib;
 import prefuse.visual.VisualItem;
@@ -13,6 +14,7 @@ import prefuse.visual.VisualItem;
 import java.awt.*;
 
 import static graph.constants.GraphColumns.COLOR_NUMBER;
+import static graph.constants.GraphColumns.EDGE_SIZE;
 import static graph.constants.GraphGroups.EDGES;
 import static graph.constants.GraphGroups.NODES;
 import static graph.constants.VisualizationParameters.EDGE_THICKNESS;
@@ -57,7 +59,7 @@ public class ColorProvider {
         colors.add(getNodeFill(lookAndFeelService));
         colors.add(getNodeStrokeThickness());
         colors.add(getEdgeStrokeThickness());
-
+        colors.add(getEdgeThickness());
         return colors;
     }
 
@@ -67,6 +69,11 @@ public class ColorProvider {
         stroke.add(HOVER, new BasicStroke(EDGE_THICKNESS));
 
         return stroke;
+    }
+
+    private static DataSizeAction getEdgeThickness(){
+        DataSizeAction edgeWidth = new DataSizeAction(EDGES, EDGE_SIZE);
+        return edgeWidth;
     }
 
     private static StrokeAction getEdgeStrokeThickness() {

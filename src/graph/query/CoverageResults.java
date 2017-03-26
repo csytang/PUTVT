@@ -112,8 +112,8 @@ public class CoverageResults implements GraphCoverageResult {
             if (importFileUtil != null){
                 for (ImportFrom importFrom : importFileUtil.getImportFromList())
                 {
-                    NodeRelationship relation = new NodeRelationship(name + "->" + importFrom.getName());
-                    relation.setWeight(getRelationWeight(importFrom));
+                    NodeRelationship relation = new NodeRelationship(getRelationWeight(importFrom).toString());
+                    relation.setWeight((float) (getRelationWeight(importFrom)*1.5));
                     relation.setStartNode(startNode);
                     CoverageNode endNode = (CoverageNode) nodeHashTable.get(importFrom.getName());
                     relation.setEndNode(endNode);

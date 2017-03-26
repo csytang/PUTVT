@@ -65,13 +65,14 @@ public class GraphDisplay extends Display {
         graph.addColumn(TYPE, String.class);
         graph.addColumn(TITLE, String.class);
         graph.addColumn(COLOR_NUMBER, int.class);
+        graph.addColumn(EDGE_SIZE, float.class);
 
         m_vis.addGraph(GRAPH, graph, null, SchemaProvider.provideNodeSchema(), SchemaProvider.provideEdgeSchema());
         m_vis.setInteractive(EDGES, null, false);
         m_vis.setValue(NODES, null, VisualItem.SHAPE, SHAPE_ELLIPSE);
 
         m_vis.addDecorators(NODE_LABEL, NODES, SchemaProvider.provideFontSchema());
-//        m_vis.addDecorators(EDGE_LABEL, EDGES, SchemaProvider.provideFontSchemaWithBackground());
+        m_vis.addDecorators(EDGE_LABEL, EDGES, SchemaProvider.provideFontSchemaWithBackground());
 
         m_vis.setRendererFactory(setupRenderer());
 
@@ -122,6 +123,7 @@ public class GraphDisplay extends Display {
             Edge edge = graph.addEdge(nodeMap.get(start), nodeMap.get(end));
             edge.set(ID, graphRelationship.getId());
             edge.set(TITLE, graphRelationship.getId());
+            edge.set(EDGE_SIZE, graphRelationship.relationWeight());
             graphRelationshipMap.put(graphRelationship.getId(), graphRelationship);
         }
     }

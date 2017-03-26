@@ -8,7 +8,7 @@ import prefuse.render.LabelRenderer;
 import prefuse.render.ShapeRenderer;
 
 import static graph.constants.GraphColumns.TITLE;
-import static graph.constants.VisualizationParameters.NODE_DIAMETER;
+import static graph.constants.VisualizationParameters.NODE_SIZE;
 import static prefuse.Constants.EDGE_TYPE_LINE;
 
 public class RendererProvider {
@@ -17,21 +17,21 @@ public class RendererProvider {
 
     public static LabelRenderer labelRenderer() {
         LabelRenderer labelRenderer = new LabelRenderer(TITLE);
-        labelRenderer.setMaxTextWidth(NODE_DIAMETER - TEXT_OVERLAP);
+        labelRenderer.setMaxTextWidth(NODE_SIZE - TEXT_OVERLAP);
 
         return labelRenderer;
     }
 
     public static LabelRenderer edgeLabelRenderer() {
         LabelRenderer labelRenderer = new LabelRenderer(TITLE);
-        labelRenderer.setMaxTextWidth(NODE_DIAMETER - TEXT_OVERLAP);
+        labelRenderer.setMaxTextWidth(NODE_SIZE - TEXT_OVERLAP);
 
         return labelRenderer;
     }
 
     public static ShapeRenderer nodeRenderer() {
         ShapeRenderer nodeRenderer = new ShapeRenderer();
-        nodeRenderer.setBaseSize(NODE_DIAMETER);
+        nodeRenderer.setBaseSize(NODE_SIZE);
 
         return nodeRenderer;
     }

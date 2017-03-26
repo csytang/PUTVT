@@ -13,11 +13,11 @@ import java.awt.geom.Point2D;
 import java.util.List;
 
 import static graph.constants.VisualizationParameters.EDGE_THICKNESS;
-import static graph.constants.VisualizationParameters.NODE_DIAMETER;
+import static graph.constants.VisualizationParameters.NODE_SIZE;
 
 public class CustomEdgeRenderer extends EdgeRenderer {
 
-    private static final double RADIUS = (NODE_DIAMETER + EDGE_THICKNESS) / 2;
+    private static final double RADIUS = (NODE_SIZE + EDGE_THICKNESS) / 2;
 
     public CustomEdgeRenderer(int edgeTypeLine) {
         super(edgeTypeLine);
