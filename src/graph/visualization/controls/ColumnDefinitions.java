@@ -14,7 +14,8 @@ import java.util.Map;
 import java.util.Set;
 import java.util.stream.Stream;
 
-import static graph.enums.ResultPlanArgumentKeys.*;
+import static graph.enums.ResultPlanArgumentKeys.ESTIMATED_ROWS;
+import static graph.enums.ResultPlanArgumentKeys.ROWS;
 import static java.util.stream.Collectors.joining;
 import static java.util.stream.Collectors.toSet;
 

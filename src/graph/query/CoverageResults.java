@@ -1,11 +1,6 @@
 package graph.query;
 
-import com.intellij.coverage.CoverageDataManager;
-import com.intellij.coverage.CoverageSuitesBundle;
 import com.intellij.openapi.project.Project;
-import com.intellij.psi.PsiFile;
-import com.intellij.psi.search.FilenameIndex;
-import com.intellij.psi.search.GlobalSearchScope;
 import graph.helper.*;
 import graph.pycharm.console.GraphRelationship;
 import graph.pycharm.services.RelationsService;
@@ -96,6 +91,7 @@ public class CoverageResults implements GraphCoverageResult {
             String file = str[str.length-1];
             CoverageNode node = new CoverageNode(file);
             node.setCoverage(GetOnlyCoveragedFileNames.getCovForFile(file,project));
+            node.getTypes().add("Coverage is: " + node.getCoverage() + "%.");
             node.setColor(node.getCoverage()/10);
             nodeHashTable.put(file, node);
             nodes.add(node);
@@ -116,11 +112,12 @@ public class CoverageResults implements GraphCoverageResult {
             if (importFileUtil != null){
                 for (ImportFrom importFrom : importFileUtil.getImportFromList())
                 {
-                    NodeRelationship relation = new NodeRelationship(importFrom.getName() + "_" + name);
+                    NodeRelationship relation = new NodeRelationship(name + "->" + importFrom.getName());
                     relation.setWeight(getRelationWeight(importFrom));
                     relation.setStartNode(startNode);
                     CoverageNode endNode = (CoverageNode) nodeHashTable.get(importFrom.getName());
                     relation.setEndNode(endNode);
+                    setRelationTypes(relation.getTypes(), importFrom);
                     relatonships.add(relation);
                 }
             }
@@ -149,6 +146,15 @@ public class CoverageResults implements GraphCoverageResult {
             weight += keyValuePair.getValue();
         }
         return weight;
+    }
+
+    private void setRelationTypes(List<String> types, ImportFrom importFrom){
+        if (types.size() == 0){
+            types.add("Usage from module:Times used in code");
+        }
+        for (IntegerKeyValuePair keyValuePair : importFrom.getKeyValuePairList()){
+            types.add(keyValuePair.getKey() + ":" + keyValuePair.getValue());
+        }
     }
 
 }

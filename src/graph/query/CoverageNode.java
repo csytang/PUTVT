@@ -12,7 +12,7 @@ public class CoverageNode implements GraphNode {
 
     private final String id;
     private final ResultsPropertyContainer propertyContainer;
-    private final List<String> types;
+    private List<String> types;
     private Integer coverage;
     private int color = 0;
 

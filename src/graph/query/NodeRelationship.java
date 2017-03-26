@@ -15,8 +15,8 @@ public class NodeRelationship implements GraphRelationship {
     private Integer weight;
     private final List<String> types;
     private final GraphPropertyContainer propertyContainer;
-    private final String startNodeId;
-    private final String endNodeId;
+    private  String startNodeId;
+    private  String endNodeId;
     private GraphNode startNode;
     private GraphNode endNode;
 
@@ -25,8 +25,6 @@ public class NodeRelationship implements GraphRelationship {
         this.types = new ArrayList<>();
         this.propertyContainer = new ResultsPropertyContainer();
 
-        this.startNodeId = "STARTNODE";
-        this.endNodeId = "ENDNODE";
     }
 
     @Override
@@ -37,14 +35,16 @@ public class NodeRelationship implements GraphRelationship {
     @Override
     public String getEndNodeId() {
         return endNodeId;
-    }
+    }cmd 
 
     public void setStartNode(GraphNode startNode) {
         this.startNode = startNode;
+        this.startNodeId = startNode.getId();
     }
 
     public void setEndNode(GraphNode endNode) {
         this.endNode = endNode;
+        this.endNodeId = endNode.getId();
     }
 
     @Override

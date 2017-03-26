@@ -6,7 +6,6 @@ import graph.pycharm.console.GraphRelationship;
 import graph.visualization.api.GraphNode;
 
 import javax.swing.*;
-import java.util.Hashtable;
 
 public interface VisualizationApi {
 

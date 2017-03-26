@@ -21,7 +21,7 @@ public class GetOnlyCoveragedFileNames {
         for (String filename : filenames) {
             String[] str = filename.split("/");
             String name = str[str.length-1];
-            if (getCovForFile(name, project) != 0) {
+            if (getCovForFile(name, project) >= 0) {
                 coveragedFiles.add(name);
             }
         }

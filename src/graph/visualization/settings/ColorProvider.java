@@ -1,8 +1,6 @@
 package graph.visualization.settings;
 
 import graph.pycharm.services.LookAndFeelService;
-import javafx.scene.paint.*;
-import javafx.scene.paint.Color;
 import org.jetbrains.annotations.NotNull;
 import prefuse.Constants;
 import prefuse.action.ActionList;
@@ -15,7 +13,6 @@ import prefuse.visual.VisualItem;
 import java.awt.*;
 
 import static graph.constants.GraphColumns.COLOR_NUMBER;
-import static graph.constants.GraphColumns.TYPE;
 import static graph.constants.GraphGroups.EDGES;
 import static graph.constants.GraphGroups.NODES;
 import static graph.constants.VisualizationParameters.EDGE_THICKNESS;
