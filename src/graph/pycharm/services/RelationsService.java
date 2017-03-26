@@ -12,9 +12,6 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-/**
- * Created by Cegin on 24.3.2017.
- */
 public class RelationsService {
 
     public static Hashtable getRelations(Project project){
@@ -73,11 +70,26 @@ public class RelationsService {
             Matcher m = p.matcher(file);
             int poc = 0;
             while (m.find()){
-                poc++;
+                if (isAllowedCharBeforeStatement(file.charAt(m.start()-1))){
+                    poc++;
+                }
             }
             integerKeyValuePair.setValue(poc);
             integerKeyValuePairList.add(integerKeyValuePair);
         }
         return integerKeyValuePairList;
+    }
+
+    private static boolean isAllowedCharBeforeStatement(char c){
+        String str = c + "";
+        Pattern subP = Pattern.compile("[A-z0-9]");
+        Matcher subM = subP.matcher(str);
+        if (subM.find()){
+            return false;
+        }
+        if (str.equals("-") || str.equals("_") || str.equals("-")){
+             return false;
+        }
+        return true;
     }
 }
