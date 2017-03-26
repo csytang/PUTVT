@@ -14,7 +14,6 @@ public class ClearAllAction extends AnAction {
     @Override
     public void actionPerformed(AnActionEvent e) {
         Hashtable hashtable = new Hashtable();
-        hashtable.put(0, 0);
         ErrorManageFileControler.getInstance(hashtable);
     }
 

@@ -28,7 +28,7 @@ public class VisualizationAction extends AnAction {
     @Override
     public void actionPerformed(AnActionEvent e) {
 
-        Editor editor = null;
+        Editor editor;
         Hashtable hashtable = null;
 
         PatternController patternController = new PatternController();
@@ -44,6 +44,7 @@ public class VisualizationAction extends AnAction {
         } catch (IOException e1) {
             e1.printStackTrace();
         }
+        if (hashtable == null){return;}
         ErrorManageFileControler.getInstance(hashtable);
         highlightingMainController = HighlightingMainController.getInstance(null);
         highlightingMainController.finishVisualization(hashtable,editor);

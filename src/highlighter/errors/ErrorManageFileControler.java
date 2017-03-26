@@ -23,7 +23,7 @@ public class ErrorManageFileControler {
         this.errorManageFileTable = hashtable;
     }
     public static ErrorManageFileControler getInstance(Hashtable hashtable) {
-        if (hashtable!=null && hashtable.get(0) != null){
+        if (hashtable!=null && hashtable.isEmpty()){
             instance = new ErrorManageFileControler(null);
             return instance;
         }

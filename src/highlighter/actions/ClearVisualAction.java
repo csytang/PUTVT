@@ -20,7 +20,6 @@ public class ClearVisualAction extends AnAction {
 
     @Override
     public void actionPerformed(AnActionEvent e) {
-        //TODO SOLVE THE CLEAR
         Editor editor;
         try {
              editor = e.getRequiredData(CommonDataKeys.EDITOR);

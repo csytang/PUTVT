@@ -68,10 +68,13 @@ public class MainHighlighter{
                         }
                     }
 
+                    List<Integer> lines = new ArrayList<>();
                     for (Integer line : allLines){
+                        if (lines.contains(line)){continue;}
                         Color color = (Color) colors.get(line);
                         List<String> errorTypes = (List<String>) typesOferrors.get(line);
                         highlightLines(color, line, line, listToString(errorTypes), editor);
+                        lines.add(line);
                     }
                 }
 
@@ -91,13 +94,13 @@ public class MainHighlighter{
                         errorStripeMarkHighlighter.highlight(highlighter, attributes, color, testName);
 
                         sideHighlighter.highlight(highlighter, color);
-                        if (!highlights.contains(editor.getMarkupModel())){
+                        if (highlights.get(editor.getMarkupModel().toString())==null){
                             List<RangeHighlighter> rangeHighlighterList = new ArrayList<>();
                             rangeHighlighterList.add(highlighter);
-                            highlights.put(editor.getMarkupModel(), rangeHighlighterList);
+                            highlights.put(editor.getMarkupModel().toString(), rangeHighlighterList);
                         }
                         else{
-                            List<RangeHighlighter> rangeHighlighterList = (List<RangeHighlighter>) highlights.get(editor.getMarkupModel());
+                            List<RangeHighlighter> rangeHighlighterList = (List<RangeHighlighter>) highlights.get(editor.getMarkupModel().toString());
                             rangeHighlighterList.add(highlighter);
                         }
                     }
@@ -117,13 +120,14 @@ public class MainHighlighter{
     public void clear(Editor editor) {
         MarkupModel model = editor.getMarkupModel();
 
-        List<RangeHighlighter> rangeHighlighterList = (List<RangeHighlighter>) highlights.get(model);
+        List<RangeHighlighter> rangeHighlighterList = (List<RangeHighlighter>) highlights.get(model.toString());
         if (rangeHighlighterList != null && rangeHighlighterList.size() != 0) {
             for (RangeHighlighter rangeHighlighter : rangeHighlighterList) {
                 model.removeHighlighter(rangeHighlighter);
             }
         }
-        highlights.clear();
+        highlights.remove(model.toString());
+      //  highlights.clear();
     }
 
     private String listToString(List<String> lines){

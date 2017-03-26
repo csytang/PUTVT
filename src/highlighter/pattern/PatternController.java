@@ -37,6 +37,9 @@ public class PatternController {
 
         FileChooserDescriptor fileChooserDescriptor = FileChooserDescriptorFactory.createSingleFileDescriptor();
         VirtualFile virtualFile = FileChooser.chooseFile(fileChooserDescriptor, anActionEvent.getProject(), anActionEvent.getProject().getBaseDir());
+        if (virtualFile==null){
+            return null;
+        }
         Hashtable hashTable = null;
         try {
             if (patternPytestDecoder.patternDecode(virtualFile)){
