@@ -1,7 +1,7 @@
-package graph.query;
+package graph.results;
 
 import com.intellij.util.messages.Topic;
-import graph.query.graph.GraphCoverageResult;
+import graph.results.graph.GraphCoverageResult;
 
 
 public interface ResultsPlanEvent {

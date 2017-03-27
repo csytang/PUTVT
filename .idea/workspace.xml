@@ -2,13 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e64f8b46-d439-4fc4-992c-0babd518bbe1" name="Default" comment="">
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/graph/query/CoverageNode.java" afterPath="$PROJECT_DIR$/src/graph/results/CoverageNode.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/graph/query/CoverageResults.java" afterPath="$PROJECT_DIR$/src/graph/results/CoverageResults.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/graph/query/NodeRelationship.java" afterPath="$PROJECT_DIR$/src/graph/results/NodeRelationship.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/graph/query/ResultsPlanEvent.java" afterPath="$PROJECT_DIR$/src/graph/results/ResultsPlanEvent.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/graph/query/ResultsProcessEvent.java" afterPath="$PROJECT_DIR$/src/graph/results/ResultsProcessEvent.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/graph/query/ResultsPropertyContainer.java" afterPath="$PROJECT_DIR$/src/graph/results/ResultsPropertyContainer.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/graph/query/api/ResultsPlan.java" afterPath="$PROJECT_DIR$/src/graph/results/api/ResultsPlan.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/graph/query/graph/GraphCoverageResult.java" afterPath="$PROJECT_DIR$/src/graph/results/graph/GraphCoverageResult.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/graph/helper/GetOnlyCoveragedFileNames.java" afterPath="$PROJECT_DIR$/src/graph/helper/GetOnlyCoveragedFileNames.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/graph/pycharm/console/GraphRelationship.java" afterPath="$PROJECT_DIR$/src/graph/pycharm/console/GraphRelationship.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/graph/pycharm/services/RelationsService.java" afterPath="$PROJECT_DIR$/src/graph/pycharm/services/RelationsService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/graph/query/CoverageResults.java" afterPath="$PROJECT_DIR$/src/graph/query/CoverageResults.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/graph/query/NodeRelationship.java" afterPath="$PROJECT_DIR$/src/graph/query/NodeRelationship.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/graph/visualization/GraphDisplay.java" afterPath="$PROJECT_DIR$/src/graph/visualization/GraphDisplay.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/graph/pycharm/GraphConsoleView.java" afterPath="$PROJECT_DIR$/src/graph/pycharm/GraphConsoleView.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/graph/pycharm/console/GraphPanel.java" afterPath="$PROJECT_DIR$/src/graph/pycharm/console/GraphPanel.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/graph/pycharm/console/GraphPanelInteractions.java" afterPath="$PROJECT_DIR$/src/graph/pycharm/console/GraphPanelInteractions.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/graph/pycharm/services/ResultExecutionService.java" afterPath="$PROJECT_DIR$/src/graph/pycharm/services/ResultExecutionService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/graph/visualization/controls/ColumnDefinitions.java" afterPath="$PROJECT_DIR$/src/graph/visualization/controls/ColumnDefinitions.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/graph/visualization/layouts/QueryPlanPanel.java" afterPath="$PROJECT_DIR$/src/graph/visualization/layouts/QueryPlanPanel.java" />
     </list>
     <ignored path="PUTVT.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -61,25 +69,25 @@
         </entry>
       </file>
       <file leaf-file-name="CoverageResults.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/graph/query/CoverageResults.java">
+        <entry file="file://$PROJECT_DIR$/src/graph/results/CoverageResults.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="458">
-              <caret line="155" column="33" selection-start-line="155" selection-start-column="33" selection-end-line="155" selection-end-column="33" />
+            <state relative-caret-position="1020">
+              <caret line="82" column="45" selection-start-line="82" selection-start-column="45" selection-end-line="82" selection-end-column="45" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="NodeRelationship.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/graph/query/NodeRelationship.java">
+        <entry file="file://$PROJECT_DIR$/src/graph/results/NodeRelationship.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-622">
               <caret line="11" column="45" selection-start-line="11" selection-start-column="45" selection-end-line="11" selection-end-column="45" />
               <folding>
-                <element signature="e#2719#2720#0" expanded="true" />
-                <element signature="e#2752#2753#0" expanded="true" />
-                <element signature="e#2804#2805#0" expanded="true" />
-                <element signature="e#2848#2849#0" expanded="true" />
+                <element signature="e#2721#2722#0" expanded="true" />
+                <element signature="e#2754#2755#0" expanded="true" />
+                <element signature="e#2806#2807#0" expanded="true" />
+                <element signature="e#2850#2851#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -133,7 +141,6 @@
         <option value="$PROJECT_DIR$/src/graph/query/api/GraphQueryPlan.java" />
         <option value="$PROJECT_DIR$/src/graph/query/api/ResultsPlan.java" />
         <option value="$PROJECT_DIR$/src/graph/helper/FileImportsSuite.java" />
-        <option value="$PROJECT_DIR$/src/graph/results/CoverageResults.java" />
         <option value="$PROJECT_DIR$/src/graph/helper/ProjectFileNamesUtil.java" />
         <option value="$PROJECT_DIR$/src/highlighter/pattern/PatternPytestDecoder.java" />
         <option value="$PROJECT_DIR$/src/graph/helper/KeyValuePair.java" />
@@ -167,6 +174,7 @@
         <option value="$PROJECT_DIR$/src/graph/pycharm/console/GraphRelationship.java" />
         <option value="$PROJECT_DIR$/src/graph/visualization/GraphDisplay.java" />
         <option value="$PROJECT_DIR$/src/graph/query/CoverageResults.java" />
+        <option value="$PROJECT_DIR$/src/graph/results/CoverageResults.java" />
       </list>
     </option>
   </component>
@@ -378,7 +386,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="renderers" />
+              <option name="myItemId" value="results" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -400,7 +408,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="query" />
+              <option name="myItemId" value="renderers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1083,12 +1091,12 @@
       <workItem from="1490536064339" duration="6347000" />
       <workItem from="1490558662186" duration="5419000" />
       <workItem from="1490610808317" duration="6386000" />
-      <workItem from="1490634443870" duration="16309000" />
+      <workItem from="1490634443870" duration="17129000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="274771000" />
+    <option name="totallyTimeSpent" value="275591000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1101,7 +1109,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.49791667" order="6" side_tool="false" content_ui="tabs" />
@@ -1117,7 +1125,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Graph Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3054348" sideWeight="0.49791667" order="1" side_tool="false" content_ui="tabs" />
@@ -1409,10 +1417,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/graph/query/api/ResultsPlan.java">
+    <entry file="file://$PROJECT_DIR$/src/graph/results/api/ResultsPlan.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="5" column="19" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1432,13 +1443,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/graph/query/ResultsPropertyContainer.java">
+    <entry file="file://$PROJECT_DIR$/src/graph/results/ResultsPropertyContainer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="17" column="70" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="70" />
           <folding>
-            <element signature="e#415#416#0" expanded="false" />
-            <element signature="e#459#460#0" expanded="false" />
+            <element signature="e#417#418#0" expanded="false" />
+            <element signature="e#461#462#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1447,6 +1458,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-273">
           <caret line="114" column="85" selection-start-line="114" selection-start-column="85" selection-end-line="114" selection-end-column="85" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1458,13 +1470,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/graph/query/CoverageNode.java">
+    <entry file="file://$PROJECT_DIR$/src/graph/results/CoverageNode.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-170">
           <caret line="13" column="31" selection-start-line="13" selection-start-column="31" selection-end-line="13" selection-end-column="31" />
           <folding>
-            <element signature="e#1655#1656#0" expanded="false" />
-            <element signature="e#1689#1690#0" expanded="false" />
+            <element signature="e#1657#1658#0" expanded="false" />
+            <element signature="e#1691#1692#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1621,23 +1633,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/graph/query/NodeRelationship.java">
+    <entry file="file://$PROJECT_DIR$/src/graph/results/NodeRelationship.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-622">
           <caret line="11" column="45" selection-start-line="11" selection-start-column="45" selection-end-line="11" selection-end-column="45" />
           <folding>
-            <element signature="e#2719#2720#0" expanded="true" />
-            <element signature="e#2752#2753#0" expanded="true" />
-            <element signature="e#2804#2805#0" expanded="true" />
-            <element signature="e#2848#2849#0" expanded="true" />
+            <element signature="e#2721#2722#0" expanded="true" />
+            <element signature="e#2754#2755#0" expanded="true" />
+            <element signature="e#2806#2807#0" expanded="true" />
+            <element signature="e#2850#2851#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/graph/query/CoverageResults.java">
+    <entry file="file://$PROJECT_DIR$/src/graph/results/CoverageResults.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="458">
-          <caret line="155" column="33" selection-start-line="155" selection-start-column="33" selection-end-line="155" selection-end-column="33" />
+        <state relative-caret-position="1020">
+          <caret line="82" column="45" selection-start-line="82" selection-start-column="45" selection-end-line="82" selection-end-column="45" />
           <folding />
         </state>
       </provider>

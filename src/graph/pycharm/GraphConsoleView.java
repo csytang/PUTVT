@@ -25,8 +25,8 @@ import com.intellij.util.ui.UIUtil;
 import graph.constants.GraphConstants;
 import graph.pycharm.console.GraphPanel;
 import graph.pycharm.services.LookAndFeelService;
-import graph.query.ResultsPlanEvent;
-import graph.query.graph.GraphCoverageResult;
+import graph.results.ResultsPlanEvent;
+import graph.results.graph.GraphCoverageResult;
 import graph.visualization.layouts.QueryPlanPanel;
 
 import javax.swing.*;

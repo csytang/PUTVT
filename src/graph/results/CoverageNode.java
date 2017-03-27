@@ -1,4 +1,4 @@
-package graph.query;
+package graph.results;
 
 
 import graph.visualization.api.GraphNode;

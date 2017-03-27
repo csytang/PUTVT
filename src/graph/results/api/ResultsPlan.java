@@ -1,4 +1,4 @@
-package graph.query.api;
+package graph.results.api;
 
 import java.util.List;
 import java.util.Map;

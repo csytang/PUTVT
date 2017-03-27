@@ -1,11 +1,11 @@
-package graph.query;
+package graph.results;
 
 import com.intellij.openapi.project.Project;
 import graph.helper.*;
 import graph.pycharm.console.GraphRelationship;
 import graph.pycharm.services.RelationsService;
-import graph.query.api.ResultsPlan;
-import graph.query.graph.GraphCoverageResult;
+import graph.results.api.ResultsPlan;
+import graph.results.graph.GraphCoverageResult;
 import graph.visualization.api.GraphNode;
 
 import java.util.*;
@@ -28,6 +28,8 @@ public class CoverageResults implements GraphCoverageResult {
     public CoverageResults(Project project) {
         this.project=project;
     }
+
+    private Hashtable relations;
 
     @Override
     public String getResultSummary() {
@@ -78,11 +80,11 @@ public class CoverageResults implements GraphCoverageResult {
     }
 
 
-
+    //TODO Visualize only nodes that are good
     @Override
     public List<GraphNode> getNodes() {
         List<String> namesOfFiles = getFileNamesFromProject(project.getBaseDir());
-        this.namesOfFiles=namesOfFiles;
+        this.relations = RelationsService.getRelations(project, namesOfFiles);
         List<GraphNode> nodes = new ArrayList<>();
         int i = 0;
         for (String nameOfFile : namesOfFiles){
@@ -100,7 +102,6 @@ public class CoverageResults implements GraphCoverageResult {
 
     @Override
     public List<GraphRelationship> getRelationships() {
-        Hashtable relations = RelationsService.getRelations(project, namesOfFiles);
         List<GraphRelationship> relatonships = new ArrayList<>();
         List<String> filePaths = ProjectFileNamesUtil.getFileNamesFromProject(project.getBaseDir());
         for (String filePath : filePaths){

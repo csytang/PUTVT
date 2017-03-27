@@ -1,7 +1,7 @@
-package graph.query.graph;
+package graph.results.graph;
 
 import graph.pycharm.console.GraphRelationship;
-import graph.query.api.ResultsPlan;
+import graph.results.api.ResultsPlan;
 import graph.visualization.api.GraphNode;
 
 import java.util.List;

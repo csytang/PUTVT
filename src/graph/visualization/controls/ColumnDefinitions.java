@@ -3,7 +3,7 @@ package graph.visualization.controls;
 import com.intellij.ui.treeStructure.treetable.TreeTableModel;
 import com.intellij.util.ui.ColumnInfo;
 import graph.enums.ResultPlanArgumentKeys;
-import graph.query.api.ResultsPlan;
+import graph.results.api.ResultsPlan;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 

@@ -3,9 +3,9 @@ package graph.pycharm.services;
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.project.Project;
 import com.intellij.util.messages.MessageBus;
-import graph.query.CoverageResults;
-import graph.query.ResultsProcessEvent;
-import graph.query.graph.GraphCoverageResult;
+import graph.results.CoverageResults;
+import graph.results.ResultsProcessEvent;
+import graph.results.graph.GraphCoverageResult;
 import org.jetbrains.annotations.NotNull;
 
 public class ResultExecutionService {
