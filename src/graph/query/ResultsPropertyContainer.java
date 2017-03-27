@@ -9,10 +9,14 @@ import java.util.Map;
 
 public class ResultsPropertyContainer implements GraphPropertyContainer {
 
-    private final HashMap<String, Object> properties;
+    private HashMap<String, Object> properties;
 
     public ResultsPropertyContainer() {
         this.properties =  new HashMap<>();
+    }
+
+    public ResultsPropertyContainer(HashMap<String, Object> properties){
+        this.properties = properties;
     }
 
     @Override

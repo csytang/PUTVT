@@ -8,10 +8,7 @@ import graph.query.api.ResultsPlan;
 import graph.query.graph.GraphCoverageResult;
 import graph.visualization.api.GraphNode;
 
-import java.util.ArrayList;
-import java.util.Hashtable;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 import static graph.helper.ProjectFileNamesUtil.getFileNamesFromProject;
 import static java.lang.String.format;
@@ -117,7 +114,11 @@ public class CoverageResults implements GraphCoverageResult {
                     relation.setStartNode(startNode);
                     CoverageNode endNode = (CoverageNode) nodeHashTable.get(importFrom.getName());
                     relation.setEndNode(endNode);
-                    setRelationTypes(relation.getTypes(), importFrom);
+                    setRelationTypes(relation.getTypes(), relation);
+                    HashMap<String, Object> properties = new HashMap<>();
+                    getPropertiesForRelations(properties, importFrom);
+                    ResultsPropertyContainer resultsPropertyContainer = new ResultsPropertyContainer(properties);
+                    relation.setPropertyContainer(resultsPropertyContainer);
                     relatonships.add(relation);
                 }
             }
@@ -148,12 +149,13 @@ public class CoverageResults implements GraphCoverageResult {
         return weight;
     }
 
-    private void setRelationTypes(List<String> types, ImportFrom importFrom){
-        if (types.size() == 0){
-            types.add("Usage from module:Times used in code");
-        }
+    private void setRelationTypes(List<String> types, NodeRelationship relation){
+        types.add(relation.getStartNodeId() + "->" + relation.getEndNodeId());
+    }
+
+    private void getPropertiesForRelations(HashMap<String, Object> properties, ImportFrom importFrom){
         for (IntegerKeyValuePair keyValuePair : importFrom.getKeyValuePairList()){
-            types.add(keyValuePair.getKey() + ":" + keyValuePair.getValue());
+            properties.put(keyValuePair.getKey(), keyValuePair.getValue().toString());
         }
     }
 

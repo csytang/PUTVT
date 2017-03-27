@@ -60,9 +60,7 @@ public class GraphConsoleView implements Disposable {
     private JBScrollPane tableScrollPane;
     private JBTable tableExecuteResults;
     private JPanel entityDetailsScrollContent;
-    private JPanel logTab;
     private JPanel graphTab;
-    private JPanel parametersTab;
     private JBTabbedPane defaultTabContainer;
     private JBSplitter graphSplitter;
 
@@ -103,14 +101,10 @@ public class GraphConsoleView implements Disposable {
 
             // Tabs
             consoleTabs.setFirstTabOffset(0);
-            consoleTabs.addTab(new TabInfo(logTab)
-                    .setText("Log"));
             consoleTabs.addTab(new TabInfo(graphTab)
                     .setText("Graph"));
             consoleTabs.addTab(new TabInfo(tableScrollPane)
                     .setText("Table"));
-            consoleTabs.addTab(new TabInfo(parametersTab)
-                    .setText("Parameters"));
             consoleTabs.setSelectionChangeHandler((info, requestFocus, doChangeSelection) -> {
                 ActionCallback callback = doChangeSelection.run();
                 graphPanel.resetPan();
@@ -182,9 +176,7 @@ public class GraphConsoleView implements Disposable {
     private void updateLookAndFeel() {
         tableScrollPane.setBorder(IdeBorderFactory.createEmptyBorder());
         entityDetailsScrollPane.setBorder(IdeBorderFactory.createEmptyBorder());
-        logTab.setBorder(IdeBorderFactory.createEmptyBorder());
         graphTab.setBorder(IdeBorderFactory.createEmptyBorder());
-        parametersTab.setBorder(IdeBorderFactory.createEmptyBorder());
     }
 
     private void initializeUiComponents(Project project) {
@@ -215,14 +207,6 @@ public class GraphConsoleView implements Disposable {
 
     public JBTable getTableExecuteResults() {
         return tableExecuteResults;
-    }
-
-    public JPanel getLogTab() {
-        return logTab;
-    }
-
-    public JPanel getParametersTab() {
-        return parametersTab;
     }
 
     @Override

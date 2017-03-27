@@ -14,7 +14,7 @@ public class NodeRelationship implements GraphRelationship {
     private final String id;
     private float weight;
     private final List<String> types;
-    private final GraphPropertyContainer propertyContainer;
+    private GraphPropertyContainer propertyContainer;
     private  String startNodeId;
     private  String endNodeId;
     private GraphNode startNode;
@@ -112,5 +112,9 @@ public class NodeRelationship implements GraphRelationship {
     @Override
     public int hashCode() {
         return Objects.hash(id);
+    }
+
+    public void setPropertyContainer (ResultsPropertyContainer resultsPropertyContainer){
+        this.propertyContainer=resultsPropertyContainer;
     }
 }

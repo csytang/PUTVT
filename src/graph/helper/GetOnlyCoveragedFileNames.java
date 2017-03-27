@@ -10,6 +10,8 @@ import com.intellij.psi.search.GlobalSearchScope;
 import java.util.ArrayList;
 import java.util.List;
 
+import static java.awt.SystemColor.info;
+
 /**
  * Created by Cegin on 24.3.2017.
  */
@@ -32,6 +34,7 @@ public class GetOnlyCoveragedFileNames {
         PsiFile[] file = FilenameIndex.getFilesByName(project, fileName, GlobalSearchScope.allScope(project));
         CoverageDataManager coverageDataManager = CoverageDataManager.getInstance(project);
         CoverageSuitesBundle coverageSuitesBundle = coverageDataManager.getCurrentSuitesBundle();
+        if (coverageSuitesBundle == null){return 0;}
         String info = CoverageDataManager.getInstance(project).getCurrentSuitesBundle().getAnnotator(project).getFileCoverageInformationString(file[0],coverageSuitesBundle, coverageDataManager);
         if (info.contains("%")){
             String[] str = info.split("%");
