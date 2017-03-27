@@ -14,6 +14,7 @@ public class NodeRelationship implements GraphRelationship {
     private final String id;
     private float weight;
     private final List<String> types;
+    private String callsCount;
     private GraphPropertyContainer propertyContainer;
     private  String startNodeId;
     private  String endNodeId;
@@ -116,5 +117,13 @@ public class NodeRelationship implements GraphRelationship {
 
     public void setPropertyContainer (ResultsPropertyContainer resultsPropertyContainer){
         this.propertyContainer=resultsPropertyContainer;
+    }
+
+    public String getCallsCount() {
+        return callsCount;
+    }
+
+    public void setCallsCount(String callsCount) {
+        this.callsCount = callsCount;
     }
 }

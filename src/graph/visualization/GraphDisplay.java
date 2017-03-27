@@ -122,7 +122,7 @@ public class GraphDisplay extends Display {
 
             Edge edge = graph.addEdge(nodeMap.get(start), nodeMap.get(end));
             edge.set(ID, graphRelationship.getId());
-            edge.set(TITLE, graphRelationship.getId());
+            edge.set(TITLE, graphRelationship.getCallsCount());
             edge.set(EDGE_SIZE, graphRelationship.relationWeight());
             graphRelationshipMap.put(graphRelationship.getId(), graphRelationship);
         }

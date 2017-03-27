@@ -22,4 +22,6 @@ public interface GraphRelationship extends GraphEntity {
     default String getRepresentation() {
         return "Relationship[" + getId() + "]";
     }
+
+    String getCallsCount();
 }

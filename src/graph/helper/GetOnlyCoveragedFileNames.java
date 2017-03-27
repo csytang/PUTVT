@@ -36,7 +36,7 @@ public class GetOnlyCoveragedFileNames {
         CoverageSuitesBundle coverageSuitesBundle = coverageDataManager.getCurrentSuitesBundle();
         if (coverageSuitesBundle == null){return 0;}
         String info = CoverageDataManager.getInstance(project).getCurrentSuitesBundle().getAnnotator(project).getFileCoverageInformationString(file[0],coverageSuitesBundle, coverageDataManager);
-        if (info.contains("%")){
+        if (info != null && info.contains("%")){
             String[] str = info.split("%");
             return Integer.parseInt(str[0]);
         }

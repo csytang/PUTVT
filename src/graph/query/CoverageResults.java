@@ -23,6 +23,8 @@ public class CoverageResults implements GraphCoverageResult {
 
     private Hashtable nodeHashTable = new Hashtable();
 
+    private List<String> namesOfFiles;
+
     public CoverageResults(Project project) {
         this.project=project;
     }
@@ -80,7 +82,7 @@ public class CoverageResults implements GraphCoverageResult {
     @Override
     public List<GraphNode> getNodes() {
         List<String> namesOfFiles = getFileNamesFromProject(project.getBaseDir());
-
+        this.namesOfFiles=namesOfFiles;
         List<GraphNode> nodes = new ArrayList<>();
         int i = 0;
         for (String nameOfFile : namesOfFiles){
@@ -98,7 +100,7 @@ public class CoverageResults implements GraphCoverageResult {
 
     @Override
     public List<GraphRelationship> getRelationships() {
-        Hashtable relations = RelationsService.getRelations(project);
+        Hashtable relations = RelationsService.getRelations(project, namesOfFiles);
         List<GraphRelationship> relatonships = new ArrayList<>();
         List<String> filePaths = ProjectFileNamesUtil.getFileNamesFromProject(project.getBaseDir());
         for (String filePath : filePaths){
@@ -109,12 +111,13 @@ public class CoverageResults implements GraphCoverageResult {
             if (importFileUtil != null){
                 for (ImportFrom importFrom : importFileUtil.getImportFromList())
                 {
-                    NodeRelationship relation = new NodeRelationship(getRelationWeight(importFrom).toString());
-                    relation.setWeight((float) (getRelationWeight(importFrom)*1.2));
-                    relation.setStartNode(startNode);
                     CoverageNode endNode = (CoverageNode) nodeHashTable.get(importFrom.getName());
+                    NodeRelationship relation = new NodeRelationship(startNode.getId() + "->" + endNode.getId());
+                    relation.setWeight(1);
+                    relation.setCallsCount(getRelationWeight(importFrom).toString());
+                    relation.setStartNode(startNode);
                     relation.setEndNode(endNode);
-                    setRelationTypes(relation.getTypes(), relation);
+                    setRelationTypes(relation.getTypes(),getRelationWeight(importFrom));
                     HashMap<String, Object> properties = new HashMap<>();
                     getPropertiesForRelations(properties, importFrom);
                     ResultsPropertyContainer resultsPropertyContainer = new ResultsPropertyContainer(properties);
@@ -149,8 +152,8 @@ public class CoverageResults implements GraphCoverageResult {
         return weight;
     }
 
-    private void setRelationTypes(List<String> types, NodeRelationship relation){
-        types.add(relation.getStartNodeId() + "->" + relation.getEndNodeId());
+    private void setRelationTypes(List<String> types, Integer number){
+        types.add("Times called: " + number.toString());
     }
 
     private void getPropertiesForRelations(HashMap<String, Object> properties, ImportFrom importFrom){
@@ -159,4 +162,12 @@ public class CoverageResults implements GraphCoverageResult {
         }
     }
 
+    private float normalizeWeight(float weight){
+        if (weight >= 2){
+            return 2;
+        }
+        else{
+            return weight;
+        }
+    }
 }
