@@ -1,7 +1,6 @@
-package graph.results.graph;
+package graph.results.api;
 
-import graph.pycharm.console.GraphRelationship;
-import graph.results.api.ResultsPlan;
+import graph.pycharm.api.GraphRelationship;
 import graph.visualization.api.GraphNode;
 
 import java.util.List;

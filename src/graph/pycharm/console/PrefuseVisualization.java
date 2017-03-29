@@ -3,10 +3,11 @@ package graph.pycharm.console;
 
 
 import graph.enums.EventType;
+import graph.pycharm.api.GraphRelationship;
 import graph.pycharm.api.NodeCallback;
 import graph.pycharm.api.RelationshipCallback;
 import graph.pycharm.api.VisualizationApi;
-import graph.pycharm.services.LookAndFeelService;
+import graph.pycharm.api.LookAndFeelService;
 import graph.visualization.GraphDisplay;
 import graph.visualization.api.GraphNode;
 

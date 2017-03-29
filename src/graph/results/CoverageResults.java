@@ -2,10 +2,10 @@ package graph.results;
 
 import com.intellij.openapi.project.Project;
 import graph.helper.*;
-import graph.pycharm.console.GraphRelationship;
+import graph.pycharm.api.GraphRelationship;
 import graph.pycharm.services.RelationsService;
 import graph.results.api.ResultsPlan;
-import graph.results.graph.GraphCoverageResult;
+import graph.results.api.GraphCoverageResult;
 import graph.visualization.api.GraphNode;
 
 import java.util.*;
@@ -80,7 +80,7 @@ public class CoverageResults implements GraphCoverageResult {
     }
 
 
-    //TODO Visualize only nodes that are good
+    //TODO Visualize only nodes that are either coveraged or have a relation to a coverage node
     @Override
     public List<GraphNode> getNodes() {
         List<String> namesOfFiles = getFileNamesFromProject(project.getBaseDir());
@@ -94,6 +94,10 @@ public class CoverageResults implements GraphCoverageResult {
             node.setCoverage(GetOnlyCoveragedFileNames.getCovForFile(file,project));
             node.getTypes().add("Coverage is: " + node.getCoverage() + "%.");
             node.setColor(node.getCoverage()/10);
+            HashMap<String, Object> properties = new HashMap<>();
+            getPropertiesForNodes(properties, nameOfFile);
+            ResultsPropertyContainer resultsPropertyContainer = new ResultsPropertyContainer(properties);
+            node.setResultsPropertyContainer(resultsPropertyContainer);
             nodeHashTable.put(file, node);
             nodes.add(node);
         }
@@ -155,6 +159,10 @@ public class CoverageResults implements GraphCoverageResult {
 
     private void setRelationTypes(List<String> types, Integer number){
         types.add("Times called: " + number.toString());
+    }
+
+    private void getPropertiesForNodes(HashMap<String, Object> properties, String fileName){
+        properties.put("Full path to file: ", fileName);
     }
 
     private void getPropertiesForRelations(HashMap<String, Object> properties, ImportFrom importFrom){

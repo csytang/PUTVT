@@ -4,8 +4,8 @@ import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.project.Project;
 import com.intellij.util.messages.MessageBus;
 import graph.results.CoverageResults;
-import graph.results.ResultsProcessEvent;
-import graph.results.graph.GraphCoverageResult;
+import graph.results.api.ResultsProcessEvent;
+import graph.results.api.GraphCoverageResult;
 import org.jetbrains.annotations.NotNull;
 
 public class ResultExecutionService {

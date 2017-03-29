@@ -1,4 +1,4 @@
-package graph.pycharm.services;
+package graph.pycharm.api;
 
 import java.awt.*;
 

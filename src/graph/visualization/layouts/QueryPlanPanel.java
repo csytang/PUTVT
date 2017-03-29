@@ -14,7 +14,7 @@ import com.intellij.ui.treeStructure.treetable.ListTreeTableModelOnColumns;
 import com.intellij.ui.treeStructure.treetable.TreeTableCellRenderer;
 import com.intellij.ui.treeStructure.treetable.TreeTableModel;
 import graph.results.api.ResultsPlan;
-import graph.results.graph.GraphCoverageResult;
+import graph.results.api.GraphCoverageResult;
 import graph.visualization.controls.ColumnResizer;
 import org.jetbrains.annotations.NotNull;
 

@@ -1,7 +1,6 @@
-package graph.results;
+package graph.results.api;
 
 import com.intellij.util.messages.Topic;
-import graph.results.graph.GraphCoverageResult;
 
 
 public interface ResultsPlanEvent {

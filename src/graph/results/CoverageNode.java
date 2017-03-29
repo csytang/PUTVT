@@ -11,7 +11,7 @@ import java.util.Objects;
 public class CoverageNode implements GraphNode {
 
     private final String id;
-    private final ResultsPropertyContainer propertyContainer;
+    private ResultsPropertyContainer propertyContainer;
     private List<String> types;
     private Integer coverage;
     private int color = 0;
@@ -20,6 +20,10 @@ public class CoverageNode implements GraphNode {
         this.id = id;
         this.types = new ArrayList<>();
         this.propertyContainer = new ResultsPropertyContainer();
+    }
+
+    public void setResultsPropertyContainer(ResultsPropertyContainer resultsPropertyContainer) {
+        this.propertyContainer = resultsPropertyContainer;
     }
 
     public Integer getCoverage() {

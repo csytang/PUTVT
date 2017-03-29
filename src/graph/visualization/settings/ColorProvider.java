@@ -1,6 +1,6 @@
 package graph.visualization.settings;
 
-import graph.pycharm.services.LookAndFeelService;
+import graph.pycharm.api.LookAndFeelService;
 import org.jetbrains.annotations.NotNull;
 import prefuse.Constants;
 import prefuse.action.ActionList;

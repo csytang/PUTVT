@@ -63,9 +63,9 @@
     <toolWindow id="Graph Database Console"
                 anchor="bottom"
                 secondary="false"
-                factoryClass="graph.pycharm.ConsoleToolWindow"/>
-           <!-- icon="/graphdb/icons/window/graph_13x13.png"/> -->
-    <applicationService serviceInterface="graph.pycharm.services.LookAndFeelService"
+                factoryClass="graph.pycharm.ConsoleToolWindow"
+                icon="/icons/eye.png"/>
+    <applicationService serviceInterface="graph.pycharm.api.LookAndFeelService"
                         serviceImplementation="graph.pycharm.services.IdeaLookAndFeelService"/>
     <projectService serviceInterface="graph.pycharm.GraphConsoleView"
                     serviceImplementation="graph.pycharm.GraphConsoleView"/>
@@ -100,16 +100,18 @@
     <group id="GraphDependencyConsoleViewActions"
            text="Graph Dependency Console Tool Window Actions">
 
-      <action id="GraphDatabaseConsoleToolWindowActions.ExecuteQuery"
+      <action id="GraphDatabaseConsoleToolWindowActions.VisualizeCoverage"
               class="graph.actions.ExecuteResultAction"
-              text="Execute query"
-              description="Execute query">
+              text="Visualize coverage"
+              description="Visualize coverage"
+              icon="/icons/play-arrow.png">
       </action>
 
       <action id="GraphDependencyConsoleViewActions.CleanCanvas"
               class="graph.actions.CleanCanvasAction"
               text="Clean canvas"
-              description="Clean canvas">
+              description="Clean canvas"
+              icon="/icons/loading.png">
       </action>
 
     </group>

@@ -6,8 +6,8 @@ import graph.enums.EventType;
 import graph.events.CleanCanvasEvent;
 import graph.pycharm.GraphConsoleView;
 import graph.pycharm.api.VisualizationApi;
-import graph.results.ResultsProcessEvent;
-import graph.results.graph.GraphCoverageResult;
+import graph.results.api.ResultsProcessEvent;
+import graph.results.api.GraphCoverageResult;
 
 
 public class GraphPanelInteractions {

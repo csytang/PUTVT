@@ -1,7 +1,7 @@
 package graph.helper;
 
 import com.intellij.ui.treeStructure.PatchedDefaultMutableTreeNode;
-import graph.pycharm.console.GraphRelationship;
+import graph.pycharm.api.GraphRelationship;
 import graph.visualization.api.GraphEntity;
 import graph.visualization.api.GraphNode;
 import graph.visualization.api.GraphPath;

@@ -1,7 +1,7 @@
 package graph.visualization.settings;
 
 
-import graph.pycharm.services.LookAndFeelService;
+import graph.pycharm.api.LookAndFeelService;
 import graph.visualization.GraphDisplay;
 import graph.visualization.layouts.CenteredLayout;
 import graph.visualization.layouts.DynamicForceLayout;

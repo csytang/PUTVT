@@ -24,9 +24,9 @@ import com.intellij.ui.treeStructure.Tree;
 import com.intellij.util.ui.UIUtil;
 import graph.constants.GraphConstants;
 import graph.pycharm.console.GraphPanel;
-import graph.pycharm.services.LookAndFeelService;
-import graph.results.ResultsPlanEvent;
-import graph.results.graph.GraphCoverageResult;
+import graph.pycharm.api.LookAndFeelService;
+import graph.results.api.ResultsPlanEvent;
+import graph.results.api.GraphCoverageResult;
 import graph.visualization.layouts.QueryPlanPanel;
 
 import javax.swing.*;

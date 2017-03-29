@@ -1,4 +1,4 @@
-package graph.pycharm.console;
+package graph.pycharm.api;
 
 import graph.visualization.api.GraphEntity;
 import graph.visualization.api.GraphNode;

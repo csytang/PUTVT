@@ -3,7 +3,7 @@ package graph.listeners;
 
 import graph.enums.EventType;
 import graph.pycharm.api.RelationshipCallback;
-import graph.pycharm.console.GraphRelationship;
+import graph.pycharm.api.GraphRelationship;
 import prefuse.controls.ControlAdapter;
 import prefuse.visual.EdgeItem;
 import prefuse.visual.VisualItem;
