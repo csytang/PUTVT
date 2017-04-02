@@ -69,6 +69,7 @@
                         serviceImplementation="graph.pycharm.services.IdeaLookAndFeelService"/>
     <projectService serviceInterface="graph.pycharm.GraphConsoleView"
                     serviceImplementation="graph.pycharm.GraphConsoleView"/>
+    <testStatusListener implementation="graph.testresults.TestStatusListenerImpl"/>
   </extensions>
 
   <actions>

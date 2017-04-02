@@ -12,8 +12,6 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static org.apache.batik.svggen.font.table.Table.name;
-
 public class RelationsService {
 
     public static Hashtable getRelations(Project project, List<String> nameOfFiles){
@@ -32,8 +30,8 @@ public class RelationsService {
                     lineSplit[0] = lineSplit[0].replace("from ","");
                     if (lineSplit[0].contains(".")) {
                         String dot = Pattern.quote(".");
-                        String[] nameFilelineSplit = lineSplit[0].split(dot);
-                        lineSplit[0] = nameFilelineSplit[nameFilelineSplit.length - 1];
+                        String[] nameFileLineSplit = lineSplit[0].split(dot);
+                        lineSplit[0] = nameFileLineSplit[nameFileLineSplit.length - 1];
                     }
                     lineSplit[0] = lineSplit[0].concat(".py");
                     lineSplit[0] = lineSplit[0].replace(" ", "");

@@ -24,4 +24,6 @@ public interface GraphRelationship extends GraphEntity {
     }
 
     String getCallsCount();
+
+    float getWeight();
 }

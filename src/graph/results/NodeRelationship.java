@@ -123,6 +123,11 @@ public class NodeRelationship implements GraphRelationship {
         return callsCount;
     }
 
+    @Override
+    public float getWeight() {
+        return weight;
+    }
+
     public void setCallsCount(String callsCount) {
         this.callsCount = callsCount;
     }

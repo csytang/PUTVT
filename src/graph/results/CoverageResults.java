@@ -4,8 +4,9 @@ import com.intellij.openapi.project.Project;
 import graph.helper.*;
 import graph.pycharm.api.GraphRelationship;
 import graph.pycharm.services.RelationsService;
-import graph.results.api.ResultsPlan;
 import graph.results.api.GraphCoverageResult;
+import graph.results.api.ResultsPlan;
+import graph.testresults.TestResultsCollector;
 import graph.visualization.api.GraphNode;
 
 import java.util.*;
@@ -13,17 +14,13 @@ import java.util.*;
 import static graph.helper.ProjectFileNamesUtil.getFileNamesFromProject;
 import static java.lang.String.format;
 
-/**
- * Created by Cegin on 14.3.2017.
- */
 public class CoverageResults implements GraphCoverageResult {
 
+    private Hashtable resultsOfRanTests = null;
 
     private Project project;
 
     private Hashtable nodeHashTable = new Hashtable();
-
-    private List<String> namesOfFiles;
 
     public CoverageResults(Project project) {
         this.project=project;
@@ -86,7 +83,9 @@ public class CoverageResults implements GraphCoverageResult {
         List<String> namesOfFiles = getFileNamesFromProject(project.getBaseDir());
         this.relations = RelationsService.getRelations(project, namesOfFiles);
         List<GraphNode> nodes = new ArrayList<>();
-        int i = 0;
+        if(resultsOfRanTests==null){
+            resultsOfRanTests= HashtableResultsUtil.copyHashtableTestResults(TestResultsCollector.getInstance().getTestResults());
+        }
         for (String nameOfFile : namesOfFiles){
             String[] str = nameOfFile.split("/");
             String file = str[str.length-1];
@@ -101,11 +100,13 @@ public class CoverageResults implements GraphCoverageResult {
             nodeHashTable.put(file, node);
             nodes.add(node);
         }
+        nodes = doCleaning(nodes);
         return nodes;
     }
 
     @Override
     public List<GraphRelationship> getRelationships() {
+        int localMax=1;
         List<GraphRelationship> relatonships = new ArrayList<>();
         List<String> filePaths = ProjectFileNamesUtil.getFileNamesFromProject(project.getBaseDir());
         for (String filePath : filePaths){
@@ -113,12 +114,13 @@ public class CoverageResults implements GraphCoverageResult {
             String name = str[str.length-1];
             CoverageNode startNode = (CoverageNode) nodeHashTable.get(name);
             ImportFileUtil importFileUtil = (ImportFileUtil) relations.get(name);
-            if (importFileUtil != null){
+            if (importFileUtil != null && startNode != null){
                 for (ImportFrom importFrom : importFileUtil.getImportFromList())
                 {
                     CoverageNode endNode = (CoverageNode) nodeHashTable.get(importFrom.getName());
                     NodeRelationship relation = new NodeRelationship(startNode.getId() + "->" + endNode.getId());
-                    relation.setWeight(1);
+                    relation.setWeight(getRelationWeight(importFrom));
+                    if (localMax < getRelationWeight(importFrom)){localMax=getRelationWeight(importFrom);}
                     relation.setCallsCount(getRelationWeight(importFrom).toString());
                     relation.setStartNode(startNode);
                     relation.setEndNode(endNode);
@@ -130,6 +132,9 @@ public class CoverageResults implements GraphCoverageResult {
                     relatonships.add(relation);
                 }
             }
+        }
+        for(GraphRelationship relationship : relatonships){
+            relationship.setWeight(normalizeWeight(relationship.getWeight(), localMax));
         }
         return relatonships;
     }
@@ -171,12 +176,39 @@ public class CoverageResults implements GraphCoverageResult {
         }
     }
 
-    private float normalizeWeight(float weight){
-        if (weight >= 2){
-            return 2;
+    private float normalizeWeight(float weight, int max){
+        float addition = 1.0f / max;
+        return  1+(addition*weight);
+    }
+
+    private List<GraphNode> doCleaning(List<GraphNode> nodes){
+        List<GraphNode> addNode = new ArrayList<>();
+        for (GraphNode node : nodes) {
+            String name = node.getId();
+            ImportFileUtil importFileUtil = (ImportFileUtil) relations.get(name);
+            if (importFileUtil != null && node.getCoverage()!=0){
+                node.setAdded(true);
+                addNode.add(node);
+                for (ImportFrom importFrom : importFileUtil.getImportFromList())
+                {
+                    CoverageNode endNode = (CoverageNode) nodeHashTable.get(importFrom.getName());
+                    if (!endNode.getAdded()){
+                        endNode.setAdded(true);
+                        addNode.add(endNode);
+                    }
+                }
+            }
+            else{
+                if (node.getCoverage() != 0 && !node.getAdded()){
+                    node.setAdded(true);
+                    addNode.add(node);
+                }
+            }
         }
-        else{
-            return weight;
+        nodeHashTable.clear();
+        for (GraphNode node : addNode) {
+            nodeHashTable.put(node.getId(),node);
         }
+        return addNode;
     }
 }

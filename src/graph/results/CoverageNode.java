@@ -15,6 +15,7 @@ public class CoverageNode implements GraphNode {
     private List<String> types;
     private Integer coverage;
     private int color = 0;
+    private Boolean set = false;
 
     public CoverageNode(String id) {
         this.id = id;
@@ -28,6 +29,16 @@ public class CoverageNode implements GraphNode {
 
     public Integer getCoverage() {
         return coverage;
+    }
+
+    @Override
+    public void setAdded(Boolean bol) {
+        this.set=bol;
+    }
+
+    @Override
+    public Boolean getAdded() {
+        return set;
     }
 
     public void setCoverage(Integer coverage) {

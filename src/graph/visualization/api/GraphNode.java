@@ -9,4 +9,8 @@ public interface GraphNode extends GraphEntity {
     }
 
     Integer getCoverage();
+
+    void setAdded(Boolean bol);
+
+    Boolean getAdded();
 }

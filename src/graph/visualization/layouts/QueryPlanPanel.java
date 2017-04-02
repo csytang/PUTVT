@@ -13,8 +13,8 @@ import com.intellij.ui.dualView.TreeTableView;
 import com.intellij.ui.treeStructure.treetable.ListTreeTableModelOnColumns;
 import com.intellij.ui.treeStructure.treetable.TreeTableCellRenderer;
 import com.intellij.ui.treeStructure.treetable.TreeTableModel;
-import graph.results.api.ResultsPlan;
 import graph.results.api.GraphCoverageResult;
+import graph.results.api.ResultsPlan;
 import graph.visualization.controls.ColumnResizer;
 import org.jetbrains.annotations.NotNull;
 
