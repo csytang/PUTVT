@@ -3,9 +3,6 @@ package graph.helper;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Cegin on 24.3.2017.
- */
 public class ImportFileUtil{
 
     private String name;

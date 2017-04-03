@@ -1,17 +1,15 @@
 package highlighter.util;
 
+import com.intellij.openapi.editor.EditorFactory;
+
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.Hashtable;
 import java.util.List;
 
-/**
- * Created by Cegin on 28.2.2017.
- */
 public class HashtableCombineUtil {
 
     public HashtableCombineUtil(){
-
     }
 
     public Hashtable combineHashTables(Hashtable pytestTable,Hashtable pythonTable, List<String> fileNames) {

@@ -27,7 +27,7 @@ import graph.pycharm.api.LookAndFeelService;
 import graph.pycharm.console.GraphPanel;
 import graph.results.api.GraphCoverageResult;
 import graph.results.api.ResultsPlanEvent;
-import graph.visualization.layouts.QueryPlanPanel;
+import graph.visualization.layouts.ResultsPlanPanel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -155,11 +155,11 @@ public class GraphConsoleView implements Disposable {
         JPanel panel = new JPanel();
         panel.setLayout(new BorderLayout(0, 3));
 
-        QueryPlanPanel qpPanel = new QueryPlanPanel(originalQuery, result);
+        ResultsPlanPanel qpPanel = new ResultsPlanPanel(originalQuery, result);
         qpPanel.initialize(panel);
 
         TabInfo tabInfo = new TabInfo(panel);
-        DefaultActionGroup tabActions = new DefaultActionGroup(new QueryPlanPanel.CloseTab() {
+        DefaultActionGroup tabActions = new DefaultActionGroup(new ResultsPlanPanel.CloseTab() {
             @Override
             public void actionPerformed(AnActionEvent e) {
                 super.actionPerformed(e);

@@ -12,10 +12,6 @@ import com.intellij.openapi.wm.WindowManager;
 import com.intellij.ui.awt.RelativePoint;
 import highlighter.highlighters.MainHighlighter;
 
-
-/**
- * Created by Cegin on 30.1.2017.
- */
 public class ClearVisualAction extends AnAction {
 
     @Override

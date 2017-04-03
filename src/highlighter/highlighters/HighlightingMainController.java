@@ -10,9 +10,6 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 
-/**
- * Created by Cegin on 28.2.2017.
- */
 public class HighlightingMainController {
 
     private static HighlightingMainController instance = null;
@@ -47,7 +44,7 @@ public class HighlightingMainController {
         return instance;
     }
 
-    public void finishVisualization(Hashtable hashtable, Editor editor){
+    public void finishVisualization(Hashtable hashtable, Editor editor, Editor[] editors){
         PatternController patternController = new PatternController();
         Hashtable newHashtable;
         errorManageFileControler = ErrorManageFileControler.getInstance(hashtable);
@@ -75,6 +72,9 @@ public class HighlightingMainController {
         }
 
         errorManageFileControler.decodeDTO(newHashtable,editor);
+        for (Editor editor1 : editors){
+            errorManageFileControler.decodeDTO(newHashtable,editor1);
+        }
     }
 
     public Boolean getUseConsoleLogs() {

@@ -32,13 +32,13 @@ import static graph.visualization.controls.ColumnDefinitions.getProfileQueryPlan
 import static graph.visualization.controls.ColumnDefinitions.getQueryPlanColumns;
 
 
-public class QueryPlanPanel implements Disposable {
+public class ResultsPlanPanel implements Disposable {
     private TreeTableView treeTable;
 
     private String originalQuery;
     private GraphCoverageResult result;
 
-    public QueryPlanPanel(String originalQuery, GraphCoverageResult result) {
+    public ResultsPlanPanel(String originalQuery, GraphCoverageResult result) {
         this.originalQuery = originalQuery;
         this.result = result;
     }

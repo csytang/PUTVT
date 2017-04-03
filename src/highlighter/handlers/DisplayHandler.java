@@ -1,17 +1,16 @@
 package highlighter.handlers;
 
 import com.intellij.openapi.editor.Editor;
+import com.intellij.openapi.editor.EditorFactory;
 import com.intellij.openapi.fileEditor.FileEditor;
 import com.intellij.openapi.fileEditor.FileEditorManager;
 import com.intellij.openapi.fileEditor.TextEditor;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.vfs.VirtualFile;
+import highlighter.errors.ErrorManageFile;
 import highlighter.errors.ErrorManageFileControler;
 import highlighter.highlighters.HighlightingMainController;
 
-/**
- * Created by Cegin on 20.2.2017.
- */
 public class DisplayHandler {
 
 
@@ -53,7 +52,7 @@ public class DisplayHandler {
         HighlightingMainController highlightingMainController = HighlightingMainController.getInstance(null);
         ErrorManageFileControler errorManageFileControler = ErrorManageFileControler.getInstance(null);
 
-        highlightingMainController.finishVisualization(errorManageFileControler.getErrorManageFileTable(),editor);
+        highlightingMainController.finishVisualization(errorManageFileControler.getErrorManageFileTable(),editor, EditorFactory.getInstance().getAllEditors());
     }
 
 

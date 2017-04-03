@@ -3,9 +3,7 @@ package graph.helper;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Cegin on 24.3.2017.
- */
+
 public class ImportFrom {
     private String name;
     private List<IntegerKeyValuePair> keyValuePairList = new ArrayList<>();

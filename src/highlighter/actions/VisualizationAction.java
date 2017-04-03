@@ -4,6 +4,7 @@ import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.CommonDataKeys;
 import com.intellij.openapi.editor.Editor;
+import com.intellij.openapi.editor.EditorFactory;
 import com.intellij.openapi.ui.MessageType;
 import com.intellij.openapi.ui.popup.Balloon;
 import com.intellij.openapi.ui.popup.JBPopupFactory;
@@ -17,9 +18,6 @@ import highlighter.pattern.PatternController;
 import java.io.IOException;
 import java.util.Hashtable;
 
-/**
- * Created by Cegin on 3.11.2016.
- */
 //TODO consider the refactoring of this, so the visualization is done only when wanted or triggered, not when files are loaded
 public class VisualizationAction extends AnAction {
     private HighlightingMainController highlightingMainController;
@@ -47,8 +45,7 @@ public class VisualizationAction extends AnAction {
         if (hashtable == null){return;}
         ErrorManageFileControler.getInstance(hashtable);
         highlightingMainController = HighlightingMainController.getInstance(null);
-        highlightingMainController.finishVisualization(hashtable,editor);
-
+        highlightingMainController.finishVisualization(hashtable,editor,EditorFactory.getInstance().getAllEditors());
     }
 
     private void createWarningHover(AnActionEvent anActionEvent, String message){
