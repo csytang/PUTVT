@@ -63,7 +63,7 @@ public class CoverageNode implements GraphNode {
 
     @Override
     public String getTypesName() {
-        return "labels";
+        return "coverage_info";
     }
 
     @Override

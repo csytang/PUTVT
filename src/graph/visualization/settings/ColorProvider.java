@@ -82,6 +82,9 @@ public class ColorProvider {
 
     private static DataSizeAction getEdgeThickness(){
         DataSizeAction edgeWidth = new DataSizeAction(EDGES, EDGE_SIZE);
+        edgeWidth.setScale(Constants.LOG_SCALE);
+        edgeWidth.setMaximumSize(3.0f);
+        edgeWidth.setMinimumSize(1.0f);
         return edgeWidth;
     }
 

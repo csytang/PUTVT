@@ -46,41 +46,8 @@ public class HashtableResultsUtil {
     }
 
     public static void setNodes(List<GraphNode> nodes) {
+
         HashtableResultsUtil.nodes = nodes;
     }
-
-    //TODO MAYBE NO USE FOR THIS, TRY RUNNING WITHOUT THIS
-
-    /*public static Hashtable compareAndReturnNewHashtable(Hashtable oldTestResults, Hashtable newTestResults){
-        Enumeration e = newTestResults.keys();
-        while(e.hasMoreElements()){
-            String key = (String) e.nextElement();
-            Hashtable testResults = (Hashtable) oldTestResults.get(key);
-            if (testResults != null){
-                Hashtable newTestR = (Hashtable) newTestResults.get(key);
-                Enumeration eT = newTestR.keys();
-                while(eT.hasMoreElements()){
-                    String keyTest = (String) eT.nextElement();
-                    TestResultKeyValuePair testResultKeyValuePair = (TestResultKeyValuePair) testResults.get(keyTest);
-                    if (testResultKeyValuePair != null){
-                        TestResultKeyValuePair newTestResultKeyValuePair1 = (TestResultKeyValuePair) newTestR.get(keyTest);
-                        if (testResultKeyValuePair.getTestResult() != newTestResultKeyValuePair1.getTestResult()){
-                            testResultKeyValuePair.setTestResult(newTestResultKeyValuePair1.getTestResult());
-                            testResultKeyValuePair.setChanged(true);
-                        }
-                    }
-                    else{
-                        testResultKeyValuePair = (TestResultKeyValuePair) newTestResults.get(keyTest);
-                        testResults.put(keyTest,testResultKeyValuePair);
-                    }
-                }
-            }
-            else{
-                testResults = (Hashtable) newTestResults.get(key);
-                oldTestResults.put(key,testResults);
-            }
-        }
-        return oldTestResults;
-    }*/
 
 }

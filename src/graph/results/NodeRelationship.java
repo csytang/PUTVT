@@ -12,7 +12,7 @@ import java.util.Objects;
 public class NodeRelationship implements GraphRelationship {
 
     private final String id;
-    private float weight;
+    private double weight;
     private final List<String> types;
     private String callsCount;
     private GraphPropertyContainer propertyContainer;
@@ -60,7 +60,7 @@ public class NodeRelationship implements GraphRelationship {
 
     @Override
     public String getTypesName() {
-        return "type";
+        return "relation_info";
     }
 
     @Override
@@ -79,12 +79,12 @@ public class NodeRelationship implements GraphRelationship {
     }
 
     @Override
-    public float relationWeight() {
+    public double relationWeight() {
         return this.weight;
     }
 
     @Override
-    public void setWeight(float weight){
+    public void setWeight(double weight){
         this.weight = weight;
     }
 
@@ -124,7 +124,7 @@ public class NodeRelationship implements GraphRelationship {
     }
 
     @Override
-    public float getWeight() {
+    public double getWeight() {
         return weight;
     }
 

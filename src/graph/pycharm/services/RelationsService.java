@@ -75,7 +75,7 @@ public class RelationsService {
             String localName = importName;
             importName = importName.concat("(");
             importName = Pattern.quote(importName);
-            Pattern p = Pattern.compile(importName); //TODO improve regex to be like functionName(*)
+            Pattern p = Pattern.compile(importName);
             Matcher m = p.matcher(file);
             int poc = 0;
             while (m.find()){

@@ -179,8 +179,8 @@ public class CoverageResults implements GraphCoverageResult {
         }
     }
 
-    private float normalizeWeight(float weight, int max){
-        float addition = 1.0f / max;
+    private double normalizeWeight(double weight, int max){
+        double addition = 1.0f / max;
         return  1+(addition*weight);
     }
 
@@ -230,12 +230,12 @@ public class CoverageResults implements GraphCoverageResult {
                 }
             }
         }
-        if (i==0){
-            if (j==0){return 1;}
+        if (i>0){
             if (j>0){return 3;}
+            if (j==0){return 2;}
         }
         else{
-            return 2;
+            if (j>0){return 1;}
         }
         return 0;
     }

@@ -67,7 +67,7 @@ public class GraphDisplay extends Display {
         graph.addColumn(TITLE, String.class);
         graph.addColumn(COLOR_NUMBER, int.class);
         graph.addColumn(OUT_COLOR_NUMBER, int.class);
-        graph.addColumn(EDGE_SIZE, float.class);
+        graph.addColumn(EDGE_SIZE, double.class);
 
         m_vis.addGraph(GRAPH, graph, null, SchemaProvider.provideNodeSchema(), SchemaProvider.provideEdgeSchema());
         m_vis.setInteractive(EDGES, null, false);

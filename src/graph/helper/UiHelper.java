@@ -71,7 +71,7 @@ public final class UiHelper {
         } else {
             treeRoot.add(listToTreeNode(graphEntity.getTypesName(), graphEntity.getTypes()));
         }
-        treeRoot.add(mapToTreeNode("properties", graphEntity.getPropertyContainer().getProperties()));
+        treeRoot.add(mapToTreeNode("details", graphEntity.getPropertyContainer().getProperties()));
     }
 
     public static PatchedDefaultMutableTreeNode pathToTreeNode(String key, GraphPath path) {

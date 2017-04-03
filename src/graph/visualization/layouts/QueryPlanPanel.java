@@ -67,7 +67,7 @@ public class QueryPlanPanel implements Disposable {
         expander.expandAll();
         initTreeCellRenderer(model);
 
-        JBLabel infoLabel = new JBLabel(getStatusText(result));
+        JBLabel infoLabel = new JBLabel(getStatusText());
         infoLabel.setHorizontalAlignment(SwingConstants.LEFT);
 
         container.add(new JBScrollPane(queryLabel), BorderLayout.NORTH);
@@ -128,20 +128,8 @@ public class QueryPlanPanel implements Disposable {
 
 
     @NotNull
-    private static String getStatusText(GraphCoverageResult result) {
+    private static String getStatusText() {
         StringBuilder sb = new StringBuilder();
-
-        Optional<ResultsPlan> plan = result.getPlan();
-        if (plan.isPresent()) {
-            Map<String, Object> args = plan.get().getArguments();
-            sb.append("Cypher version: ").append(args.getOrDefault(VERSION.getKey(), '-')).append(", ")
-                    .append("planner: ").append(args.getOrDefault(PLANNER.getKey(), '-'))
-                    .append("(").append(args.getOrDefault(PLANNER_IMPL.getKey(), '-')).append("), ")
-                    .append("runtime: ").append(args.getOrDefault(RUNTIME.getKey(), '-'));
-
-
-        }
-
         return sb.toString();
     }
 
