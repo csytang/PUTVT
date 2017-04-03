@@ -50,6 +50,7 @@ public class GraphDisplay extends Display {
     private Map<String, GraphNode> graphNodeMap = new HashMap<>();
     private Map<String, GraphRelationship> graphRelationshipMap = new HashMap<>();
     private CustomNeighborHighlightControl highlightControl;
+    private LookAndFeelService lookAndFeel;
 
     public GraphDisplay(LookAndFeelService lookAndFeel) {
         super(new Visualization());
@@ -65,6 +66,7 @@ public class GraphDisplay extends Display {
         graph.addColumn(TYPE, String.class);
         graph.addColumn(TITLE, String.class);
         graph.addColumn(COLOR_NUMBER, int.class);
+        graph.addColumn(OUT_COLOR_NUMBER, int.class);
         graph.addColumn(EDGE_SIZE, float.class);
 
         m_vis.addGraph(GRAPH, graph, null, SchemaProvider.provideNodeSchema(), SchemaProvider.provideEdgeSchema());
@@ -110,6 +112,7 @@ public class GraphDisplay extends Display {
         node.set(TYPE, graphNode.getCoverage().toString());
         node.set(TITLE, DisplayUtil.getProperty(graphNode));
         node.set(COLOR_NUMBER, graphNode.getColor());
+        node.set(OUT_COLOR_NUMBER, graphNode.getOutColor());
 
         nodeMap.put(graphNode.getId(), node);
         graphNodeMap.put(graphNode.getId(), graphNode);
@@ -132,11 +135,14 @@ public class GraphDisplay extends Display {
         DefaultRendererFactory rendererFactory = new DefaultRendererFactory(nodeRenderer(), edgeRenderer());
         rendererFactory.add(new InGroupPredicate(NODE_LABEL), labelRenderer());
         rendererFactory.add(new InGroupPredicate(EDGE_LABEL), edgeLabelRenderer());
-
         return rendererFactory;
     }
 
     public void startLayout() {
+        m_vis.removeAction(LAYOUT);
+        m_vis.removeAction(REPAINT);
+        m_vis.putAction(LAYOUT, LayoutProvider.forceLayout(m_vis, this, lookAndFeel));
+        m_vis.putAction(REPAINT, LayoutProvider.repaintLayout(lookAndFeel));
         m_vis.run(LAYOUT);
         m_vis.run(REPAINT);
     }

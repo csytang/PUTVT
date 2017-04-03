@@ -13,4 +13,6 @@ public interface GraphNode extends GraphEntity {
     void setAdded(Boolean bol);
 
     Boolean getAdded();
+
+    int getOutColor();
 }

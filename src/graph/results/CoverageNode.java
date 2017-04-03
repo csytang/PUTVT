@@ -16,6 +16,7 @@ public class CoverageNode implements GraphNode {
     private Integer coverage;
     private int color = 0;
     private Boolean set = false;
+    private int OutColorNumber = 0;
 
     public CoverageNode(String id) {
         this.id = id;
@@ -39,6 +40,11 @@ public class CoverageNode implements GraphNode {
     @Override
     public Boolean getAdded() {
         return set;
+    }
+
+    @Override
+    public int getOutColor() {
+        return OutColorNumber;
     }
 
     public void setCoverage(Integer coverage) {
@@ -93,5 +99,9 @@ public class CoverageNode implements GraphNode {
 
     public void setColor(int color) {
         this.color = color;
+    }
+
+    public void setOutColorNumber(int color){
+        this.OutColorNumber = color;
     }
 }

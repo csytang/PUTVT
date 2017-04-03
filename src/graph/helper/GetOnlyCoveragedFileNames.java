@@ -34,6 +34,16 @@ public class GetOnlyCoveragedFileNames {
         CoverageSuitesBundle coverageSuitesBundle = coverageDataManager.getCurrentSuitesBundle();
         if (coverageSuitesBundle == null){return 0;}
         String info = CoverageDataManager.getInstance(project).getCurrentSuitesBundle().getAnnotator(project).getFileCoverageInformationString(file[0],coverageSuitesBundle, coverageDataManager);
+        if (file.length > 1){
+            //TODO FIX SO THAT THE REAL FILE IS CHECKED - SOME LOCATION CHECK
+            for (PsiFile file1 : file){
+                 info = CoverageDataManager.getInstance(project).getCurrentSuitesBundle().getAnnotator(project).getFileCoverageInformationString(file1,coverageSuitesBundle, coverageDataManager);
+                if (info != null && info.contains("%")){
+                    String[] str = info.split("%");
+                    return Integer.parseInt(str[0]);
+                }
+            }
+        }
         if (info != null && info.contains("%")){
             String[] str = info.split("%");
             return Integer.parseInt(str[0]);

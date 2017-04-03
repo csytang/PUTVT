@@ -6,4 +6,5 @@ public class GraphColumns {
     public static final String TITLE = "title";
     public static final String COLOR_NUMBER = "ColorNumber";
     public static final String EDGE_SIZE = "weight";
+    public static final String OUT_COLOR_NUMBER = "OutColorNumber";
 }

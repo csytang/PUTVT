@@ -1,8 +1,5 @@
 package graph.helper;
 
-//import com.intellij.vcs.log.graph.api.elements.GraphNode;
-//TODO FIX
-
 import graph.visualization.api.GraphEntity;
 import graph.visualization.api.GraphNode;
 

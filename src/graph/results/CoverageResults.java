@@ -6,6 +6,7 @@ import graph.pycharm.api.GraphRelationship;
 import graph.pycharm.services.RelationsService;
 import graph.results.api.GraphCoverageResult;
 import graph.results.api.ResultsPlan;
+import graph.testresults.TestResultKeyValuePair;
 import graph.testresults.TestResultsCollector;
 import graph.visualization.api.GraphNode;
 
@@ -83,16 +84,18 @@ public class CoverageResults implements GraphCoverageResult {
         List<String> namesOfFiles = getFileNamesFromProject(project.getBaseDir());
         this.relations = RelationsService.getRelations(project, namesOfFiles);
         List<GraphNode> nodes = new ArrayList<>();
-        if(resultsOfRanTests==null){
-            resultsOfRanTests= HashtableResultsUtil.copyHashtableTestResults(TestResultsCollector.getInstance().getTestResults());
-        }
+        resultsOfRanTests = HashtableResultsUtil.copyHashtableTestResults(TestResultsCollector.getInstance().getTestResults());
         for (String nameOfFile : namesOfFiles){
             String[] str = nameOfFile.split("/");
             String file = str[str.length-1];
+            Hashtable fileTestResults = (Hashtable) resultsOfRanTests.get(file);
             CoverageNode node = new CoverageNode(file);
             node.setCoverage(GetOnlyCoveragedFileNames.getCovForFile(file,project));
             node.getTypes().add("Coverage is: " + node.getCoverage() + "%.");
             node.setColor(node.getCoverage()/10);
+            if (fileTestResults != null) {
+                node.setOutColorNumber(getNodeOutColor(fileTestResults));
+            }
             HashMap<String, Object> properties = new HashMap<>();
             getPropertiesForNodes(properties, nameOfFile);
             ResultsPropertyContainer resultsPropertyContainer = new ResultsPropertyContainer(properties);
@@ -100,7 +103,7 @@ public class CoverageResults implements GraphCoverageResult {
             nodeHashTable.put(file, node);
             nodes.add(node);
         }
-        nodes = doCleaning(nodes);
+        HashtableResultsUtil.getInstance().setNodes(nodes);
         return nodes;
     }
 
@@ -210,5 +213,30 @@ public class CoverageResults implements GraphCoverageResult {
             nodeHashTable.put(node.getId(),node);
         }
         return addNode;
+    }
+
+    private int getNodeOutColor(Hashtable hashtable){
+        Enumeration e = hashtable.keys();
+        int i = 0, j = 0;
+        while(e.hasMoreElements()){
+            String key = (String) e.nextElement();
+            TestResultKeyValuePair testResultKeyValuePair = (TestResultKeyValuePair) hashtable.get(key);
+            if (testResultKeyValuePair.getChanged()){
+                if (testResultKeyValuePair.getTestResult() == 0){
+                    i++;
+                }
+                if (testResultKeyValuePair.getTestResult() == 1){
+                    j++;
+                }
+            }
+        }
+        if (i==0){
+            if (j==0){return 1;}
+            if (j>0){return 3;}
+        }
+        else{
+            return 2;
+        }
+        return 0;
     }
 }
