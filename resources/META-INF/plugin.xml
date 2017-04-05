@@ -74,7 +74,7 @@
 
   <actions>
     <!-- Add your actions here -->
-    <group id="PUTVT" text="Python Visualization Tool..." popup="true">
+    <group id="PUTVT" text="Python Visualization Tool..." popup="true" icon="/icons/eye.png">
     <add-to-group group-id="ToolsMenu" anchor="first"/>
     <action id="PUTVT.highlighter.actions.VisualizationAction" class="highlighter.actions.VisualizationAction" text="Load and Visualize log .txt..."
             description="Loads a .txt file and visualizes lines of code">
