@@ -76,7 +76,7 @@
     <!-- Add your actions here -->
     <group id="PUTVT" text="Python Visualization Tool..." popup="true" icon="/icons/eye.png">
     <add-to-group group-id="ToolsMenu" anchor="first"/>
-    <action id="PUTVT.highlighter.actions.VisualizationAction" class="highlighter.actions.VisualizationAction" text="Load and Visualize log .txt..."
+    <action id="PUTVT.highlighter.actions.VisualizationAction" class="highlighter.actions.VisualizationAction" text="Load and Visualize log .txt"
             description="Loads a .txt file and visualizes lines of code">
     </action>
     <action id="PUTVT.highlighter.actions.ClearVisualAction" class="highlighter.actions.ClearVisualAction" text="Clear current View visualization"
@@ -90,6 +90,9 @@
       </action>
       <action id="PUTVT.ConsoleUsed" class="highlighter.actions.console.ConsoleSetVisualizationAction" text="Visualize console logs"
               description="Visualizes console logs">
+      </action>
+      <action id="PUTVT.ConsoleLogListener" class="highlighter.actions.ListenForLogsAction" text="Listen for logs from console"
+              description="Listen for logs from console">
       </action>
     </group>
 

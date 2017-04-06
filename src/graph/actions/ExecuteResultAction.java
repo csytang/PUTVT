@@ -36,9 +36,9 @@ public class ExecuteResultAction extends AnAction {
 
         ResultExecutionService resultExecutionService = new ResultExecutionService(messageBus,project);
         ConsoleToolWindow.ensureOpen(project);
-
-        resultExecutionService.executeResults();
-
+        for (int i = 0; i < 1; i++) {
+            resultExecutionService.executeResults();
+        }
        // messageBus.syncPublisher(ResultsProcessEvent.QUERY_EXECUTION_PROCESS_TOPIC);
     }
 
