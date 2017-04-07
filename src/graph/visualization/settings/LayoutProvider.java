@@ -4,24 +4,16 @@ package graph.visualization.settings;
 import graph.pycharm.api.LookAndFeelService;
 import graph.visualization.GraphDisplay;
 import graph.visualization.layouts.CenteredLayout;
-import graph.visualization.layouts.DynamicForceLayout;
 import graph.visualization.layouts.RepaintAndRepositionAction;
 import prefuse.Visualization;
 import prefuse.action.ActionList;
 import prefuse.action.RepaintAction;
-import prefuse.action.layout.CircleLayout;
-import prefuse.action.layout.GridLayout;
-import prefuse.action.layout.RandomLayout;
-import prefuse.action.layout.graph.BalloonTreeLayout;
 import prefuse.action.layout.graph.FruchtermanReingoldLayout;
-import prefuse.action.layout.graph.NodeLinkTreeLayout;
 import prefuse.activity.Activity;
 
 import static graph.constants.GraphGroups.*;
 
 public class LayoutProvider {
-
-    private static final boolean ENFORCE_BOUNDS = false;
 
     public static ActionList forceLayout(Visualization viz, GraphDisplay display, LookAndFeelService lookAndFeel) {
         ActionList actions = new ActionList(viz);

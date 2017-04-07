@@ -6,11 +6,9 @@ import com.intellij.openapi.actionSystem.CommonDataKeys;
 import com.intellij.openapi.editor.Editor;
 import com.intellij.openapi.project.Project;
 import com.intellij.util.messages.MessageBus;
-import graph.pycharm.ConsoleToolWindow;
-import graph.pycharm.services.ResultExecutionService;
+import graph.events.ZoomAndPanToFitEvent;
 
-public class ExecuteResultAction extends AnAction {
-
+public class ZoomAndFitAction extends AnAction{
     @Override
     public void update(AnActionEvent e) {
         Editor editor = e.getData(CommonDataKeys.EDITOR_EVEN_IF_INACTIVE);
@@ -33,13 +31,6 @@ public class ExecuteResultAction extends AnAction {
         }
 
         MessageBus messageBus = project.getMessageBus();
-
-        ResultExecutionService resultExecutionService = new ResultExecutionService(messageBus,project);
-        ConsoleToolWindow.ensureOpen(project);
-        resultExecutionService.executeResults();
+        messageBus.syncPublisher(ZoomAndPanToFitEvent.ZOOM_AND_PAN_TO_FIT_EVENT_TOPIC).resetPan();
     }
-
-
-
-
 }

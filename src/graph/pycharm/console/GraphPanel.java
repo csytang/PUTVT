@@ -146,7 +146,7 @@ public class GraphPanel {
     }
 
     public void resetPan() {
-        visualization.resetPan();
+       // visualization.resetPan();
     }
 
     private void balloonBuilder() {

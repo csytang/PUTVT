@@ -57,7 +57,6 @@ public class GraphConsoleView implements Disposable {
     private Tree entityDetailsTree;
 
     // Table
-    private JBScrollPane tableScrollPane;
     private JBTable tableExecuteResults;
     private JPanel entityDetailsScrollContent;
     private JPanel graphTab;
@@ -103,8 +102,6 @@ public class GraphConsoleView implements Disposable {
             consoleTabs.setFirstTabOffset(0);
             consoleTabs.addTab(new TabInfo(graphTab)
                     .setText("Graph"));
-            consoleTabs.addTab(new TabInfo(tableScrollPane)
-                    .setText("Table"));
             consoleTabs.setSelectionChangeHandler((info, requestFocus, doChangeSelection) -> {
                 ActionCallback callback = doChangeSelection.run();
                 graphPanel.resetPan();
@@ -174,7 +171,6 @@ public class GraphConsoleView implements Disposable {
     }
 
     private void updateLookAndFeel() {
-        tableScrollPane.setBorder(IdeBorderFactory.createEmptyBorder());
         entityDetailsScrollPane.setBorder(IdeBorderFactory.createEmptyBorder());
         graphTab.setBorder(IdeBorderFactory.createEmptyBorder());
     }

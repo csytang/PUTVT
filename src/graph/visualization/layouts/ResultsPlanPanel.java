@@ -23,11 +23,8 @@ import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.MutableTreeNode;
 import javax.swing.tree.TreeCellRenderer;
 import java.awt.*;
-import java.util.Map;
-import java.util.Optional;
 import java.util.stream.Stream;
 
-import static graph.enums.ResultPlanArgumentKeys.*;
 import static graph.visualization.controls.ColumnDefinitions.getProfileQueryPlanColumns;
 import static graph.visualization.controls.ColumnDefinitions.getQueryPlanColumns;
 

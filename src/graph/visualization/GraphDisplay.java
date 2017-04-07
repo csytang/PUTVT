@@ -29,7 +29,6 @@ import prefuse.render.RendererFactory;
 import prefuse.visual.VisualItem;
 import prefuse.visual.expression.InGroupPredicate;
 
-import java.awt.geom.Rectangle2D;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -97,6 +96,7 @@ public class GraphDisplay extends Display {
     public void clearGraph() {
         highlightControl.clear();
         graph.clear();
+        graph.clearSpanningTree();
     }
 
     public void addNodeListener(EventType type, NodeCallback callback) {

@@ -1,7 +1,5 @@
 package highlighter.util;
 
-import com.intellij.openapi.editor.EditorFactory;
-
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.Hashtable;

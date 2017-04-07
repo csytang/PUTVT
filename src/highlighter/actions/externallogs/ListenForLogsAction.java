@@ -1,8 +1,9 @@
-package highlighter.actions;
+package highlighter.actions.externallogs;
 
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.application.ApplicationManager;
+import highlighter.util.ExternalLogsUtil;
 
 import java.io.IOException;
 import java.net.DatagramPacket;
@@ -12,13 +13,12 @@ public class ListenForLogsAction extends AnAction {
 
     private int port = 9876;
 
-
     @Override
     public void actionPerformed(AnActionEvent anActionEvent) {
+        ExternalLogsUtil.getInstane().setBeingUsed(true);
         ApplicationManager.getApplication()
                 .executeOnPooledThread(executeResults());
     }
-
 
     private Runnable executeResults() {
         return () -> {
@@ -29,18 +29,23 @@ public class ListenForLogsAction extends AnAction {
                 e.printStackTrace();
                 return;
             }
-
-            while (true) {
+            ExternalLogsUtil instance = ExternalLogsUtil.getInstane();
+            while (instance.getBeingUsed()) {
                 byte[] receiveData = new byte[1024];
                 try {
                     DatagramPacket receivePacket = new DatagramPacket(receiveData, receiveData.length);
                     welcomeSocket.receive(receivePacket);
                     String sentence = new String(receivePacket.getData());
-                    System.out.println("RECEIVED: " + sentence);
+                    ExternalLogsUtil.getInstane().concatLogs(sentence);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
+            welcomeSocket.close();
         };
+    }
+
+    public void update(AnActionEvent e) {
+        e.getPresentation().setVisible(!ExternalLogsUtil.getInstane().getBeingUsed());
     }
 }

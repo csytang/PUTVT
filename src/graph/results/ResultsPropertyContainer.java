@@ -1,11 +1,9 @@
 package graph.results;
 
 
-
 import graph.visualization.api.GraphPropertyContainer;
 
 import java.util.HashMap;
-import java.util.Map;
 
 public class ResultsPropertyContainer implements GraphPropertyContainer {
 

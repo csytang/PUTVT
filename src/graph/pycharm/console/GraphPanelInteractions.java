@@ -4,6 +4,7 @@ import com.intellij.openapi.project.Project;
 import com.intellij.util.messages.MessageBus;
 import graph.enums.EventType;
 import graph.events.CleanCanvasEvent;
+import graph.events.ZoomAndPanToFitEvent;
 import graph.pycharm.GraphConsoleView;
 import graph.pycharm.api.VisualizationApi;
 import graph.results.api.GraphCoverageResult;
@@ -32,6 +33,10 @@ public class GraphPanelInteractions {
                     visualization.stop();
                     visualization.clear();
                     visualization.paint();
+                });
+        messageBus.connect()
+                .subscribe(ZoomAndPanToFitEvent.ZOOM_AND_PAN_TO_FIT_EVENT_TOPIC, () -> {
+                    visualization.resetPan();
                 });
         messageBus.connect()
                 .subscribe(ResultsProcessEvent.QUERY_EXECUTION_PROCESS_TOPIC, new ResultsProcessEvent() {

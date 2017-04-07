@@ -12,9 +12,7 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-/**
- * Created by Cegin on 18.2.2017.
- */
+
 public class PatternPytestDecoder implements PatternDecoder{
     private List<String> fileNames = new ArrayList<>();
     private Hashtable strings =  new Hashtable();
@@ -77,7 +75,6 @@ public class PatternPytestDecoder implements PatternDecoder{
     }
 
     private void createHashtable(List<String> testLines) {
-        int count = 0;
         for (String testLine : testLines) {
             String arr[] = testLine.split("\n");
             String last = arr[arr.length - 1];
