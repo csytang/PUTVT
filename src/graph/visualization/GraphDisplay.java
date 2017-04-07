@@ -29,6 +29,7 @@ import prefuse.render.RendererFactory;
 import prefuse.visual.VisualItem;
 import prefuse.visual.expression.InGroupPredicate;
 
+import java.awt.geom.Rectangle2D;
 import java.util.HashMap;
 import java.util.Map;
 

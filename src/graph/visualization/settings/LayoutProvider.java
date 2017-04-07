@@ -9,6 +9,12 @@ import graph.visualization.layouts.RepaintAndRepositionAction;
 import prefuse.Visualization;
 import prefuse.action.ActionList;
 import prefuse.action.RepaintAction;
+import prefuse.action.layout.CircleLayout;
+import prefuse.action.layout.GridLayout;
+import prefuse.action.layout.RandomLayout;
+import prefuse.action.layout.graph.BalloonTreeLayout;
+import prefuse.action.layout.graph.FruchtermanReingoldLayout;
+import prefuse.action.layout.graph.NodeLinkTreeLayout;
 import prefuse.activity.Activity;
 
 import static graph.constants.GraphGroups.*;
@@ -19,8 +25,9 @@ public class LayoutProvider {
 
     public static ActionList forceLayout(Visualization viz, GraphDisplay display, LookAndFeelService lookAndFeel) {
         ActionList actions = new ActionList(viz);
-
-        actions.add(new DynamicForceLayout(GRAPH, ENFORCE_BOUNDS));
+        FruchtermanReingoldLayout fruchtermanReingoldLayout = new FruchtermanReingoldLayout(GRAPH);
+        fruchtermanReingoldLayout.setMaxIterations(1000);
+        actions.add(fruchtermanReingoldLayout);
         actions.add(ColorProvider.colors(lookAndFeel));
         actions.add(new RepaintAndRepositionAction(viz, display));
 

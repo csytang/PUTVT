@@ -20,7 +20,9 @@ public class ResultsPropertyContainer implements GraphPropertyContainer {
     }
 
     @Override
-    public Map<String, Object> getProperties() {
+    public HashMap<String, Object> getProperties() {
         return properties;
     }
+
+    public void setProperties(HashMap<String,Object> properties){this.properties=properties;}
 }

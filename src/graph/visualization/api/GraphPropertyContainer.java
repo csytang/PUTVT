@@ -1,8 +1,10 @@
 package graph.visualization.api;
 
-import java.util.Map;
+import java.util.HashMap;
 
 public interface GraphPropertyContainer {
 
-    Map<String, Object> getProperties();
+    HashMap<String, Object> getProperties();
+
+    void setProperties (HashMap<String, Object> properties);
 }

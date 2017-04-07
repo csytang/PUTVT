@@ -110,6 +110,7 @@ public class CoverageResults implements GraphCoverageResult {
     @Override
     public List<GraphRelationship> getRelationships() {
         int localMax=1;
+        Hashtable checkIfRelationExists = new Hashtable();
         List<GraphRelationship> relatonships = new ArrayList<>();
         List<String> filePaths = ProjectFileNamesUtil.getFileNamesFromProject(project.getBaseDir());
         for (String filePath : filePaths){
@@ -120,8 +121,20 @@ public class CoverageResults implements GraphCoverageResult {
             if (importFileUtil != null && startNode != null){
                 for (ImportFrom importFrom : importFileUtil.getImportFromList())
                 {
+                    NodeRelationship relation;
                     CoverageNode endNode = (CoverageNode) nodeHashTable.get(importFrom.getName());
-                    NodeRelationship relation = new NodeRelationship(startNode.getId() + "->" + endNode.getId());
+                    String nameOfRelation = startNode.getId() + "->" + endNode.getId();
+                    if (checkIfRelationExists.get(nameOfRelation) != null){
+                        relation = (NodeRelationship) checkIfRelationExists.get(nameOfRelation);
+                        relatonships.remove(relation);
+                        relation.setWeight(getRelationWeight(importFrom) + relation.getWeight());
+                        if (localMax < relation.getWeight()){localMax= (int) relation.getWeight();}
+                        relation.setCallsCount("" + (int) relation.getWeight());
+                        getPropertiesForRelations(relation.getPropertyContainer().getProperties(), importFrom);
+                        relatonships.add(relation);
+                        continue;
+                    }
+                    relation = new NodeRelationship(nameOfRelation);
                     relation.setWeight(getRelationWeight(importFrom));
                     if (localMax < getRelationWeight(importFrom)){localMax=getRelationWeight(importFrom);}
                     relation.setCallsCount(getRelationWeight(importFrom).toString());
@@ -132,6 +145,7 @@ public class CoverageResults implements GraphCoverageResult {
                     getPropertiesForRelations(properties, importFrom);
                     ResultsPropertyContainer resultsPropertyContainer = new ResultsPropertyContainer(properties);
                     relation.setPropertyContainer(resultsPropertyContainer);
+                    checkIfRelationExists.put(relation.getId(), relation);
                     relatonships.add(relation);
                 }
             }
@@ -173,7 +187,7 @@ public class CoverageResults implements GraphCoverageResult {
         properties.put("Full path to file: ", fileName);
     }
 
-    private void getPropertiesForRelations(HashMap<String, Object> properties, ImportFrom importFrom){
+    private void getPropertiesForRelations(Map<String, Object> properties, ImportFrom importFrom){
         for (IntegerKeyValuePair keyValuePair : importFrom.getKeyValuePairList()){
             properties.put(keyValuePair.getKey(), keyValuePair.getValue().toString());
         }
