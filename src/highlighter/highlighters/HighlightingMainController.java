@@ -3,6 +3,7 @@ package highlighter.highlighters;
 import com.intellij.openapi.editor.Editor;
 import highlighter.errors.ErrorManageFileControler;
 import highlighter.pattern.PatternController;
+import highlighter.util.ExternalLogsUtil;
 import highlighter.util.HashtableCombineUtil;
 import highlighter.util.StringPytestUtil;
 
@@ -55,9 +56,8 @@ public class HighlightingMainController {
             }
             if (decodedLogs != null) {
                 this.decodedLogs=decodedLogs;
-                HashtableCombineUtil hashtableCombineUtil = new HashtableCombineUtil();
                 if (hashtable != null) {
-                    newHashtable = hashtableCombineUtil.combineHashTablesForConsoleAndFile(hashtable, decodedLogs, getEditorOpenedFileName(editor));
+                    newHashtable = HashtableCombineUtil.combineHashTablesForConsoleAndFile(hashtable, decodedLogs, getEditorOpenedFileName(editor));
                 }
                 else{
                     newHashtable=decodedLogs;
@@ -69,6 +69,22 @@ public class HighlightingMainController {
         }
         else{
             newHashtable=hashtable;
+        }
+
+        if (ExternalLogsUtil.getInstane().getBeingUsed()){
+            Hashtable decodedExternalLogs = null;
+            String logs = ExternalLogsUtil.getInstane().getLogs();
+            if (!"".equals(logs)){
+                decodedExternalLogs = patternController.patternDecode(logs);
+            }
+            if (decodedExternalLogs != null){
+                if (newHashtable != null){
+                    newHashtable = HashtableCombineUtil.combineHashTablesForConsoleAndFile(newHashtable, decodedExternalLogs, getEditorOpenedFileName(editor));
+                }
+                else{
+                    newHashtable = decodedExternalLogs;
+                }
+            }
         }
 
         errorManageFileControler.decodeDTO(newHashtable,editor);
@@ -95,9 +111,5 @@ public class HighlightingMainController {
         tmp = tmp.replace("]", "").replace('/', ' ');
         String arr[] = tmp.split(" ");
         return arr[arr.length - 1];
-    }
-
-    private Hashtable getDecodedLogs(){
-        return this.decodedLogs;
     }
 }

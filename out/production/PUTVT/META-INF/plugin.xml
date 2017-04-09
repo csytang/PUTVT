@@ -62,7 +62,7 @@
 
 
   <extensions defaultExtensionNs="com.intellij">
-    <toolWindow id="Graph Database Console"
+    <toolWindow id="Dependency Graph"
                 anchor="bottom"
                 secondary="false"
                 factoryClass="graph.pycharm.ConsoleToolWindow"
@@ -81,11 +81,11 @@
     <action id="PUTVT.highlighter.actions.VisualizationAction" class="highlighter.actions.VisualizationAction" text="Load and Visualize log .txt"
             description="Loads a .txt file and visualizes lines of code">
     </action>
-    <action id="PUTVT.highlighter.actions.ClearVisualAction" class="highlighter.actions.ClearVisualAction" text="Clear current View visualization"
+    <action id="PUTVT.highlighter.actions.ClearVisualAction" class="highlighter.actions.ClearVisualAction" text="Clears current View"
             description="Clears out the visualization for the current editor">
     </action>
-    <action id="PUTVT.highlighter.actions.ClearAllAction" class="highlighter.actions.ClearAllAction" text="Stop visualization for current loaded file"
-            description="Clears out the visualization for current file">
+    <action id="PUTVT.highlighter.actions.ClearAllAction" class="highlighter.actions.ClearAllAction" text="Stop visualization"
+            description="Clears out and stops the visualization">
     </action>
       <action id="PUTVT.ConsoleNotUsed" class="highlighter.actions.console.ConsoleUnSetVisualizationAction" text="Stop visualizing console logs"
               description="Stops visualizing console logs">

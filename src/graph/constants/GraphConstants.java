@@ -3,7 +3,7 @@ package graph.constants;
 public final class GraphConstants {
     
     public static class ToolWindow {
-        public static final String CONSOLE_TOOL_WINDOW = "Graph Database Console";
+        public static final String CONSOLE_TOOL_WINDOW = "Dependency Graph";
     }
 
     public static class Actions {

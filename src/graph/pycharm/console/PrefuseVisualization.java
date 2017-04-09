@@ -60,4 +60,8 @@ public class PrefuseVisualization implements VisualizationApi {
     public void resetPan() {
         display.zoomAndPanToFit();
     }
+
+    public void colorize(){
+        display.colorize();
+    }
 }

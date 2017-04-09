@@ -25,4 +25,6 @@ public interface VisualizationApi {
     void addEdgeListener(EventType type, RelationshipCallback action);
 
     void resetPan();
+
+    void colorize();
 }

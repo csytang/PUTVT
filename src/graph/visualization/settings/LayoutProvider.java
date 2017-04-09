@@ -15,12 +15,12 @@ import static graph.constants.GraphGroups.*;
 
 public class LayoutProvider {
 
-    public static ActionList forceLayout(Visualization viz, GraphDisplay display, LookAndFeelService lookAndFeel) {
+    public static ActionList forceLayout(Visualization viz, GraphDisplay display, LookAndFeelService lookAndFeelService) {
         ActionList actions = new ActionList(viz);
         FruchtermanReingoldLayout fruchtermanReingoldLayout = new FruchtermanReingoldLayout(GRAPH);
         fruchtermanReingoldLayout.setMaxIterations(1000);
         actions.add(fruchtermanReingoldLayout);
-        actions.add(ColorProvider.colors(lookAndFeel));
+        actions.add(ColorProvider.colors(lookAndFeelService));
         actions.add(new RepaintAndRepositionAction(viz, display));
 
         return actions;
@@ -34,5 +34,12 @@ public class LayoutProvider {
         repaint.add(new RepaintAction());
 
         return repaint;
+    }
+
+    public static ActionList colorizeAll(Visualization viz, LookAndFeelService lookAndFeelService) {
+        ActionList actionList = new ActionList(viz);
+        actionList.add(ColorProvider.colors(lookAndFeelService));
+        actionList.add(new RepaintAction());
+        return actionList;
     }
 }

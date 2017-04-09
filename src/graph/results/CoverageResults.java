@@ -5,7 +5,6 @@ import graph.helper.*;
 import graph.pycharm.api.GraphRelationship;
 import graph.pycharm.services.RelationsService;
 import graph.results.api.GraphCoverageResult;
-import graph.results.api.ResultsPlan;
 import graph.testresults.TestResultKeyValuePair;
 import graph.testresults.TestResultsCollector;
 import graph.visualization.api.GraphNode;
@@ -154,21 +153,6 @@ public class CoverageResults implements GraphCoverageResult {
             relationship.setWeight(normalizeWeight(relationship.getWeight(), localMax));
         }
         return relatonships;
-    }
-
-    @Override
-    public boolean hasPlan() {
-        return true;
-    }
-
-    @Override
-    public boolean isProfilePlan() {
-        return true;
-    }
-
-    @Override
-    public Optional<ResultsPlan> getPlan() {
-        return Optional.of(null);
     }
 
     private Integer getRelationWeight(ImportFrom importFrom){

@@ -7,10 +7,7 @@ import java.util.List;
 
 public class HashtableCombineUtil {
 
-    public HashtableCombineUtil(){
-    }
-
-    public Hashtable combineHashTables(Hashtable pytestTable,Hashtable pythonTable, List<String> fileNames) {
+    public static Hashtable combineHashTables(Hashtable pytestTable,Hashtable pythonTable, List<String> fileNames) {
         Hashtable newHashtable = pytestTable;
         for (String fileName : fileNames){
             if (newHashtable.get(fileName) != null) {
@@ -40,7 +37,7 @@ public class HashtableCombineUtil {
         return newHashtable;
     }
 
-    public Hashtable combineHashTablesForConsoleAndFile(Hashtable file, Hashtable console, String fileName){
+    public static Hashtable combineHashTablesForConsoleAndFile(Hashtable file, Hashtable console, String fileName){
         Hashtable newHashtable = new Hashtable();
         Enumeration e = file.keys();
             if (file.get(fileName) != null) {
