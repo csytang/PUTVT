@@ -13,6 +13,7 @@ public class HashtableResultsUtil {
 
     private static List<GraphNode> nodes = new ArrayList<>();
     private static HashtableResultsUtil instance;
+    private Boolean onlyCoveraged = false;
 
 
     public static HashtableResultsUtil getInstance(){
@@ -50,4 +51,11 @@ public class HashtableResultsUtil {
         HashtableResultsUtil.nodes = nodes;
     }
 
+    public Boolean getOnlyCoveraged() {
+        return onlyCoveraged;
+    }
+
+    public void setOnlyCoveraged(Boolean onlyCoveraged) {
+        this.onlyCoveraged = onlyCoveraged;
+    }
 }

@@ -10,7 +10,7 @@ import graph.helper.HashtableResultsUtil;
 import graph.pycharm.ConsoleToolWindow;
 import graph.pycharm.services.ResultExecutionService;
 
-public class ExecuteResultAction extends AnAction {
+public class ExecuteResultOnlyCoveragedAction extends AnAction {
 
     @Override
     public void update(AnActionEvent e) {
@@ -33,7 +33,7 @@ public class ExecuteResultAction extends AnAction {
             return;
         }
 
-        HashtableResultsUtil.getInstance().setOnlyCoveraged(false);
+        HashtableResultsUtil.getInstance().setOnlyCoveraged(true);
 
         MessageBus messageBus = project.getMessageBus();
 
