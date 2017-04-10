@@ -9,28 +9,41 @@
       <h3>Python Unit Tests Visualization Tool</h3>
       <br>
       <p>This plugin is used for loading files with the logs of Pytest or Python
-      failures/tracebacks and then visualizing them in the editor.</p>
+      failures/tracebacks and then visualizing them in the editor. This plugin also provides a Dependency Graph</p>
       <br>
       <p>Here are listed the actions, which will appear in the tools menu in IDE:</p>
       <ul>
       <li><b>Load and Visualize log .txt:</b> A windows will appear where if the file containing
       the logs is selected and then the Editor of the IDE is used for visualizing/highlighting
       the lines.</li>
-      <li><b>Clear current View visualization:</b> Clears the view for the current
+      <li><b>Clear current View:</b> Clears the view for the current
       opened tab, after refreshing the visualization will be redrawn.</li>
-      <li><b>Stop visualization for all files:</b> Stops the visualization for all the files,
-      so after reopening files, the visualization will disappear. Also clears view
-      for the current opened files.</li>
+      <li><b>Stop visualization:</b> Stops the visualization for all the files, keeping the settings, but not the
+      so far visualized data.</li>
+      <li><b>Visualize console logs:</b>Visualizes the logs from the internal IntelliJ console log. Logs are visualized,
+       if any errors happened and are drawn when the editor tabs are opened/reopened.</li>
+       <li><b>Listen for external jars:</b>Listens for external logs, which can be send through a UDP protocol on port
+       9876 as 1024 bit words. These are then visualized.</li>
+      </ul>
+      <br>
+      <p>Here are listed the actions which can be used on the Dependency Graph window.
+      <ul>
+      <li><b>Visualize coverage:</b> Creates a dependency Graph visualizing the actual coverage for all the modules (python
+      files) of the project. The nodes are differently colorized according to their code coverage.</li>
+      <li><b>Reset view:</b> Resets the view of the visualized graph - changes the focus.</li>
+      <li><b>Clean canvas:</b> Cleans the canvas and reoves the entire visualization</li>
       </ul>
     ]]></description>
 
   <change-notes><![CDATA[
       V. 1.0:<br>
       <ul>
-      <li></li>
+      <li>First version created, which supports Dependency Graph and error logs visualization.</li>
       </ul>
     ]]>
   </change-notes>
+
+  <!-- Icons made by: http://www.flaticon.com/authors/icomoon -->
 
   <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
   <idea-version since-build="141.0"/>
@@ -60,7 +73,7 @@
 
 
   <extensions defaultExtensionNs="com.intellij">
-    <toolWindow id="Graph Database Console"
+    <toolWindow id="Dependency Graph"
                 anchor="bottom"
                 secondary="false"
                 factoryClass="graph.pycharm.ConsoleToolWindow"
@@ -76,14 +89,14 @@
     <!-- Add your actions here -->
     <group id="PUTVT" text="Python Visualization Tool..." popup="true" icon="/icons/eye.png">
     <add-to-group group-id="ToolsMenu" anchor="first"/>
-    <action id="PUTVT.highlighter.actions.VisualizationAction" class="highlighter.actions.VisualizationAction" text="Load and Visualize log .txt..."
+    <action id="PUTVT.highlighter.actions.VisualizationAction" class="highlighter.actions.VisualizationAction" text="Load and Visualize log .txt"
             description="Loads a .txt file and visualizes lines of code">
     </action>
-    <action id="PUTVT.highlighter.actions.ClearVisualAction" class="highlighter.actions.ClearVisualAction" text="Clear current View visualization"
+    <action id="PUTVT.highlighter.actions.ClearVisualAction" class="highlighter.actions.ClearVisualAction" text="Clears current View"
             description="Clears out the visualization for the current editor">
     </action>
-    <action id="PUTVT.highlighter.actions.ClearAllAction" class="highlighter.actions.ClearAllAction" text="Stop visualization for current loaded file"
-            description="Clears out the visualization for current file">
+    <action id="PUTVT.highlighter.actions.ClearAllAction" class="highlighter.actions.ClearAllAction" text="Stop visualization"
+            description="Clears out and stops the visualization">
     </action>
       <action id="PUTVT.ConsoleNotUsed" class="highlighter.actions.console.ConsoleUnSetVisualizationAction" text="Stop visualizing console logs"
               description="Stops visualizing console logs">
@@ -91,10 +104,17 @@
       <action id="PUTVT.ConsoleUsed" class="highlighter.actions.console.ConsoleSetVisualizationAction" text="Visualize console logs"
               description="Visualizes console logs">
       </action>
+      <action id="PUTVT.ConsoleLogListener" class="highlighter.actions.externallogs.ListenForLogsAction" text="Listen for logs from external jar"
+              description="Listen for logs from console commands redirected through provided jar">
+      </action>
+      <action id="PUTVT.StopListeningAction" class="highlighter.actions.externallogs.StopListeningAction" text="Stop listener for external jar"
+              description="Stop listener for the external jar">
+      </action>
     </group>
 
     <action id="PUTVT.highlighter.actions.ErrorLinesShowAction" class="highlighter.actions.ErrorLinesShowAction" text="Show error lines..."
             description="Shows error lines for the line">
+      <keyboard-shortcut first-keystroke="control shift P" keymap="$default"/>
       <add-to-group group-id="EditorPopupMenu" anchor="last"/>
     </action>
 
@@ -108,11 +128,18 @@
               icon="/icons/play-arrow.png">
       </action>
 
+      <action id="GraphDependencyConsoleViewActions.ZoomAndFit"
+              class="graph.actions.ZoomAndFitAction"
+              text="Reset view"
+              description="Clean canvas"
+              icon="/icons/loading.png">
+      </action>
+
       <action id="GraphDependencyConsoleViewActions.CleanCanvas"
               class="graph.actions.CleanCanvasAction"
               text="Clean canvas"
               description="Clean canvas"
-              icon="/icons/loading.png">
+              icon="/icons/close.png">
       </action>
 
     </group>

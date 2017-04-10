@@ -3,6 +3,7 @@ package highlighter.highlighters;
 import com.intellij.openapi.editor.Editor;
 import highlighter.errors.ErrorManageFileControler;
 import highlighter.pattern.PatternController;
+import highlighter.util.ExternalLogsUtil;
 import highlighter.util.HashtableCombineUtil;
 import highlighter.util.StringPytestUtil;
 
@@ -47,7 +48,7 @@ public class HighlightingMainController {
     public void finishVisualization(Hashtable hashtable, Editor editor, Editor[] editors){
         PatternController patternController = new PatternController();
         Hashtable newHashtable;
-        errorManageFileControler = ErrorManageFileControler.getInstance(hashtable);
+        errorManageFileControler = ErrorManageFileControler.getInstance(null);
         if (useConsoleLogs) {
             Hashtable decodedLogs = null;
             if (consolesReadings.size() != 0 && consolesReadings.get(consolesReadings.size() - 1) != null) {
@@ -55,9 +56,8 @@ public class HighlightingMainController {
             }
             if (decodedLogs != null) {
                 this.decodedLogs=decodedLogs;
-                HashtableCombineUtil hashtableCombineUtil = new HashtableCombineUtil();
                 if (hashtable != null) {
-                    newHashtable = hashtableCombineUtil.combineHashTablesForConsoleAndFile(hashtable, decodedLogs, getEditorOpenedFileName(editor));
+                    newHashtable = HashtableCombineUtil.combineHashTablesForConsoleAndFile(hashtable, decodedLogs, getEditorOpenedFileName(editor));
                 }
                 else{
                     newHashtable=decodedLogs;
@@ -71,10 +71,27 @@ public class HighlightingMainController {
             newHashtable=hashtable;
         }
 
+        if (ExternalLogsUtil.getInstane().getBeingUsed()){
+            Hashtable decodedExternalLogs = null;
+            String logs = ExternalLogsUtil.getInstane().getLogs();
+            if (!"".equals(logs)){
+                decodedExternalLogs = patternController.patternDecode(logs);
+            }
+            if (decodedExternalLogs != null){
+                if (newHashtable != null){
+                    newHashtable = HashtableCombineUtil.combineHashTablesForConsoleAndFile(newHashtable, decodedExternalLogs, getEditorOpenedFileName(editor));
+                }
+                else{
+                    newHashtable = decodedExternalLogs;
+                }
+            }
+        }
+
         errorManageFileControler.decodeDTO(newHashtable,editor);
         for (Editor editor1 : editors){
             errorManageFileControler.decodeDTO(newHashtable,editor1);
         }
+        errorManageFileControler.setErrorManageFileTable(newHashtable);
     }
 
     public Boolean getUseConsoleLogs() {
@@ -97,7 +114,10 @@ public class HighlightingMainController {
         return arr[arr.length - 1];
     }
 
-    private Hashtable getDecodedLogs(){
-        return this.decodedLogs;
+    public void clearLogs(){
+        this.decodedLogs = new Hashtable();
+        if (consolesReadings != null) {
+            consolesReadings.clear();
+        }
     }
 }

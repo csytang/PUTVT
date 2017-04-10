@@ -13,10 +13,4 @@ public interface GraphCoverageResult {
     List<GraphNode> getNodes();
 
     List<GraphRelationship> getRelationships();
-
-    boolean hasPlan();
-
-    boolean isProfilePlan();
-
-    Optional<ResultsPlan> getPlan();
 }

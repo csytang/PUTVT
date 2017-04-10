@@ -15,9 +15,6 @@ import highlighter.util.StringPytestUtil;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Cegin on 27.2.2017.
- */
 public class ErrorLinesShowAction extends AnAction {
 
     final String logMessage = "LOG for Error:" + "\n" + "****************" + "\n";

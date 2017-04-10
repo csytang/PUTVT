@@ -43,6 +43,7 @@ public class GraphDisplay extends Display {
 
     private static final String LAYOUT = "layout";
     private static final String REPAINT = "repaint";
+    private static final String COLORIZE = "colorize";
 
     private Graph graph;
 
@@ -80,6 +81,7 @@ public class GraphDisplay extends Display {
 
         m_vis.putAction(LAYOUT, LayoutProvider.forceLayout(m_vis, this, lookAndFeel));
         m_vis.putAction(REPAINT, LayoutProvider.repaintLayout(lookAndFeel));
+        m_vis.putAction(COLORIZE, LayoutProvider.colorizeAll(m_vis, lookAndFeel));
 
         setItemSorter(new CustomItemSorter());
 
@@ -96,6 +98,7 @@ public class GraphDisplay extends Display {
     public void clearGraph() {
         highlightControl.clear();
         graph.clear();
+        graph.clearSpanningTree();
     }
 
     public void addNodeListener(EventType type, NodeCallback callback) {
@@ -141,15 +144,26 @@ public class GraphDisplay extends Display {
     public void startLayout() {
         m_vis.removeAction(LAYOUT);
         m_vis.removeAction(REPAINT);
+        m_vis.removeAction(COLORIZE);
         m_vis.putAction(LAYOUT, LayoutProvider.forceLayout(m_vis, this, lookAndFeel));
         m_vis.putAction(REPAINT, LayoutProvider.repaintLayout(lookAndFeel));
+        m_vis.putAction(COLORIZE, LayoutProvider.colorizeAll(m_vis, lookAndFeel));
         m_vis.run(LAYOUT);
         m_vis.run(REPAINT);
+        m_vis.run(COLORIZE);
+
     }
 
     public void stopLayout() {
         m_vis.cancel(LAYOUT);
         m_vis.cancel(REPAINT);
+        m_vis.cancel(COLORIZE);
+    }
+
+    public void colorize(){
+        m_vis.removeAction(COLORIZE);
+        m_vis.putAction(COLORIZE, LayoutProvider.colorizeAll(m_vis,lookAndFeel));
+        m_vis.run(COLORIZE);
     }
 
     public void zoomAndPanToFit() {

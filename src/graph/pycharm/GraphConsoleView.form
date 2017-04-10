@@ -69,21 +69,6 @@
               </grid>
             </children>
           </grid>
-          <scrollpane id="9963e" class="com.intellij.ui.components.JBScrollPane" binding="tableScrollPane">
-            <constraints>
-              <tabbedpane title="Table"/>
-            </constraints>
-            <properties/>
-            <border type="none"/>
-            <children>
-              <component id="758aa" class="com.intellij.ui.table.JBTable" binding="tableExecuteResults">
-                <constraints/>
-                <properties>
-                  <fillsViewportHeight value="false"/>
-                </properties>
-              </component>
-            </children>
-          </scrollpane>
         </children>
       </tabbedpane>
       <component id="b903c" class="com.intellij.ui.tabs.impl.JBTabsImpl" binding="consoleTabs" custom-create="true">

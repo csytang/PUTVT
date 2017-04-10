@@ -25,18 +25,13 @@ import com.intellij.util.ui.UIUtil;
 import graph.constants.GraphConstants;
 import graph.pycharm.api.LookAndFeelService;
 import graph.pycharm.console.GraphPanel;
-import graph.results.api.GraphCoverageResult;
-import graph.results.api.ResultsPlanEvent;
-import graph.visualization.layouts.ResultsPlanPanel;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeFormatterBuilder;
-import java.util.concurrent.atomic.AtomicInteger;
 
 import static java.time.temporal.ChronoField.*;
 
@@ -57,7 +52,6 @@ public class GraphConsoleView implements Disposable {
     private Tree entityDetailsTree;
 
     // Table
-    private JBScrollPane tableScrollPane;
     private JBTable tableExecuteResults;
     private JPanel entityDetailsScrollContent;
     private JPanel graphTab;
@@ -103,17 +97,11 @@ public class GraphConsoleView implements Disposable {
             consoleTabs.setFirstTabOffset(0);
             consoleTabs.addTab(new TabInfo(graphTab)
                     .setText("Graph"));
-            consoleTabs.addTab(new TabInfo(tableScrollPane)
-                    .setText("Table"));
             consoleTabs.setSelectionChangeHandler((info, requestFocus, doChangeSelection) -> {
                 ActionCallback callback = doChangeSelection.run();
                 graphPanel.resetPan();
                 return callback;
             });
-
-            AtomicInteger tabId = new AtomicInteger(0);
-            project.getMessageBus().connect().subscribe(ResultsPlanEvent.QUERY_PLAN_EVENT,
-                    (query, result) -> createNewQueryPlanTab(query, result, tabId.incrementAndGet()));
 
             // Actions
             final ActionGroup consoleActionGroup = (ActionGroup)
@@ -150,31 +138,7 @@ public class GraphConsoleView implements Disposable {
         });
     }
 
-    private void createNewQueryPlanTab(String originalQuery,
-                                       GraphCoverageResult result, int tabId) {
-        JPanel panel = new JPanel();
-        panel.setLayout(new BorderLayout(0, 3));
-
-        ResultsPlanPanel qpPanel = new ResultsPlanPanel(originalQuery, result);
-        qpPanel.initialize(panel);
-
-        TabInfo tabInfo = new TabInfo(panel);
-        DefaultActionGroup tabActions = new DefaultActionGroup(new ResultsPlanPanel.CloseTab() {
-            @Override
-            public void actionPerformed(AnActionEvent e) {
-                super.actionPerformed(e);
-                consoleTabs.removeTab(tabInfo);
-            }
-        });
-        tabInfo.setTabLabelActions(tabActions, ActionPlaces.EDITOR_TAB);
-
-        String planType = result.isProfilePlan() ? PROFILE_PLAN_TITLE : EXPLAIN_PLAN_TITLE;
-        consoleTabs.addTab(tabInfo.setText(String.format("%1s %2d - %3s", planType, tabId,
-                LocalDateTime.now().format(QUERY_PLAN_TIME_FORMAT))));
-    }
-
     private void updateLookAndFeel() {
-        tableScrollPane.setBorder(IdeBorderFactory.createEmptyBorder());
         entityDetailsScrollPane.setBorder(IdeBorderFactory.createEmptyBorder());
         graphTab.setBorder(IdeBorderFactory.createEmptyBorder());
     }
