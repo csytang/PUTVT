@@ -43,10 +43,10 @@
     ]]>
   </change-notes>
 
-  <!-- Icons made by: http://www.flaticon.com/authors/icomoon -->
+  <!-- Icons made by: http://www.flaticon.com/authors/icomoon and Hanan -->
 
   <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
-  <idea-version since-build="141.0"/>
+  <idea-version since-build="162.0"/>
 
   <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
        on how to target different products -->
@@ -127,10 +127,17 @@
               icon="/icons/play-arrow.png">
       </action>
 
+      <action id="GraphDependencyConsoleViewActions.VisualizeCoverageOnly"
+              class="graph.actions.ExecuteResultOnlyCoveragedAction"
+              text="Visualizes only coveraged nodes with their relations"
+              description="Visualizes only coveraged nodes with their relation"
+              icon="/icons/fast-forward.png">
+      </action>
+
       <action id="GraphDependencyConsoleViewActions.ZoomAndFit"
               class="graph.actions.ZoomAndFitAction"
               text="Reset view"
-              description="Clean canvas"
+              description="Reset view"
               icon="/icons/loading.png">
       </action>
 

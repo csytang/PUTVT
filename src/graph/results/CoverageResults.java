@@ -102,6 +102,9 @@ public class CoverageResults implements GraphCoverageResult {
             nodeHashTable.put(file, node);
             nodes.add(node);
         }
+        if (HashtableResultsUtil.getInstance().getOnlyCoveraged()) {
+            nodes = doCleaning(nodes);
+        }
         HashtableResultsUtil.getInstance().setNodes(nodes);
         return nodes;
     }
