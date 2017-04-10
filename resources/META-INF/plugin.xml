@@ -9,25 +9,36 @@
       <h3>Python Unit Tests Visualization Tool</h3>
       <br>
       <p>This plugin is used for loading files with the logs of Pytest or Python
-      failures/tracebacks and then visualizing them in the editor.</p>
+      failures/tracebacks and then visualizing them in the editor. This plugin also provides a Dependency Graph</p>
       <br>
       <p>Here are listed the actions, which will appear in the tools menu in IDE:</p>
       <ul>
       <li><b>Load and Visualize log .txt:</b> A windows will appear where if the file containing
       the logs is selected and then the Editor of the IDE is used for visualizing/highlighting
       the lines.</li>
-      <li><b>Clear current View visualization:</b> Clears the view for the current
+      <li><b>Clear current View:</b> Clears the view for the current
       opened tab, after refreshing the visualization will be redrawn.</li>
-      <li><b>Stop visualization for all files:</b> Stops the visualization for all the files,
-      so after reopening files, the visualization will disappear. Also clears view
-      for the current opened files.</li>
+      <li><b>Stop visualization:</b> Stops the visualization for all the files, keeping the settings, but not the
+      so far visualized data.</li>
+      <li><b>Visualize console logs:</b>Visualizes the logs from the internal IntelliJ console log. Logs are visualized,
+       if any errors happened and are drawn when the editor tabs are opened/reopened.</li>
+       <li><b>Listen for external jars:</b>Listens for external logs, which can be send through a UDP protocol on port
+       9876 as 1024 bit words. These are then visualized.</li>
+      </ul>
+      <br>
+      <p>Here are listed the actions which can be used on the Dependency Graph window.
+      <ul>
+      <li><b>Visualize coverage:</b> Creates a dependency Graph visualizing the actual coverage for all the modules (python
+      files) of the project. The nodes are differently colorized according to their code coverage.</li>
+      <li><b>Reset view:</b> Resets the view of the visualized graph - changes the focus.</li>
+      <li><b>Clean canvas:</b> Cleans the canvas and reoves the entire visualization</li>
       </ul>
     ]]></description>
 
   <change-notes><![CDATA[
       V. 1.0:<br>
       <ul>
-      <li></li>
+      <li>First version created, which supports Dependency Graph and error logs visualization.</li>
       </ul>
     ]]>
   </change-notes>
