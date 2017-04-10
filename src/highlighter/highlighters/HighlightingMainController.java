@@ -48,7 +48,7 @@ public class HighlightingMainController {
     public void finishVisualization(Hashtable hashtable, Editor editor, Editor[] editors){
         PatternController patternController = new PatternController();
         Hashtable newHashtable;
-        errorManageFileControler = ErrorManageFileControler.getInstance(hashtable);
+        errorManageFileControler = ErrorManageFileControler.getInstance(null);
         if (useConsoleLogs) {
             Hashtable decodedLogs = null;
             if (consolesReadings.size() != 0 && consolesReadings.get(consolesReadings.size() - 1) != null) {
@@ -91,6 +91,7 @@ public class HighlightingMainController {
         for (Editor editor1 : editors){
             errorManageFileControler.decodeDTO(newHashtable,editor1);
         }
+        errorManageFileControler.setErrorManageFileTable(newHashtable);
     }
 
     public Boolean getUseConsoleLogs() {
@@ -111,5 +112,12 @@ public class HighlightingMainController {
         tmp = tmp.replace("]", "").replace('/', ' ');
         String arr[] = tmp.split(" ");
         return arr[arr.length - 1];
+    }
+
+    public void clearLogs(){
+        this.decodedLogs = new Hashtable();
+        if (consolesReadings != null) {
+            consolesReadings.clear();
+        }
     }
 }

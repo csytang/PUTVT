@@ -43,7 +43,6 @@ public class VisualizationAction extends AnAction {
             e1.printStackTrace();
         }
         if (hashtable == null){return;}
-        ErrorManageFileControler.getInstance(hashtable);
         highlightingMainController = HighlightingMainController.getInstance(null);
         highlightingMainController.finishVisualization(hashtable,editor,EditorFactory.getInstance().getAllEditors());
     }

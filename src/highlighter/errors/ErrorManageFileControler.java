@@ -7,9 +7,6 @@ import highlighter.util.StringPytestUtil;
 
 import java.util.Hashtable;
 
-/**
- * Created by Cegin on 18.2.2017.
- */
 public class ErrorManageFileControler {
     //SINGLETON
     private static ErrorManageFileControler instance = null;
