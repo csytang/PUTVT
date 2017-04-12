@@ -3,9 +3,7 @@ package highlighter.listeners;
 import com.intellij.openapi.vfs.*;
 import highlighter.handlers.DisplayHandler;
 
-/**
- * Created by Cegin on 20.2.2017.
- */
+
 public class FileOperationListener implements VirtualFileListener {
     private DisplayHandler displayHandler;
 

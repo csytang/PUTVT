@@ -1,6 +1,7 @@
 package highlighter.highlighters;
 
 import com.intellij.openapi.editor.Editor;
+import com.intellij.openapi.editor.EditorFactory;
 import highlighter.errors.ErrorManageFileControler;
 import highlighter.pattern.PatternController;
 import highlighter.util.ExternalLogsUtil;
@@ -45,9 +46,9 @@ public class HighlightingMainController {
         return instance;
     }
 
-    public void finishVisualization(Hashtable hashtable, Editor editor, Editor[] editors){
+    public void finishVisualization(Hashtable hashtable, Editor[] editors){
         PatternController patternController = new PatternController();
-        Hashtable newHashtable;
+        Hashtable newHashtable = new Hashtable();
         errorManageFileControler = ErrorManageFileControler.getInstance(null);
         if (useConsoleLogs) {
             Hashtable decodedLogs = null;
@@ -57,7 +58,9 @@ public class HighlightingMainController {
             if (decodedLogs != null) {
                 this.decodedLogs=decodedLogs;
                 if (hashtable != null) {
-                    newHashtable = HashtableCombineUtil.combineHashTablesForConsoleAndFile(hashtable, decodedLogs, getEditorOpenedFileName(editor));
+                    for (Editor editor : EditorFactory.getInstance().getAllEditors()) {
+                        newHashtable = HashtableCombineUtil.combineHashTablesForConsoleAndFile(hashtable, decodedLogs, getEditorOpenedFileName(editor));
+                    }
                 }
                 else{
                     newHashtable=decodedLogs;
@@ -79,7 +82,9 @@ public class HighlightingMainController {
             }
             if (decodedExternalLogs != null){
                 if (newHashtable != null){
-                    newHashtable = HashtableCombineUtil.combineHashTablesForConsoleAndFile(newHashtable, decodedExternalLogs, getEditorOpenedFileName(editor));
+                    for (Editor editor : EditorFactory.getInstance().getAllEditors()) {
+                        newHashtable = HashtableCombineUtil.combineHashTablesForConsoleAndFile(newHashtable, decodedExternalLogs, getEditorOpenedFileName(editor));
+                    }
                 }
                 else{
                     newHashtable = decodedExternalLogs;
@@ -87,11 +92,12 @@ public class HighlightingMainController {
             }
         }
 
-        errorManageFileControler.decodeDTO(newHashtable,editor);
+
         for (Editor editor1 : editors){
             errorManageFileControler.decodeDTO(newHashtable,editor1);
         }
         errorManageFileControler.setErrorManageFileTable(newHashtable);
+        clearLogs();
     }
 
     public Boolean getUseConsoleLogs() {

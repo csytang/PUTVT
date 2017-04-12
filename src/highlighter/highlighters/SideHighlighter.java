@@ -6,9 +6,7 @@ import com.intellij.openapi.editor.markup.RangeHighlighter;
 
 import java.awt.*;
 
-/**
- * @author Jan Cegin
- */
+
 public class SideHighlighter {
     public void highlight(RangeHighlighter lineHighlighter, final Color color) {
         lineHighlighter.setLineMarkerRenderer(new LineMarkerRenderer() {

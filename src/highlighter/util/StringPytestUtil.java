@@ -2,9 +2,6 @@ package highlighter.util;
 
 import java.util.List;
 
-/**
- * Created by Cegin on 18.2.2017.
- */
 public class StringPytestUtil {
 
     private String testLastLine;

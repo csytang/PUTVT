@@ -9,9 +9,6 @@ import highlighter.listeners.ConsoleRunListener;
 import highlighter.listeners.EditorManagerListener;
 import highlighter.listeners.FileOperationListener;
 
-/**
- * Created by Cegin on 20.2.2017.
- */
 public class ProjectPlugin {
     private Project project;
 

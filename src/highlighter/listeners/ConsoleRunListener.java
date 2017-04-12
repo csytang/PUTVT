@@ -14,9 +14,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-/**
- * Created by Cegin on 27.2.2017.
- */
+
 public class ConsoleRunListener implements ExecutionListener{
     private Boolean pytestCapture=false;
     private Boolean pythonCapture=false;

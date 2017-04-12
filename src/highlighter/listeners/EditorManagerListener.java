@@ -5,9 +5,7 @@ import com.intellij.openapi.fileEditor.*;
 import com.intellij.openapi.vfs.VirtualFile;
 import highlighter.handlers.DisplayHandler;
 
-/**
- * Created by Cegin on 20.2.2017.
- */
+
 public class EditorManagerListener implements FileEditorManagerListener {
     private DisplayHandler displayHandler;
 

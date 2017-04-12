@@ -1,6 +1,4 @@
-package highlighter.highlighters; /**
- * Created by Cegin on 30.12.2016.
- */
+package highlighter.highlighters;
 
 import com.intellij.openapi.editor.markup.RangeHighlighter;
 import com.intellij.openapi.editor.markup.TextAttributes;

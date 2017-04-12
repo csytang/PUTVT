@@ -13,9 +13,7 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 
-/**
- * Created by Cegin on 30.12.2016.
- */
+
 public class MainHighlighter{
                 private Hashtable highlights;
                 private static MainHighlighter instance = null;

@@ -2,9 +2,6 @@ package highlighter.errors;
 
 import java.util.List;
 
-/**
- * Created by Cegin on 18.2.2017.
- */
 public class ErrorManageFile {
     private List<Integer> numberOfLines;
     private List<String> ErrorReason;

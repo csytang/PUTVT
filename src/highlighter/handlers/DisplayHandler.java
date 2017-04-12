@@ -51,7 +51,7 @@ public class DisplayHandler {
         HighlightingMainController highlightingMainController = HighlightingMainController.getInstance(null);
         ErrorManageFileControler errorManageFileControler = ErrorManageFileControler.getInstance(null);
 
-        highlightingMainController.finishVisualization(errorManageFileControler.getErrorManageFileTable(),editor, EditorFactory.getInstance().getAllEditors());
+        highlightingMainController.finishVisualization(errorManageFileControler.getErrorManageFileTable(), EditorFactory.getInstance().getAllEditors());
     }
 
 

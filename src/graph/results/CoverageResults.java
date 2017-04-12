@@ -29,15 +29,6 @@ public class CoverageResults implements GraphCoverageResult {
     private Hashtable relations;
 
     @Override
-    public String getResultSummary() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(format("Nodes created: %s\n", "node"));
-        sb.append(format("Indexes added: %s\n", "INDEX"));
-        return sb.toString();
-    }
-
-
-    @Override
     public List<GraphNode> getNodes() {
         List<String> namesOfFiles = getFileNamesFromProject(project.getBaseDir());
         this.relations = RelationsService.getRelations(project, namesOfFiles);

@@ -19,9 +19,7 @@ import java.io.IOException;
 import java.util.Hashtable;
 import java.util.List;
 
-/**
- * Created by Cegin on 18.2.2017.
- */
+
 public class PatternController {
 
     private PatternDecoder patternPythonDecoder;

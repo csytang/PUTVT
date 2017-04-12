@@ -12,9 +12,7 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-/**
- * Created by Cegin on 30.1.2017.
- */
+
 public class PatternPythonDecoder implements PatternDecoder{
     private String[] lines;
     Hashtable strings =  new Hashtable();
