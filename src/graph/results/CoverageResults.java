@@ -30,54 +30,13 @@ public class CoverageResults implements GraphCoverageResult {
 
     @Override
     public String getResultSummary() {
-
-
         StringBuilder sb = new StringBuilder();
-
-            sb.append(format("Nodes created: %s\n", "node"));
-
-           /* if (counters.nodesDeleted() > 0) {
-                sb.append(format("Nodes deleted: %s\n", counters.nodesDeleted()));
-            }
-            if (counters.labelsAdded() > 0) {
-                sb.append(format("Labels added: %s\n", counters.labelsAdded()));
-            }
-            if (counters.labelsRemoved() > 0) {
-                sb.append(format("Labels removed: %s\n", counters.labelsRemoved()));
-            }
-            if (counters.relationshipsCreated() > 0) {
-                sb.append(format("Relationships created: %s\n", counters.relationshipsCreated()));
-            }
-            if (counters.relationshipsDeleted() > 0) {
-                sb.append(format("Relationships deleted: %s\n", counters.relationshipsDeleted()));
-            }
-            if (counters.propertiesSet() > 0) {
-                sb.append(format("Properties set: %s\n", counters.propertiesSet()));
-            }*/
-
-                sb.append(format("Indexes added: %s\n", "INDEX"));
-
-
-      /*  if (summary.hasProfile()) {
-            sb.append("Profile:\n");
-            profileToString(sb, summary.profile(), 1);
-        } else if (summary.hasPlan()) {
-            sb.append("Plan:\n");
-            planToString(sb, summary.plan(), 1);
-        }*/
-
-       /* if (summary.notifications().size() > 0) {
-            sb.append("Notifications:\n");
-            for (Notification notification : summary.notifications()) {
-                sb.append(format("[%s] %s(%s) - %s", notification.severity(),
-                        notification.title(), notification.code(), notification.description()));
-            }
-        }*/
+        sb.append(format("Nodes created: %s\n", "node"));
+        sb.append(format("Indexes added: %s\n", "INDEX"));
         return sb.toString();
     }
 
 
-    //TODO Visualize only nodes that are either coveraged or have a relation to a coverage node
     @Override
     public List<GraphNode> getNodes() {
         List<String> namesOfFiles = getFileNamesFromProject(project.getBaseDir());
@@ -133,6 +92,7 @@ public class CoverageResults implements GraphCoverageResult {
                         if (localMax < relation.getWeight()){localMax= (int) relation.getWeight();}
                         relation.setCallsCount("" + (int) relation.getWeight());
                         getPropertiesForRelations(relation.getPropertyContainer().getProperties(), importFrom);
+                        setRelationTypes(relation.getTypes(), relation.getWeight());
                         relatonships.add(relation);
                         continue;
                     }
@@ -142,7 +102,7 @@ public class CoverageResults implements GraphCoverageResult {
                     relation.setCallsCount(getRelationWeight(importFrom).toString());
                     relation.setStartNode(startNode);
                     relation.setEndNode(endNode);
-                    setRelationTypes(relation.getTypes(),getRelationWeight(importFrom));
+                    setRelationTypes(relation.getTypes(),relation.getWeight());
                     HashMap<String, Object> properties = new HashMap<>();
                     getPropertiesForRelations(properties, importFrom);
                     ResultsPropertyContainer resultsPropertyContainer = new ResultsPropertyContainer(properties);
@@ -166,8 +126,11 @@ public class CoverageResults implements GraphCoverageResult {
         return weight;
     }
 
-    private void setRelationTypes(List<String> types, Integer number){
-        types.add("Times called: " + number.toString());
+    private void setRelationTypes(List<String> types, double number){
+        if (types.size()!=0){
+            types.clear();
+        }
+        types.add("Times called: " + ((int) number));
     }
 
     private void getPropertiesForNodes(HashMap<String, Object> properties, String fileName){

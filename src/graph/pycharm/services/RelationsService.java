@@ -73,27 +73,13 @@ public class RelationsService {
             }
             importName = importName.replace(" ", "");
             String localName = importName;
-            importName = importName.concat("(");
-            importName = Pattern.quote(importName);
-            Pattern p = Pattern.compile(importName);
-            Matcher m = p.matcher(file);
             int poc = 0;
+            String local = "[^A-z0-9]" + localName + "[^A-z0-9]";
+            Pattern p = Pattern.compile(local);
+            Matcher m = p.matcher(file);
             while (m.find()){
-                if (isAllowedCharBeforeStatement(file.charAt(m.start()-1))){
-                    poc++;
-                }
-            }
-            String local = Pattern.quote("(" + localName + ")");
-            p = Pattern.compile(local);
-            m = p.matcher(file);
-            while (m.find()){
-                    poc++;
-            }
-            local = Pattern.quote(localName + ".");
-            p = Pattern.compile(local);
-            m = p.matcher(file);
-            while (m.find()){
-                if (isAllowedCharBeforeStatement(file.charAt(m.start()-1))){
+                if (isAllowedAndNotImportCharBeforeStatement(file.charAt(m.start()-1), file.substring(m.start()-6,m.start())))
+                {
                     poc++;
                 }
             }
@@ -103,11 +89,9 @@ public class RelationsService {
         return integerKeyValuePairList;
     }
 
-    private static boolean isAllowedCharBeforeStatement(char c){
+    private static boolean isAllowedAndNotImportCharBeforeStatement(char c, String imp){
         String str = c + "";
-        Pattern subP = Pattern.compile("[A-z0-9]");
-        Matcher subM = subP.matcher(str);
-        if (subM.find()){
+        if ("import".equals(imp)){
             return false;
         }
         if (str.equals("-") || str.equals("_") || str.equals("-")){
