@@ -2,6 +2,12 @@ package graph.testresults;
 
 import com.intellij.execution.testframework.AbstractTestProxy;
 import com.intellij.execution.testframework.TestStatusListener;
+import com.intellij.openapi.editor.Editor;
+import com.intellij.openapi.editor.EditorFactory;
+import com.intellij.openapi.project.Project;
+import com.intellij.util.messages.MessageBus;
+import graph.pycharm.ConsoleToolWindow;
+import graph.pycharm.services.ResultExecutionService;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Hashtable;
@@ -9,8 +15,11 @@ import java.util.List;
 import java.util.regex.Pattern;
 
 public class TestStatusListenerImpl extends TestStatusListener{
+    private boolean alreadyOpened = false;
     @Override
     public void testSuiteFinished(@Nullable AbstractTestProxy abstractTestProxy) {
+        Editor ed[] = EditorFactory.getInstance().getAllEditors();
+        Project project = ed[0].getProject();
         List<? extends AbstractTestProxy> abstractTestProxyList = abstractTestProxy.getAllTests();
         Hashtable testResults = TestResultsCollector.getInstance().getTestResults();
         Hashtable testsOnly = new Hashtable();
@@ -46,6 +55,9 @@ public class TestStatusListenerImpl extends TestStatusListener{
         }
         TestResultsCollector.getInstance().setTestsOnly(testsOnly);
         TestResultsCollector.getInstance().setTestResults(testResults);
+        MessageBus messageBus = project.getMessageBus();
+        ResultExecutionService resultExecutionService = new ResultExecutionService(messageBus,project);
+        resultExecutionService.executeResults();
     }
 
     private String getTestFileName(String url){

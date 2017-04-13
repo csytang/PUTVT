@@ -14,18 +14,6 @@ public class EditorManagerListener implements FileEditorManagerListener {
     }
 
     public void fileOpened(FileEditorManager source, VirtualFile file) {
-     /*   Editor editor = null;
-
-        for (FileEditor fileEditor : source.getEditors(file)) {
-            if ((fileEditor instanceof TextEditor)) {
-                editor = ((TextEditor) fileEditor).getEditor();
-                break;
-            }
-        }
-
-        if (editor != null) {
-            this.displayHandler.addDisplayForEditor(editor, file.getPath());
-        }*/
     }
 
     public void fileClosed(FileEditorManager source, VirtualFile file) {
