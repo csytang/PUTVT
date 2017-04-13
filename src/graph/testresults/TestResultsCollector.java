@@ -6,6 +6,7 @@ import java.util.Hashtable;
 public class TestResultsCollector {
     private static TestResultsCollector instance;
     private Hashtable testResults = new Hashtable();
+    private Hashtable testsOnly = new Hashtable();
 
 
     public static TestResultsCollector getInstance(){
@@ -22,5 +23,13 @@ public class TestResultsCollector {
 
     public void setTestResults(Hashtable testResults) {
         this.testResults = testResults;
+    }
+
+    public Hashtable getTestsOnly() {
+        return testsOnly;
+    }
+
+    public void setTestsOnly(Hashtable testsOnly) {
+        this.testsOnly = testsOnly;
     }
 }

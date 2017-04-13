@@ -2,6 +2,7 @@ package highlighter.pattern;
 
 import com.intellij.openapi.vfs.VirtualFile;
 import highlighter.util.StringPytestUtil;
+import highlighter.util.TestResultsUtil;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -11,6 +12,8 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import static jdk.nashorn.internal.objects.NativeString.substring;
 
 
 public class PatternPytestDecoder implements PatternDecoder{
@@ -50,6 +53,7 @@ public class PatternPytestDecoder implements PatternDecoder{
     }
 
     private Boolean doTheDecoding(String all){
+        List<String> testResults = new ArrayList<>();
         List<String> testLines = new ArrayList<>();
         all = all.trim();
         all = all.replaceAll("(?m)^[ \t]*\r?\n", "");
@@ -64,12 +68,16 @@ public class PatternPytestDecoder implements PatternDecoder{
 
         while (m1.find() && m.find()) {
             count++;
+            String testName = all.substring(m1.start(), m1.end());
+            testName = testName.replace("_","");
+            testName = testName.replace(" ","");
+            testResults.add(testName);
             testLines.add(all.substring(m1.start(), m.end()).replaceAll("( )+", " "));
         }
         if (count == 0) {
             return false;
         }
-
+        TestResultsUtil.getInstance().setResults(testResults);
         createHashtable(testLines);
         return true;
     }

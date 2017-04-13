@@ -37,12 +37,12 @@ public class DisplayHandler {
             }
 
             if (editor != null) {
-                addDisplayForEditor(editor, file.getPath());
+                addDisplayForEditor(editor);
             }
         }
     }
 
-    public void addDisplayForEditor(Editor editor, String file) {
+    public void addDisplayForEditor(Editor editor) {
         CoverageDisplay display = new CoverageDisplay();
 
         editor.getDocument().addDocumentListener(display);

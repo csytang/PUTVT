@@ -14,7 +14,7 @@ public class EditorManagerListener implements FileEditorManagerListener {
     }
 
     public void fileOpened(FileEditorManager source, VirtualFile file) {
-        Editor editor = null;
+     /*   Editor editor = null;
 
         for (FileEditor fileEditor : source.getEditors(file)) {
             if ((fileEditor instanceof TextEditor)) {
@@ -25,7 +25,7 @@ public class EditorManagerListener implements FileEditorManagerListener {
 
         if (editor != null) {
             this.displayHandler.addDisplayForEditor(editor, file.getPath());
-        }
+        }*/
     }
 
     public void fileClosed(FileEditorManager source, VirtualFile file) {
@@ -33,5 +33,16 @@ public class EditorManagerListener implements FileEditorManagerListener {
     }
 
     public void selectionChanged(FileEditorManagerEvent event) {
+        Editor editor = null;
+
+        FileEditor fileEditor = event.getNewEditor();
+            if ((fileEditor instanceof TextEditor)) {
+                editor = ((TextEditor) fileEditor).getEditor();
+            }
+
+
+        if (editor != null) {
+            this.displayHandler.addDisplayForEditor(editor);
+        }
     }
 }

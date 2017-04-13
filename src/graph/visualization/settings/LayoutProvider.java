@@ -18,7 +18,7 @@ public class LayoutProvider {
     public static ActionList forceLayout(Visualization viz, GraphDisplay display, LookAndFeelService lookAndFeelService) {
         ActionList actions = new ActionList(viz);
         FruchtermanReingoldLayout fruchtermanReingoldLayout = new FruchtermanReingoldLayout(GRAPH);
-        fruchtermanReingoldLayout.setMaxIterations(1000);
+        fruchtermanReingoldLayout.setMaxIterations(2000);
         actions.add(fruchtermanReingoldLayout);
         actions.add(ColorProvider.colors(lookAndFeelService));
         actions.add(new RepaintAndRepositionAction(viz, display));

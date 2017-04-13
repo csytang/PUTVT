@@ -32,7 +32,7 @@ public class MainHighlighter{
 
                 public void doHighlight(StringPytestUtil stringPytestUtil,Editor editor){
                     clear(editor);
-                    List<Integer> allLines = new ArrayList<>();
+                    List<Integer> allLines;
                     allLines = stringPytestUtil.getLineNumber();
                     Hashtable colors = new Hashtable();
 

@@ -13,6 +13,7 @@ public class TestStatusListenerImpl extends TestStatusListener{
     public void testSuiteFinished(@Nullable AbstractTestProxy abstractTestProxy) {
         List<? extends AbstractTestProxy> abstractTestProxyList = abstractTestProxy.getAllTests();
         Hashtable testResults = TestResultsCollector.getInstance().getTestResults();
+        Hashtable testsOnly = new Hashtable();
         for (AbstractTestProxy proxy: abstractTestProxyList){
             int result = 0;
             if (proxy.getMagnitude() == 1){
@@ -22,15 +23,18 @@ public class TestStatusListenerImpl extends TestStatusListener{
                 if (testResults.get(getTestFileName(proxy.getLocationUrl())) == null) {
                     if (!proxy.getName().contains("root") && (proxy.getName() != null)) {
                         Hashtable testResultKeyValuePairs = new Hashtable();
-                        testResultKeyValuePairs.put(proxy.getName(), new TestResultKeyValuePair(proxy.getName(),
-                                result));
+                        TestResultKeyValuePair testResultKeyValuePair = new TestResultKeyValuePair(proxy.getName(), result);
+                        testResultKeyValuePairs.put(proxy.getName(), testResultKeyValuePair);
+                        testsOnly.put(proxy.getName(), testResultKeyValuePair);
                         testResults.put(getTestFileName(proxy.getLocationUrl()), testResultKeyValuePairs);
                     }
                 } else {
                     Hashtable testResultKeyValuePairs = (Hashtable) testResults.get(getTestFileName(proxy.getLocationUrl()));
                     TestResultKeyValuePair testResultKeyValuePair = (TestResultKeyValuePair) testResultKeyValuePairs.get(proxy.getName());
                     if (testResultKeyValuePair == null) {
-                        testResultKeyValuePairs.put(proxy.getName(), new TestResultKeyValuePair(proxy.getName(), result));
+                        testResultKeyValuePair = new TestResultKeyValuePair(proxy.getName(), result);
+                        testResultKeyValuePairs.put(proxy.getName(), testResultKeyValuePair);
+                        testsOnly.put(proxy.getName(), testResultKeyValuePair);
                     } else {
                         if (testResultKeyValuePair.getTestResult() != result) {
                             testResultKeyValuePair.setTestResult(result);
@@ -40,6 +44,7 @@ public class TestStatusListenerImpl extends TestStatusListener{
                 }
             }
         }
+        TestResultsCollector.getInstance().setTestsOnly(testsOnly);
         TestResultsCollector.getInstance().setTestResults(testResults);
     }
 
