@@ -1,7 +1,7 @@
 <idea-plugin version="2">
   <id>com.cegin.PUTVT</id>
   <name>PUTVT</name>
-  <version>1.0</version>
+  <version>0.1</version>
   <vendor email="jan.cegin@gmail.com" url="xcegin.github.io">Jan Cegin</vendor>
 
   <description><![CDATA[

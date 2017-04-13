@@ -10,13 +10,14 @@ import prefuse.render.ShapeRenderer;
 import static graph.constants.GraphColumns.TITLE;
 import static graph.constants.VisualizationParameters.NODE_SIZE;
 import static prefuse.Constants.EDGE_TYPE_LINE;
+import static prefuse.data.io.GraphMLReader.Tokens.ID;
 
 public class RendererProvider {
 
     private static final int TEXT_OVERLAP = 12;
 
     public static LabelRenderer labelRenderer() {
-        LabelRenderer labelRenderer = new LabelRenderer(TITLE);
+        LabelRenderer labelRenderer = new LabelRenderer(ID);
         labelRenderer.setMaxTextWidth(NODE_SIZE - TEXT_OVERLAP);
 
         return labelRenderer;

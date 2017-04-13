@@ -34,10 +34,14 @@ public class CoverageResults implements GraphCoverageResult {
         this.relations = RelationsService.getRelations(project, namesOfFiles);
         List<GraphNode> nodes = new ArrayList<>();
         resultsOfRanTests = HashtableResultsUtil.copyHashtableTestResults(TestResultsCollector.getInstance().getTestResults());
+        int i = 0;
         for (String nameOfFile : namesOfFiles){
             String[] str = nameOfFile.split("/");
             String file = str[str.length-1];
             Hashtable fileTestResults = (Hashtable) resultsOfRanTests.get(file);
+            if (nodeHashTable.get(file)!=null){
+                file=file.concat(" (" + i++ + ")");
+            }
             CoverageNode node = new CoverageNode(file);
             node.setCoverage(GetOnlyCoveragedFileNames.getCovForFile(file,project));
             node.getTypes().add("Coverage is: " + node.getCoverage() + "%.");
