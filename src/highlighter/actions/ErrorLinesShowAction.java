@@ -17,7 +17,7 @@ import java.util.List;
 
 public class ErrorLinesShowAction extends AnAction {
 
-    final String logMessage = "LOG for Error:" + "\n" + "****************" + "\n";
+    final String logMessage = "LOG(s) for Error:" + "\n" + "****************" + "\n";
     final String noLogsFound = "No logs for this line.";
 
     @Override
@@ -41,7 +41,7 @@ public class ErrorLinesShowAction extends AnAction {
         }
 
         if (fileUtil != null && consoleUtil != null){
-            utilUsed = combineStringUtils(fileUtil,consoleUtil);
+            utilUsed = fileUtil;
         }
         else{
             if (consoleUtil != null){
@@ -97,8 +97,9 @@ public class ErrorLinesShowAction extends AnAction {
         newTypeOfErrors.addAll(consoleUtil.getTypeOfError());
 
         List<String> newTestNames = new ArrayList<>();
-
-        newTestNames.addAll(fileUtil.getTestNames());
+        if (fileUtil.getTestNames() != null) {
+            newTestNames.addAll(fileUtil.getTestNames());
+        }
         if (consoleUtil.getTestNames() != null) {
             newTestNames.addAll(consoleUtil.getTestNames());
         }
