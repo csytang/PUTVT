@@ -2,6 +2,8 @@ package highlighter.actions;
 
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
+import com.intellij.openapi.actionSystem.CommonDataKeys;
+import com.intellij.openapi.actionSystem.DataConstants;
 import com.intellij.openapi.editor.EditorFactory;
 import highlighter.highlighters.HighlightingMainController;
 import highlighter.pattern.PatternController;
@@ -25,8 +27,9 @@ public class VisualizationAction extends AnAction {
             e1.printStackTrace();
         }
         if (hashtable == null){return;}
+
         highlightingMainController = HighlightingMainController.getInstance(null);
-        highlightingMainController.finishVisualization(hashtable,EditorFactory.getInstance().getAllEditors());
+        highlightingMainController.finishVisualization(hashtable,EditorFactory.getInstance().getAllEditors(),e.getData(CommonDataKeys.EDITOR));
     }
 
 }

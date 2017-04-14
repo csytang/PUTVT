@@ -45,10 +45,6 @@ public class ErrorManageFileControler {
 
     }
 
-    public Hashtable getErrorManageFileTable() {
-        return errorManageFileTable;
-    }
-
     public void setErrorManageFileTable(Hashtable errorManageFileTable){
         this.errorManageFileTable=errorManageFileTable;
     }

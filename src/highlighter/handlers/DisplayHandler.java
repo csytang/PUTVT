@@ -49,9 +49,8 @@ public class DisplayHandler {
 
         //update the display each time a file is opened
         HighlightingMainController highlightingMainController = HighlightingMainController.getInstance(null);
-        ErrorManageFileControler errorManageFileControler = ErrorManageFileControler.getInstance(null);
 
-        highlightingMainController.finishVisualization(errorManageFileControler.getErrorManageFileTable(), EditorFactory.getInstance().getAllEditors());
+        highlightingMainController.finishVisualization(null, EditorFactory.getInstance().getAllEditors(), editor);
     }
 
 

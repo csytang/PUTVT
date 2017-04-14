@@ -92,12 +92,6 @@
     <action id="PUTVT.highlighter.actions.VisualizationAction" class="highlighter.actions.VisualizationAction" text="Load and Visualize log .txt"
             description="Loads a .txt file and visualizes lines of code">
     </action>
-    <action id="PUTVT.highlighter.actions.ClearVisualAction" class="highlighter.actions.ClearVisualAction" text="Clears current View"
-            description="Clears out the visualization for the current editor">
-    </action>
-    <action id="PUTVT.highlighter.actions.ClearAllAction" class="highlighter.actions.ClearAllAction" text="Stop visualization"
-            description="Clears out and stops the visualization">
-    </action>
       <action id="PUTVT.ConsoleNotUsed" class="highlighter.actions.console.ConsoleUnSetVisualizationAction" text="Stop visualizing console logs"
               description="Stops visualizing console logs">
       </action>
@@ -109,6 +103,12 @@
       </action>
       <action id="PUTVT.StopListeningAction" class="highlighter.actions.externallogs.StopListeningAction" text="Stop listener for external jar"
               description="Stop listener for the external jar">
+      </action>
+      <action id="PUTVT.highlighter.actions.ClearVisualAction" class="highlighter.actions.ClearVisualAction" text="Clears current View"
+              description="Clears out the visualization for the current editor">
+      </action>
+      <action id="PUTVT.highlighter.actions.ClearAllAction" class="highlighter.actions.ClearAllAction" text="Stop visualization"
+              description="Clears out and stops the visualization">
       </action>
     </group>
 

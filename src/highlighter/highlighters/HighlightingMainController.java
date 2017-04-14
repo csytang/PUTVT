@@ -17,22 +17,22 @@ public class HighlightingMainController {
     private static HighlightingMainController instance = null;
     private ErrorManageFileControler errorManageFileControler;
 
-    private static List<String> consolesReadings;
+    private String consolesReadings = " ";
 
     private Boolean useConsoleLogs = false;
 
     private Hashtable decodedLogs = new Hashtable();
 
+    private Hashtable fileHashTable = new Hashtable();
+
 
     protected HighlightingMainController(String consolesReading) {
-        this.consolesReadings = new ArrayList<>();
-        consolesReadings.add(consolesReading);
+        consolesReadings = consolesReading;
     }
 
     public static HighlightingMainController getInstance(String consolesReading) {
         if (consolesReading != null){
             if (instance != null) {
-                consolesReadings.add(consolesReading);
             }
             else{
                 instance = new HighlightingMainController(consolesReading);
@@ -46,25 +46,29 @@ public class HighlightingMainController {
         return instance;
     }
 
-    public void finishVisualization(Hashtable hashtable, Editor[] editors){
+    public void finishVisualization(Hashtable hashtable, Editor[] editors, Editor editor){
         PatternController patternController = new PatternController();
-        Hashtable newHashtable = new Hashtable();
+        Hashtable newHashtable;
         errorManageFileControler = ErrorManageFileControler.getInstance(null);
         if (useConsoleLogs) {
             Hashtable decodedLogs = null;
-            if (consolesReadings.size() != 0 && consolesReadings.get(consolesReadings.size() - 1) != null) {
-                decodedLogs = patternController.patternDecode(consolesReadings.get(consolesReadings.size() - 1));
+            if (!"".equals(consolesReadings)) {
+                decodedLogs = patternController.patternDecode(consolesReadings);
             }
             if (decodedLogs != null) {
                 this.decodedLogs=decodedLogs;
-                if (hashtable != null) {
-                    for (Editor editor : EditorFactory.getInstance().getAllEditors()) {
-                        newHashtable = HashtableCombineUtil.combineHashTablesForConsoleAndFile(hashtable, decodedLogs, getEditorOpenedFileName(editor));
-                    }
+                if (hashtable == null || hashtable.isEmpty()) {
+                    hashtable = fileHashTable;
                 }
                 else{
-                    newHashtable=decodedLogs;
+                    fileHashTable = hashtable;
                 }
+                    if (editor != null && !hashtable.isEmpty()) {
+                        newHashtable = HashtableCombineUtil.combineHashTablesForConsoleAndFile(hashtable, decodedLogs, getEditorOpenedFileName(editor));
+                    }
+                     else{
+                         newHashtable=decodedLogs;
+                    }
             }
             else{
                 newHashtable=hashtable;
@@ -82,7 +86,7 @@ public class HighlightingMainController {
             }
             if (decodedExternalLogs != null){
                 if (newHashtable != null){
-                    for (Editor editor : EditorFactory.getInstance().getAllEditors()) {
+                    if (editor != null) {
                         newHashtable = HashtableCombineUtil.combineHashTablesForConsoleAndFile(newHashtable, decodedExternalLogs, getEditorOpenedFileName(editor));
                     }
                 }
@@ -97,7 +101,6 @@ public class HighlightingMainController {
             errorManageFileControler.decodeDTO(newHashtable,editor1);
         }
         errorManageFileControler.setErrorManageFileTable(newHashtable);
-        clearLogs();
     }
 
     public Boolean getUseConsoleLogs() {
@@ -122,8 +125,16 @@ public class HighlightingMainController {
 
     public void clearLogs(){
         this.decodedLogs = new Hashtable();
-        if (consolesReadings != null) {
-            consolesReadings.clear();
+        consolesReadings = "";
+    }
+
+    public void addToConsoleReading (String str){
+        if (consolesReadings == null) {
+            consolesReadings = "\n" + str;
+        }
+        else{
+            consolesReadings = consolesReadings.concat("\n" + str);
         }
     }
+
 }

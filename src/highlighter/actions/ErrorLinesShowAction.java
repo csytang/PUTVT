@@ -34,7 +34,7 @@ public class ErrorLinesShowAction extends AnAction {
         StringPytestUtil fileUtil = errorManageFileControler.getStringPytestUtilForFileName(editor);
         StringPytestUtil consoleUtil = highlightingMainController.getStringPytestUtilForFileName(editor);
 
-        StringPytestUtil utilUsed = new StringPytestUtil();
+        StringPytestUtil utilUsed;
 
         if (fileUtil == null && consoleUtil == null){
             return;
