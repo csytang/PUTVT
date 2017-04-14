@@ -11,7 +11,7 @@ import java.util.List;
 
 public class HashtableResultsUtil {
 
-    private static List<GraphNode> nodes = new ArrayList<>();
+    private List<GraphNode> nodes = new ArrayList<>();
     private static HashtableResultsUtil instance;
     private Boolean onlyCoveraged = false;
 
@@ -42,13 +42,13 @@ public class HashtableResultsUtil {
         return newHashtable;
     }
 
-    public static List<GraphNode> getNodes() {
+    public List<GraphNode> getNodes() {
         return nodes;
     }
 
-    public static void setNodes(List<GraphNode> nodes) {
+    public void setNodes(List<GraphNode> nodes) {
 
-        HashtableResultsUtil.nodes = nodes;
+        this.nodes = nodes;
     }
 
     public Boolean getOnlyCoveraged() {

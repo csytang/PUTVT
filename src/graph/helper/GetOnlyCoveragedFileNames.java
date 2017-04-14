@@ -10,6 +10,8 @@ import com.intellij.psi.search.GlobalSearchScope;
 import java.util.ArrayList;
 import java.util.List;
 
+import static java.awt.SystemColor.info;
+
 public class GetOnlyCoveragedFileNames {
 
 
@@ -28,9 +30,13 @@ public class GetOnlyCoveragedFileNames {
     public static Integer getCovForFile(String fileName, Project project){
         PsiFile[] file = FilenameIndex.getFilesByName(project, fileName, GlobalSearchScope.allScope(project));
         CoverageDataManager coverageDataManager = CoverageDataManager.getInstance(project);
+        String info;
         CoverageSuitesBundle coverageSuitesBundle = coverageDataManager.getCurrentSuitesBundle();
         if (coverageSuitesBundle == null){return 0;}
-        String info = CoverageDataManager.getInstance(project).getCurrentSuitesBundle().getAnnotator(project).getFileCoverageInformationString(file[0],coverageSuitesBundle, coverageDataManager);
+        if (file.length > 0) {
+            info = CoverageDataManager.getInstance(project).getCurrentSuitesBundle().getAnnotator(project).getFileCoverageInformationString(file[0], coverageSuitesBundle, coverageDataManager);
+        }
+        else{return 0;}
         if (file.length > 1){
             for (PsiFile file1 : file){
                  info = CoverageDataManager.getInstance(project).getCurrentSuitesBundle().getAnnotator(project).getFileCoverageInformationString(file1,coverageSuitesBundle, coverageDataManager);

@@ -30,10 +30,11 @@ public class CoverageResults implements GraphCoverageResult {
 
     @Override
     public List<GraphNode> getNodes() {
-        nodeHashTable = new Hashtable();
         List<String> namesOfFiles = getFileNamesFromProject(project.getBaseDir());
         this.relations = RelationsService.getRelations(project, namesOfFiles);
         List<GraphNode> nodes = new ArrayList<>();
+        nodeHashTable = new Hashtable();
+        nodeHashTable.clear();
         resultsOfRanTests = HashtableResultsUtil.copyHashtableTestResults(TestResultsCollector.getInstance().getTestResults());
         int i = 0;
         for (String nameOfFile : namesOfFiles){

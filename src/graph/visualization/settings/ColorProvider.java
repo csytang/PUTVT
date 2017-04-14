@@ -99,13 +99,14 @@ public class ColorProvider {
     @NotNull
     private static ColorAction getNodeFill(LookAndFeelService lookAndFeelService) {
         DataColorAction fill;
-        if (!(HashtableResultsUtil.getNodes().size()>1)) {
+        List<GraphNode> ndoes = HashtableResultsUtil.getInstance().getNodes();
+        if (!(HashtableResultsUtil.getInstance().getNodes().size()>1)) {
              fill = new DataColorAction(NODES, COLOR_NUMBER,
                     Constants.NUMERICAL, VisualItem.FILLCOLOR, PALETTE);
         }
         else{
             List<Integer> ints = new ArrayList<>();
-            for(GraphNode node : HashtableResultsUtil.getNodes()){
+            for(GraphNode node : HashtableResultsUtil.getInstance().getNodes()){
                 if (!ints.contains(node.getColor())) {
                     ints.add(node.getColor());
                 }
@@ -143,13 +144,13 @@ public class ColorProvider {
     @NotNull
     private static ColorAction getNodeStroke(LookAndFeelService lookAndFeelService) {
         DataColorAction nStroke;
-        if (!(HashtableResultsUtil.getNodes().size()>1)) {
+        if (!(HashtableResultsUtil.getInstance().getNodes().size()>1)) {
             nStroke = new DataColorAction(NODES, COLOR_NUMBER,
                     Constants.NUMERICAL, VisualItem.FILLCOLOR, EDGE_PALLETE);
         }
         else{
             List<Integer> ints = new ArrayList<>();
-            for(GraphNode node : HashtableResultsUtil.getNodes()){
+            for(GraphNode node : HashtableResultsUtil.getInstance().getNodes()){
                 if (!ints.contains(node.getOutColor())) {
                     ints.add(node.getOutColor());
                 }
