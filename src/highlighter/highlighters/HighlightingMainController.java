@@ -1,16 +1,13 @@
 package highlighter.highlighters;
 
 import com.intellij.openapi.editor.Editor;
-import com.intellij.openapi.editor.EditorFactory;
 import highlighter.errors.ErrorManageFileControler;
 import highlighter.pattern.PatternController;
 import highlighter.util.ExternalLogsUtil;
 import highlighter.util.HashtableCombineUtil;
 import highlighter.util.StringPytestUtil;
 
-import java.util.ArrayList;
 import java.util.Hashtable;
-import java.util.List;
 
 public class HighlightingMainController {
 

@@ -78,7 +78,7 @@ public class RelationsService {
             Pattern p = Pattern.compile(local);
             Matcher m = p.matcher(file);
             while (m.find()){
-                if (isAllowedAndNotImportCharBeforeStatement(file.charAt(m.start()-1), file.substring(m.start()-6,m.start())))
+                if (isAllowedAndNotImportCharBeforeStatement(file.charAt(m.start()-1) ,file.substring(m.start()-6,m.start())))
                 {
                     poc++;
                 }
@@ -91,7 +91,7 @@ public class RelationsService {
 
     private static boolean isAllowedAndNotImportCharBeforeStatement(char c, String imp){
         String str = c + "";
-        if ("import".equals(imp)){
+        if ("import".equals(imp) || c==','){
             return false;
         }
         if (str.equals("-") || str.equals("_") || str.equals("-")){

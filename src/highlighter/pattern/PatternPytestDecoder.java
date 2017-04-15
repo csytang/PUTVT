@@ -13,8 +13,6 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static jdk.nashorn.internal.objects.NativeString.substring;
-
 
 public class PatternPytestDecoder implements PatternDecoder{
     private List<String> fileNames = new ArrayList<>();

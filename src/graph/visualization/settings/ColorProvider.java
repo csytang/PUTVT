@@ -99,7 +99,6 @@ public class ColorProvider {
     @NotNull
     private static ColorAction getNodeFill(LookAndFeelService lookAndFeelService) {
         DataColorAction fill;
-        List<GraphNode> ndoes = HashtableResultsUtil.getInstance().getNodes();
         if (!(HashtableResultsUtil.getInstance().getNodes().size()>1)) {
              fill = new DataColorAction(NODES, COLOR_NUMBER,
                     Constants.NUMERICAL, VisualItem.FILLCOLOR, PALETTE);

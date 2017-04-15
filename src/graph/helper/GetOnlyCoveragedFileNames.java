@@ -10,8 +10,6 @@ import com.intellij.psi.search.GlobalSearchScope;
 import java.util.ArrayList;
 import java.util.List;
 
-import static java.awt.SystemColor.info;
-
 public class GetOnlyCoveragedFileNames {
 
 

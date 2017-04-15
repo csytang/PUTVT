@@ -12,7 +12,6 @@ import graph.visualization.api.GraphNode;
 import java.util.*;
 
 import static graph.helper.ProjectFileNamesUtil.getFileNamesFromProject;
-import static java.lang.String.format;
 
 public class CoverageResults implements GraphCoverageResult {
 
@@ -83,20 +82,12 @@ public class CoverageResults implements GraphCoverageResult {
                     CoverageNode endNode = (CoverageNode) nodeHashTable.get(importFrom.getName());
                     String nameOfRelation = startNode.getId() + "->" + endNode.getId();
                     if (checkIfRelationExists.get(nameOfRelation) != null){
-                        relation = (NodeRelationship) checkIfRelationExists.get(nameOfRelation);
-                        relatonships.remove(relation);
-                        relation.setWeight(getRelationWeight(importFrom) + relation.getWeight());
-                        if (localMax < relation.getWeight()){localMax= (int) relation.getWeight();}
-                        relation.setCallsCount("" + (int) relation.getWeight());
-                        getPropertiesForRelations(relation.getPropertyContainer().getProperties(), importFrom);
-                        setRelationTypes(relation.getTypes(), relation.getWeight());
-                        relatonships.add(relation);
                         continue;
                     }
                     relation = new NodeRelationship(nameOfRelation);
                     relation.setWeight(getRelationWeight(importFrom));
                     if (localMax < getRelationWeight(importFrom)){localMax=getRelationWeight(importFrom);}
-                    relation.setCallsCount(getRelationWeight(importFrom).toString());
+                    relation.setCallsCount("" + (int) relation.getWeight());
                     relation.setStartNode(startNode);
                     relation.setEndNode(endNode);
                     setRelationTypes(relation.getTypes(),relation.getWeight());

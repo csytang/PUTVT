@@ -2,14 +2,11 @@ package highlighter.highlighters;
 
 import com.intellij.openapi.editor.Document;
 import com.intellij.openapi.editor.Editor;
-import com.intellij.openapi.editor.EditorFactory;
 import com.intellij.openapi.editor.markup.HighlighterTargetArea;
 import com.intellij.openapi.editor.markup.MarkupModel;
 import com.intellij.openapi.editor.markup.RangeHighlighter;
 import com.intellij.openapi.editor.markup.TextAttributes;
-import com.intellij.psi.PsiFileFactory;
 import highlighter.util.StringPytestUtil;
-import highlighter.util.TestResultsUtil;
 
 import java.awt.*;
 import java.util.ArrayList;

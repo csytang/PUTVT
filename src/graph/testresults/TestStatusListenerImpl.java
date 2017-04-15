@@ -6,7 +6,6 @@ import com.intellij.openapi.editor.Editor;
 import com.intellij.openapi.editor.EditorFactory;
 import com.intellij.openapi.project.Project;
 import com.intellij.util.messages.MessageBus;
-import graph.pycharm.ConsoleToolWindow;
 import graph.pycharm.services.ResultExecutionService;
 import org.jetbrains.annotations.Nullable;
 

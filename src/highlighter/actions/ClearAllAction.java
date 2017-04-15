@@ -4,7 +4,6 @@ import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.editor.Editor;
 import com.intellij.openapi.editor.EditorFactory;
-import com.jetbrains.cython.CythonNames;
 import highlighter.errors.ErrorManageFileControler;
 import highlighter.highlighters.HighlightingMainController;
 import highlighter.highlighters.MainHighlighter;
