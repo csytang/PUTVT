@@ -4,6 +4,9 @@ import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.project.DumbAwareAction;
 import highlighter.highlighters.HighlightingMainController;
 
+/**
+ * Set console listener
+ */
 public class ConsoleSetVisualizationAction extends DumbAwareAction {
     private HighlightingMainController highlightingMainController;
 

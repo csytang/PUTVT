@@ -8,6 +8,7 @@ import graph.results.api.GraphCoverageResult;
 import graph.results.api.ResultsProcessEvent;
 import org.jetbrains.annotations.NotNull;
 
+
 public class ResultExecutionService {
 
     private final MessageBus messageBus;
@@ -33,6 +34,11 @@ public class ResultExecutionService {
 
     }
 
+    /**
+     * We use runnable, so we dont block other parts of the IDE if the visualization takes too long
+     * @param event
+     * @return
+     */
     @NotNull
     private Runnable executeResults(ResultsProcessEvent event) {
         return () -> {

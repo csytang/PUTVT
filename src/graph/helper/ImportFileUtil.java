@@ -3,10 +3,13 @@ package graph.helper;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Imports for a file
+ */
 public class ImportFileUtil{
 
     private String name;
-    private List<ImportFrom> importFromList = new ArrayList<>();
+    private List<ImportFrom> importFromList = new ArrayList<>(); //list of all the imports in this file
 
     public ImportFileUtil(String name){
         this.name=name;

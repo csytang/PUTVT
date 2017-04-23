@@ -12,7 +12,12 @@ import java.util.List;
 
 public class GetOnlyCoveragedFileNames {
 
-
+    /**
+     * Gets only coveraged file names - only nodes with coverage bigger than 0
+     * @param project Project
+     * @param filenames Names of files used in project
+     * @return
+     */
     public static List<String> getCoveragedFileNames(Project project, List<String> filenames){
         List<String> coveragedFiles = new ArrayList<>();
         for (String filename : filenames) {
@@ -25,6 +30,12 @@ public class GetOnlyCoveragedFileNames {
         return coveragedFiles;
     }
 
+    /**
+     *  Gets the current coverage for file from @{@link CoverageDataManager}
+     * @param fileName
+     * @param project
+     * @return
+     */
     public static Integer getCovForFile(String fileName, Project project){
         PsiFile[] file = FilenameIndex.getFilesByName(project, fileName, GlobalSearchScope.allScope(project));
         CoverageDataManager coverageDataManager = CoverageDataManager.getInstance(project);

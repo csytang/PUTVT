@@ -3,12 +3,24 @@ package graph.helper;
 import java.awt.*;
 import java.awt.geom.Path2D;
 
+/**
+ * Taken from https://plugins.jetbrains.com/plugin/8087-graph-database-support
+ */
 public class RenderingUtil {
 
     private static final double FIFTEEN = 0.261799;
     public static final double CURVE_RADIUS = 2;
     public static final double LINE_RADIUS = 1.7;
 
+    /**
+     * Proper relation arrow
+     * @param angle
+     * @param radius
+     * @param x
+     * @param y
+     * @param arrowHeight
+     * @return
+     */
     public static Path2D loopArrow(double angle, double radius, double x, double y, double arrowHeight) {
         Path2D.Double path = new Path2D.Double();
 

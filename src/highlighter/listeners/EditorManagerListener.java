@@ -5,7 +5,9 @@ import com.intellij.openapi.fileEditor.*;
 import com.intellij.openapi.vfs.VirtualFile;
 import highlighter.handlers.DisplayHandler;
 
-
+/**
+ * Listener for editor actions - switching between tabs, open, close
+ */
 public class EditorManagerListener implements FileEditorManagerListener {
     private DisplayHandler displayHandler;
 

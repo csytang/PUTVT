@@ -3,6 +3,9 @@ package graph.testresults;
 
 import java.util.Hashtable;
 
+/**
+ * Collects all the test results for the visualization
+ */
 public class TestResultsCollector {
     private static TestResultsCollector instance;
     private Hashtable testResults = new Hashtable();

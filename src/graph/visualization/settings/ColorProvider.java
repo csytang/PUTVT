@@ -24,6 +24,9 @@ import static graph.constants.GraphGroups.NODES;
 import static graph.constants.VisualizationParameters.EDGE_THICKNESS;
 import static prefuse.visual.VisualItem.*;
 
+/**
+ * Class inspired by the ColorProvider class from https://plugins.jetbrains.com/plugin/8087-graph-database-support plugin
+ */
 public class ColorProvider {
 
     /*
@@ -80,6 +83,9 @@ public class ColorProvider {
         return stroke;
     }
 
+    /**
+     * Get edge thickness - set log scale
+     */
     private static DataSizeAction getEdgeThickness(){
         DataSizeAction edgeWidth = new DataSizeAction(EDGES, EDGE_SIZE);
         edgeWidth.setScale(Constants.LOG_SCALE);
@@ -96,6 +102,11 @@ public class ColorProvider {
         return stroke;
     }
 
+
+    /**
+     *     Gets node colours to be used - colours depends from the number of colours actually to be used
+     *     If we for example use only the 1st,6th and 8th colour, only these need to passed, otherwise an error occurs
+     */
     @NotNull
     private static ColorAction getNodeFill(LookAndFeelService lookAndFeelService) {
         DataColorAction fill;
@@ -140,6 +151,12 @@ public class ColorProvider {
         return nEdges;
     }
 
+    /**
+     * This gets the colour for the edges of the Node - Green,Red,Yellow and Grey.
+     * Only colours to be used are returned
+     * @param lookAndFeelService
+     * @return
+     */
     @NotNull
     private static ColorAction getNodeStroke(LookAndFeelService lookAndFeelService) {
         DataColorAction nStroke;

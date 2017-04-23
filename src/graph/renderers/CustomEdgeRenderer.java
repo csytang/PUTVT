@@ -14,7 +14,9 @@ import java.util.List;
 
 import static graph.constants.VisualizationParameters.EDGE_THICKNESS;
 import static graph.constants.VisualizationParameters.NODE_SIZE;
-
+/**
+ * Taken from https://plugins.jetbrains.com/plugin/8087-graph-database-support source code
+ */
 public class CustomEdgeRenderer extends EdgeRenderer {
 
     private static final double RADIUS = (NODE_SIZE + EDGE_THICKNESS) / 2;
@@ -33,7 +35,6 @@ public class CustomEdgeRenderer extends EdgeRenderer {
         getAlignedPoint(m_tmpPoints[1], item2.getBounds(), m_xAlign2, m_yAlign2);
         m_curWidth = (float) (m_width * getLineWidth(item));
 
-        // TODO decide on the angle here for loop arrow
         double angle = 0.261799 * 3;
 
         boolean isLoopNode = item1 == item2;

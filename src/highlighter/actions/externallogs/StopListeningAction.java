@@ -4,6 +4,9 @@ import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import highlighter.util.ExternalLogsUtil;
 
+/**
+ * Stops listening for external logs on port
+ */
 public class StopListeningAction extends AnAction{
     @Override
     public void actionPerformed(AnActionEvent anActionEvent) {

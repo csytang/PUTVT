@@ -11,6 +11,9 @@ import highlighter.util.ExternalLogsUtil;
 
 import java.util.Hashtable;
 
+/**
+ * Cleas all the visualization and so far collected data
+ */
 public class ClearAllAction extends AnAction {
 
     @Override

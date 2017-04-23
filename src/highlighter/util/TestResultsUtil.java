@@ -8,6 +8,9 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 
+/**
+ * Get and save test results - to be used
+ */
 public class TestResultsUtil {
 
     private static TestResultsUtil instance;

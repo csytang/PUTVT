@@ -10,7 +10,9 @@ import prefuse.visual.VisualItem;
 
 import java.awt.event.MouseEvent;
 import java.util.Map;
-
+/**
+ * Inspiration from https://plugins.jetbrains.com/plugin/8087-graph-database-support source code
+ */
 public class RelationshipListener extends ControlAdapter {
 
     private EventType type;

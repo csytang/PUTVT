@@ -12,6 +12,9 @@ import com.intellij.openapi.wm.WindowManager;
 import com.intellij.ui.awt.RelativePoint;
 import highlighter.highlighters.MainHighlighter;
 
+/**
+ * Clears visualization for current view which is redrawn while switching between editor
+ */
 public class ClearVisualAction extends AnAction {
 
     @Override

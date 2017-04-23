@@ -15,6 +15,9 @@ import highlighter.util.StringPytestUtil;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Show error lines for visualized source code lines
+ */
 public class ErrorLinesShowAction extends AnAction {
 
     final String logMessage = "LOG(s) for Error:" + "\n" + "****************" + "\n";
@@ -26,7 +29,6 @@ public class ErrorLinesShowAction extends AnAction {
         CaretModel caretModel = editor.getCaretModel();
         LogicalPosition logicalPosition = caretModel.getLogicalPosition();
         int lineN = logicalPosition.line + 1;
-        VisualPosition visualPosition = caretModel.getVisualPosition();
 
         ErrorManageFileControler errorManageFileControler = ErrorManageFileControler.getInstance(null);
         HighlightingMainController highlightingMainController = HighlightingMainController.getInstance(null);
@@ -77,39 +79,5 @@ public class ErrorLinesShowAction extends AnAction {
         }
 
         Messages.showErrorDialog(message, "Error Logs for line no." + lineN + "");
-    }
-
-    private StringPytestUtil combineStringUtils(StringPytestUtil fileUtil, StringPytestUtil consoleUtil){
-        StringPytestUtil combine = new StringPytestUtil();
-        List<Integer> newLinesNumbers = new ArrayList<>();
-
-        newLinesNumbers.addAll(fileUtil.getLineNumber());
-        newLinesNumbers.addAll(consoleUtil.getLineNumber());
-
-        List<String[]> newLinesDuringRuntime = new ArrayList<>();
-
-        newLinesDuringRuntime.addAll(fileUtil.getLinesDuringRuntime());
-        newLinesDuringRuntime.addAll(consoleUtil.getLinesDuringRuntime());
-
-        List<String> newTypeOfErrors = new ArrayList<>();
-
-        newTypeOfErrors.addAll(fileUtil.getTypeOfError());
-        newTypeOfErrors.addAll(consoleUtil.getTypeOfError());
-
-        List<String> newTestNames = new ArrayList<>();
-        if (fileUtil.getTestNames() != null) {
-            newTestNames.addAll(fileUtil.getTestNames());
-        }
-        if (consoleUtil.getTestNames() != null) {
-            newTestNames.addAll(consoleUtil.getTestNames());
-        }
-
-        combine.setFileName(fileUtil.getFileName());
-        combine.setTypeOfError(newTypeOfErrors);
-        combine.setLinesDuringRuntime(newLinesDuringRuntime);
-        combine.setLineNumber(newLinesNumbers);
-        combine.setTestNames(newTestNames);
-
-        return combine;
     }
 }

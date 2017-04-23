@@ -17,4 +17,4 @@ Here are listed the actions which can be used on the Dependency Graph window.
 
 + **Visualize coverage:** Creates a dependency Graph visualizing the actual coverage for all the modules (python files) of the project. The nodes are differently colorized according to their code coverage.
 + **Reset view:** Resets the view of the visualized graph - changes the focus.
-+ **Clean canvas:** Cleans the canvas and reoves the entire visualization
++ **Clean canvas:** Cleans the canvas and removes the entire visualization

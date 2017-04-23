@@ -3,7 +3,9 @@ package graph.visualization.settings;
 import prefuse.visual.DecoratorItem;
 import prefuse.visual.VisualItem;
 import prefuse.visual.sort.ItemSorter;
-
+/**
+ * Inspiration from https://plugins.jetbrains.com/plugin/8087-graph-database-support source code
+ */
 public class CustomItemSorter extends ItemSorter {
 
     // Value of 2^22, which is minimal score gap before the next category

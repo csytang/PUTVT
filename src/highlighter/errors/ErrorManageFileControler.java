@@ -7,6 +7,9 @@ import highlighter.util.StringPytestUtil;
 
 import java.util.Hashtable;
 
+/**
+ * Calls the highlighter and saved DTO
+ */
 public class ErrorManageFileControler {
     //SINGLETON
     private static ErrorManageFileControler instance = null;
@@ -30,6 +33,11 @@ public class ErrorManageFileControler {
         return instance;
     }
 
+    /**
+     * Highlighting done
+     * @param hashtable Hashtable with decoded Data
+     * @param editor current editor - can be null
+     */
     public void decodeDTO(Hashtable hashtable, Editor editor){
 
         this.mainHighlighter = MainHighlighter.getInstance();

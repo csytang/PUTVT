@@ -6,6 +6,9 @@ import com.intellij.openapi.project.Project;
 import com.intellij.util.messages.MessageBus;
 import graph.events.CleanCanvasEvent;
 
+/**
+ * Clean canvas Action
+ */
 public class CleanCanvasAction extends AnAction {
 
     @Override

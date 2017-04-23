@@ -37,6 +37,9 @@ import static graph.constants.GraphGroups.*;
 import static graph.visualization.settings.RendererProvider.*;
 import static prefuse.Constants.SHAPE_ELLIPSE;
 
+/**
+ * Class taken and remade from https://plugins.jetbrains.com/plugin/8087-graph-database-support plugin
+ */
 public class GraphDisplay extends Display {
 
     private static final boolean DIRECTED = true;
@@ -53,6 +56,10 @@ public class GraphDisplay extends Display {
     private CustomNeighborHighlightControl highlightControl;
     private LookAndFeelService lookAndFeel;
 
+    /**
+     * Constructor, which sets all the startup stuff
+     * @param lookAndFeel
+     */
     public GraphDisplay(LookAndFeelService lookAndFeel) {
         super(new Visualization());
 

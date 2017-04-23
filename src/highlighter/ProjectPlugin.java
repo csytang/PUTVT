@@ -2,12 +2,10 @@ package highlighter;
 
 import com.intellij.execution.ExecutionManager;
 import com.intellij.openapi.project.Project;
-import com.intellij.openapi.vfs.VirtualFileManager;
 import com.intellij.util.messages.MessageBusConnection;
 import highlighter.handlers.DisplayHandler;
 import highlighter.listeners.ConsoleRunListener;
 import highlighter.listeners.EditorManagerListener;
-import highlighter.listeners.FileOperationListener;
 
 public class ProjectPlugin {
     private Project project;
@@ -26,7 +24,6 @@ public class ProjectPlugin {
 
         connect.subscribe(ExecutionManager.EXECUTION_TOPIC, new ConsoleRunListener(project));
         connect.subscribe(EditorManagerListener.FILE_EDITOR_MANAGER, new EditorManagerListener(displayHandler));
-        VirtualFileManager.getInstance().addVirtualFileListener(new FileOperationListener(displayHandler));
 
     }
 

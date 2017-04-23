@@ -13,7 +13,9 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 
-
+/**
+ * Inspired by https://github.com/oker1/phpunit_codecoverage_display
+ */
 public class MainHighlighter{
                 private Hashtable highlights;
                 private static MainHighlighter instance = null;

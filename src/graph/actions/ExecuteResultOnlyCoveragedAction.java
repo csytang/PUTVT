@@ -10,6 +10,9 @@ import graph.helper.HashtableResultsUtil;
 import graph.pycharm.ConsoleToolWindow;
 import graph.pycharm.services.ResultExecutionService;
 
+/**
+ * Creates visualization for only coveraged nodes
+ */
 public class ExecuteResultOnlyCoveragedAction extends AnAction {
 
     @Override

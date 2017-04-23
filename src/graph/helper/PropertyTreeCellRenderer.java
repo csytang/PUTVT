@@ -7,6 +7,9 @@ import org.jetbrains.annotations.NotNull;
 import javax.swing.*;
 import javax.swing.tree.DefaultMutableTreeNode;
 
+/**
+ * Taken from https://plugins.jetbrains.com/plugin/8087-graph-database-support
+ */
 public class PropertyTreeCellRenderer extends ColoredTreeCellRenderer {
 
     @Override

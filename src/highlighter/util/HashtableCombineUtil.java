@@ -6,7 +6,13 @@ import java.util.Hashtable;
 import java.util.List;
 
 public class HashtableCombineUtil {
-
+    /**
+     * Combines two hashtables and creates a new one with unique objects in it, not just references to already existing ones
+     * @param pytestTable
+     * @param pythonTable
+     * @param fileNames
+     * @return
+     */
     public static Hashtable combineHashTables(Hashtable pytestTable,Hashtable pythonTable, List<String> fileNames) {
         Hashtable newHashtable = pytestTable;
         for (String fileName : fileNames){

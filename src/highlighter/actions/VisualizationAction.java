@@ -10,6 +10,9 @@ import highlighter.pattern.PatternController;
 import java.io.IOException;
 import java.util.Hashtable;
 
+/**
+ * Visualize source code action
+ */
 public class VisualizationAction extends AnAction {
     private HighlightingMainController highlightingMainController;
     private Hashtable hashtable = null;

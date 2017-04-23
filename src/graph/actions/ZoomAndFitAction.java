@@ -8,6 +8,9 @@ import com.intellij.openapi.project.Project;
 import com.intellij.util.messages.MessageBus;
 import graph.events.ZoomAndPanToFitEvent;
 
+/**
+ * Reset focus for the visualization
+ */
 public class ZoomAndFitAction extends AnAction{
     @Override
     public void update(AnActionEvent e) {

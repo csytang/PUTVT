@@ -8,7 +8,7 @@ import highlighter.util.HashtableCombineUtil;
 import highlighter.util.StringPytestUtil;
 
 import java.util.Hashtable;
-
+//Highlighting controller
 public class HighlightingMainController {
 
     private static HighlightingMainController instance = null;
@@ -43,13 +43,19 @@ public class HighlightingMainController {
         return instance;
     }
 
+    /**
+     * Does the visualization
+     * @param hashtable Hashtable with data for visualization from file logs, may be null - for each editor
+     * @param editors all editors
+     * @param editor current editor
+     */
     public void finishVisualization(Hashtable hashtable, Editor[] editors, Editor editor){
         PatternController patternController = new PatternController();
         Hashtable newHashtable;
         errorManageFileControler = ErrorManageFileControler.getInstance(null);
         if (useConsoleLogs) {
             Hashtable decodedLogs = null;
-            if (!"".equals(consolesReadings)) {
+            if (!"".equals(consolesReadings)) { //console is used
                 decodedLogs = patternController.patternDecode(consolesReadings);
             }
             if (decodedLogs != null) {
@@ -60,7 +66,7 @@ public class HighlightingMainController {
                 else{
                     fileHashTable = hashtable;
                 }
-                    if (editor != null && !hashtable.isEmpty()) {
+                    if (editor != null && !hashtable.isEmpty()) { //combines file with console logs for the current editor only
                         newHashtable = HashtableCombineUtil.combineHashTablesForConsoleAndFile(hashtable, decodedLogs, getEditorOpenedFileName(editor));
                     }
                      else{
@@ -75,7 +81,7 @@ public class HighlightingMainController {
             newHashtable=hashtable;
         }
 
-        if (ExternalLogsUtil.getInstane().getBeingUsed()){
+        if (ExternalLogsUtil.getInstane().getBeingUsed()){ //external logs used
             Hashtable decodedExternalLogs = null;
             String logs = ExternalLogsUtil.getInstane().getLogs();
             if (!"".equals(logs)){
@@ -83,7 +89,7 @@ public class HighlightingMainController {
             }
             if (decodedExternalLogs != null){
                 if (newHashtable != null){
-                    if (editor != null) {
+                    if (editor != null) { //combines for the current editor only
                         newHashtable = HashtableCombineUtil.combineHashTablesForConsoleAndFile(newHashtable, decodedExternalLogs, getEditorOpenedFileName(editor));
                     }
                 }
@@ -94,7 +100,7 @@ public class HighlightingMainController {
         }
 
 
-        for (Editor editor1 : editors){
+        for (Editor editor1 : editors){ //foreach editor recreate
             errorManageFileControler.decodeDTO(newHashtable,editor1);
         }
         errorManageFileControler.setErrorManageFileTable(newHashtable);

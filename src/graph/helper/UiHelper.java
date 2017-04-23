@@ -9,7 +9,9 @@ import graph.visualization.api.GraphPath;
 import java.util.List;
 import java.util.Map;
 
-
+/**
+ * Taken from https://plugins.jetbrains.com/plugin/8087-graph-database-support
+ */
 public final class UiHelper {
 
     public static final int INLINE_TEXT_LENGTH = 80;

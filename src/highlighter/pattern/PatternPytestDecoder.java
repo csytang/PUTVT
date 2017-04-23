@@ -13,7 +13,9 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-
+/**
+ * Class for decoding logs using PyTest failure pattern
+ */
 public class PatternPytestDecoder implements PatternDecoder{
     private List<String> fileNames = new ArrayList<>();
     private Hashtable strings =  new Hashtable();
@@ -57,11 +59,11 @@ public class PatternPytestDecoder implements PatternDecoder{
         all = all.replaceAll("(?m)^[ \t]*\r?\n", "");
         System.out.print(all);
 
-        Pattern p1 = Pattern.compile("_______(.*)_______");
+        Pattern p1 = Pattern.compile("_______(.*)_______"); //first line of failure ___TestName___
         Matcher m1 = p1.matcher(all);
         int count = 0;
 
-        Pattern p = Pattern.compile("\\n.*.py:\\d*:.*");
+        Pattern p = Pattern.compile("\\n.*.py:\\d*:.*"); //last line of pytest failure
         Matcher m = p.matcher(all);
 
         while (m1.find() && m.find()) {
@@ -70,13 +72,13 @@ public class PatternPytestDecoder implements PatternDecoder{
             testName = testName.replace("_","");
             testName = testName.replace(" ","");
             testResults.add(testName);
-            testLines.add(all.substring(m1.start(), m.end()).replaceAll("( )+", " "));
+            testLines.add(all.substring(m1.start(), m.end()).replaceAll("( )+", " ")); //log from failure
         }
         if (count == 0) {
             return false;
         }
         TestResultsUtil.getInstance().setResults(testResults);
-        createHashtable(testLines);
+        createHashtable(testLines); //creates hashtable from results
         return true;
     }
 
@@ -97,16 +99,16 @@ public class PatternPytestDecoder implements PatternDecoder{
                 strings.put(fileName, stringPytestUtil);
             } else {
                 StringPytestUtil stringPytestUtil = new StringPytestUtil();
-                stringPytestUtil.setFileName(fileName);
+                stringPytestUtil.setFileName(fileName); //name of file
 
                 List<Integer> numbersOfLines = new ArrayList<>();
-                numbersOfLines.add(Integer.parseInt(helpArr[1]));
+                numbersOfLines.add(Integer.parseInt(helpArr[1])); //number of line where error occured
 
                 List<String> typeOfErrors = new ArrayList<>();
-                typeOfErrors.add(helpArr[2]);
+                typeOfErrors.add(helpArr[2]); //type of error
 
                 List<String> nameOfTests = new ArrayList<>();
-                nameOfTests.add(arr[0]);
+                nameOfTests.add(arr[0]); //name of test - no usage yet
 
                 List<String[]> linesDuringRuntime = new ArrayList<>();
                 linesDuringRuntime.add(getArrayExecutedLines(arr));

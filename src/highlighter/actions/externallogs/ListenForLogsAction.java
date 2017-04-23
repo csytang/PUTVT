@@ -8,10 +8,10 @@ import highlighter.util.ExternalLogsUtil;
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
-
+//Starts listening for logs from external sources
 public class ListenForLogsAction extends AnAction {
 
-    private int port = 9876;
+    private int port = 9876; //Port to be used
 
     @Override
     public void actionPerformed(AnActionEvent anActionEvent) {
@@ -20,6 +20,10 @@ public class ListenForLogsAction extends AnAction {
                 .executeOnPooledThread(executeResults());
     }
 
+    /**
+     * Runnable so we dont block the main IDE thread, listens for UDP packets with 1024 bit size
+     * @return
+     */
     private Runnable executeResults() {
         return () -> {
             DatagramSocket welcomeSocket = null;

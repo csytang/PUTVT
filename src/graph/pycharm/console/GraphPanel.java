@@ -29,7 +29,9 @@ import java.util.Enumeration;
 
 import static graph.helper.DisplayUtil.getTooltipText;
 import static graph.helper.DisplayUtil.getTooltipTitle;
-
+/**
+ * Taken from https://plugins.jetbrains.com/plugin/8087-graph-database-support source code
+ */
 public class GraphPanel {
 
     private PrefuseVisualization visualization;

@@ -6,7 +6,9 @@ import graph.pycharm.api.LookAndFeelService;
 
 import javax.swing.*;
 import java.awt.*;
-
+/**
+ * Taken from https://plugins.jetbrains.com/plugin/8087-graph-database-support source code
+ */
 public class IdeaLookAndFeelService implements LookAndFeelService {
 
     @Override

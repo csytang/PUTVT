@@ -6,7 +6,9 @@ import prefuse.visual.VisualItem;
 
 import java.awt.geom.Rectangle2D;
 import java.util.Iterator;
-
+/**
+ * Taken from https://plugins.jetbrains.com/plugin/8087-graph-database-support source code
+ */
 public class CenteredLayout extends Layout {
     public CenteredLayout(String group) {
         super(group);

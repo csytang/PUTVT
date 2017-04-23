@@ -13,6 +13,9 @@ import java.util.Hashtable;
 import java.util.List;
 import java.util.regex.Pattern;
 
+/**
+ * Listener to always get new test results
+ */
 public class TestStatusListenerImpl extends TestStatusListener{
     private boolean alreadyOpened = false;
     @Override
@@ -24,12 +27,12 @@ public class TestStatusListenerImpl extends TestStatusListener{
         Hashtable testsOnly = new Hashtable();
         for (AbstractTestProxy proxy: abstractTestProxyList){
             int result = 0;
-            if (proxy.getMagnitude() == 1){
+            if (proxy.getMagnitude() == 1){ //only 1 is successful, all the other are failed
                 result=1;
             }
             if (proxy.getLocationUrl()!=null ) {
                 if (testResults.get(getTestFileName(proxy.getLocationUrl())) == null) {
-                    if (!proxy.getName().contains("root") && (proxy.getName() != null)) {
+                    if (!proxy.getName().contains("root") && (proxy.getName() != null)) { //root or null proxy
                         Hashtable testResultKeyValuePairs = new Hashtable();
                         TestResultKeyValuePair testResultKeyValuePair = new TestResultKeyValuePair(proxy.getName(), result);
                         testResultKeyValuePairs.put(proxy.getName(), testResultKeyValuePair);

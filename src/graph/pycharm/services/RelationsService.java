@@ -13,7 +13,12 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class RelationsService {
-
+    /**
+     * Get all relations between nodes
+     * @param project Current Project
+     * @param nameOfFiles List of all files in project
+     * @return Hashtable with relations
+     */
     public static Hashtable getRelations(Project project, List<String> nameOfFiles){
         Hashtable hashtable = new Hashtable();
         List<String> namesOfFiles = ProjectFileNamesUtil.getFileNamesFromProject(project.getBaseDir());
@@ -27,13 +32,13 @@ public class RelationsService {
                 while (m.find()) {
                     String lineOfImports = contents.substring(m.start(), m.end());
                     String[] lineSplit = lineOfImports.split(" import ");
-                    lineSplit[0] = lineSplit[0].replace("from ","");
-                    if (lineSplit[0].contains(".")) {
+                    lineSplit[0] = lineSplit[0].replace("from ",""); //remove from word
+                    if (lineSplit[0].contains(".")) { //dot notation used in import
                         String dot = Pattern.quote(".");
                         String[] nameFileLineSplit = lineSplit[0].split(dot);
                         lineSplit[0] = nameFileLineSplit[nameFileLineSplit.length - 1];
                     }
-                    lineSplit[0] = lineSplit[0].concat(".py");
+                    lineSplit[0] = lineSplit[0].concat(".py"); //according to node name
                     lineSplit[0] = lineSplit[0].replace(" ", "");
                     if (isFromList(lineSplit[0], nameOfFiles)){ //is a import from project
                         ImportFileUtil importFileUtil = new ImportFileUtil(nameOfFile); //new import file
@@ -49,7 +54,7 @@ public class RelationsService {
                         importFromList.add(importFrom);
                         importFileUtil.setImportFromList(importFromList);
                         hashtable.remove(importFileUtil.getName());
-                        hashtable.put(importFileUtil.getName(),importFileUtil);
+                        hashtable.put(importFileUtil.getName(),importFileUtil);//put into hashtable
                     }
                 }
             }
@@ -57,8 +62,13 @@ public class RelationsService {
         return hashtable;
     }
 
+    /**
+     * Gets all the IntegerKeyValuePair - integer for number of times the key - import, was called in file
+     * @param imports imports in form of string
+     * @param file the file with source code
+     * @return list of integerkeyvaluepair
+     */
     private static List<IntegerKeyValuePair> getAllIntegerKeyValuePair(String imports, String file){
-       // String str = imports.replace(" ", "");
         String[] importNames = imports.split(",");
         List<IntegerKeyValuePair> integerKeyValuePairList = new ArrayList<>();
         for (String importName : importNames){
@@ -100,6 +110,7 @@ public class RelationsService {
         return true;
     }
 
+    //Custom List check
     private static boolean isFromList(String str, List<String> strs){
         for (String s : strs){
             String[] arr = s.split("/");

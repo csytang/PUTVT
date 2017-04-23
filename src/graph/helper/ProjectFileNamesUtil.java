@@ -9,7 +9,11 @@ import java.util.List;
 
 public class ProjectFileNamesUtil {
 
-
+    /**
+     * Get all .py files from project
+     * @param baseDir
+     * @return
+     */
     public static List<String> getFileNamesFromProject(VirtualFile baseDir) {
         List<String> fileNames = new ArrayList<>();
         List<VirtualFile> files = Arrays.asList(baseDir.getChildren());

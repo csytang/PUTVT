@@ -4,6 +4,9 @@ import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import highlighter.highlighters.HighlightingMainController;
 
+/**
+ * Unset console listener
+ */
 public class ConsoleUnSetVisualizationAction extends AnAction {
     private HighlightingMainController highlightingMainController;
     @Override

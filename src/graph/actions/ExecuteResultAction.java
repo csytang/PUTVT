@@ -10,6 +10,9 @@ import graph.helper.HashtableResultsUtil;
 import graph.pycharm.ConsoleToolWindow;
 import graph.pycharm.services.ResultExecutionService;
 
+/**
+ * Creates visualization
+ */
 public class ExecuteResultAction extends AnAction {
 
     @Override

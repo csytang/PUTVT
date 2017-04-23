@@ -6,7 +6,9 @@ import prefuse.visual.NodeItem;
 import prefuse.visual.VisualItem;
 
 import java.awt.event.MouseEvent;
-
+/**
+ * Taken from https://plugins.jetbrains.com/plugin/8087-graph-database-support source code
+ */
 public class CustomNeighborHighlightControl extends NeighborHighlightControl {
 
     private NodeItem selectedNode;

@@ -19,7 +19,9 @@ import java.io.IOException;
 import java.util.Hashtable;
 import java.util.List;
 
-
+/**
+ * Controller, which calls the python and pytest decoders and then combines the results
+ */
 public class PatternController {
 
     private PatternDecoder patternPythonDecoder;
@@ -64,7 +66,7 @@ public class PatternController {
         }
         return hashTable;
     }
-
+    //used in case of external logs
     public Hashtable patternDecode(String consoleLogs){
         this.patternPythonDecoder = new PatternPythonDecoder();
         this.patternPytestDecoder = new PatternPytestDecoder();

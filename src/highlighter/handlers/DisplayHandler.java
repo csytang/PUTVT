@@ -9,6 +9,10 @@ import com.intellij.openapi.project.Project;
 import com.intellij.openapi.vfs.VirtualFile;
 import highlighter.highlighters.HighlightingMainController;
 
+/**
+ * Inspired by https://github.com/oker1/phpunit_codecoverage_display source code
+ * Handles switching in between tabs
+ */
 public class DisplayHandler {
 
 

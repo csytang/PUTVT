@@ -6,6 +6,9 @@ import prefuse.util.display.DisplayLib;
 
 import java.awt.geom.Rectangle2D;
 
+/**
+ * Used from https://plugins.jetbrains.com/plugin/8087-graph-database-support
+ */
 public class PrefuseUtil {
 
     public static final int DURATION = 0;

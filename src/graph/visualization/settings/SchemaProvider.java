@@ -10,7 +10,9 @@ import javax.swing.*;
 import java.awt.*;
 
 import static prefuse.Constants.SHAPE_ELLIPSE;
-
+/**
+ * Inspiration from https://plugins.jetbrains.com/plugin/8087-graph-database-support source code
+ */
 public class SchemaProvider {
 
     private static final int FONT_SIZE = 10;

@@ -12,6 +12,9 @@ import java.util.stream.Stream;
 import static com.google.common.collect.Lists.newArrayList;
 import static java.util.Collections.unmodifiableList;
 
+/**
+ * Util class used from https://plugins.jetbrains.com/plugin/8087-graph-database-support plugin
+ */
 public class DisplayUtil {
 
     private static final int MAX_TOOLTIP_PROPERTIES = 3;

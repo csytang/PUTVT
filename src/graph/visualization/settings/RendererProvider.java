@@ -11,7 +11,9 @@ import static graph.constants.GraphColumns.TITLE;
 import static graph.constants.VisualizationParameters.NODE_SIZE;
 import static prefuse.Constants.EDGE_TYPE_LINE;
 import static prefuse.data.io.GraphMLReader.Tokens.ID;
-
+/**
+ * Inspiration from https://plugins.jetbrains.com/plugin/8087-graph-database-support source code
+ */
 public class RendererProvider {
 
     private static final int TEXT_OVERLAP = 12;

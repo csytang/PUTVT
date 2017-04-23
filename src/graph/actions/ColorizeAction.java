@@ -6,6 +6,9 @@ import com.intellij.openapi.project.Project;
 import com.intellij.util.messages.MessageBus;
 import graph.events.ColorizeEvent;
 
+/**
+ * Only recolorize, no reposition - NOT WORKING
+ */
 public class ColorizeAction extends AnAction{
 
 

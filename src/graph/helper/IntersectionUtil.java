@@ -6,6 +6,9 @@ import java.awt.geom.Point2D;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * Taken from https://plugins.jetbrains.com/plugin/8087-graph-database-support
+ */
 public class IntersectionUtil {
 
     /**

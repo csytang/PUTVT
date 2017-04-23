@@ -14,7 +14,9 @@ import org.jetbrains.annotations.NotNull;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-
+/**
+ * Listener for console executions on the IDE -> captures logs
+ */
 public class ConsoleRunListener implements ExecutionListener{
     private Boolean pytestCapture=false;
     private Boolean pythonCapture=false;

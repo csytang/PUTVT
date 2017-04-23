@@ -27,6 +27,10 @@ public class CoverageResults implements GraphCoverageResult {
 
     private Hashtable relations;
 
+    /**
+     * Return a list of graph nodes
+     * @return
+     */
     @Override
     public List<GraphNode> getNodes() {
         List<String> namesOfFiles = getFileNamesFromProject(project.getBaseDir());
@@ -36,18 +40,18 @@ public class CoverageResults implements GraphCoverageResult {
         nodeHashTable.clear();
         resultsOfRanTests = HashtableResultsUtil.copyHashtableTestResults(TestResultsCollector.getInstance().getTestResults());
         int i = 0;
-        for (String nameOfFile : namesOfFiles){
+        for (String nameOfFile : namesOfFiles){ //for each name of file
             String[] str = nameOfFile.split("/");
             String file = str[str.length-1];
             Hashtable fileTestResults = (Hashtable) resultsOfRanTests.get(file);
-            if (nodeHashTable.get(file)!=null){
+            if (nodeHashTable.get(file)!=null){ //a node with this name already exists
                 file=file.concat(" (" + i++ + ")");
             }
             CoverageNode node = new CoverageNode(file);
-            node.setCoverage(GetOnlyCoveragedFileNames.getCovForFile(file,project));
+            node.setCoverage(GetOnlyCoveragedFileNames.getCovForFile(file,project)); //get coverage
             node.getTypes().add("Coverage is: " + node.getCoverage() + "%.");
             node.setColor(node.getCoverage()/10);
-            if (fileTestResults != null) {
+            if (fileTestResults != null) { //check for test changes in node
                 node.setOutColorNumber(getNodeOutColor(fileTestResults));
             }
             HashMap<String, Object> properties = new HashMap<>();
@@ -57,40 +61,44 @@ public class CoverageResults implements GraphCoverageResult {
             nodeHashTable.put(file, node);
             nodes.add(node);
         }
-        if (HashtableResultsUtil.getInstance().getOnlyCoveraged()) {
+        if (HashtableResultsUtil.getInstance().getOnlyCoveraged()) { //this runs if we want only coveraged nodes
             nodes = doCleaning(nodes);
         }
         HashtableResultsUtil.getInstance().setNodes(nodes);
         return nodes;
     }
 
+    /**
+     * Get all relationships between nodes - this need to be called after getNodes()
+     * @return
+     */
     @Override
     public List<GraphRelationship> getRelationships() {
         int localMax=1;
         Hashtable checkIfRelationExists = new Hashtable();
         List<GraphRelationship> relatonships = new ArrayList<>();
         List<String> filePaths = ProjectFileNamesUtil.getFileNamesFromProject(project.getBaseDir());
-        for (String filePath : filePaths){
+        for (String filePath : filePaths){ //foreach filepath - node name
             String str[] = filePath.split("/");
             String name = str[str.length-1];
-            CoverageNode startNode = (CoverageNode) nodeHashTable.get(name);
-            ImportFileUtil importFileUtil = (ImportFileUtil) relations.get(name);
+            CoverageNode startNode = (CoverageNode) nodeHashTable.get(name); //relations from this node
+            ImportFileUtil importFileUtil = (ImportFileUtil) relations.get(name); //get relations for node
             if (importFileUtil != null && startNode != null){
-                for (ImportFrom importFrom : importFileUtil.getImportFromList())
+                for (ImportFrom importFrom : importFileUtil.getImportFromList()) //for each relation
                 {
                     NodeRelationship relation;
-                    CoverageNode endNode = (CoverageNode) nodeHashTable.get(importFrom.getName());
+                    CoverageNode endNode = (CoverageNode) nodeHashTable.get(importFrom.getName());//end node of relation
                     String nameOfRelation = startNode.getId() + "->" + endNode.getId();
                     if (checkIfRelationExists.get(nameOfRelation) != null){
                         continue;
                     }
                     relation = new NodeRelationship(nameOfRelation);
                     relation.setWeight(getRelationWeight(importFrom));
-                    if (localMax < getRelationWeight(importFrom)){localMax=getRelationWeight(importFrom);}
+                    if (localMax < getRelationWeight(importFrom)){localMax=getRelationWeight(importFrom);} //localMax of weights for proper logScale
                     relation.setCallsCount("" + (int) relation.getWeight());
                     relation.setStartNode(startNode);
                     relation.setEndNode(endNode);
-                    setRelationTypes(relation.getTypes(),relation.getWeight());
+                    setRelationTypes(relation.getTypes(),relation.getWeight()); //sets trivia
                     HashMap<String, Object> properties = new HashMap<>();
                     getPropertiesForRelations(properties, importFrom);
                     ResultsPropertyContainer resultsPropertyContainer = new ResultsPropertyContainer(properties);

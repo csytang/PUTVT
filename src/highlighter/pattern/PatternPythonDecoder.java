@@ -12,7 +12,9 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-
+/**
+ * Decoder for python exception and errors
+ */
 public class PatternPythonDecoder implements PatternDecoder{
     private String[] lines;
     Hashtable strings =  new Hashtable();
@@ -24,8 +26,6 @@ public class PatternPythonDecoder implements PatternDecoder{
 
     @Override
     public Boolean patternDecode(VirtualFile virtualFile) throws FileNotFoundException {
-        List<String> pythonTraceBacks = new ArrayList<>();
-
         Scanner in = new Scanner(new FileReader(virtualFile.getPath()));
         String all = "", line;
         while (in.hasNextLine()) {
@@ -44,28 +44,24 @@ public class PatternPythonDecoder implements PatternDecoder{
     }
 
 
-    //TODO REFACTOR
     private Boolean doTheDecoding(String all){
         List<String> pythonTraceBacks = new ArrayList<>();
         if (!all.contains("Traceback")) {
             return false;
         }
 
-        Pattern p1 = Pattern.compile("Traceback");
+        Pattern p1 = Pattern.compile("Traceback"); //key word traceback
         Matcher m1 = p1.matcher(all);
 
-        Pattern p2 = Pattern.compile(".*Error:.*");
+        Pattern p2 = Pattern.compile(".*Error:.*"); //last word of pattern ...Error... - looking for Error object
         Matcher m2 = p2.matcher(all);
 
-        int count = 0;
-
         while (m1.find() && m2.find()) {
-            count++;
             pythonTraceBacks.add(all.substring(m1.start(), m2.end()));
         }
 
         for (String traceback : pythonTraceBacks) {
-            Pattern p = Pattern.compile("File ");
+            Pattern p = Pattern.compile("File "); //each file in traceback
             String reason="";
             lines = p.split(traceback);
 
@@ -87,22 +83,22 @@ public class PatternPythonDecoder implements PatternDecoder{
                 m2 = p2.matcher(fileName);
                 if (m2.find()){
                     String arr[] = fileName.split("/");
-                    fileName = arr[arr.length-1];
+                    fileName = arr[arr.length-1]; //name of file
                 }
-                if (strings.get(fileName) != null) {
+                if (strings.get(fileName) != null) { //if there is an entry in hashtable
                     StringPytestUtil pytestUtil = (StringPytestUtil) strings.get(fileName);
 
                     List<Integer> lineNumbers = pytestUtil.getLineNumber();
-                    lineNumbers.add(lineNumber);
+                    lineNumbers.add(lineNumber); //number of line where error occured
                     pytestUtil.setLineNumber(lineNumbers);
 
                     List<String[]> linesDuringRuntime = pytestUtil.getLinesDuringRuntime();
                     String[] dao = {tmp[2].trim()};
-                    linesDuringRuntime.add(dao);
+                    linesDuringRuntime.add(dao); //log for error
                     pytestUtil.setLinesDuringRuntime(linesDuringRuntime);
 
                     List<String> typeOfError = pytestUtil.getTypeOfError();
-                    typeOfError.add(reason);
+                    typeOfError.add(reason); //type of error
                     pytestUtil.setTypeOfError(typeOfError);
 
                     strings.remove(fileName);

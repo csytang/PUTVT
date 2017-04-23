@@ -3,10 +3,12 @@ package graph.helper;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+ * Imports from a specific file
+ */
 public class ImportFrom {
     private String name;
-    private List<IntegerKeyValuePair> keyValuePairList = new ArrayList<>();
+    private List<IntegerKeyValuePair> keyValuePairList = new ArrayList<>();// function, object imports from file
     public ImportFrom(String name){
         this.name=name;
     }
