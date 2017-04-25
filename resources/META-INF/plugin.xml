@@ -1,7 +1,7 @@
 <idea-plugin version="2">
   <id>com.cegin.PUTVT</id>
   <name>PUTVT</name>
-  <version>0.1</version>
+  <version>0.2</version>
   <vendor email="jan.cegin@gmail.com" url="xcegin.github.io">Jan Cegin</vendor>
 
   <description><![CDATA[
@@ -36,9 +36,14 @@
     ]]></description>
 
   <change-notes><![CDATA[
-      V. 1.0:<br>
+      V. 0.1:<br>
       <ul>
       <li>First version created, which supports Dependency Graph and error logs visualization.</li>
+      </ul>
+      <br>
+      V. 0.2:<br>
+      <ul>
+      <li>Fixes for node edge coloring and IDE errors for console logs.</li>
       </ul>
     ]]>
   </change-notes>
@@ -55,19 +60,19 @@
 
   <application-components>
     <component>
-      <implementation-class>highlighter.ApplicationPlugin</implementation-class>
-      <interface-class>highlighter.ApplicationPlugin</interface-class>
+      <implementation-class>main.highlighter.appcomponents.ApplicationPlugin</implementation-class>
+      <interface-class>main.highlighter.appcomponents.ApplicationPlugin</interface-class>
     </component>
   </application-components>
 
   <project-components>
     <component>
-      <implementation-class>highlighter.ProjectPlugin</implementation-class>
-      <interface-class>highlighter.ProjectPlugin</interface-class>
+      <implementation-class>main.highlighter.appcomponents.ProjectPlugin</implementation-class>
+      <interface-class>main.highlighter.appcomponents.ProjectPlugin</interface-class>
     </component>
     <component>
-      <implementation-class>highlighter.handlers.DisplayHandler</implementation-class>
-      <interface-class>highlighter.handlers.DisplayHandler</interface-class>
+      <implementation-class>main.highlighter.handlers.DisplayHandler</implementation-class>
+      <interface-class>main.highlighter.handlers.DisplayHandler</interface-class>
     </component>
   </project-components>
 
@@ -76,43 +81,43 @@
     <toolWindow id="Dependency Graph"
                 anchor="bottom"
                 secondary="false"
-                factoryClass="graph.pycharm.ConsoleToolWindow"
+                factoryClass="main.graph.pycharm.ConsoleToolWindow"
                 icon="/icons/eye.png"/>
-    <applicationService serviceInterface="graph.pycharm.api.LookAndFeelService"
-                        serviceImplementation="graph.pycharm.services.IdeaLookAndFeelService"/>
-    <projectService serviceInterface="graph.pycharm.GraphConsoleView"
-                    serviceImplementation="graph.pycharm.GraphConsoleView"/>
-    <testStatusListener implementation="graph.testresults.TestStatusListenerImpl"/>
+    <applicationService serviceInterface="main.graph.pycharm.api.LookAndFeelService"
+                        serviceImplementation="main.graph.pycharm.services.IdeaLookAndFeelService"/>
+    <projectService serviceInterface="main.graph.pycharm.GraphConsoleView"
+                    serviceImplementation="main.graph.pycharm.GraphConsoleView"/>
+    <testStatusListener implementation="main.graph.testresults.TestStatusListenerImpl"/>
   </extensions>
 
   <actions>
     <!-- Add your actions here -->
     <group id="PUTVT" text="Python Visualization Tool..." popup="true" icon="/icons/eye.png">
     <add-to-group group-id="ToolsMenu" anchor="first"/>
-    <action id="PUTVT.highlighter.actions.VisualizationAction" class="highlighter.actions.VisualizationAction" text="Load and Visualize log .txt"
+    <action id="PUTVT.main.highlighter.actions.VisualizationAction" class="main.highlighter.actions.VisualizationAction" text="Load and Visualize log .txt"
             description="Loads a .txt file and visualizes lines of code">
     </action>
-      <action id="PUTVT.ConsoleNotUsed" class="highlighter.actions.console.ConsoleUnSetVisualizationAction" text="Stop visualizing console logs"
+      <action id="PUTVT.ConsoleNotUsed" class="main.highlighter.actions.console.ConsoleUnSetVisualizationAction" text="Stop visualizing console logs"
               description="Stops visualizing console logs">
       </action>
-      <action id="PUTVT.ConsoleUsed" class="highlighter.actions.console.ConsoleSetVisualizationAction" text="Visualize console logs"
+      <action id="PUTVT.ConsoleUsed" class="main.highlighter.actions.console.ConsoleSetVisualizationAction" text="Visualize console logs"
               description="Visualizes console logs">
       </action>
-      <action id="PUTVT.ConsoleLogListener" class="highlighter.actions.externallogs.ListenForLogsAction" text="Listen for logs from external jar"
+      <action id="PUTVT.ConsoleLogListener" class="main.highlighter.actions.externallogs.ListenForLogsAction" text="Listen for logs from external jar"
               description="Listen for logs from console commands redirected through provided jar">
       </action>
-      <action id="PUTVT.StopListeningAction" class="highlighter.actions.externallogs.StopListeningAction" text="Stop listener for external jar"
+      <action id="PUTVT.StopListeningAction" class="main.highlighter.actions.externallogs.StopListeningAction" text="Stop listener for external jar"
               description="Stop listener for the external jar">
       </action>
-      <action id="PUTVT.highlighter.actions.ClearVisualAction" class="highlighter.actions.ClearVisualAction" text="Clears current View"
+      <action id="PUTVT.main.highlighter.actions.ClearVisualAction" class="main.highlighter.actions.ClearVisualAction" text="Clears current View"
               description="Clears out the visualization for the current editor">
       </action>
-      <action id="PUTVT.highlighter.actions.ClearAllAction" class="highlighter.actions.ClearAllAction" text="Stop visualization"
+      <action id="PUTVT.main.highlighter.actions.ClearAllAction" class="main.highlighter.actions.ClearAllAction" text="Stop visualization"
               description="Clears out and stops the visualization">
       </action>
     </group>
 
-    <action id="PUTVT.highlighter.actions.ErrorLinesShowAction" class="highlighter.actions.ErrorLinesShowAction" text="Show error lines..."
+    <action id="PUTVT.main.highlighter.actions.ErrorLinesShowAction" class="main.highlighter.actions.ErrorLinesShowAction" text="Show error lines..."
             description="Shows error lines for the line">
       <add-to-group group-id="EditorPopupMenu" anchor="last"/>
     </action>
@@ -121,28 +126,28 @@
            text="Graph Dependency Console Tool Window Actions">
 
       <action id="GraphDatabaseConsoleToolWindowActions.VisualizeCoverage"
-              class="graph.actions.ExecuteResultAction"
+              class="main.graph.actions.ExecuteResultAction"
               text="Visualize coverage"
               description="Visualize coverage"
               icon="/icons/play-arrow.png">
       </action>
 
       <action id="GraphDependencyConsoleViewActions.VisualizeCoverageOnly"
-              class="graph.actions.ExecuteResultOnlyCoveragedAction"
+              class="main.graph.actions.ExecuteResultOnlyCoveragedAction"
               text="Visualizes only coveraged nodes with their relations"
               description="Visualizes only coveraged nodes with their relation"
               icon="/icons/fast-forward.png">
       </action>
 
       <action id="GraphDependencyConsoleViewActions.ZoomAndFit"
-              class="graph.actions.ZoomAndFitAction"
+              class="main.graph.actions.ZoomAndFitAction"
               text="Reset view"
               description="Reset view"
               icon="/icons/loading.png">
       </action>
 
       <action id="GraphDependencyConsoleViewActions.CleanCanvas"
-              class="graph.actions.CleanCanvasAction"
+              class="main.graph.actions.CleanCanvasAction"
               text="Clean canvas"
               description="Clean canvas"
               icon="/icons/close.png">

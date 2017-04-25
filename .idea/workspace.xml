@@ -2,75 +2,106 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e64f8b46-d439-4fc4-992c-0babd518bbe1" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/graph/visualization/controls/ColumnResizer.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/highlighter/errors/ErrorManageFile.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/highlighter/listeners/FileOperationListener.java" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/highlighter/pattern/PatternDecoder.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/highlighter/pattern/PatternDecoder.java" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/graph/actions/CleanCanvasAction.java" afterPath="$PROJECT_DIR$/src/main/graph/actions/CleanCanvasAction.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/graph/actions/ColorizeAction.java" afterPath="$PROJECT_DIR$/src/main/graph/actions/ColorizeAction.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/graph/actions/ExecuteResultAction.java" afterPath="$PROJECT_DIR$/src/main/graph/actions/ExecuteResultAction.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/graph/actions/ExecuteResultOnlyCoveragedAction.java" afterPath="$PROJECT_DIR$/src/main/graph/actions/ExecuteResultOnlyCoveragedAction.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/graph/actions/ZoomAndFitAction.java" afterPath="$PROJECT_DIR$/src/main/graph/actions/ZoomAndFitAction.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/graph/constants/GraphColumns.java" afterPath="$PROJECT_DIR$/src/main/graph/constants/GraphColumns.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/graph/constants/GraphConstants.java" afterPath="$PROJECT_DIR$/src/main/graph/constants/GraphConstants.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/graph/constants/GraphGroups.java" afterPath="$PROJECT_DIR$/src/main/graph/constants/GraphGroups.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/graph/constants/VisualizationParameters.java" afterPath="$PROJECT_DIR$/src/main/graph/constants/VisualizationParameters.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/graph/enums/EventType.java" afterPath="$PROJECT_DIR$/src/main/graph/enums/EventType.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/graph/events/CleanCanvasEvent.java" afterPath="$PROJECT_DIR$/src/main/graph/events/CleanCanvasEvent.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/graph/events/ColorizeEvent.java" afterPath="$PROJECT_DIR$/src/main/graph/events/ColorizeEvent.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/graph/events/ExecuteResultsEvent.java" afterPath="$PROJECT_DIR$/src/main/graph/events/ExecuteResultsEvent.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/graph/events/ZoomAndPanToFitEvent.java" afterPath="$PROJECT_DIR$/src/main/graph/events/ZoomAndPanToFitEvent.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/graph/helper/DisplayUtil.java" afterPath="$PROJECT_DIR$/src/main/graph/helper/DisplayUtil.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/graph/helper/GetOnlyCoveragedFileNames.java" afterPath="$PROJECT_DIR$/src/main/graph/helper/GetOnlyCoveragedFileNames.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/graph/helper/HashtableResultsUtil.java" afterPath="$PROJECT_DIR$/src/main/graph/helper/HashtableResultsUtil.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/graph/helper/ImportFileUtil.java" afterPath="$PROJECT_DIR$/src/main/graph/helper/ImportFileUtil.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/graph/helper/ImportFrom.java" afterPath="$PROJECT_DIR$/src/main/graph/helper/ImportFrom.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/graph/helper/IntegerKeyValuePair.java" afterPath="$PROJECT_DIR$/src/main/graph/helper/IntegerKeyValuePair.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/graph/helper/IntersectionUtil.java" afterPath="$PROJECT_DIR$/src/main/graph/helper/IntersectionUtil.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/graph/helper/KeyValuePair.java" afterPath="$PROJECT_DIR$/src/main/graph/helper/KeyValuePair.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/graph/helper/PrefuseUtil.java" afterPath="$PROJECT_DIR$/src/main/graph/helper/PrefuseUtil.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/graph/helper/ProjectFileNamesUtil.java" afterPath="$PROJECT_DIR$/src/main/graph/helper/ProjectFileNamesUtil.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/graph/helper/PropertyTreeCellRenderer.java" afterPath="$PROJECT_DIR$/src/main/graph/helper/PropertyTreeCellRenderer.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/graph/helper/RenderingUtil.java" afterPath="$PROJECT_DIR$/src/main/graph/helper/RenderingUtil.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/graph/helper/UiHelper.java" afterPath="$PROJECT_DIR$/src/main/graph/helper/UiHelper.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/graph/listeners/NodeListener.java" afterPath="$PROJECT_DIR$/src/main/graph/listeners/NodeListener.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/graph/listeners/RelationshipListener.java" afterPath="$PROJECT_DIR$/src/main/graph/listeners/RelationshipListener.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/graph/pycharm/ConsoleToolWindow.java" afterPath="$PROJECT_DIR$/src/main/graph/pycharm/ConsoleToolWindow.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/graph/pycharm/GraphConsoleView.form" afterPath="$PROJECT_DIR$/src/main/graph/pycharm/GraphConsoleView.form" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/graph/pycharm/GraphConsoleView.java" afterPath="$PROJECT_DIR$/src/main/graph/pycharm/GraphConsoleView.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/graph/pycharm/api/GraphRelationship.java" afterPath="$PROJECT_DIR$/src/main/graph/pycharm/api/GraphRelationship.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/graph/pycharm/api/LookAndFeelService.java" afterPath="$PROJECT_DIR$/src/main/graph/pycharm/api/LookAndFeelService.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/graph/pycharm/api/NodeCallback.java" afterPath="$PROJECT_DIR$/src/main/graph/pycharm/api/NodeCallback.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/graph/pycharm/api/RelationshipCallback.java" afterPath="$PROJECT_DIR$/src/main/graph/pycharm/api/RelationshipCallback.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/graph/pycharm/api/VisualizationApi.java" afterPath="$PROJECT_DIR$/src/main/graph/pycharm/api/VisualizationApi.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/graph/pycharm/console/GraphPanel.java" afterPath="$PROJECT_DIR$/src/main/graph/pycharm/console/GraphPanel.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/graph/pycharm/console/GraphPanelInteractions.java" afterPath="$PROJECT_DIR$/src/main/graph/pycharm/console/GraphPanelInteractions.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/graph/pycharm/console/PrefuseVisualization.java" afterPath="$PROJECT_DIR$/src/main/graph/pycharm/console/PrefuseVisualization.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/graph/pycharm/services/IdeaLookAndFeelService.java" afterPath="$PROJECT_DIR$/src/main/graph/pycharm/services/IdeaLookAndFeelService.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/graph/pycharm/services/RelationsService.java" afterPath="$PROJECT_DIR$/src/main/graph/pycharm/services/RelationsService.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/graph/pycharm/services/ResultExecutionService.java" afterPath="$PROJECT_DIR$/src/main/graph/pycharm/services/ResultExecutionService.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/graph/renderers/CustomEdgeRenderer.java" afterPath="$PROJECT_DIR$/src/main/graph/renderers/CustomEdgeRenderer.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/graph/results/CoverageNode.java" afterPath="$PROJECT_DIR$/src/main/graph/results/CoverageNode.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/graph/results/CoverageResults.java" afterPath="$PROJECT_DIR$/src/main/graph/results/CoverageResults.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/graph/results/NodeRelationship.java" afterPath="$PROJECT_DIR$/src/main/graph/results/NodeRelationship.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/graph/results/ResultsPropertyContainer.java" afterPath="$PROJECT_DIR$/src/main/graph/results/ResultsPropertyContainer.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/graph/results/api/GraphCoverageResult.java" afterPath="$PROJECT_DIR$/src/main/graph/results/api/GraphCoverageResult.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/graph/results/api/ResultsProcessEvent.java" afterPath="$PROJECT_DIR$/src/main/graph/events/ResultsProcessEvent.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/graph/testresults/TestResultKeyValuePair.java" afterPath="$PROJECT_DIR$/src/main/graph/testresults/TestResultKeyValuePair.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/graph/testresults/TestResultsCollector.java" afterPath="$PROJECT_DIR$/src/main/graph/testresults/TestResultsCollector.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/graph/testresults/TestStatusListenerImpl.java" afterPath="$PROJECT_DIR$/src/main/graph/testresults/TestStatusListenerImpl.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/graph/visualization/GraphDisplay.java" afterPath="$PROJECT_DIR$/src/main/graph/visualization/GraphDisplay.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/graph/visualization/api/GraphEntity.java" afterPath="$PROJECT_DIR$/src/main/graph/visualization/api/GraphEntity.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/graph/visualization/api/GraphNode.java" afterPath="$PROJECT_DIR$/src/main/graph/visualization/api/GraphNode.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/graph/visualization/api/GraphPath.java" afterPath="$PROJECT_DIR$/src/main/graph/visualization/api/GraphPath.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/graph/visualization/api/GraphPropertyContainer.java" afterPath="$PROJECT_DIR$/src/main/graph/visualization/api/GraphPropertyContainer.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/graph/visualization/controls/CustomNeighborHighlightControl.java" afterPath="$PROJECT_DIR$/src/main/graph/visualization/CustomNeighborHighlightControl.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/graph/visualization/layouts/CenteredLayout.java" afterPath="$PROJECT_DIR$/src/main/graph/visualization/layouts/CenteredLayout.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/graph/visualization/layouts/RepaintAndRepositionAction.java" afterPath="$PROJECT_DIR$/src/main/graph/visualization/settings/RepaintAndRepositionAction.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/graph/visualization/settings/ColorProvider.java" afterPath="$PROJECT_DIR$/src/main/graph/visualization/settings/ColorProvider.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/graph/visualization/settings/CustomItemSorter.java" afterPath="$PROJECT_DIR$/src/main/graph/visualization/settings/CustomItemSorter.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/graph/visualization/settings/LayoutProvider.java" afterPath="$PROJECT_DIR$/src/main/graph/visualization/settings/LayoutProvider.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/graph/visualization/settings/RendererProvider.java" afterPath="$PROJECT_DIR$/src/main/graph/visualization/settings/RendererProvider.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/graph/visualization/settings/SchemaProvider.java" afterPath="$PROJECT_DIR$/src/main/graph/visualization/settings/SchemaProvider.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/highlighter/ApplicationPlugin.java" afterPath="$PROJECT_DIR$/src/main/highlighter/appcomponents/ApplicationPlugin.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/highlighter/ProjectPlugin.java" afterPath="$PROJECT_DIR$/src/main/highlighter/appcomponents/ProjectPlugin.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/highlighter/actions/ClearAllAction.java" afterPath="$PROJECT_DIR$/src/main/highlighter/actions/ClearAllAction.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/highlighter/actions/ClearVisualAction.java" afterPath="$PROJECT_DIR$/src/main/highlighter/actions/ClearVisualAction.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/highlighter/actions/ErrorLinesShowAction.java" afterPath="$PROJECT_DIR$/src/main/highlighter/actions/ErrorLinesShowAction.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/highlighter/actions/VisualizationAction.java" afterPath="$PROJECT_DIR$/src/main/highlighter/actions/VisualizationAction.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/highlighter/actions/console/ConsoleSetVisualizationAction.java" afterPath="$PROJECT_DIR$/src/main/highlighter/actions/console/ConsoleSetVisualizationAction.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/highlighter/actions/console/ConsoleUnSetVisualizationAction.java" afterPath="$PROJECT_DIR$/src/main/highlighter/actions/console/ConsoleUnSetVisualizationAction.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/highlighter/actions/externallogs/ListenForLogsAction.java" afterPath="$PROJECT_DIR$/src/main/highlighter/actions/externallogs/ListenForLogsAction.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/highlighter/actions/externallogs/StopListeningAction.java" afterPath="$PROJECT_DIR$/src/main/highlighter/actions/externallogs/StopListeningAction.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/highlighter/errors/ErrorManageFileControler.java" afterPath="$PROJECT_DIR$/src/main/highlighter/highlighters/ErrorManageFileControler.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/highlighter/handlers/CoverageDisplay.java" afterPath="$PROJECT_DIR$/src/main/highlighter/handlers/CoverageDisplay.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/highlighter/handlers/DisplayHandler.java" afterPath="$PROJECT_DIR$/src/main/highlighter/handlers/DisplayHandler.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/highlighter/highlighters/ErrorStripeMarkHighlighter.java" afterPath="$PROJECT_DIR$/src/main/highlighter/highlighters/ErrorStripeMarkHighlighter.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/highlighter/highlighters/HighlightingMainController.java" afterPath="$PROJECT_DIR$/src/main/highlighter/highlighters/HighlightingMainController.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/highlighter/highlighters/LineHighlighter.java" afterPath="$PROJECT_DIR$/src/main/highlighter/highlighters/LineHighlighter.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/highlighter/highlighters/MainHighlighter.java" afterPath="$PROJECT_DIR$/src/main/highlighter/highlighters/MainHighlighter.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/highlighter/highlighters/SideHighlighter.java" afterPath="$PROJECT_DIR$/src/main/highlighter/highlighters/SideHighlighter.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/highlighter/listeners/ConsoleRunListener.java" afterPath="$PROJECT_DIR$/src/main/highlighter/listeners/ConsoleRunListener.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/highlighter/listeners/EditorManagerListener.java" afterPath="$PROJECT_DIR$/src/main/highlighter/listeners/EditorManagerListener.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/highlighter/pattern/PatternController.java" afterPath="$PROJECT_DIR$/src/main/highlighter/pattern/PatternController.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/highlighter/pattern/PatternPytestDecoder.java" afterPath="$PROJECT_DIR$/src/main/highlighter/pattern/PatternPytestDecoder.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/highlighter/pattern/PatternPythonDecoder.java" afterPath="$PROJECT_DIR$/src/main/highlighter/pattern/PatternPythonDecoder.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/highlighter/util/ExternalLogsUtil.java" afterPath="$PROJECT_DIR$/src/main/highlighter/util/ExternalLogsUtil.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/highlighter/util/HashtableCombineUtil.java" afterPath="$PROJECT_DIR$/src/main/highlighter/util/HashtableCombineUtil.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/highlighter/util/RangeHighlighterWrapper.java" afterPath="$PROJECT_DIR$/src/main/highlighter/util/RangeHighlighterWrapper.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/highlighter/util/StringPytestUtil.java" afterPath="$PROJECT_DIR$/src/main/highlighter/util/StringPytestUtil.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/highlighter/util/TestResultsUtil.java" afterPath="$PROJECT_DIR$/src/main/highlighter/util/TestResultsUtil.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PUTVT.iml" afterPath="$PROJECT_DIR$/PUTVT.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PUTVT/META-INF/plugin.xml" afterPath="$PROJECT_DIR$/out/production/PUTVT/META-INF/plugin.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/META-INF/plugin.xml" afterPath="$PROJECT_DIR$/resources/META-INF/plugin.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/graph/actions/CleanCanvasAction.java" afterPath="$PROJECT_DIR$/src/graph/actions/CleanCanvasAction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/graph/actions/ColorizeAction.java" afterPath="$PROJECT_DIR$/src/graph/actions/ColorizeAction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/graph/actions/ExecuteResultAction.java" afterPath="$PROJECT_DIR$/src/graph/actions/ExecuteResultAction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/graph/actions/ExecuteResultOnlyCoveragedAction.java" afterPath="$PROJECT_DIR$/src/graph/actions/ExecuteResultOnlyCoveragedAction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/graph/actions/ZoomAndFitAction.java" afterPath="$PROJECT_DIR$/src/graph/actions/ZoomAndFitAction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/graph/constants/VisualizationParameters.java" afterPath="$PROJECT_DIR$/src/graph/constants/VisualizationParameters.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/graph/enums/EventType.java" afterPath="$PROJECT_DIR$/src/graph/enums/EventType.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/graph/events/CleanCanvasEvent.java" afterPath="$PROJECT_DIR$/src/graph/events/CleanCanvasEvent.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/graph/helper/DisplayUtil.java" afterPath="$PROJECT_DIR$/src/graph/helper/DisplayUtil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/graph/helper/GetOnlyCoveragedFileNames.java" afterPath="$PROJECT_DIR$/src/graph/helper/GetOnlyCoveragedFileNames.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/graph/helper/ImportFileUtil.java" afterPath="$PROJECT_DIR$/src/graph/helper/ImportFileUtil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/graph/helper/ImportFrom.java" afterPath="$PROJECT_DIR$/src/graph/helper/ImportFrom.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/graph/helper/IntersectionUtil.java" afterPath="$PROJECT_DIR$/src/graph/helper/IntersectionUtil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/graph/helper/PrefuseUtil.java" afterPath="$PROJECT_DIR$/src/graph/helper/PrefuseUtil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/graph/helper/ProjectFileNamesUtil.java" afterPath="$PROJECT_DIR$/src/graph/helper/ProjectFileNamesUtil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/graph/helper/PropertyTreeCellRenderer.java" afterPath="$PROJECT_DIR$/src/graph/helper/PropertyTreeCellRenderer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/graph/helper/RenderingUtil.java" afterPath="$PROJECT_DIR$/src/graph/helper/RenderingUtil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/graph/helper/UiHelper.java" afterPath="$PROJECT_DIR$/src/graph/helper/UiHelper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/graph/listeners/NodeListener.java" afterPath="$PROJECT_DIR$/src/graph/listeners/NodeListener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/graph/listeners/RelationshipListener.java" afterPath="$PROJECT_DIR$/src/graph/listeners/RelationshipListener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/graph/pycharm/console/GraphPanel.java" afterPath="$PROJECT_DIR$/src/graph/pycharm/console/GraphPanel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/graph/pycharm/services/IdeaLookAndFeelService.java" afterPath="$PROJECT_DIR$/src/graph/pycharm/services/IdeaLookAndFeelService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/graph/pycharm/services/RelationsService.java" afterPath="$PROJECT_DIR$/src/graph/pycharm/services/RelationsService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/graph/pycharm/services/ResultExecutionService.java" afterPath="$PROJECT_DIR$/src/graph/pycharm/services/ResultExecutionService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/graph/renderers/CustomEdgeRenderer.java" afterPath="$PROJECT_DIR$/src/graph/renderers/CustomEdgeRenderer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/graph/results/CoverageResults.java" afterPath="$PROJECT_DIR$/src/graph/results/CoverageResults.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/graph/results/NodeRelationship.java" afterPath="$PROJECT_DIR$/src/graph/results/NodeRelationship.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/graph/testresults/TestResultsCollector.java" afterPath="$PROJECT_DIR$/src/graph/testresults/TestResultsCollector.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/graph/testresults/TestStatusListenerImpl.java" afterPath="$PROJECT_DIR$/src/graph/testresults/TestStatusListenerImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/graph/visualization/GraphDisplay.java" afterPath="$PROJECT_DIR$/src/graph/visualization/GraphDisplay.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/graph/visualization/controls/CustomNeighborHighlightControl.java" afterPath="$PROJECT_DIR$/src/graph/visualization/controls/CustomNeighborHighlightControl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/graph/visualization/layouts/CenteredLayout.java" afterPath="$PROJECT_DIR$/src/graph/visualization/layouts/CenteredLayout.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/graph/visualization/settings/ColorProvider.java" afterPath="$PROJECT_DIR$/src/graph/visualization/settings/ColorProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/graph/visualization/settings/CustomItemSorter.java" afterPath="$PROJECT_DIR$/src/graph/visualization/settings/CustomItemSorter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/graph/visualization/settings/RendererProvider.java" afterPath="$PROJECT_DIR$/src/graph/visualization/settings/RendererProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/graph/visualization/settings/SchemaProvider.java" afterPath="$PROJECT_DIR$/src/graph/visualization/settings/SchemaProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/highlighter/ApplicationPlugin.java" afterPath="$PROJECT_DIR$/src/highlighter/ApplicationPlugin.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/highlighter/ProjectPlugin.java" afterPath="$PROJECT_DIR$/src/highlighter/ProjectPlugin.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/highlighter/actions/ClearAllAction.java" afterPath="$PROJECT_DIR$/src/highlighter/actions/ClearAllAction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/highlighter/actions/ClearVisualAction.java" afterPath="$PROJECT_DIR$/src/highlighter/actions/ClearVisualAction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/highlighter/actions/ErrorLinesShowAction.java" afterPath="$PROJECT_DIR$/src/highlighter/actions/ErrorLinesShowAction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/highlighter/actions/VisualizationAction.java" afterPath="$PROJECT_DIR$/src/highlighter/actions/VisualizationAction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/highlighter/actions/console/ConsoleSetVisualizationAction.java" afterPath="$PROJECT_DIR$/src/highlighter/actions/console/ConsoleSetVisualizationAction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/highlighter/actions/console/ConsoleUnSetVisualizationAction.java" afterPath="$PROJECT_DIR$/src/highlighter/actions/console/ConsoleUnSetVisualizationAction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/highlighter/actions/externallogs/ListenForLogsAction.java" afterPath="$PROJECT_DIR$/src/highlighter/actions/externallogs/ListenForLogsAction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/highlighter/actions/externallogs/StopListeningAction.java" afterPath="$PROJECT_DIR$/src/highlighter/actions/externallogs/StopListeningAction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/highlighter/errors/ErrorManageFileControler.java" afterPath="$PROJECT_DIR$/src/highlighter/errors/ErrorManageFileControler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/highlighter/handlers/CoverageDisplay.java" afterPath="$PROJECT_DIR$/src/highlighter/handlers/CoverageDisplay.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/highlighter/handlers/DisplayHandler.java" afterPath="$PROJECT_DIR$/src/highlighter/handlers/DisplayHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/highlighter/highlighters/ErrorStripeMarkHighlighter.java" afterPath="$PROJECT_DIR$/src/highlighter/highlighters/ErrorStripeMarkHighlighter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/highlighter/highlighters/HighlightingMainController.java" afterPath="$PROJECT_DIR$/src/highlighter/highlighters/HighlightingMainController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/highlighter/highlighters/LineHighlighter.java" afterPath="$PROJECT_DIR$/src/highlighter/highlighters/LineHighlighter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/highlighter/highlighters/MainHighlighter.java" afterPath="$PROJECT_DIR$/src/highlighter/highlighters/MainHighlighter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/highlighter/highlighters/SideHighlighter.java" afterPath="$PROJECT_DIR$/src/highlighter/highlighters/SideHighlighter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/highlighter/listeners/ConsoleRunListener.java" afterPath="$PROJECT_DIR$/src/highlighter/listeners/ConsoleRunListener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/highlighter/listeners/EditorManagerListener.java" afterPath="$PROJECT_DIR$/src/highlighter/listeners/EditorManagerListener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/highlighter/pattern/PatternController.java" afterPath="$PROJECT_DIR$/src/highlighter/pattern/PatternController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/highlighter/pattern/PatternPytestDecoder.java" afterPath="$PROJECT_DIR$/src/highlighter/pattern/PatternPytestDecoder.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/highlighter/pattern/PatternPythonDecoder.java" afterPath="$PROJECT_DIR$/src/highlighter/pattern/PatternPythonDecoder.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/highlighter/util/HashtableCombineUtil.java" afterPath="$PROJECT_DIR$/src/highlighter/util/HashtableCombineUtil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/highlighter/util/RangeHighlighterWrapper.java" afterPath="$PROJECT_DIR$/src/highlighter/util/RangeHighlighterWrapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/highlighter/util/TestResultsUtil.java" afterPath="$PROJECT_DIR$/src/highlighter/util/TestResultsUtil.java" />
     </list>
     <ignored path="PUTVT.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -83,6 +114,14 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/PUTVT$PatternPythonDecoderTest_patternDecodeShouldDecode.coverage" NAME="PatternPythonDecoderTest.patternDecodeShouldDecode Coverage Results" MODIFIED="1493068486925" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>test.highlighter.pattern.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PUTVT$PatternPythonDecoderTest.coverage" NAME="PatternPythonDecoderTest Coverage Results" MODIFIED="1493068459994" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>test.highlighter.pattern.*</FILTER>
+    </SUITE>
+  </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
   </component>
@@ -92,101 +131,66 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="DisplayHandler.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/highlighter/handlers/DisplayHandler.java">
+      <file leaf-file-name="HashtableCombineUtilTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/highlighter/util/HashtableCombineUtilTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="12" column="15" selection-start-line="12" selection-start-column="15" selection-end-line="12" selection-end-column="80" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CoverageDisplay.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/highlighter/handlers/CoverageDisplay.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="6" column="67" selection-start-line="6" selection-start-column="67" selection-end-line="6" selection-end-column="67" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PatternController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/highlighter/pattern/PatternController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="68" column="35" selection-start-line="68" selection-start-column="35" selection-end-line="68" selection-end-column="35" />
-              <folding />
+            <state relative-caret-position="833">
+              <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="ExternalLogsUtil.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/highlighter/util/ExternalLogsUtil.java">
+        <entry file="file://$PROJECT_DIR$/src/main/highlighter/util/ExternalLogsUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+            <state relative-caret-position="85">
+              <caret line="5" column="24" selection-start-line="5" selection-start-column="24" selection-end-line="5" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PatternController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/highlighter/pattern/PatternController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-289">
+              <caret line="33" column="57" selection-start-line="33" selection-start-column="57" selection-end-line="33" selection-end-column="57" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="HashtableCombineUtil.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/highlighter/util/HashtableCombineUtil.java">
+        <entry file="file://$PROJECT_DIR$/src/main/highlighter/util/HashtableCombineUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="9" column="124" selection-start-line="9" selection-start-column="124" selection-end-line="9" selection-end-column="124" />
+            <state relative-caret-position="89">
+              <caret line="45" column="56" selection-start-line="45" selection-start-column="56" selection-end-line="45" selection-end-column="56" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RangeHighlighterWrapper.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/highlighter/util/RangeHighlighterWrapper.java">
+      <file leaf-file-name="PatternAbstractTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/highlighter/pattern/PatternAbstractTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="51" selection-start-line="5" selection-start-column="51" selection-end-line="5" selection-end-column="51" />
-              <folding />
+            <state relative-caret-position="221">
+              <caret line="17" column="32" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="32" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#2679#2687#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StringPytestUtil.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/highlighter/util/StringPytestUtil.java">
+      <file leaf-file-name="PatternPytestDecoderTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/highlighter/pattern/PatternPytestDecoderTest.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="68">
-              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TestResultsUtil.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/highlighter/util/TestResultsUtil.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="11" column="41" selection-start-line="11" selection-start-column="41" selection-end-line="11" selection-end-column="41" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ApplicationPlugin.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/highlighter/ApplicationPlugin.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="6" column="79" selection-start-line="6" selection-start-column="79" selection-end-line="6" selection-end-column="79" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PatternPythonDecoder.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/highlighter/pattern/PatternPythonDecoder.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="177">
-              <caret line="100" column="60" selection-start-line="100" selection-start-column="60" selection-end-line="100" selection-end-column="60" />
+              <caret line="7" column="65" selection-start-line="7" selection-start-column="65" selection-end-line="7" selection-end-column="65" />
               <folding />
             </state>
           </provider>
@@ -214,28 +218,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/graph/constants/VisualizationParameters.java" />
-        <option value="$PROJECT_DIR$/src/graph/events/CleanCanvasEvent.java" />
-        <option value="$PROJECT_DIR$/src/graph/helper/DisplayUtil.java" />
-        <option value="$PROJECT_DIR$/src/graph/helper/ImportFileUtil.java" />
-        <option value="$PROJECT_DIR$/src/graph/helper/ImportFrom.java" />
-        <option value="$PROJECT_DIR$/src/graph/helper/IntersectionUtil.java" />
-        <option value="$PROJECT_DIR$/src/graph/helper/PrefuseUtil.java" />
-        <option value="$PROJECT_DIR$/src/graph/helper/ProjectFileNamesUtil.java" />
-        <option value="$PROJECT_DIR$/src/graph/helper/PropertyTreeCellRenderer.java" />
-        <option value="$PROJECT_DIR$/src/graph/helper/RenderingUtil.java" />
-        <option value="$PROJECT_DIR$/src/graph/helper/UiHelper.java" />
-        <option value="$PROJECT_DIR$/src/graph/listeners/NodeListener.java" />
-        <option value="$PROJECT_DIR$/src/graph/listeners/RelationshipListener.java" />
-        <option value="$PROJECT_DIR$/src/graph/pycharm/services/IdeaLookAndFeelService.java" />
-        <option value="$PROJECT_DIR$/src/graph/pycharm/services/ResultExecutionService.java" />
-        <option value="$PROJECT_DIR$/src/graph/pycharm/console/GraphPanel.java" />
-        <option value="$PROJECT_DIR$/src/graph/renderers/CustomEdgeRenderer.java" />
-        <option value="$PROJECT_DIR$/src/graph/testresults/TestResultsCollector.java" />
-        <option value="$PROJECT_DIR$/src/graph/testresults/TestStatusListenerImpl.java" />
-        <option value="$PROJECT_DIR$/src/graph/visualization/controls/CustomNeighborHighlightControl.java" />
-        <option value="$PROJECT_DIR$/src/graph/visualization/layouts/CenteredLayout.java" />
-        <option value="$PROJECT_DIR$/src/graph/visualization/settings/CustomItemSorter.java" />
         <option value="$PROJECT_DIR$/src/graph/visualization/settings/SchemaProvider.java" />
         <option value="$PROJECT_DIR$/src/graph/visualization/settings/RendererProvider.java" />
         <option value="$PROJECT_DIR$/src/highlighter/actions/console/ConsoleSetVisualizationAction.java" />
@@ -258,13 +240,35 @@
         <option value="$PROJECT_DIR$/src/highlighter/listeners/ConsoleRunListener.java" />
         <option value="$PROJECT_DIR$/src/highlighter/listeners/EditorManagerListener.java" />
         <option value="$PROJECT_DIR$/src/highlighter/ProjectPlugin.java" />
-        <option value="$PROJECT_DIR$/src/highlighter/pattern/PatternController.java" />
         <option value="$PROJECT_DIR$/src/highlighter/pattern/PatternPythonDecoder.java" />
         <option value="$PROJECT_DIR$/src/highlighter/pattern/PatternPytestDecoder.java" />
         <option value="$PROJECT_DIR$/src/highlighter/util/HashtableCombineUtil.java" />
         <option value="$PROJECT_DIR$/src/highlighter/util/RangeHighlighterWrapper.java" />
         <option value="$PROJECT_DIR$/src/highlighter/util/TestResultsUtil.java" />
         <option value="$PROJECT_DIR$/src/highlighter/ApplicationPlugin.java" />
+        <option value="$PROJECT_DIR$/src/highlighter/pattern/PatternController.java" />
+        <option value="$PROJECT_DIR$/src/graph/pycharm/console/GraphPanelInteractions.java" />
+        <option value="$PROJECT_DIR$/src/highlighter/pattern/PatternDecoder.java" />
+        <option value="$PROJECT_DIR$/src/graph/events/ResultsProcessEvent.java" />
+        <option value="$PROJECT_DIR$/src/graph/visualization/settings/RepaintAndRepositionAction.java" />
+        <option value="$PROJECT_DIR$/src/main/graph/visualization/settings/RendererProvider.java" />
+        <option value="$PROJECT_DIR$/src/test/highlighter/pattern/PatternPythonDecoderTest.java" />
+        <option value="$PROJECT_DIR$/src/test/highlighter/pattern/PatternPytestDecoderTest.java" />
+        <option value="$PROJECT_DIR$/src/test/highlighter/util/HashtableCombineUtil.java" />
+        <option value="$PROJECT_DIR$/src/main/graph/results/CoverageResults.java" />
+        <option value="$PROJECT_DIR$/src/main/graph/testresults/TestStatusListenerImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/graph/testresults/TestResultsCollector.java" />
+        <option value="$PROJECT_DIR$/src/main/highlighter/highlighters/HighlightingMainController.java" />
+        <option value="$PROJECT_DIR$/src/main/highlighter/pattern/PatternPythonDecoder.java" />
+        <option value="$PROJECT_DIR$/resources/META-INF/plugin.xml" />
+        <option value="$PROJECT_DIR$/src/test/highlighter/pattern/PatternAbstractTest.java" />
+        <option value="$PROJECT_DIR$/src/test/highlighter/util/HashtableCombineUtilTest.java" />
+        <option value="$PROJECT_DIR$/src/main/highlighter/util/HashtableCombineUtil.java" />
+        <option value="$PROJECT_DIR$/src/main/highlighter/util/ExternalLogsUtil.java" />
+        <option value="$PROJECT_DIR$/src/test/highlighter/util/ExternalLogsUtilTest.java" />
+        <option value="$PROJECT_DIR$/src/main/highlighter/pattern/PatternController.java" />
+        <option value="$PROJECT_DIR$/src/test/highlighter/pattern/PatternControllerTest.java" />
+        <option value="$PROJECT_DIR$/src/main/highlighter/pattern/PatternPytestDecoder.java" />
       </list>
     </option>
   </component>
@@ -275,9 +279,9 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
+    <option name="x" value="-7" />
     <option name="width" value="1932" />
-    <option name="height" value="1056" />
+    <option name="height" value="1047" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -323,7 +327,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -374,98 +380,12 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="highlighter" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="util" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PUTVT" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PUTVT" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="highlighter" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pattern" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PUTVT" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PUTVT" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="highlighter" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="listeners" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PUTVT" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PUTVT" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="highlighter" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="handlers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PUTVT" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PUTVT" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
+              <option name="myItemId" value="main" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -479,7 +399,7 @@
     <property name="Downloaded.Files.Path.Enabled" value="true" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main" />
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="482" />
   </component>
   <component name="PsiViewer.ProjectComponent">
@@ -492,13 +412,16 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="highlighter.actions.externallogs" />
-      <recent name="graph.testresults" />
-      <recent name="graph.pycharm.api" />
-      <recent name="graph.results.api" />
-      <recent name="graph.query.graph" />
+      <recent name="test.highlighter" />
+      <recent name="main" />
+      <recent name="graph.visualization.settings" />
+      <recent name="graph.visualization" />
+      <recent name="graph.events" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Cegin\IdeaProjects\PUTVT\src\test\highlighter\pattern" />
+      <recent name="C:\Users\Cegin\IdeaProjects\PUTVT\resources\testdata" />
+      <recent name="C:\Users\Cegin\IdeaProjects\PUTVT\src\test\highlighter\pattern\test\resources" />
       <recent name="C:\Users\Cegin\IdeaProjects\PUTVT\resources\doc" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -510,7 +433,137 @@
       <recent name="C:\Users\Cegin\IdeaProjects\PUTVT\src" />
     </key>
   </component>
-  <component name="RunManager" selected="Plugin.Plugin">
+  <component name="RunManager" selected="JUnit.PatternControllerTest.hashtableCombineWithLogsShouldCreateHashtable">
+    <configuration default="false" name="PatternPythonDecoderTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="test.highlighter.pattern.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="PUTVT" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="test.highlighter.pattern" />
+      <option name="MAIN_CLASS_NAME" value="test.highlighter.pattern.PatternPythonDecoderTest" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="HashtableCombineUtilTest.hashtablesShouldCombineIntoOneSuccesfuly" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="test.highlighter.util.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="PUTVT" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="test.highlighter.util" />
+      <option name="MAIN_CLASS_NAME" value="test.highlighter.util.HashtableCombineUtilTest" />
+      <option name="METHOD_NAME" value="hashtablesShouldCombineIntoOneSuccesfuly" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="HashtableCombineUtilTest.hashtablesShouldCombineIntoOneSuccesfulyOneFileName" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="test.highlighter.util.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="PUTVT" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="test.highlighter.util" />
+      <option name="MAIN_CLASS_NAME" value="test.highlighter.util.HashtableCombineUtilTest" />
+      <option name="METHOD_NAME" value="hashtablesShouldCombineIntoOneSuccesfulyOneFileName" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="ExternalLogsUtilTest.testThatLogsConcat" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="test.highlighter.util.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="PUTVT" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="test.highlighter.util" />
+      <option name="MAIN_CLASS_NAME" value="test.highlighter.util.ExternalLogsUtilTest" />
+      <option name="METHOD_NAME" value="testThatLogsConcat" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="PatternControllerTest.hashtableCombineWithLogsShouldCreateHashtable" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="test.highlighter.pattern.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="PUTVT" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="test.highlighter.pattern" />
+      <option name="MAIN_CLASS_NAME" value="test.highlighter.pattern.PatternControllerTest" />
+      <option name="METHOD_NAME" value="hashtableCombineWithLogsShouldCreateHashtable" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
       <module name="PUTVT" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
@@ -932,9 +985,23 @@
       <log_file path="$USER_HOME$/.IntelliJIdea2016.2/system/plugins-sandbox/system/log/idea.log" checked="false" skipped="true" show_all="false" alias="IDEA LOG" />
       <method />
     </configuration>
-    <list size="1">
+    <list size="6">
       <item index="0" class="java.lang.String" itemvalue="Plugin.Plugin" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.PatternPythonDecoderTest" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.HashtableCombineUtilTest.hashtablesShouldCombineIntoOneSuccesfuly" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.HashtableCombineUtilTest.hashtablesShouldCombineIntoOneSuccesfulyOneFileName" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.ExternalLogsUtilTest.testThatLogsConcat" />
+      <item index="5" class="java.lang.String" itemvalue="JUnit.PatternControllerTest.hashtableCombineWithLogsShouldCreateHashtable" />
     </list>
+    <recent_temporary>
+      <list size="5">
+        <item index="0" class="java.lang.String" itemvalue="JUnit.PatternControllerTest.hashtableCombineWithLogsShouldCreateHashtable" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.ExternalLogsUtilTest.testThatLogsConcat" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.HashtableCombineUtilTest.hashtablesShouldCombineIntoOneSuccesfulyOneFileName" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.HashtableCombineUtilTest.hashtablesShouldCombineIntoOneSuccesfuly" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.PatternPythonDecoderTest" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
@@ -1056,11 +1123,53 @@
       <workItem from="1492796736607" duration="7245000" />
       <workItem from="1492895143160" duration="4800000" />
       <workItem from="1492932363227" duration="4635000" />
+      <workItem from="1492955129787" duration="2209000" />
+      <workItem from="1492982353486" duration="1634000" />
+      <workItem from="1493042717187" duration="1764000" />
+      <workItem from="1493047339551" duration="416000" />
+      <workItem from="1493048604184" duration="794000" />
+      <workItem from="1493050228576" duration="922000" />
+      <workItem from="1493055877584" duration="12025000" />
+      <workItem from="1493122736002" duration="4000" />
+      <workItem from="1493123797379" duration="624000" />
+      <workItem from="1493130717597" duration="8984000" />
     </task>
     <servers />
   </component>
+  <component name="TestHistory">
+    <history-entry file="ExternalLogsUtilTest_testThatLogsConcat - 2017.04.25 at 21h 21m 54s.xml">
+      <configuration name="ExternalLogsUtilTest.testThatLogsConcat" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="HashtableCombineUtilTest_hashtablesShouldCombineIntoOneSuccesfuly - 2017.04.25 at 21h 13m 41s.xml">
+      <configuration name="HashtableCombineUtilTest.hashtablesShouldCombineIntoOneSuccesfuly" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="HashtableCombineUtilTest_hashtablesShouldCombineIntoOneSuccesfuly - 2017.04.25 at 21h 14m 34s.xml">
+      <configuration name="HashtableCombineUtilTest.hashtablesShouldCombineIntoOneSuccesfuly" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="HashtableCombineUtilTest_hashtablesShouldCombineIntoOneSuccesfulyOneFileName - 2017.04.25 at 21h 16m 06s.xml">
+      <configuration name="HashtableCombineUtilTest.hashtablesShouldCombineIntoOneSuccesfulyOneFileName" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="PatternControllerTest_hashtableCombineWithLogsShouldCreateHashtable - 2017.04.25 at 21h 26m 28s.xml">
+      <configuration name="PatternControllerTest.hashtableCombineWithLogsShouldCreateHashtable" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="PatternControllerTest_hashtableCombineWithLogsShouldCreateHashtable - 2017.04.25 at 21h 26m 55s.xml">
+      <configuration name="PatternControllerTest.hashtableCombineWithLogsShouldCreateHashtable" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="PatternPythonDecoderTest - 2017.04.24 at 23h 15m 39s.xml">
+      <configuration name="PatternPythonDecoderTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="PatternPythonDecoderTest_patternDecodeShouldDecode - 2017.04.24 at 23h 12m 01s.xml">
+      <configuration name="PatternPythonDecoderTest.patternDecodeShouldDecode" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="PatternPythonDecoderTest_patternDecodeShouldDecode - 2017.04.24 at 23h 12m 37s.xml">
+      <configuration name="PatternPythonDecoderTest.patternDecodeShouldDecode" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="PatternPythonDecoderTest_patternDecodeShouldDecode - 2017.04.24 at 23h 14m 47s.xml">
+      <configuration name="PatternPythonDecoderTest.patternDecodeShouldDecode" configurationId="JUnit" />
+    </history-entry>
+  </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="477530000" />
+    <option name="totallyTimeSpent" value="506906000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1072,37 +1181,41 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="0" width="1932" height="1056" extended-state="0" />
-    <editor active="true" />
+    <frame x="-7" y="0" width="1932" height="1047" extended-state="0" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.49791667" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.49791014" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.42282608" sideWeight="0.5062631" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="PsiViewer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5826087" sideWeight="0.4968652" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.5817783" sideWeight="0.4968652" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Graph Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32967606" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24947807" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24947807" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Graph Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3054348" sideWeight="0.49791667" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.42282608" sideWeight="0.49373695" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.42282608" sideWeight="0.49373695" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Properties Pane" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.49791014" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Project Explorer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32985386" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32985386" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3054348" sideWeight="0.49791667" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Message Pane" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1162,7 +1275,7 @@
           <option name="timeStamp" value="231" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/graph/pycharm/console/GraphPanelInteractions.java</url>
+          <url>file://$PROJECT_DIR$/src/main/graph/pycharm/console/GraphPanelInteractions.java</url>
           <line>43</line>
           <properties />
           <option name="timeStamp" value="256" />
@@ -1171,7 +1284,7 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="320" />
+      <option name="time" value="334" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="#org.jetbrains.idea.devkit.run.PluginConfigurationType">
@@ -1186,370 +1299,257 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/graph/helper/RenderingUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
-          <caret line="15" column="28" selection-start-line="15" selection-start-column="28" selection-end-line="15" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/graph/helper/UiHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="12" column="78" selection-start-line="12" selection-start-column="78" selection-end-line="12" selection-end-column="78" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/graph/listeners/NodeListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="15" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/graph/pycharm/ConsoleToolWindow.java">
+    <entry file="file://$PROJECT_DIR$/src/main/graph/visualization/api/GraphPath.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <caret line="4" column="26" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="26" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/graph/listeners/RelationshipListener.java">
+    <entry file="file://$PROJECT_DIR$/src/main/graph/visualization/api/GraphPropertyContainer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="39" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/graph/visualization/settings/ColorProvider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="29" column="26" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/graph/visualization/settings/CustomItemSorter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
-          <caret line="14" column="3" selection-start-line="14" selection-start-column="3" selection-end-line="14" selection-end-column="3" />
+          <caret line="8" column="29" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="29" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/graph/pycharm/services/IdeaLookAndFeelService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="9" column="8" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/graph/pycharm/services/ResultExecutionService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="37" column="99" selection-start-line="37" selection-start-column="99" selection-end-line="37" selection-end-column="99" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/graph/pycharm/console/GraphPanelInteractions.java">
+    <entry file="file://$PROJECT_DIR$/src/main/graph/visualization/settings/LayoutProvider.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-          <folding />
+          <caret line="14" column="27" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="27" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/graph/pycharm/api/RelationshipCallback.java">
+    <entry file="file://$PROJECT_DIR$/src/main/graph/visualization/settings/RepaintAndRepositionAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="8" column="39" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/graph/visualization/settings/SchemaProvider.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
-          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+          <caret line="15" column="27" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="27" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/graph/pycharm/console/GraphPanel.java">
+    <entry file="file://$PROJECT_DIR$/src/main/graph/visualization/CustomNeighborHighlightControl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="32" column="8" selection-start-line="32" selection-start-column="8" selection-end-line="32" selection-end-column="8" />
+        <state relative-caret-position="102">
+          <caret line="11" column="43" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="43" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/graph/renderers/CustomEdgeRenderer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="17" column="8" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/graph/testresults/TestResultKeyValuePair.java">
+    <entry file="file://$PROJECT_DIR$/src/main/graph/constants/GraphColumns.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding />
+          <caret line="2" column="21" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="25" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/graph/testresults/TestStatusListenerImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/graph/visualization/GraphDisplay.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="29" column="92" selection-start-line="29" selection-start-column="92" selection-end-line="29" selection-end-column="92" />
+        <state relative-caret-position="195">
+          <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/graph/testresults/TestResultsCollector.java">
+    <entry file="file://$PROJECT_DIR$/src/main/graph/constants/GraphConstants.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="54" selection-start-line="6" selection-start-column="54" selection-end-line="6" selection-end-column="54" />
-          <folding />
+        <state relative-caret-position="34">
+          <caret line="2" column="28" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="33" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/graph/visualization/controls/ColumnResizer.java" />
-    <entry file="file://$PROJECT_DIR$/src/graph/visualization/controls/CustomNeighborHighlightControl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/graph/enums/EventType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="12" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/graph/events/CleanCanvasEvent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="24" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/graph/events/ColorizeEvent.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
-          <caret line="9" column="8" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
+          <caret line="4" column="18" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="30" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/graph/visualization/layouts/CenteredLayout.java">
+    <entry file="file://$PROJECT_DIR$/src/main/graph/events/ExecuteResultsEvent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/graph/events/ResultsProcessEvent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="26" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/highlighter/pattern/PatternPythonDecoderTest.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/graph/visualization/settings/RendererProvider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="29" column="13" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/graph/events/ZoomAndPanToFitEvent.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
-          <caret line="9" column="8" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
+          <caret line="4" column="18" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="37" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/graph/visualization/settings/CustomItemSorter.java">
+    <entry file="file://$PROJECT_DIR$/src/test/highlighter/pattern/test/resources/myfile.txt" />
+    <entry file="file://$PROJECT_DIR$/resources/testdata/myfile.txt" />
+    <entry file="file://$PROJECT_DIR$/src/main/highlighter/pattern/PatternDecoder.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
-          <caret line="7" column="3" selection-start-line="7" selection-start-column="3" selection-end-line="7" selection-end-column="3" />
+          <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/graph/visualization/settings/LayoutProvider.java">
+    <entry file="file://$PROJECT_DIR$/src/test/highlighter/pattern/myfile.txt" />
+    <entry file="file://$PROJECT_DIR$/src/test/highlighter/pattern/PatternPythonDecoderTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+        <state relative-caret-position="187">
+          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="17" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/graph/visualization/settings/SchemaProvider.java">
+    <entry file="file://$PROJECT_DIR$/src/main/graph/results/CoverageResults.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="14" column="3" selection-start-line="14" selection-start-column="3" selection-end-line="14" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/graph/visualization/settings/RendererProvider.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="15" column="3" selection-start-line="15" selection-start-column="3" selection-end-line="15" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/highlighter/actions/console/ConsoleSetVisualizationAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="7" column="23" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
+        <state relative-caret-position="-102">
+          <caret line="38" column="87" selection-start-line="38" selection-start-column="87" selection-end-line="38" selection-end-column="87" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/highlighter/actions/externallogs/StopListeningAction.java">
+    <entry file="file://$PROJECT_DIR$/src/main/graph/testresults/TestResultKeyValuePair.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="7" column="44" selection-start-line="7" selection-start-column="44" selection-end-line="7" selection-end-column="44" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#372#373#0" expanded="false" />
-            <element signature="e#437#438#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/highlighter/actions/externallogs/ListenForLogsAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="23" column="96" selection-start-line="23" selection-start-column="96" selection-end-line="23" selection-end-column="96" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/highlighter/actions/ClearAllAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="14" column="56" selection-start-line="14" selection-start-column="56" selection-end-line="14" selection-end-column="56" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/highlighter/actions/ClearVisualAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="29" column="70" selection-start-line="29" selection-start-column="70" selection-end-line="29" selection-end-column="70" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/highlighter/actions/ErrorLinesShowAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="782">
-          <caret line="59" column="37" selection-start-line="59" selection-start-column="37" selection-end-line="59" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/highlighter/actions/VisualizationAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="13" column="31" selection-start-line="13" selection-start-column="31" selection-end-line="13" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/highlighter/errors/ErrorManageFile.java" />
-    <entry file="file://$PROJECT_DIR$/src/highlighter/errors/ErrorManageFileControler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="10" column="38" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="38" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#529#530#0" expanded="false" />
-            <element signature="e#582#583#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/highlighter/actions/console/ConsoleUnSetVisualizationAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="7" column="25" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
+        <state relative-caret-position="34">
+          <caret line="2" column="35" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="35" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/highlighter/highlighters/ErrorStripeMarkHighlighter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="8" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/highlighter/highlighters/MainHighlighter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="17" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/highlighter/highlighters/SideHighlighter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="19" column="61" selection-start-line="19" selection-start-column="61" selection-end-line="19" selection-end-column="61" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/highlighter/highlighters/LineHighlighter.java">
+    <entry file="file://$PROJECT_DIR$/src/main/graph/testresults/TestStatusListenerImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
+          <caret line="25" column="17" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/highlighter/listeners/ConsoleRunListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="679">
+          <caret line="95" column="72" selection-start-line="95" selection-start-column="72" selection-end-line="95" selection-end-column="72" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/highlighter/listeners/EditorManagerListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="11" column="21" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/highlighter/handlers/DisplayHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="679">
+          <caret line="55" column="44" selection-start-line="55" selection-start-column="44" selection-end-line="55" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/highlighter/highlighters/HighlightingMainController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="127">
+          <caret line="52" column="31" selection-start-line="52" selection-start-column="31" selection-end-line="52" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_65/src.zip!/java/util/regex/Matcher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="269">
+          <caret line="621" column="19" selection-start-line="621" selection-start-column="19" selection-end-line="621" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_65/src.zip!/java/util/regex/Pattern.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="167">
+          <caret line="1289" column="25" selection-start-line="1289" selection-start-column="25" selection-end-line="1289" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files (x86)/JetBrains/PyCharm 2016.2.3/lib/util.jar!/com/intellij/util/messages/impl/MessageBusConnectionImpl.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="167">
+          <caret line="101" column="0" selection-start-line="101" selection-start-column="0" selection-end-line="101" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/graph/testresults/TestResultsCollector.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-119">
           <caret line="8" column="3" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/highlighter/highlighters/HighlightingMainController.java">
+    <entry file="file://$PROJECT_DIR$/resources/META-INF/plugin.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="104" column="9" selection-start-line="104" selection-start-column="9" selection-end-line="104" selection-end-column="9" />
+        <state relative-caret-position="170">
+          <caret line="10" column="28" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/highlighter/listeners/ConsoleRunListener.java">
+    <entry file="file://$PROJECT_DIR$/src/main/highlighter/util/TestResultsUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="17" column="62" selection-start-line="17" selection-start-column="62" selection-end-line="17" selection-end-column="62" />
+        <state relative-caret-position="136">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/highlighter/listeners/EditorManagerListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="8" column="68" selection-start-line="8" selection-start-column="68" selection-end-line="8" selection-end-column="68" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/highlighter/ProjectPlugin.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="42" selection-start-line="7" selection-start-column="42" selection-end-line="7" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/highlighter/listeners/FileOperationListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/highlighter/handlers/CoverageDisplay.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="6" column="67" selection-start-line="6" selection-start-column="67" selection-end-line="6" selection-end-column="67" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/highlighter/pattern/PatternPythonDecoder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="100" column="60" selection-start-line="100" selection-start-column="60" selection-end-line="100" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/highlighter/pattern/PatternPytestDecoder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="146" column="9" selection-start-line="146" selection-start-column="9" selection-end-line="146" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/highlighter/pattern/PatternController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="68" column="35" selection-start-line="68" selection-start-column="35" selection-end-line="68" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/highlighter/util/ExternalLogsUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/highlighter/util/HashtableCombineUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="9" column="124" selection-start-line="9" selection-start-column="124" selection-end-line="9" selection-end-column="124" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/highlighter/util/RangeHighlighterWrapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="51" selection-start-line="5" selection-start-column="51" selection-end-line="5" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/highlighter/util/StringPytestUtil.java">
+    <entry file="file://$PROJECT_DIR$/src/main/highlighter/util/StringPytestUtil.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
@@ -1557,26 +1557,118 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/highlighter/handlers/DisplayHandler.java">
+    <entry file="file://$PROJECT_DIR$/src/main/highlighter/util/RangeHighlighterWrapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_65/src.zip!/java/util/Hashtable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="232" column="28" selection-start-line="232" selection-start-column="28" selection-end-line="232" selection-end-column="28" />
+          <folding>
+            <element signature="e#8624#8625#0" expanded="false" />
+            <element signature="e#8652#8653#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/highlighter/pattern/PatternPytestDecoderTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
-          <caret line="12" column="15" selection-start-line="12" selection-start-column="15" selection-end-line="12" selection-end-column="80" />
+          <caret line="7" column="65" selection-start-line="7" selection-start-column="65" selection-end-line="7" selection-end-column="65" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/highlighter/util/TestResultsUtil.java">
+    <entry file="file://$PROJECT_DIR$/src/test/highlighter/pattern/PatternAbstractTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="11" column="41" selection-start-line="11" selection-start-column="41" selection-end-line="11" selection-end-column="41" />
+        <state relative-caret-position="221">
+          <caret line="17" column="32" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2679#2687#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/highlighter/util/HashtableCombineUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="89">
+          <caret line="45" column="56" selection-start-line="45" selection-start-column="56" selection-end-line="45" selection-end-column="56" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/highlighter/ApplicationPlugin.java">
+    <entry file="file://$PROJECT_DIR$/src/test/highlighter/util/HashtableCombineUtilTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="833">
+          <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/highlighter/util/ExternalLogsUtilTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="11" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files (x86)/JetBrains/PyCharm 2016.2.3/lib/openapi.jar!/com/intellij/openapi/actionSystem/AnActionEvent.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="27" column="13" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/highlighter/util/ExternalLogsUtil.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
-          <caret line="6" column="79" selection-start-line="6" selection-start-column="79" selection-end-line="6" selection-end-column="79" />
+          <caret line="5" column="24" selection-start-line="5" selection-start-column="24" selection-end-line="5" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/highlighter/pattern/PatternControllerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="61" selection-start-line="14" selection-start-column="61" selection-end-line="14" selection-end-column="61" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/highlighter/pattern/PatternPythonDecoder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="82">
+          <caret line="54" column="0" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/highlighter/pattern/PatternPytestDecoder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="82">
+          <caret line="58" column="53" selection-start-line="58" selection-start-column="53" selection-end-line="58" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/highlighter/pattern/PatternController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-289">
+          <caret line="33" column="57" selection-start-line="33" selection-start-column="57" selection-end-line="33" selection-end-column="57" />
           <folding />
         </state>
       </provider>
