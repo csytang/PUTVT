@@ -41,7 +41,7 @@ public class MainHighlighter{
                     for (Integer lineNumber : allLines){
                         if (colors.get(lineNumber) != null){
                             Color color = (Color) colors.get(lineNumber);
-                            Color newColor = new Color((int) (color.getRed()*0.85), 0, 0, 255);
+                            Color newColor = new Color((int) (color.getRed()*0.9), 0, 0, 255);
                             colors.remove(lineNumber);
                             colors.put(lineNumber,newColor);
                         }

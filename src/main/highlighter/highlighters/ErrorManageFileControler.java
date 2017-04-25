@@ -35,7 +35,7 @@ public class ErrorManageFileControler {
     /**
      * Highlighting done
      * @param hashtable Hashtable with decoded Data
-     * @param editor current editor - can be null
+     * @param editor current editor
      */
     public void decodeDTO(Hashtable hashtable, Editor editor){
 

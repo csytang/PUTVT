@@ -80,8 +80,15 @@ public class PatternPythonDecoder implements PatternDecoder{
                 String[] tmp = lines[i].split(",");
                 int lineNumber = Integer.parseInt(tmp[1].replace("line", "").replace(" ", ""));
 
-                String fileName = tmp[0].replace("\"", "");
+                String backslash = Pattern.quote("\\");
+                String[] filetmp = tmp[0].split(backslash);
 
+                String fileName = filetmp[filetmp.length-1];
+
+                if (fileName.charAt(fileName.length()-1)!='y') //so the last char is correct
+                {
+                    fileName= String.valueOf(fileName.subSequence(0,fileName.length()-1));
+                }
                 p2 = Pattern.compile("/(.*).py");
                 m2 = p2.matcher(fileName);
                 if (m2.find()){
