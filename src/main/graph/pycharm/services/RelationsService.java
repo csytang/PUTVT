@@ -31,8 +31,13 @@ public class RelationsService {
                 Matcher m = p.matcher(contents);
                 while (m.find()) {
                     String lineOfImports = contents.substring(m.start(), m.end());
+                    lineOfImports = lineOfImports.replace("(",""); //in case of: from ... import (...,...,...,...)
+                    lineOfImports = lineOfImports.replace(")","");
                     String[] lineSplit = lineOfImports.split(" import ");
                     lineSplit[0] = lineSplit[0].replace("from ",""); //remove from word
+                     if (".".equals(lineSplit[0])){
+                         continue;
+                     }
                     if (lineSplit[0].contains(".")) { //dot notation used in import
                         String dot = Pattern.quote(".");
                         String[] nameFileLineSplit = lineSplit[0].split(dot);
@@ -88,9 +93,13 @@ public class RelationsService {
             Pattern p = Pattern.compile(local);
             Matcher m = p.matcher(file);
             while (m.find()){
-                if (isAllowedAndNotImportCharBeforeStatement(file.charAt(m.start()-1) ,file.substring(m.start()-6,m.start())))
-                {
-                    poc++;
+                try {
+                    if (isAllowedAndNotImportCharBeforeStatement(file.charAt(m.start() - 1), file.substring(m.start() - 6, m.start()), file.substring(m.end(), m.end() + 6))) {
+                        poc++;
+                    }
+                }
+                catch (Exception e){ //sometimes weird patterns can cause this
+                    continue;
                 }
             }
             integerKeyValuePair.setValue(poc);
@@ -99,9 +108,10 @@ public class RelationsService {
         return integerKeyValuePairList;
     }
 
-    private static boolean isAllowedAndNotImportCharBeforeStatement(char c, String imp){
+    private static boolean isAllowedAndNotImportCharBeforeStatement(char c, String imp, String from){
         String str = c + "";
-        if ("import".equals(imp) || c==','){
+        String fr = from.replace(" ","");
+        if ("import".equals(imp) || "import".equals(fr) || c==','){
             return false;
         }
         if (str.equals("-") || str.equals("_") || str.equals("-")){

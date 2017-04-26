@@ -4,7 +4,6 @@ import java.util.List;
 
 public class StringPytestUtil {
 
-    private String testLastLine;
     private String fileName;
     private List<Integer> lineNumber;
     private List<String> typeOfError;
@@ -34,14 +33,6 @@ public class StringPytestUtil {
 
     public void setTestNames(List<String> testNames) {
         this.testNames = testNames;
-    }
-
-    public String getTestLastLine() {
-        return testLastLine;
-    }
-
-    public void setTestLastLine(String testLastLine) {
-        this.testLastLine = testLastLine;
     }
 
     public List<Integer> getLineNumber() {
