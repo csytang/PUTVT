@@ -78,7 +78,7 @@ public class ConsoleRunListener implements ExecutionListener{
 
                     if (m.find()){
                         executedLines += "\n";
-                        pytestCapture = false;
+                      //  pytestCapture = false;
                     }
 
                 }

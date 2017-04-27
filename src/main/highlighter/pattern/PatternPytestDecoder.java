@@ -1,6 +1,8 @@
 package main.highlighter.pattern;
 
+import com.intellij.openapi.vcs.history.VcsRevisionNumber.Int;
 import com.intellij.openapi.vfs.VirtualFile;
+import main.highlighter.util.IntKeyIntValueObj;
 import main.highlighter.util.StringPytestUtil;
 import main.highlighter.util.TestResultsUtil;
 
@@ -12,6 +14,8 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import static com.intellij.dvcs.push.VcsPushReferenceStrategy.all;
 
 /**
  * Class for decoding logs using PyTest failure pattern
@@ -59,22 +63,48 @@ public class PatternPytestDecoder implements PatternDecoder{
         all = all.replaceAll("(?m)^[ \t]*\r?\n", "");
 
         Pattern p1 = Pattern.compile("_______(.*)_______"); //first line of failure ___TestName___
-        Matcher m1 = p1.matcher(all);
+        Matcher failures = p1.matcher(all);
         int count = 0;
 
-        Pattern p = Pattern.compile("\\n.*.py:\\d*:.*"); //last line of pytest failure
-        Matcher m = p.matcher(all);
+        Pattern p = Pattern.compile(".*.py:\\d*:.*"); //last line of pytest failure
+        Matcher errors = p.matcher(all);
 
-        while (m1.find() && m.find()) {
-            while(m1.start() > m.end()){
-                m.find();
+        List<IntKeyIntValueObj> failuresList = new ArrayList<>();
+        List<IntKeyIntValueObj> errorsList = new ArrayList<>();
+
+        while (failures.find()){
+            IntKeyIntValueObj intKeyIntValueObj = new IntKeyIntValueObj(failures.start(),failures.end());
+            failuresList.add(intKeyIntValueObj);
+        }
+
+        while (errors.find()){
+            IntKeyIntValueObj intKeyIntValueObj = new IntKeyIntValueObj(errors.start(),errors.end());
+            errorsList.add(intKeyIntValueObj);
+        }
+
+        for (int i = 0; i < failuresList.size();i++){
+            IntKeyIntValueObj failure = failuresList.get(i);
+            for (IntKeyIntValueObj error : errorsList){
+                Pattern endOfTest = Pattern.compile("=== .* failed,.*");
+                Matcher endMatcher;
+                if (i+1!=failuresList.size()){
+                     endMatcher = endOfTest.matcher(all.substring(failure.getKey(),failuresList.get(i+1).getKey()));
+                    if (failuresList.get(i+1).getKey() < error.getKey()){
+                        continue;
+                    }
+                }
+                else{
+                     endMatcher = endOfTest.matcher(all.substring(failure.getKey(),all.length()-1));
+                }
+                IntKeyIntValueObj matcherValue = new IntKeyIntValueObj();
+                if (endMatcher.find()){
+                    matcherValue = new IntKeyIntValueObj(endMatcher.start(),endMatcher.end());
+                }
+                if (error.getKey() > failure.getKey() && (matcherValue.getKey()==null || error.getKey() < matcherValue.getKey())){
+                    count++;
+                    doAdd(failure.getKey(),failure.getValue(),failure.getValue(),error.getValue(),all,testResults,testLines);
+                }
             }
-            count++;
-            String testName = all.substring(m1.start(), m1.end());
-            testName = testName.replace("_","");
-            testName = testName.replace(" ","");
-            testResults.add(testName);
-            testLines.add(all.substring(m1.start(), m.end()).replaceAll("( )+", " ")); //log from failure
         }
         if (count == 0) {
             return false;
@@ -116,8 +146,12 @@ public class PatternPytestDecoder implements PatternDecoder{
                 numbersOfLines.add(Integer.parseInt(numArr[0])); //number of line where error occured
 
                 List<String> typeOfErrors = new ArrayList<>();
-                typeOfErrors.add(numArr[1]); //type of error
-
+                if (numArr.length == 2) {
+                    typeOfErrors.add(numArr[1]); //type of error
+                }
+                else{
+                    typeOfErrors.add(numArr[0]);
+                }
                 List<String> nameOfTests = new ArrayList<>();
                 nameOfTests.add(arr[0]); //name of test - no usage yet
 
@@ -163,5 +197,13 @@ public class PatternPytestDecoder implements PatternDecoder{
         String backSlash = Pattern.quote("\\");
         String[] arr = file.split(backSlash);
         return arr[arr.length-1];
+    }
+
+    private void doAdd(int failStart, int failEnd, int errStart, int errorEnd, String all, List<String> testResults, List<String> testLines){
+        String testName = all.substring(failStart, failEnd);
+        testName = testName.replace("_","");
+        testName = testName.replace(" ","");
+        testResults.add(testName);
+        testLines.add(all.substring(errStart, errorEnd).replaceAll("( )+", " ")); //log from failure
     }
 }
