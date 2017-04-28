@@ -56,7 +56,7 @@ public class PatternPytestDecoder implements PatternDecoder{
         return fileNames;
     }
 
-    private Boolean doTheDecoding(String all){
+    private Boolean doTheDecoding(String all) {
         List<String> testResults = new ArrayList<>();
         List<String> testLines = new ArrayList<>();
         all = all.trim();
@@ -72,46 +72,53 @@ public class PatternPytestDecoder implements PatternDecoder{
         List<IntKeyIntValueObj> failuresList = new ArrayList<>();
         List<IntKeyIntValueObj> errorsList = new ArrayList<>();
 
-        while (failures.find()){
-            IntKeyIntValueObj intKeyIntValueObj = new IntKeyIntValueObj(failures.start(),failures.end());
+        while (failures.find()) {
+            IntKeyIntValueObj intKeyIntValueObj = new IntKeyIntValueObj(failures.start(), failures.end());
             failuresList.add(intKeyIntValueObj);
         }
 
-        while (errors.find()){
-            IntKeyIntValueObj intKeyIntValueObj = new IntKeyIntValueObj(errors.start(),errors.end());
+        while (errors.find()) {
+            IntKeyIntValueObj intKeyIntValueObj = new IntKeyIntValueObj(errors.start(), errors.end());
             errorsList.add(intKeyIntValueObj);
         }
 
-        for (int i = 0; i < failuresList.size();i++){
+        for (int i = 0; i < failuresList.size(); i++) {
             IntKeyIntValueObj failure = failuresList.get(i);
-            for (IntKeyIntValueObj error : errorsList){
+            for (IntKeyIntValueObj error : errorsList) {
                 Pattern endOfTest = Pattern.compile("=== .* failed,.*");
-                Matcher endMatcher;
-                if (i+1!=failuresList.size()){
-                     endMatcher = endOfTest.matcher(all.substring(failure.getKey(),failuresList.get(i+1).getKey()));
-                    if (failuresList.get(i+1).getKey() < error.getKey()){
+                Matcher endMatcher = endOfTest.matcher(all);
+                int startFind = 0;
+                int endFind = 0;
+                if (i + 1 != failuresList.size()) {
+                    startFind = failure.getKey();
+                    endFind = failuresList.get(i + 1).getKey();
+                    if (failuresList.get(i + 1).getKey() < error.getKey()) {
                         continue;
                     }
                 }
-                else{
-                     endMatcher = endOfTest.matcher(all.substring(failure.getKey(),all.length()-1));
+                else {
+                    startFind = failure.getKey();
+                    endFind = all.length();
                 }
                 IntKeyIntValueObj matcherValue = new IntKeyIntValueObj();
-                if (endMatcher.find()){
-                    matcherValue = new IntKeyIntValueObj(endMatcher.start(),endMatcher.end());
-                }
-                if (error.getKey() > failure.getKey() && (matcherValue.getKey()==null || error.getKey() < matcherValue.getKey())){
-                    count++;
-                    doAdd(failure.getKey(),failure.getValue(),failure.getValue(),error.getValue(),all,testResults,testLines);
+                if (endMatcher.find(startFind)) {
+                    if (endMatcher.end() < endFind) {
+                        matcherValue = new IntKeyIntValueObj(endMatcher.start(), endMatcher.end());
+                    }
+                    if (error.getKey() > failure.getKey() && (matcherValue.getKey() == null || error.getKey() < matcherValue.getKey())) {
+                        count++;
+                        doAdd(failure.getKey(), failure.getValue(), failure.getValue(), error.getValue(), all, testResults, testLines);
+                    }
                 }
             }
         }
-        if (count == 0) {
-            return false;
-        }
-        TestResultsUtil.getInstance().setResults(testResults);
-        createHashtable(testLines); //creates hashtable from results
-        return true;
+            if (count == 0) {
+                return false;
+            }
+            TestResultsUtil.getInstance().setResults(testResults);
+            createHashtable(testLines); //creates hashtable from results
+            return true;
+
     }
 
     private void createHashtable(List<String> testLines) {
@@ -131,7 +138,9 @@ public class PatternPytestDecoder implements PatternDecoder{
                 StringPytestUtil stringPytestUtil = (StringPytestUtil) strings.get(fileName);
                 String numArr[] = helpArr[1].split(":");
                 stringPytestUtil.getLineNumber().add(Integer.parseInt(numArr[0]));
-                stringPytestUtil.getTypeOfError().add(numArr[1]);
+                if (numArr.length == 2) {
+                    stringPytestUtil.getTypeOfError().add(numArr[1]); //type of error
+                }
                 stringPytestUtil.getTestNames().add(arr[0]);
                 stringPytestUtil.getLinesDuringRuntime().add(getArrayExecutedLines(arr));
 
