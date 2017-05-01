@@ -1,10 +1,10 @@
 package main.graph.visualization.settings;
 
 
+import main.graph.constants.GraphGroups;
 import main.graph.pycharm.api.LookAndFeelService;
 import main.graph.visualization.GraphDisplay;
 import main.graph.visualization.layouts.CenteredLayout;
-import main.graph.constants.GraphGroups;
 import prefuse.Visualization;
 import prefuse.action.ActionList;
 import prefuse.action.RepaintAction;

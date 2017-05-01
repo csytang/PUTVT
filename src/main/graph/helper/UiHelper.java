@@ -77,7 +77,7 @@ public final class UiHelper {
     }
 
     public static PatchedDefaultMutableTreeNode pathToTreeNode(String key, GraphPath path) {
-        PatchedDefaultMutableTreeNode root = new PatchedDefaultMutableTreeNode(new KeyValuePair(key, "path"));
+        PatchedDefaultMutableTreeNode root = new PatchedDefaultMutableTreeNode(new KeyValuePair(key, "PATH"));
         List<Object> components = path.getComponents();
         for (int i = 0; i < components.size(); i++) {
             root.add(keyValueToTreeNode(String.valueOf(i), components.get(i)));

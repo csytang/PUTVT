@@ -1,9 +1,9 @@
 package main.graph.visualization.settings;
 
 
+import main.graph.constants.GraphColumns;
 import main.graph.constants.VisualizationParameters;
 import main.graph.renderers.CustomEdgeRenderer;
-import main.graph.constants.GraphColumns;
 import prefuse.render.EdgeRenderer;
 import prefuse.render.LabelRenderer;
 import prefuse.render.ShapeRenderer;

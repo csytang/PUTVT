@@ -10,9 +10,7 @@ import test.highlighter.pattern.PatternAbstractTest;
 
 import java.util.Hashtable;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class HashtableCombineUtilTest extends PatternAbstractTest{
     private Hashtable pythonHashtable = new Hashtable();

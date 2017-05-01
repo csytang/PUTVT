@@ -45,7 +45,7 @@ public class CoverageResults implements GraphCoverageResult {
             if (nodeHashTable.get(file)!=null){ //a node with this name already exists
                 file=file.concat(" (" + i++ + ")");
             }
-            CoverageNode node = new CoverageNode(file);
+            CoverageNode node = new CoverageNode(file,nameOfFile);
             node.setCoverage(GetOnlyCoveragedFileNames.getCovForFile(file,project)); //get coverage
             node.getTypes().add("Coverage is: " + node.getCoverage() + "%.");
             node.setColor(node.getCoverage()/10);
@@ -128,7 +128,7 @@ public class CoverageResults implements GraphCoverageResult {
     }
 
     private void getPropertiesForNodes(HashMap<String, Object> properties, String fileName){
-        properties.put("Full path to file: ", fileName);
+        properties.put("Full PATH to file: ", fileName);
     }
 
     private void getPropertiesForRelations(Map<String, Object> properties, ImportFrom importFrom){

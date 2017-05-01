@@ -11,6 +11,7 @@ import com.intellij.ui.treeStructure.PatchedDefaultMutableTreeNode;
 import com.intellij.ui.treeStructure.Tree;
 import com.intellij.util.messages.MessageBus;
 import main.graph.events.ResultsProcessEvent;
+import main.graph.helper.DisplayUtil;
 import main.graph.helper.PropertyTreeCellRenderer;
 import main.graph.helper.UiHelper;
 import main.graph.pycharm.GraphConsoleView;
@@ -19,7 +20,6 @@ import main.graph.pycharm.api.LookAndFeelService;
 import main.graph.results.api.GraphCoverageResult;
 import main.graph.visualization.api.GraphEntity;
 import main.graph.visualization.api.GraphNode;
-import main.graph.helper.DisplayUtil;
 import prefuse.visual.VisualItem;
 
 import javax.swing.tree.DefaultTreeModel;

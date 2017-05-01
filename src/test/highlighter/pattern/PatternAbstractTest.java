@@ -3,7 +3,6 @@ package test.highlighter.pattern;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 public abstract class PatternAbstractTest {
     protected String testFile =  "============================= test session starts =============================\n" +

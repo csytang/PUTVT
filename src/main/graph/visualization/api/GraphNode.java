@@ -15,4 +15,6 @@ public interface GraphNode extends GraphEntity {
     Boolean getAdded();
 
     int getOutColor();
+
+    String getPath();
 }

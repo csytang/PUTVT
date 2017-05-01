@@ -1,6 +1,5 @@
 package main.highlighter.pattern;
 
-import com.intellij.openapi.vcs.history.VcsRevisionNumber.Int;
 import com.intellij.openapi.vfs.VirtualFile;
 import main.highlighter.util.IntKeyIntValueObj;
 import main.highlighter.util.StringPytestUtil;
@@ -14,8 +13,6 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import static com.intellij.dvcs.push.VcsPushReferenceStrategy.all;
 
 /**
  * Class for decoding logs using PyTest failure pattern

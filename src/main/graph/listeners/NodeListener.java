@@ -1,6 +1,11 @@
 package main.graph.listeners;
 
 
+import com.intellij.openapi.fileEditor.FileEditorManager;
+import com.intellij.openapi.project.Project;
+import com.intellij.openapi.project.ProjectManager;
+import com.intellij.openapi.vfs.VirtualFile;
+import com.intellij.openapi.vfs.VirtualFileManager;
 import main.graph.enums.EventType;
 import main.graph.pycharm.api.NodeCallback;
 import main.graph.visualization.api.GraphNode;
@@ -43,7 +48,11 @@ public class NodeListener extends ControlAdapter {
     @Override
     public void itemClicked(VisualItem item, MouseEvent e) {
         if (type == EventType.CLICK && item instanceof NodeItem) {
-            callback.accept(graphNodeMap.get(item.get("id")), item, e);
+            String jt = (String) item.get("PATH"); //Opens editor for file
+            VirtualFile vt = VirtualFileManager.getInstance().findFileByUrl((String) item.get("PATH"));
+            Project[] projects =  ProjectManager.getInstance().getOpenProjects();
+            FileEditorManager.getInstance(projects[0]).openFile(vt,true);
+            callback.accept(graphNodeMap.get(item.get("id")), item, e); //show stuff
         }
     }
 

@@ -1,10 +1,10 @@
 package main.graph.visualization.settings;
 
+import main.graph.constants.GraphColumns;
+import main.graph.constants.GraphGroups;
 import main.graph.helper.HashtableResultsUtil;
 import main.graph.pycharm.api.LookAndFeelService;
 import main.graph.visualization.api.GraphNode;
-import main.graph.constants.GraphColumns;
-import main.graph.constants.GraphGroups;
 import org.jetbrains.annotations.NotNull;
 import prefuse.Constants;
 import prefuse.action.ActionList;

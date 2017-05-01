@@ -23,13 +23,13 @@ public class ColorProviderTest {
     public void setData(){
         List<GraphNode> graphNodes = new ArrayList<>();
 
-        CoverageNode graphNode = new CoverageNode("1");
+        CoverageNode graphNode = new CoverageNode("1","asd");
         graphNode.setColor(6);
         graphNode.setOutColorNumber(1);
-        CoverageNode graphNode1 = new CoverageNode("1");
+        CoverageNode graphNode1 = new CoverageNode("1","asd");
         graphNode1.setColor(6);
         graphNode1.setOutColorNumber(3);
-        CoverageNode graphNode2 = new CoverageNode("1");
+        CoverageNode graphNode2 = new CoverageNode("1","asd");
         graphNode2.setColor(2);
         graphNode2.setOutColorNumber(3);
 

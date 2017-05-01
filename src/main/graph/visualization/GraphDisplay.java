@@ -1,6 +1,8 @@
 package main.graph.visualization;
 
 import com.intellij.util.ui.UIUtil;
+import main.graph.constants.GraphColumns;
+import main.graph.constants.GraphGroups;
 import main.graph.enums.EventType;
 import main.graph.helper.DisplayUtil;
 import main.graph.helper.PrefuseUtil;
@@ -13,10 +15,8 @@ import main.graph.pycharm.api.RelationshipCallback;
 import main.graph.visualization.api.GraphNode;
 import main.graph.visualization.settings.CustomItemSorter;
 import main.graph.visualization.settings.LayoutProvider;
-import main.graph.visualization.settings.SchemaProvider;
-import main.graph.constants.GraphColumns;
-import main.graph.constants.GraphGroups;
 import main.graph.visualization.settings.RendererProvider;
+import main.graph.visualization.settings.SchemaProvider;
 import prefuse.Display;
 import prefuse.Visualization;
 import prefuse.controls.DragControl;
@@ -70,6 +70,7 @@ public class GraphDisplay extends Display {
 
         graph = new Graph(DIRECTED);
         graph.addColumn(GraphColumns.ID, String.class);
+        graph.addColumn(GraphColumns.PATH,String.class);
         graph.addColumn(GraphColumns.TYPE, String.class);
         graph.addColumn(GraphColumns.TITLE, String.class);
         graph.addColumn(GraphColumns.COLOR_NUMBER, int.class);
@@ -118,6 +119,7 @@ public class GraphDisplay extends Display {
     public void addNode(GraphNode graphNode) {
         Node node = graph.addNode();
         node.set(GraphColumns.ID, graphNode.getId());
+        node.set(GraphColumns.PATH, graphNode.getPath());
         node.set(GraphColumns.TYPE, graphNode.getCoverage().toString());
         node.set(GraphColumns.TITLE, DisplayUtil.getProperty(graphNode));
         node.set(GraphColumns.COLOR_NUMBER, graphNode.getColor());

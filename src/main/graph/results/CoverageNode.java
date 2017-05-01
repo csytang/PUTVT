@@ -11,6 +11,7 @@ import java.util.Objects;
 public class CoverageNode implements GraphNode {
 
     private final String id;
+    private final String path;
     private ResultsPropertyContainer propertyContainer;
     private List<String> types;
     private Integer coverage;
@@ -18,8 +19,9 @@ public class CoverageNode implements GraphNode {
     private Boolean set = false;
     private int OutColorNumber = 0;
 
-    public CoverageNode(String id) {
+    public CoverageNode(String id, String path) {
         this.id = id;
+        this.path = path;
         this.types = new ArrayList<>();
         this.propertyContainer = new ResultsPropertyContainer();
     }
@@ -45,6 +47,11 @@ public class CoverageNode implements GraphNode {
     @Override
     public int getOutColor() {
         return OutColorNumber;
+    }
+
+    @Override
+    public String getPath() {
+        return this.path;
     }
 
     public void setCoverage(Integer coverage) {
