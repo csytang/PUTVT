@@ -41,7 +41,7 @@ public class CoverageResults implements GraphCoverageResult {
         for (String nameOfFile : namesOfFiles){ //for each name of file
             String[] str = nameOfFile.split("/");
             String file = str[str.length-1];
-            Hashtable fileTestResults = (Hashtable) resultsOfRanTests.get(file);
+            Hashtable fileTestResults = (Hashtable) resultsOfRanTests.get(file.replace(".py",""));
             if (nodeHashTable.get(file)!=null){ //a node with this name already exists
                 file=file.concat(" (" + i++ + ")");
             }
