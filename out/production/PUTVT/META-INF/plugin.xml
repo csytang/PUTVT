@@ -1,7 +1,7 @@
 <idea-plugin version="2">
   <id>com.cegin.PUTVT</id>
   <name>PUTVT</name>
-  <version>0.2</version>
+  <version>0.2.1</version>
   <vendor email="jan.cegin@gmail.com" url="xcegin.github.io">Jan Cegin</vendor>
 
   <description><![CDATA[
@@ -44,6 +44,11 @@
       V. 0.2:<br>
       <ul>
       <li>Fixes for node edge coloring and IDE errors for console logs.</li>
+      </ul>
+      <br>
+      V. 0.2.1:<br>
+      <ul>
+      <li>Fixes for pytest pattern - should be better now.</li>
       </ul>
     ]]>
   </change-notes>
