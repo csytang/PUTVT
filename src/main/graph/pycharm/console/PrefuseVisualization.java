@@ -5,6 +5,7 @@ import main.graph.enums.EventType;
 import main.graph.pycharm.api.*;
 import main.graph.visualization.GraphDisplay;
 import main.graph.visualization.api.GraphNode;
+import org.apache.commons.lang.time.StopWatch;
 
 import javax.swing.*;
 
@@ -33,7 +34,12 @@ public class PrefuseVisualization implements VisualizationApi {
 
     @Override
     public void paint() {
+        StopWatch stopWatch = new StopWatch();
+        stopWatch.start();
         display.startLayout();
+        long stopTime = System.currentTimeMillis();
+        stopWatch.stop();
+        System.out.println("Execution took: " + stopWatch.getTime());
     }
 
     @Override

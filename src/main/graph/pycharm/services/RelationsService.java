@@ -41,7 +41,12 @@ public class RelationsService {
                     if (lineSplit[0].contains(".")) { //dot notation used in import
                         String dot = Pattern.quote(".");
                         String[] nameFileLineSplit = lineSplit[0].split(dot);
-                        lineSplit[0] = nameFileLineSplit[nameFileLineSplit.length - 1];
+                        if (nameFileLineSplit.length >= 1) {
+                            lineSplit[0] = nameFileLineSplit[nameFileLineSplit.length - 1];
+                        }
+                        else{
+                            continue;
+                        }
                     }
                     lineSplit[0] = lineSplit[0].concat(".py"); //according to node name
                     lineSplit[0] = lineSplit[0].replace(" ", "");
@@ -55,7 +60,12 @@ public class RelationsService {
                             importFromList = new ArrayList<>();
                         }
                         ImportFrom importFrom = new ImportFrom(lineSplit[0]);
-                        importFrom.setKeyValuePairList(getAllIntegerKeyValuePair(lineSplit[1], contents)); //list of functions/objects imported for certain module
+                        if (lineSplit.length >= 2) {
+                            importFrom.setKeyValuePairList(getAllIntegerKeyValuePair(lineSplit[1], contents)); //list of functions/objects imported for certain module
+                        }
+                        else{
+                            continue;
+                        }
                         importFromList.add(importFrom);
                         importFileUtil.setImportFromList(importFromList);
                         hashtable.remove(importFileUtil.getName());
